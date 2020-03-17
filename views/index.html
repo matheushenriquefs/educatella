@@ -1,0 +1,129 @@
+<html lang="pt-br">
+
+<head>
+    <meta chartset="utf-8">
+    <!-- css externos -->
+    <link href="../public/stylesheets/src/formulario.css" rel="stylesheet">
+    <link href="../public/stylesheets/src/bootstrap.css" rel="stylesheet">
+    <link href="../public/stylesheets/src/index.css" rel="stylesheet">
+    <!-- links de fontes google -->
+    <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Oswald&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Barra de navegação -->
+    <nav>
+        <div class="container-fluid">
+            <div id="navegador" class="row">
+                <!-- divisória que contém a logo -->
+                <div id="logo" class="links textoPrincipal col-xs-4 col-sm-6 col-md-5">
+                    <a href="index.html"> LOGO </a>
+                </div>
+                <!-- divisória que contém os links de navegação -->
+                <div id="links" class="textoPrincipal col-xs-6 col-sm-4 col-md-5">
+                    <a href="#cadastro"> LOGIN </a>
+                    <a href="#cadastro"> CADASTRE-SE </a>
+                    <a href="#rodape"> CONTATO </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!-- Primeira Sessão, contém a descrição do sistema e uma imagem de exibição -->
+    <section>
+        <div id="fundo1" class="container-fluid">
+            <div class="row">
+                <div id="colunaImagem1" class="col-xs-5 col-sm-7 col-md-6 texto">
+                    <!-- Descrição do sistema -->
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero explicabo natus nesciunt tenetur obcaecati modi vitae iure! Laboriosam quisquam officia commodi? Sunt itaque excepturi quidem voluptas modi. Omnis, obcaecati pariatur.
+                    <!-- Divisória que contém os três ícones e suas descrições -->
+                    <div id="linhaIcones" class="row">
+                        <!-- ícone do professor e sua descrição -->
+                        <div id="colunaIcones" class="col-xs-4 col-sm-4 col-md-4 textoIcone">
+                            <img class="iconesIndex" src="img/professor.png"> <br> <br>
+                            <div class="row">
+                                <p class="descricao"> APRENDA EM TEMPO REAL </p>
+                            </div>
+                        </div>
+                        <!-- ícone do gráfico e sua descrição -->
+                        <div id="colunaIcones" class="col-xs-4 col-sm-4 col-md-4 textoIcone">
+                            <img class="iconesIndex" src="img/grafico.png"> <br> <br>
+                            <div class="row">
+                                <p class="descricao"> AUMENTE SUA PRODUTIVIDADE </p>
+                            </div>
+                        </div>
+                        <!-- ícone do calendário e sua descrição -->
+                        <div id="colunaIcones" class="col-xs-4 col-sm-4 col-md-4 textoIcone">
+                            <img class="iconesIndex" src="img/calendario.png"> <br> <br>
+                            <div class="row">
+                                <p class="descricao"> ORGANIZE SEU TEMPO </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Divisória que contém a imagem de exibição  -->
+                <div id="colunaImagem2" class="col-xs-7 col-sm-5 col-md-6">
+                    <img id="imagemIndex" src="img/educacaoIndex.png">
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Segunda Sessão, que contém uma imagem e os campos de login e senha -->
+    <section>
+        <div id="cadastro" class="container container-login100">
+            <div class="wrap-login100">
+                <!-- Imagem de exibição do cadastro -->
+                <div class="login100-pic js-tilt">
+                    <img src="img/login.png">
+                </div>
+                <!-- Formulário de login -->
+                <form class="login100-form validate-form">
+                    <span class="texto login100-form-title">
+                        Entre em sua conta!
+                    </span>
+                    <!-- Campo de e-mail -->
+                    <div class="wrap-input100 validate-input">
+                        <input class="input100" type="text" name="email" placeholder="E-mail">
+                    </div>
+                    <!-- Campo de senha -->
+                    <div class="wrap-input100 validate-input" data-validate="Password is required">
+                        <input class="input100" type="password" name="pass" placeholder="Senha">
+                    </div>
+                    <!-- Botão de enviar -->
+                    <div class="container-login100-form-btn">
+                        <button class="login100-form-btn">
+                            Login
+                        </button>
+                    </div>
+                    <!-- Link para criar conta -->
+                    <div class="text-center p-t-136">
+                        <a class="txt2" href="#">
+                            Crie sua conta
+                        </a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+    <!-- Rodapé do sistema -->
+    <footer>
+        <div id="rodape" class="container-fluid">
+            <div class="row">
+                <!-- Descrição Copyright -->
+                <div class="textoRodape texto col-xs-6 col-sm-6 col-md-6">
+                    <br> Copyright ©2020 All rights reserved
+                </div>
+                <!-- Campo para Newsletter -->
+                <div class="textoRodape texto col-xs-3 col-sm-10 col-md-3">
+                    Newsletter <br>
+                    <div class="wrap-input100">
+                        <input class="input100" type="text" name="email" placeholder="E-mail">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>
