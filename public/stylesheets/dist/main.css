@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /*!
  * Bootstrap v4.4.1 (https://getbootstrap.com/)
  * Copyright 2011-2019 The Bootstrap Authors
@@ -7137,3 +7138,373 @@ a.text-dark:hover, a.text-dark:focus {
   .table .thead-dark th {
     color: inherit;
     border-color: #dee2e6; } }
+
+.d-grid {
+  display: grid !important; }
+
+.justify-self-center {
+  justify-self: center; }
+
+/* links da barra de navegação */
+#links {
+  display: flex;
+  justify-content: space-between; }
+
+/* divisória do logo do sistema */
+#logo {
+  padding-left: 5%; }
+
+/* formatacao do texto da barra de navegação (logo e links) */
+.textoPrincipal {
+  font-family: 'Poppins', sans-serif;
+  padding: 40px 0; }
+
+/* formatacao do texto da descrião dos icones (professor, gráfico e calendário) */
+.descricao {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  color: black;
+  font-family: 'Poppins', sans-serif;
+  text-align: center; }
+
+/* divisória da barra de navegação */
+#navegador {
+  background-color: #5c64bf;
+  border-bottom: solid 2px; }
+
+a:link {
+  color: black; }
+
+a:visited {
+  color: black; }
+
+a:hover {
+  color: black;
+  text-decoration: none; }
+
+/* Primeira Section */
+#fundo1 {
+  background-image: url(../../images/fundo-index1.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 45rem;
+  width: 100%; }
+
+/* Segunda Section  */
+#fundo2 {
+  height: 40%;
+  width: 100%; }
+
+/* Imagem da primeira section */
+#imagemIndex {
+  padding-top: 10%;
+  width: 75%; }
+
+/* formatação do texto das sections */
+.texto {
+  font-family: 'Oswald', sans-serif; }
+
+/* Coluna esquerda da primeira section */
+#colunaImagem1 {
+  padding-left: 5%;
+  padding-top: 10%; }
+
+/* icones (professor, gráfico e calendário) */
+.iconesIndex {
+  width: 100px; }
+
+/* divisória que contém os icones e suas descrições */
+#grupoIcones {
+  padding-top: 5%; }
+
+/* rodapé do sistema */
+#rodape {
+  background-image: url(../../images/footer.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 22.5rem;
+  width: 100%; }
+
+/* formatação do texto contido no rodapé */
+.textoRodape {
+  padding-top: 17%; }
+
+/* Formatação dos textos com a tela entre 300 e 576 pixels de largura */
+@media (min-width: 300px) {
+  a {
+    font-size: 12px; }
+  .textoPrincipal {
+    font-size: 20px; }
+  .texto {
+    font-size: 18px; }
+  .textoIcone {
+    font-size: 14px; } }
+
+/* Formatação dos textos com a tela entre 576 e 768 pixels de largura */
+@media (min-width: 576px) {
+  a {
+    font-size: 14px; }
+  .textoPrincipal {
+    font-size: 24px; }
+  .texto {
+    font-size: 22px; }
+  .textoIcone {
+    font-size: 16px; } }
+
+/* Formatação dos textos com a tela entre 768 e 992 pixels de largura */
+@media (min-width: 768px) {
+  a {
+    font-size: 16px; }
+  .textoPrincipal {
+    font-size: 28px; }
+  .texto {
+    font-size: 26px; }
+  .textoIcone {
+    font-size: 18px; } }
+
+/* Formatação dos textos com a tela entre 992 e 1200 pixels de largura */
+@media (min-width: 992px) {
+  a {
+    font-size: 20px; }
+  .textoPrincipal {
+    font-size: 32px; }
+  .texto {
+    font-size: 30px; }
+  .textoIcone {
+    font-size: 20px; } }
+
+/* Formatação dos textos com a tela com mais de 1200 pixels de largura */
+@media (min-width: 1200px) {
+  a {
+    font-size: 22px; }
+  .textoPrincipal {
+    font-size: 36px; }
+  .texto {
+    font-size: 34px; }
+  .textoIcone {
+    font-size: 22px; } }
+
+body,
+html {
+  height: 100%;
+  font-family: Poppins-Regular, sans-serif; }
+
+a {
+  font-family: Poppins-Regular;
+  font-size: 14px;
+  line-height: 1.7;
+  color: #666666;
+  margin: 0px;
+  transition: all 0.4s;
+  -webkit-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  -moz-transition: all 0.4s; }
+
+a:focus {
+  outline: none !important; }
+
+a:hover {
+  text-decoration: none;
+  color: #57b846; }
+
+p {
+  font-family: Poppins-Regular;
+  font-size: 14px;
+  line-height: 1.7;
+  color: #666666;
+  margin: 0px; }
+
+input {
+  outline: none;
+  border: none; }
+
+input:focus {
+  border-color: transparent !important; }
+
+input:focus::-webkit-input-placeholder {
+  color: transparent; }
+
+input:focus:-moz-placeholder {
+  color: transparent; }
+
+input:focus::-moz-placeholder {
+  color: transparent; }
+
+input:focus:-ms-input-placeholder {
+  color: transparent; }
+
+input::-webkit-input-placeholder {
+  color: #999999; }
+
+input:-moz-placeholder {
+  color: #999999; }
+
+input::-moz-placeholder {
+  color: #999999; }
+
+input:-ms-input-placeholder {
+  color: #999999; }
+
+button {
+  outline: none !important;
+  border: none;
+  background: transparent; }
+
+button:hover {
+  cursor: pointer; }
+
+iframe {
+  border: none !important; }
+
+.txt1 {
+  font-family: Poppins-Regular;
+  font-size: 13px;
+  line-height: 1.5;
+  color: #999999; }
+
+.txt2 {
+  font-family: Poppins-Regular;
+  font-size: 13px;
+  line-height: 1.5;
+  color: #666666; }
+
+.container-login100 {
+  margin: 5%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding: 15px; }
+
+.wrap-login100 {
+  background: #fff;
+  border: black solid 3px;
+  border-radius: 10px;
+  overflow: hidden;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 66px 130px 33px 95px; }
+
+/*------------------------------------------------------------------
+[  ]*/
+.login100-pic {
+  width: 316px; }
+
+.login100-pic img {
+  max-width: 100%; }
+
+/*------------------------------------------------------------------
+[  ]*/
+.login100-form {
+  width: 290px; }
+
+.login100-form-title {
+  font-family: Poppins-Bold;
+  font-size: 24px;
+  color: #333333;
+  line-height: 1.2;
+  text-align: center;
+  width: 100%;
+  display: block;
+  padding-bottom: 54px; }
+
+/*---------------------------------------------*/
+.wrap-input100 {
+  position: relative;
+  width: 100%;
+  z-index: 1;
+  margin-bottom: 10px; }
+
+.input100 {
+  font-family: Poppins-Medium;
+  font-size: 15px;
+  line-height: 1.5;
+  color: #666666;
+  display: block;
+  width: 100%;
+  background: #e6e6e6;
+  height: 50px;
+  border-radius: 25px;
+  padding: 0 30px 0 68px; }
+
+@-webkit-keyframes anim-shadow {
+  to {
+    box-shadow: 0px 0px 70px 25px;
+    opacity: 0; } }
+
+@keyframes anim-shadow {
+  to {
+    box-shadow: 0px 0px 70px 25px;
+    opacity: 0; } }
+
+/*------------------------------------------------------------------
+[ Button ]*/
+.container-login100-form-btn {
+  width: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding-top: 20px; }
+
+.login100-form-btn {
+  font-family: Montserrat-Bold;
+  font-size: 15px;
+  line-height: 1.5;
+  color: #fff;
+  text-transform: uppercase;
+  width: 100%;
+  height: 50px;
+  border-radius: 25px;
+  background: #57b846;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 25px;
+  -webkit-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+  transition: all 0.4s; }
+
+.login100-form-btn:hover {
+  background: #333333; }
+
+/*------------------------------------------------------------------
+[ Responsive ]*/
+@media (max-width: 992px) {
+  .wrap-login100 {
+    padding: 66px 90px 33px 85px; }
+  .login100-pic {
+    width: 35%; }
+  .login100-form {
+    width: 50%; } }
+
+@media (max-width: 768px) {
+  .wrap-login100 {
+    padding: 66px 80px 33px 80px; }
+  .login100-pic {
+    display: none; }
+  .login100-form {
+    width: 100%; } }
+
+@media (max-width: 576px) {
+  .wrap-login100 {
+    padding: 66px 15px 33px 15px; } }
