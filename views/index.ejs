@@ -5,161 +5,328 @@
     <meta chartset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
     <!-- css externos -->
     <link href="stylesheets/dist/main.css" rel="stylesheet">
+    <link rel="stylesheet" href="../public/stylesheets/src/index.scss">
+
     <!-- links de fontes google -->
     <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Oswald&display=swap" rel="stylesheet">
+
+    <!-- link para icones -->
+    <link rel="stylesheet" href="../node_modules/font-awesome/css/font-awesome.css">
   </head>
 
   <body>
-    
-    <!-- Barra de navegação -->
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <a class="navbar-brand" href="./index.ejs">Logo</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNavDropdown">
-        <ul class="navbar-nav">
-          <li class="nav-item active">
-            <a class="nav-link" href="./index.ejs">Home <span class="sr-only">(current)</span></a>
-          </li>
-        </ul>
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Cadastre-se
-            </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-              <a class="dropdown-item" href="#cadastro">Como estudante</a>
-              <a class="dropdown-item" href="#cadastro">Como professor</a>
-            </div>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#cadastro">Login</a>
-          </li>
-        </ul>
-      </div>
-    </nav>
-    
-    <!-- Primeira Sessão, contém a descrição do sistema e uma imagem de exibição -->
+    <!--jumbotron, nav, button -->
+    <header>
 
-    <section id="fundo1">
-      <div class="container-fluid">
-        <div class="row">
-          <div id="colunaImagem1" class="col-xs-5 col-sm-7 col-md-6 texto">
-            <!-- Descrição do sistema -->
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero explicabo natus nesciunt tenetur obcaecati modi vitae iure! Laboriosam quisquam officia commodi? Sunt itaque excepturi quidem voluptas modi. Omnis, obcaecati pariatur.
-          </div>
-          <!-- Divisória que contém a imagem de exibição  -->
-          <div id="colunaImagem2" class="col-xs-7 col-sm-5 col-md-6">
-            <img id="imagemIndex" src="images/educacao-index.png">
-          </div>
-        </div>
-      </div>
-    </section>
+        <!--Jumbotron-->
+        <div id="subirTopo" class="jumbotron jumbotron-fluid d-flex justify-content-end">
 
-    <section>
-      <div id="grupoIcones" class="container-fluid">
-        <div class="row">
-          <div class="col d-flex">
-            <!-- Divisória que contém os três ícones e suas descrições -->
-            <div class="container-fluid">
-              
-              <div class="row justify-content-around">
-                <div class="col-sm-12 col-md-4">
-                  <!-- ícone do professor e sua descrição -->
-                  <div class="textoIcone d-grid">
-                    <img class="iconesIndex justify-self-center" src="images/professor.png">
-                    <p class="descricao"> APRENDA EM TEMPO REAL </p>
-                  </div>
-                </div>
+            <!--Nav-->
+            <div class="container">
+                <div class="row" id="menu">
 
-                <div class="col-sm-12 col-md-4">
-                  <!-- ícone do gráfico e sua descrição -->
-                  <div class="textoIcone d-grid">
-                    <img class="iconesIndex justify-self-center" src="images/grafico.png">
-                      <p class="descricao"> AUMENTE SUA PRODUTIVIDADE </p>
-                  </div>
-                </div>
+                    <!--margem direita-->
+                    <nav class="navbar navbar-expand-lg col-12 navbar-fixed-top">
 
-                <div class="col-sm-12 col-md-4">
-                  <!-- ícone do calendário e sua descrição -->
-                  <div class="textoIcone d-grid">
-                    <img class="iconesIndex justify-self-center" src="images/calendario.png">
-                      <p class="descricao"> ORGANIZE SEU TEMPO </p>
-                  </div>
-                </div>
-              </div>
-
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Segunda Sessão, que contém uma imagem e os campos de login e senha -->
-
-    <section>
-      <div id="cadastro" class="container container-login100">
-        <div class="wrap-login100">
-          <!-- Imagem de exibição do cadastro -->
-          <div class="login100-pic js-tilt">
-            <img src="images/login.png">
-          </div>
-          <!-- Formulário de login -->
-          <form class="login100-form validate-form">
-            <span class="texto login100-form-title">
-              Entre em sua conta!
-            </span>
-            <!-- Campo de e-mail -->
-            <div class="wrap-input100 validate-input">
-              <input class="input100" type="text" name="email" placeholder="E-mail">
-            </div>
-            <!-- Campo de senha -->
-            <div class="wrap-input100 validate-input" data-validate="Password is required">
-              <input class="input100" type="password" name="pass" placeholder="Senha">
-            </div>
-            <!-- Botão de enviar -->
-            <div class="container-login100-form-btn">
-              <button class="login100-form-btn">
-                Login
+                        <a class="navbar-brand" href="index.ejs" alt="home">
+                            <img src="../public/images/lampada-logo.png" alt="logo" id="logo-teste" class="ml-4">
+                        </a>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSite">
+                <span class="navbar-toggler-icon"></span>
               </button>
+                        <div class="collapse navbar-collapse" id="navbarSite">
+                            <ul class="navbar-nav mr-auto">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#" alt="Sobre nós">Sobre nós</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#" alt="Contato">Contato</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#" alt="Cadastro">Cadastro</a>
+                                </li>
+                            </ul>
+
+                            <!--margem esquerda-->
+                            <ul class="navbar-nav ml-auto">
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" alt="Login">Login
+                    </a>
+                                    <div class="dropdown-menu" id="navDrop">
+                                        <a class="dropdown-item" href="#" alt="login-aluno">Aluno</a>
+                                        <a class="dropdown-item" href="#" alt="login-professor">Professor</a>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+
+                    </nav>
+
+                </div>
             </div>
-            <!-- Link para criar conta -->
-            <div class="text-center p-t-136">
-              <a class="txt2" href="#">
-                Crie sua conta
-              </a>
-            </div>
-          </form>
+
+
         </div>
-      </div>
-    </section>
 
-    <!-- Rodapé do sistema -->
-
-    <footer>
-      <div id="rodape" class="container-fluid">
-        <div class="row">
-          <!-- Descrição Copyright -->
-          <div class="textoRodape texto col-xs-6 col-sm-6 col-md-6">
-            <br> Copyright ©2020 All rights reserved
-          </div>
-          <!-- Campo para Newsletter -->
-          <div class="textoRodape texto col-xs-3 col-sm-10 col-md-3">
-            Newsletter <br>
-            <div class="wrap-input100">
-              <input class="input100" type="text" name="email" placeholder="E-mail">
-            </div>
-          </div>
+        <!--Botão-->
+        <div class="container">
+            <a class="button-header" id="sobre-nos-banner">Conheça nossa história</a>
         </div>
-      </div>
-    </footer>
 
-  </body>
-  <script type="text/javascript" src="/vendor/jquery.min.js"></script>
-  <script type="text/javascript" src="/vendor/bootstrap.bundle.min.js"></script>
+    </header>
+
+    <!-- Main -->
+    <main>
+
+        <!-- 1a section: texto e imagem -->
+        <section>
+
+            <article class="shadow-sm p-3 mb-5 bg-white rounded">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text">
+                            <h2>Sobre nós</h2>
+                            <li style="list-style-type: none;">
+                                <a href="#sobre-nos-banner"></a>
+                            </li>
+                            <p class="body-text-p"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit repellendus vero quibusdam veniam blanditiis delectus sint! Aliquid amet quae perspiciatis doloremque error provident, eligendi sapiente obcaecati blanditiis nemo
+                                beatae itaque. Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus neque iste ullam corrupti maiores iusto reiciendis adipisci sequi eum vero. Aliquid ea numquam error provident quod aspernatur beatae eum hic?
+                            </p>
+                            <a href="#sobre-nos" class="sobre-nos-leia-mais"><span>Leia mais</span></a>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                            <img src="../public/images/img1.png" class="img1" alt="icone">
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+
+            <article class="shadow-sm p-3 mb-5 bg-white rounded">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text">
+                            <img src="../public/images/img2.png" class="img2" alt="icone">
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                            <h2>Para nossos professores</h2>
+                            <p class="body-text-p"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit repellendus vero quibusdam veniam blanditiis delectus sint! Aliquid amet quae perspiciatis doloremque error provident, eligendi sapiente obcaecati blanditiis nemo
+                                beatae itaque. Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus neque iste ullam corrupti maiores iusto reiciendis adipisci sequi eum vero. Aliquid ea numquam error provident quod aspernatur beatae eum hic?
+                            </p>
+                            <a href="#sobre-nos" class="sobre-nos-leia-mais"><span>Leia mais</span></a>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+
+            <article class="shadow-sm p-3 mb-5 bg-white rounded">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text">
+                            <h2>Para nossos alunos</h2>
+                            <p class="body-text-p"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit repellendus vero quibusdam veniam blanditiis delectus sint! Aliquid amet quae perspiciatis doloremque error provident, eligendi sapiente obcaecati blanditiis nemo
+                                beatae itaque. Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus neque iste ullam corrupti maiores iusto reiciendis adipisci sequi eum vero. Aliquid ea numquam error provident quod aspernatur beatae eum hic?
+                            </p>
+                            <a href="#sobre-nos" class="sobre-nos-leia-mais"><span>Leia mais</span></a>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                            <img src="../public/images/img3.png" class="img3" alt="icone">
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+
+
+            <article class="shadow-sm p-3 mb-5 bg-white rounded">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text">
+                            <img src="../public/images/img4.png" class="img4" alt="icone">
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                            <h2>Para os pais</h2>
+                            <p class="body-text-p"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit repellendus vero quibusdam veniam blanditiis delectus sint! Aliquid amet quae perspiciatis doloremque error provident, eligendi sapiente obcaecati blanditiis nemo
+                                beatae itaque. Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus neque iste ullam corrupti maiores iusto reiciendis adipisci sequi eum vero. Aliquid ea numquam error provident quod aspernatur beatae eum hic?
+                            </p>
+                            <a href="#sobre-nos" class="sobre-nos-leia-mais"><span>Leia mais</span></a>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+
+        </section>
+
+        <!-- 2a section: Formulário-->
+
+        <section>
+
+            <div class="container form">
+
+                <div class="row">
+                    <div class="col-12 text-center my-5">
+                        <h2>Cadastro</h2>
+                    </div>
+                </div>
+
+                <div class="row justify-content-center">
+                    <div class="col-sm-12 col-md-10 col-lg-8">
+
+                        <form class="form">
+
+                            <div class="form-row">
+                                <div class="form-group col-sm-12">
+                                    <label for="inputNome"></label>
+                                    <input type="text" class="form-control" id="inputNome" placeholder="Nome Completo">
+                                </div>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group col-sm-6">
+                                    <label for="inputNome"></label>
+                                    <input type="text" class="form-control" id="inputNome" placeholder="Nome de usuário">
+                                </div>
+                                <div class="form-group col-sm-6">
+                                    <label for="inputNome"></label>
+                                    <input type="text" class="form-control" id="inputNome" placeholder="Código da classe">
+                                </div>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group col-sm-12">
+                                    <label for="inputNome"></label>
+                                    <input type="e-mail" class="form-control" id="inputNome" placeholder="E-mail">
+                                </div>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group col-sm-12">
+                                    <div class="form-check">
+                                        <label class="form-check-label">
+                        <input class="form-check-input" type="checkbox"> Li e concordo com os termos</label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <button type="submit" class="btn">Cadastrar</button>
+                            <br><br>
+
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <!--Footer-->
+        <footer class="page-footer font-small mdb-color pt-4 mt-5">
+            <div class="container">
+                <div class="row">
+
+                    <!-- 1a seção -->
+                    <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
+                        <h6 class="text-uppercase mb-4 font-weight footer-titulo-f">Sobre a empresa</h6>
+                        <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+                        <p class="footer-paragrafo-f">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Natus laboriosam nihil ut vitae.
+                        </p>
+                    </div>
+
+                    <hr class="w-100 clearfix d-md-none">
+
+                    <!-- 2a seção -->
+                    <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3 text-center">
+                        <h6 class="text-uppercase mb-4 font-weight footer-titulo-f">Links úteis</h6>
+                        <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+                        <div class="footer-lista-s-item">
+                            <p>
+                                <a class="dark-grey-text footer-lista-s-item-a" href="#">Dúvidas frequentes</a>
+                            </p>
+                            <p>
+                                <a class="dark-grey-text footer-lista-s-item-a" href="#">Trabalhe conosco</a>
+                            </p>
+                            <p>
+                                <a class="dark-grey-text footer-lista-s-item-a" href="#">Seja um apoiador</a>
+                            </p>
+                        </div>
+                    </div>
+
+                    <hr class="w-100 clearfix d-md-none">
+
+                    <!-- 3a seção -->
+                    <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3 text-center">
+                        <h6 class="text-uppercase mb-4 font-weight footer-titulo-f">Contato</h6>
+                        <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+                        <div class="footer-lista-s-item">
+                            <p>
+                                <i class="fas fa-home mr-3"></i> São Paulo/SP - Brasil </p>
+                            <p>
+                                <i class="fas fa-envelope mr-3"></i> email@email.com </p>
+                            <p>
+                                <i class="fas fa-phone mr-3"></i> + 55 11 1234-1234 </p>
+                        </div>
+                    </div>
+
+                </div>
+                <hr class="body-linha-divisoria" style="height: 1px; margin: 12px 0px; color: rgb(242, 242, 242);">
+                <div class="row">
+                    <div class="footer-copyright text-center text-black-50 col-7">
+                        <blockquote class="blockquote text-center">
+                            <p class="direitos-reservados">Empresa 2020 todos os direitos reservados</p>
+                        </blockquote>
+                    </div>
+                    <div class="col-md-5 col-lg-4 ml-lg-0">
+
+                        <!-- Social buttons -->
+                        <div class="text-center text-md-right">
+                            <ul class="list-unstyled list-inline">
+                                <li class="footer-lista-f-item">
+                                    <a href="http://www.facebook.com">
+                                        <i class="fab fa-facebook-square"></i>
+                                    </a>
+                                </li>
+
+                                <li class="footer-lista-f-item">
+                                    <a href="http://www.twitter.com">
+                                        <i class="fab fa-twitter-square"></i>
+                                    </a>
+                                </li>
+
+                                <li class="footer-lista-f-item">
+                                    <a href="http://www.linkedin.com">
+                                        <i class="fab fa-linkedin"></i>
+                                    </a>
+                                </li>
+
+
+                                <li class="footer-lista-f-item">
+                                    <a href="http://www.linkedin.com">
+                                        <i class="fab fa-google-plus-g"></i>
+                                    </a>
+                                </li>
+
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <a href="#subirTopo">
+                    <div id="botaotop">
+                        <i class="fas fa-angle-up"></i>
+                    </div>
+                </a>
+        </footer>
+    </main>
+
+    <script type="text/javascript" src="/vendor/jquery.min.js"></script>
+    <script type="text/javascript" src="/vendor/bootstrap.bundle.min.js"></script>
+
+</body>
+
 </html>

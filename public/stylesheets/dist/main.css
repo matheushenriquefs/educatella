@@ -7139,152 +7139,246 @@ a.text-dark:hover, a.text-dark:focus {
     color: inherit;
     border-color: #dee2e6; } }
 
-.d-grid {
-  display: grid !important; }
+* {
+  box-sizing: border-box; }
 
-.justify-self-center {
-  justify-self: center; }
+.body {
+  margin: 0%;
+  padding: 0px; }
 
-/* links da barra de navegação */
-#links {
-  display: flex;
-  justify-content: space-between; }
+/* HEADER */
+.jumbotron {
+  background-image: url("../../images/banner_text.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+  max-width: 100%;
+  height: 682px;
+  padding: 0px !important;
+  position: relative; }
 
-/* divisória do logo do sistema */
-#logo {
-  padding-left: 5%; }
+/* Menu */
+nav ul li a {
+  font-size: 18px;
+  font: sans-serif bold;
+  color: white;
+  width: 100px;
+  text-align: center;
+  font-weight: 300px;
+  padding: 40px; }
 
-/* formatacao do texto da barra de navegação (logo e links) */
-.textoPrincipal {
-  font-family: 'Poppins', sans-serif;
-  padding: 40px 0; }
+nav ul li a:hover {
+  background-color: #f16d6e;
+  color: white;
+  border-radius: 15px; }
 
-/* formatacao do texto da descrião dos icones (professor, gráfico e calendário) */
-.descricao {
-  margin-top: 1rem;
-  margin-bottom: 1rem;
+/* Menu drop-down */
+.navbar-nav .dropdown-menu {
+  left: -45px; }
+
+#navDrop.dropdown-menu.show {
+  background-color: #828979;
+  border-radius: 15px;
+  text-align: center;
+  list-style: none;
+  padding: 0;
+  width: 100%; }
+
+#navDrop a {
+  font-size: 15px;
+  font: sans-serif bold;
+  color: white;
+  padding: .5em 0; }
+
+#navDrop a:hover {
+  background-color: #f16d6e;
+  color: white;
+  border-radius: 15px; }
+
+.navbar-toggler {
+  border: 1px solid lightgrey; }
+
+.navbar-toggler-icon {
+  border: 1px solid lightgrey; }
+
+/* Botão */
+.button-header {
+  display: inline-block;
+  background-color: #fec656;
+  color: grey;
+  position: absolute;
+  top: 550px;
+  left: 100px;
+  padding: 10px;
+  border-radius: 15px;
+  cursor: pointer; }
+
+.button-header:hover {
+  background-color: #f16d6e;
+  color: white; }
+
+a.button-header {
+  text-decoration: none;
+  font-size: 18px;
+  color: white; }
+
+/* MAIN */
+/* Primeira Section*/
+article {
+  margin: 70px; }
+
+article h2 {
+  font-family: sans-serif bold;
+  color: #60c3ab; }
+
+.body-text-p {
+  font-size: 18px;
+  font: sans-serif bold;
+  color: grey;
+  text-align: justify;
+  line-height: 30px; }
+
+a span {
+  font-family: sans-serif bold;
+  font-size: 15px; }
+
+/* Botao - leia mais */
+.sobre-nos-leia-mais {
+  font-family: sans-serif bold;
+  color: white;
+  font-size: 15px;
+  background-color: #fec656;
+  border-radius: 15px;
+  padding: 12px; }
+
+.sobre-nos-leia-mais:hover {
+  background-color: #f16d6e;
+  border-radius: 15px;
+  text-decoration: none;
+  color: white; }
+
+.body-linha-divisoria {
+  border: 0px;
+  border-top: 1px solid; }
+
+.img1 {
+  width: 300px;
+  height: 300px;
+  display: block;
+  margin-left: 100px;
+  margin-right: 0px;
+  max-width: 50%; }
+
+.img2 {
+  width: 300px;
+  height: 300px;
+  display: block;
+  margin-right: 100px;
+  margin-left: 0px; }
+
+.img3 {
+  width: 300px;
+  height: 300px;
+  display: block;
+  margin-left: 100px;
+  margin-right: 0px;
+  max-width: 50%; }
+
+.img4 {
+  width: 300px;
+  height: 300px;
+  display: block;
+  margin-right: 100px;
+  margin-left: 0px; }
+
+/* Segunda Section */
+.form {
+  background-color: lightgrey;
+  border-radius: 15px; }
+
+section h2 {
+  font-family: sans-serif bold;
+  color: #60c3ab; }
+
+.btn {
+  background-color: #fec656;
+  border-radius: 15px; }
+
+.btn:hover {
+  background-color: #f16d6e;
+  border-radius: 15px; }
+
+/* Footer */
+.footer-titulo-f {
+  font-family: sans-serif bold;
+  color: #60c3ab; }
+
+.footer-titulo-s {
+  font-family: sans-serif bold;
+  color: #60c3ab;
+  margin-left: 100px; }
+
+.footer-titulo-t {
+  font-family: sans-serif bold;
+  color: #60c3ab;
+  margin-left: 50px; }
+
+footer p {
+  text-align: justify;
+  font-size: 12px;
+  font-family: sans-serif bold;
+  margin: 0px 0px 10px; }
+
+.footer-lista-f-item {
+  display: inline; }
+
+.footer-lista-s-item {
+  margin-left: 35%; }
+
+.footer-lista-s-item-a {
+  font-family: sans-serif bold;
+  font-size: 12px;
   color: black;
-  font-family: 'Poppins', sans-serif;
-  text-align: center; }
+  padding: 0px;
+  /*margin-left: 60px;*/ }
 
-/* divisória da barra de navegação */
-#navegador {
-  background-color: #5c64bf;
-  border-bottom: solid 2px; }
-
-a:link {
-  color: black; }
-
-a:visited {
-  color: black; }
-
-a:hover {
+.footer-lista-s-item-a:hover {
   color: black;
   text-decoration: none; }
 
-/* Primeira Section */
-#fundo1 {
-  background-image: url(../../images/fundo-index1.png);
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  height: 45rem;
-  width: 100%; }
+.footer-lista-t-item {
+  font-family: sans-serif bold;
+  font-size: 12px;
+  color: black;
+  list-style-type: none;
+  padding: 0px;
+  /* margin-left: 11px;*/ }
 
-/* Segunda Section  */
-#fundo2 {
-  height: 40%;
-  width: 100%; }
+.direitos-reservados {
+  /*text-align: center;*/
+  font-size: 10px;
+  font-family: sans-serif bold; }
 
-/* Imagem da primeira section */
-#imagemIndex {
-  padding-top: 10%;
-  width: 75%; }
+#botaotop {
+  text-decoration: none;
+  background: #f16d6e;
+  bottom: 30px;
+  right: 30px;
+  color: #fff;
+  text-align: center;
+  cursor: pointer;
+  padding: 15px;
+  font-size: 15px;
+  font-weight: bold;
+  text-transform: uppercase;
+  position: fixed;
+  border: 0;
+  font-family: sans-serif;
+  opacity: .8;
+  border-radius: 50%; }
 
-/* formatação do texto das sections */
-.texto {
-  font-family: 'Oswald', sans-serif; }
-
-/* Coluna esquerda da primeira section */
-#colunaImagem1 {
-  padding-left: 5%;
-  padding-top: 10%; }
-
-/* icones (professor, gráfico e calendário) */
-.iconesIndex {
-  width: 100px; }
-
-/* divisória que contém os icones e suas descrições */
-#grupoIcones {
-  padding-top: 5%; }
-
-/* rodapé do sistema */
-#rodape {
-  background-image: url(../../images/footer.png);
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  height: 22.5rem;
-  width: 100%; }
-
-/* formatação do texto contido no rodapé */
-.textoRodape {
-  padding-top: 17%; }
-
-/* Formatação dos textos com a tela entre 300 e 576 pixels de largura */
-@media (min-width: 300px) {
-  a {
-    font-size: 12px; }
-  .textoPrincipal {
-    font-size: 20px; }
-  .texto {
-    font-size: 18px; }
-  .textoIcone {
-    font-size: 14px; } }
-
-/* Formatação dos textos com a tela entre 576 e 768 pixels de largura */
-@media (min-width: 576px) {
-  a {
-    font-size: 14px; }
-  .textoPrincipal {
-    font-size: 24px; }
-  .texto {
-    font-size: 22px; }
-  .textoIcone {
-    font-size: 16px; } }
-
-/* Formatação dos textos com a tela entre 768 e 992 pixels de largura */
-@media (min-width: 768px) {
-  a {
-    font-size: 16px; }
-  .textoPrincipal {
-    font-size: 28px; }
-  .texto {
-    font-size: 26px; }
-  .textoIcone {
-    font-size: 18px; } }
-
-/* Formatação dos textos com a tela entre 992 e 1200 pixels de largura */
-@media (min-width: 992px) {
-  a {
-    font-size: 20px; }
-  .textoPrincipal {
-    font-size: 32px; }
-  .texto {
-    font-size: 30px; }
-  .textoIcone {
-    font-size: 20px; } }
-
-/* Formatação dos textos com a tela com mais de 1200 pixels de largura */
-@media (min-width: 1200px) {
-  a {
-    font-size: 22px; }
-  .textoPrincipal {
-    font-size: 36px; }
-  .texto {
-    font-size: 34px; }
-  .textoIcone {
-    font-size: 22px; } }
+#botaotop:hover {
+  opacity: 1; }
 
 body,
 html {
