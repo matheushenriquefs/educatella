@@ -2,18 +2,17 @@
     box-sizing: border-box;
 }
 
-.body {
-    margin: 0%;
-    padding: 0px;
+/* Efeito de Transição na barra de rolagem */
+
+html {
+    scroll-behavior: smooth;
 }
 
 
-/* HEADER */
+/* Header */
 
 .jumbotron {
-    background-image: url('../../images/banner_text.png');
-    background-size: cover;
-    background-repeat: no-repeat;
+    background-color: rgb(211, 211, 211);
     width: 100%;
     max-width: 100%;
     height: 682px;
@@ -21,22 +20,23 @@
     position: relative;
 }
 
-
 /* Menu */
 
 nav ul li a {
-    font-size: 18px;
+    font-size: 1.1rem;
     font: sans-serif bold;
-    color: white;
+    color: black;
     width: 100px;
     text-align: center;
     font-weight: 300px;
     padding: 40px;
+    white-space: nowrap;
+    font-family: 'Poppins', sans-serif;
 }
 
 nav ul li a:hover {
-    background-color: rgb(241, 109, 110);
-    color: white;
+    background-color: rgb(96, 195, 171);
+    color: black;
     border-radius: 15px;
 }
 
@@ -48,7 +48,7 @@ nav ul li a:hover {
 }
 
 #navDrop.dropdown-menu.show {
-    background-color: rgb(130, 137, 121);
+    background-color: #4AE894;
     border-radius: 15px;
     text-align: center;
     list-style: none;
@@ -57,14 +57,14 @@ nav ul li a:hover {
 }
 
 #navDrop a {
-    font-size: 15px;
+    font-size: 1.1rem;
     font: sans-serif bold;
     color: white;
     padding: .5em 0;
 }
 
 #navDrop a:hover {
-    background-color: rgb(241, 109, 110);
+    background-color: rgb(96, 195, 171);
     color: white;
     border-radius: 15px;
 }
@@ -77,171 +77,122 @@ nav ul li a:hover {
     border: 1px solid lightgrey;
 }
 
+/* Coluna que Contém o Texto do Banner */
+.coluna-texto-principal {
+    padding-top: 5%;
+    font-family: 'Pangolin', cursive;
+    font-size: 2rem;
+}
 
-/* Botão */
+/* Imagem do Banner */
+
+#imagem-principal {
+    padding-top: 15%;
+    width: 100%;
+}
+
+/* Botão "Conheça Nossa História" Logo Após o Banner */
 
 .button-header {
     display: inline-block;
-    background-color: rgb(254, 198, 86);
-    color: grey;
+    padding: 10px 20px 10px 20px;
+    background-color: #4AE894;
+    font-family: 'Baloo Da 2', cursive;
+    font-size: 1.1rem;
     position: absolute;
     top: 550px;
     left: 100px;
-    padding: 10px;
     border-radius: 15px;
     cursor: pointer;
 }
 
 .button-header:hover {
-    background-color: rgb(241, 109, 110);
-    color: white;
+    background-color: rgb(96, 195, 171);
 }
 
-a.button-header {
-    text-decoration: none;
-    font-size: 18px;
-    color: white;
-}
-
-
-/* MAIN */
-
-
-/* Primeira Section*/
+/* Primeira Section (Imagens e Textos) */
 
 article {
     margin: 70px;
 }
 
-article h2 {
-    font-family: sans-serif bold;
+/* Títulos da Página (Títulos dos Textos e do Cadastro) */
+
+.titulo {
+    font-family: 'Poppins', sans-serif;
     color: rgb(96, 195, 171);
 }
 
+/* Texto da Primeira Section */
+
 .body-text-p {
-    font-size: 18px;
+    font-size: 1.1rem;
     font: sans-serif bold;
     color: grey;
     text-align: justify;
     line-height: 30px;
+    font-family: 'Baloo Da 2', cursive;
+    margin: 30px 0 30px 0;
 }
 
-a span {
-    font-family: sans-serif bold;
-    font-size: 15px;
+/* Imagens da Primeira Section */
+
+.img{
+    width: 300px;
+    height: 300px;
+    display: block;
 }
 
+/* Div que Contém os Botões da Primeira Section */
 
-/* Botao - leia mais */
+.div-botao-section{
+    margin-bottom:5%;
+}
 
-.sobre-nos-leia-mais {
-    font-family: sans-serif bold;
+/* Botões das Sections (Textos e Formulário de Cadastro)*/
+
+.botao {
     color: white;
-    font-size: 15px;
-    background-color: rgb(254, 198, 86);
+    font-size: 1.1rem;
     border-radius: 15px;
-    padding: 12px;
+    padding: 10px 20px 10px 20px;
+    background-color: #4AE894;
+    font-family: 'Baloo Da 2', cursive;
 }
 
-.sobre-nos-leia-mais:hover {
-    background-color: rgb(241, 109, 110);
-    border-radius: 15px;
+
+.botao:hover {
+    background-color: rgb(96, 195, 171);
     text-decoration: none;
     color: white;
 }
 
-.body-linha-divisoria {
-    border: 0px;
-    border-top: 1px solid;
-}
-
-.img1 {
-    width: 300px;
-    height: 300px;
-    display: block;
-    margin-left: 100px;
-    margin-right: 0px;
-    max-width: 50%;
-}
-
-.img2 {
-    width: 300px;
-    height: 300px;
-    display: block;
-    margin-right: 100px;
-    margin-left: 0px;
-}
-
-.img3 {
-    width: 300px;
-    height: 300px;
-    display: block;
-    margin-left: 100px;
-    margin-right: 0px;
-    max-width: 50%;
-}
-
-.img4 {
-    width: 300px;
-    height: 300px;
-    display: block;
-    margin-right: 100px;
-    margin-left: 0px;
-}
-
-
 /* Segunda Section */
 
 .form {
-    background-color: lightgrey;
+    background-color: rgba(211, 211, 211, 0.4);
     border-radius: 15px;
+    font-family: 'Poppins', sans-serif;
 }
-
-section h2 {
-    font-family: sans-serif bold;
-    color: rgb(96, 195, 171);
-}
-
-.btn {
-    background-color: rgb(254, 198, 86);
-    border-radius: 15px;
-}
-
-.btn:hover {
-    background-color: rgb(241, 109, 110);
-    border-radius: 15px;
-}
-
 
 /* Footer */
+
+/* Formatação do Texto Para o Footer */
+footer p {
+    text-align: justify;
+    font-size: 0.7rem;
+    font-family: sans-serif bold;
+    margin: 0px 0px 10px;
+}
+
+/* Títulos dos Footers (Sobre a Empresa, Links úteis, Contato) */
 
 .footer-titulo-f {
     font-family: sans-serif bold;
     color: rgb(96, 195, 171);
 }
 
-.footer-titulo-s {
-    font-family: sans-serif bold;
-    color: rgb(96, 195, 171);
-    margin-left: 100px;
-}
-
-.footer-titulo-t {
-    font-family: sans-serif bold;
-    color: rgb(96, 195, 171);
-    margin-left: 50px;
-}
-
-footer p {
-    text-align: justify;
-    font-size: 12px;
-    font-family: sans-serif bold;
-    margin: 0px 0px 10px;
-}
-
-.footer-lista-f-item {
-    display: inline;
-}
+/* Links Para Contato e Dúvidas Frequentes */
 
 .footer-lista-s-item {
     margin-left: 35%;
@@ -249,7 +200,7 @@ footer p {
 
 .footer-lista-s-item-a {
     font-family: sans-serif bold;
-    font-size: 12px;
+    font-size: 0.7rem;
     color: black;
     padding: 0px;
     /*margin-left: 60px;*/
@@ -260,40 +211,83 @@ footer p {
     text-decoration: none;
 }
 
-.footer-lista-t-item {
-    font-family: sans-serif bold;
-    font-size: 12px;
-    color: black;
-    list-style-type: none;
-    padding: 0px;
-    /* margin-left: 11px;*/
+/* Linha Horizontal No Final do Rodapé */
+
+.body-linha-divisoria {
+    border: 0px;
+    border-top: 1px solid;
 }
+
+/* Copyrigth */
 
 .direitos-reservados {
     /*text-align: center;*/
-    font-size: 10px;
+    font-size: 0.7rem;
     font-family: sans-serif bold;
 }
 
+/* Links das Redes Sociais */
+
+.footer-lista-f-item {
+    display: inline;
+}
+
+/* Botão Voltar Ao Topo */
+
 #botaotop {
-    text-decoration: none;
-    background: rgb(241, 109, 110);
+    background: #4AE894;
     bottom: 30px;
     right: 30px;
     color: #fff;
     text-align: center;
     cursor: pointer;
-    padding: 15px;
-    font-size: 15px;
-    font-weight: bold;
-    text-transform: uppercase;
+    padding: 15px 20px 15px 20px;
     position: fixed;
     border: 0;
-    font-family: sans-serif;
-    opacity: .8;
     border-radius: 50%;
 }
 
 #botaotop:hover {
-    opacity: 1;
+    opacity: .5;
+}
+
+/* Seta do Botão Voltar Ao Topo */
+
+.setaTopo{
+    font-weight: bold;
+    font-size:1.5rem;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+/* Media Querys Para Responsividade */
+
+@media(max-width: 1680px) {
+    html{
+        font-size: 16px;
+    }
+}
+
+@media(max-width: 1024px) {
+    html{
+        font-size: 13px;
+    }
+}
+
+/* BreakPoint Para Ocultar a Imagem do Banner */
+@media(max-width: 992px) {
+    #imagem-principal {
+        display: none;
+    }
+}
+
+@media(max-width: 768px) {
+    html{
+        font-size: 13px;
+    }
+}
+
+@media(max-width: 480px) {
+    html{
+        font-size: 11.5px;
+    }
 }

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 
-  <head>
+<head>
     <meta chartset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -10,53 +10,42 @@
     <link href="stylesheets/dist/main.css" rel="stylesheet">
     <link rel="stylesheet" href="../public/stylesheets/src/index.scss">
 
-    <!-- links de fontes google -->
-    <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Oswald&display=swap" rel="stylesheet">
+    <!-- links de fontes google (Baloo Da 2, Pangolin e Poppins)-->
+    <link href="https://fonts.googleapis.com/css?family=Baloo+Da+2|Pangolin|Poppins&display=swap" rel="stylesheet">
+</head>
 
-    <!-- link para icones -->
-    <link rel="stylesheet" href="../node_modules/font-awesome/css/font-awesome.min.css">
-  </head>
-
-  <body>
-
-    <!--jumbotron, nav, button -->
+<body>
+    <!-- Jumbotron, Barra de Navegação, Frase Banner, Imagem Banner e Botão -->
     <header>
-
-        <!--Jumbotron-->
-        <div id="subirTopo" class="jumbotron jumbotron-fluid d-flex justify-content-end">
-
-            <!--Nav-->
+        <!-- Jumbotron -->
+        <div class="jumbotron jumbotron-fluid d-flex justify-content-end">
             <div class="container">
-                <div class="row" id="menu">
-
-                    <!--margem direita-->
+                <div id="topo" class="row">
+                    <!-- Tag que Engloba Toda a Barra de Navegação -->
                     <nav class="navbar navbar-expand-lg col-12 navbar-fixed-top">
-
-                        <a class="navbar-brand" href="index.ejs" alt="home">
-                            <img src="../public/images/lampada-logo.png" alt="logo" id="logo-teste" class="ml-4">
+                        <!-- Icone (Margem Esquerda) -->
+                        <a class="navbar-brand" href="#" alt="home">
+                            <img src="images/lampada-logo.png" alt="logo" id="logo-teste" class="ml-4">
                         </a>
-                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSite">
-                <span class="navbar-toggler-icon"></span>
-              </button>
-                        <div class="collapse navbar-collapse" id="navbarSite">
+                        <!-- Barra de Navegação -->
+                        <div class="navbar-collapse">
+                            <!-- (Margem Esquerda, Sobre Nós, Contato e Cadastro)  -->
                             <ul class="navbar-nav mr-auto">
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#" alt="Sobre nós">Sobre nós</a>
+                                    <a class="nav-link" href="#sobre-nos" alt="Sobre nós">Sobre nós</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#" alt="Contato">Contato</a>
+                                    <a class="nav-link" href="#contato" alt="Contato">Contato</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#" alt="Cadastro">Cadastro</a>
+                                    <a class="nav-link" href="#cadastro" alt="Cadastro">Cadastro</a>
                                 </li>
                             </ul>
-
-                            <!--margem esquerda-->
+                            <!-- (Margem Direita (Menu Dropdown), Login - Aluno, Professor)  -->
                             <ul class="navbar-nav ml-auto">
                                 <li class="nav-item dropdown">
                                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" alt="Login">Login
-                    </a>
+                                    </a>
                                     <div class="dropdown-menu" id="navDrop">
                                         <a class="dropdown-item" href="#" alt="login-aluno">Aluno</a>
                                         <a class="dropdown-item" href="#" alt="login-professor">Professor</a>
@@ -64,130 +53,141 @@
                                 </li>
                             </ul>
                         </div>
-
                     </nav>
-
+                </div>
+                <!-- Tag que Engloba Todo o Banner -->
+                <div class="row">
+                    <!-- Div que Contém o Texto do Banner -->
+                    <div class="coluna-texto-principal col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                        <span> 
+                            Aprendemos Melhor Juntos! <br> <br>
+                            Gerencie Suas Salas. <br>
+                            Envolva Seus Alunos. <br> <br>
+                            Seguro. Simples. Livre.
+                        </span>
+                    </div>
+                    <!-- Div que Contém a Imagem do Banner -->
+                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                        <img id="imagem-principal" class="rounded float-right" src="images/principal.png" alt="icone">
+                    </div>
                 </div>
             </div>
-
-
         </div>
-
-        <!--Botão-->
+        <!--Botão "Conheça Nossa História" Logo Após o Banner-->
         <div class="container">
-            <a class="button-header" id="sobre-nos-banner">Conheça nossa história</a>
+            <a class="button-header">Conheça Nossa História</a>
         </div>
-
     </header>
-
     <!-- Main -->
     <main>
-
-        <!-- 1a section: texto e imagem -->
+        <!-- Primeira Section: Textos e Imagens -->
         <section>
-
+            <!-- Article "Sobre Nós" -->
             <article class="shadow-sm p-3 mb-5 bg-white rounded">
                 <div class="container">
                     <div class="row">
-                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text">
-                            <h2>Sobre nós</h2>
-                            <li style="list-style-type: none;">
-                                <a href="#sobre-nos-banner"></a>
-                            </li>
+                        <!-- Div que Contém Título "Sobre Nós" e seu texto -->
+                        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 text">
+                            <h2 id="sobre-nos" class="titulo">Sobre nós</h2>
                             <p class="body-text-p"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit repellendus vero quibusdam veniam blanditiis delectus sint! Aliquid amet quae perspiciatis doloremque error provident, eligendi sapiente obcaecati blanditiis nemo
                                 beatae itaque. Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus neque iste ullam corrupti maiores iusto reiciendis adipisci sequi eum vero. Aliquid ea numquam error provident quod aspernatur beatae eum hic?
                             </p>
-                            <a href="#sobre-nos" class="sobre-nos-leia-mais"><span>Leia mais</span></a>
+                            <div class="div-botao-section">
+                                <a href="#" class="botao">Leia mais</a>
+                            </div>
                         </div>
-                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-                            <img src="../public/images/img1.png" class="img1" alt="icone">
+                        <!-- Div que Contém a Imagem do Conteúdo "Sobre Nós" -->
+                        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                            <img src="images/informacao.png" class="rounded float-right img" alt="icone">
                         </div>
                     </div>
                 </div>
             </article>
-
-
+            <!-- Article "Para Nossos Professores" -->
             <article class="shadow-sm p-3 mb-5 bg-white rounded">
                 <div class="container">
                     <div class="row">
-                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text">
-                            <img src="../public/images/img2.png" class="img2" alt="icone">
+                        <!-- Div que Contém a Imagem do Conteúdo "Para Nossos Professores" -->
+                        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 text">
+                            <img src="images/professor.png" class="rounded float-left img" alt="icone">
                         </div>
-                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-                            <h2>Para nossos professores</h2>
+                        <!-- Div que Contém Título "Para Nossos Professores" e seu texto -->
+                        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                            <h2 class="titulo">Para nossos professores</h2>
                             <p class="body-text-p"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit repellendus vero quibusdam veniam blanditiis delectus sint! Aliquid amet quae perspiciatis doloremque error provident, eligendi sapiente obcaecati blanditiis nemo
                                 beatae itaque. Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus neque iste ullam corrupti maiores iusto reiciendis adipisci sequi eum vero. Aliquid ea numquam error provident quod aspernatur beatae eum hic?
                             </p>
-                            <a href="#sobre-nos" class="sobre-nos-leia-mais"><span>Leia mais</span></a>
+                            <div class="div-botao-section">
+                                <a href="#" class="botao">Leia mais</a>
+                            </div>
                         </div>
                     </div>
                 </div>
             </article>
-
-
+            <!-- Article "Para Nossos Alunos" -->
             <article class="shadow-sm p-3 mb-5 bg-white rounded">
                 <div class="container">
                     <div class="row">
-                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text">
-                            <h2>Para nossos alunos</h2>
+                        <!-- Div que Contém Título "Para Nossos Alunos" e seu texto -->
+                        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 text">
+                            <h2 class="titulo">Para nossos alunos</h2>
                             <p class="body-text-p"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit repellendus vero quibusdam veniam blanditiis delectus sint! Aliquid amet quae perspiciatis doloremque error provident, eligendi sapiente obcaecati blanditiis nemo
                                 beatae itaque. Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus neque iste ullam corrupti maiores iusto reiciendis adipisci sequi eum vero. Aliquid ea numquam error provident quod aspernatur beatae eum hic?
                             </p>
-                            <a href="#sobre-nos" class="sobre-nos-leia-mais"><span>Leia mais</span></a>
+                            <div class="div-botao-section">
+                                <a href="#" class="botao">Leia mais</a>
+                            </div>
                         </div>
-                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-                            <img src="../public/images/img3.png" class="img3" alt="icone">
+                        <!-- Div que Contém a Imagem do Conteúdo "Para Nossos Alunos" -->
+                        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                            <img src="images/aluno.png" class="rounded float-right img" alt="icone">
                         </div>
                     </div>
                 </div>
             </article>
-
-
-
+            <!-- Article "Para Os Pais" -->
             <article class="shadow-sm p-3 mb-5 bg-white rounded">
                 <div class="container">
                     <div class="row">
-                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text">
-                            <img src="../public/images/img4.png" class="img4" alt="icone">
+                        <!-- Div que Contém a Imagem do Conteúdo "Para Os Pais" -->
+                        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 text">
+                            <img src="images/pais.png" class="rounded float-left img" alt="icone">
                         </div>
-                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-                            <h2>Para os pais</h2>
+                        <!-- Div que Contém Título "Para Os Pais" e seu texto -->
+                        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                            <h2 class="titulo">Para os pais</h2>
                             <p class="body-text-p"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit repellendus vero quibusdam veniam blanditiis delectus sint! Aliquid amet quae perspiciatis doloremque error provident, eligendi sapiente obcaecati blanditiis nemo
                                 beatae itaque. Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus neque iste ullam corrupti maiores iusto reiciendis adipisci sequi eum vero. Aliquid ea numquam error provident quod aspernatur beatae eum hic?
                             </p>
-                            <a href="#sobre-nos" class="sobre-nos-leia-mais"><span>Leia mais</span></a>
+                            <div class="div-botao-section">
+                                <a href="#" class="botao">Leia mais</a>
+                            </div>
                         </div>
                     </div>
                 </div>
             </article>
-
-
         </section>
-
-        <!-- 2a section: Formulário-->
-
+        <!-- Segunda Section: Formulário de Cadastro -->
         <section>
-
-            <div class="container form">
-
+            <div id="cadastro" class="container form">
+                <!-- Div que Contém o Título "Cadastro" -->
                 <div class="row">
                     <div class="col-12 text-center my-5">
-                        <h2>Cadastro</h2>
+                        <h2 class="titulo">Cadastro</h2>
                     </div>
                 </div>
-
+                <!-- Div que Contém o Formulário de Cadastro -->
                 <div class="row justify-content-center">
                     <div class="col-sm-12 col-md-10 col-lg-8">
-
-                        <form class="form">
-
+                        <form>
+                            <!-- Div que Contém o Campo "Nome Completo" -->
                             <div class="form-row">
                                 <div class="form-group col-sm-12">
                                     <label for="inputNome"></label>
                                     <input type="text" class="form-control" id="inputNome" placeholder="Nome Completo">
                                 </div>
                             </div>
-
+                            <!-- Div que Contém o Campo "Nome de Usuário" e o Campo "Código da Classe" -->
                             <div class="form-row">
                                 <div class="form-group col-sm-6">
                                     <label for="inputNome"></label>
@@ -198,53 +198,45 @@
                                     <input type="text" class="form-control" id="inputNome" placeholder="Código da classe">
                                 </div>
                             </div>
-
+                            <!-- Div que Contém o Campo "E-mail" -->
                             <div class="form-row">
                                 <div class="form-group col-sm-12">
                                     <label for="inputNome"></label>
                                     <input type="e-mail" class="form-control" id="inputNome" placeholder="E-mail">
                                 </div>
                             </div>
-
+                            <!-- Div que Contém o Checkbox "Li e Concordo com os Termos" -->
                             <div class="form-row">
                                 <div class="form-group col-sm-12">
                                     <div class="form-check">
                                         <label class="form-check-label">
-                        <input class="form-check-input" type="checkbox"> Li e concordo com os termos</label>
+                                            <input class="form-check-input" type="checkbox"> Li e concordo com os termos
+                                        </label>
                                     </div>
                                 </div>
                             </div>
-
-                            <button type="submit" class="btn">Cadastrar</button>
-                            <br><br>
-
+                            <!-- Botão "Cadastrar" -->
+                            <button type="submit" class="botao">Cadastrar</button><br><br>
                         </form>
-
                     </div>
                 </div>
             </div>
-
         </section>
-
-        <!--Footer-->
+        <!-- Footer da Página -->
         <footer class="page-footer font-small mdb-color pt-4 mt-5">
             <div class="container">
                 <div class="row">
-
-                    <!-- 1a seção -->
+                    <!-- Div que Contém a Parte "Sobre a Empresa" -->
                     <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
                         <h6 class="text-uppercase mb-4 font-weight footer-titulo-f">Sobre a empresa</h6>
                         <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
-                        <p class="footer-paragrafo-f">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Natus laboriosam nihil ut vitae.
-                        </p>
+                        <p class="footer-paragrafo-f">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Natus laboriosam nihil ut vitae.</p>
                     </div>
-
-                    <hr class="w-100 clearfix d-md-none">
-
-                    <!-- 2a seção -->
+                    <!-- Div que Contém a Parte "Links Úteis" -->
                     <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3 text-center">
                         <h6 class="text-uppercase mb-4 font-weight footer-titulo-f">Links úteis</h6>
                         <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+                        <!-- Div que Contém os Links "Dúvidas Frequentes", "Trabalhe Conosco" e "Seja um Apoiador" -->
                         <div class="footer-lista-s-item">
                             <p>
                                 <a class="dark-grey-text footer-lista-s-item-a" href="#">Dúvidas frequentes</a>
@@ -257,76 +249,77 @@
                             </p>
                         </div>
                     </div>
-
-                    <hr class="w-100 clearfix d-md-none">
-
-                    <!-- 3a seção -->
-                    <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3 text-center">
+                    <!-- Div que Contém a Parte "Contato" -->
+                    <div id="contato" class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3 text-center">
                         <h6 class="text-uppercase mb-4 font-weight footer-titulo-f">Contato</h6>
                         <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+                        <!-- Div que Contém as Formas de Contato -->
                         <div class="footer-lista-s-item">
                             <p>
-                                <i class="fas fa-home mr-3"></i> São Paulo/SP - Brasil </p>
+                                <i class="fas fa-home mr-3"></i> New York, NY 10012, US
+                            </p>
                             <p>
-                                <i class="fas fa-envelope mr-3"></i> email@email.com </p>
+                                <i class="fas fa-envelope mr-3"></i> info@example.com
+                            </p>
                             <p>
-                                <i class="fas fa-phone mr-3"></i> + 55 11 1234-1234 </p>
+                                <i class="fas fa-phone mr-3"></i> + 01 234 567 88
+                            </p>
                         </div>
                     </div>
-
                 </div>
+                <!-- Linha Horizontal no Final do Rodapé -->
                 <hr class="body-linha-divisoria" style="height: 1px; margin: 12px 0px; color: rgb(242, 242, 242);">
+                <!-- Div que Contém o "Copyrigth" e os Links das Redes Sociais -->
                 <div class="row">
+                    <!-- Div com o "Copyrigth" -->
                     <div class="footer-copyright text-center text-black-50 col-7">
                         <blockquote class="blockquote text-center">
                             <p class="direitos-reservados">Empresa 2020 todos os direitos reservados</p>
                         </blockquote>
                     </div>
+                    <!-- Div que Contém os Links das Redes Sociais -->
                     <div class="col-md-5 col-lg-4 ml-lg-0">
-
-                        <!-- Social buttons -->
                         <div class="text-center text-md-right">
                             <ul class="list-unstyled list-inline">
+                                <!-- Facebook -->
                                 <li class="footer-lista-f-item">
                                     <a href="http://www.facebook.com">
                                         <i class="fab fa-facebook-square"></i>
                                     </a>
                                 </li>
-
+                                <!-- Twitter -->
                                 <li class="footer-lista-f-item">
                                     <a href="http://www.twitter.com">
                                         <i class="fab fa-twitter-square"></i>
                                     </a>
                                 </li>
-
+                                <!-- Linkedin -->
                                 <li class="footer-lista-f-item">
                                     <a href="http://www.linkedin.com">
                                         <i class="fab fa-linkedin"></i>
                                     </a>
                                 </li>
-
-
+                                <!-- Google Plus -->
                                 <li class="footer-lista-f-item">
-                                    <a href="http://www.linkedin.com">
+                                    <a href="https://aboutme.google.com/">
                                         <i class="fab fa-google-plus-g"></i>
                                     </a>
                                 </li>
-
                             </ul>
                         </div>
                     </div>
                 </div>
-                <a href="#subirTopo">
+                <!-- Botão Com Efeito Para Voltar Ao Topo Quando Clicado -->
+                <a href="#topo">
                     <div id="botaotop">
-                        <i class="fas fa-angle-up"></i>
+                        <i class="setaTopo">^</i>
                     </div>
                 </a>
         </footer>
     </main>
-
+    <!-- Importando Jquery -->
     <script type="text/javascript" src="/vendor/jquery.min.js"></script>
+    <!-- Importando Bootstrap JS -->
     <script type="text/javascript" src="/vendor/bootstrap.bundle.min.js"></script>
-
 </body>
-
 </html>

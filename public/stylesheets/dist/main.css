@@ -7139,466 +7139,300 @@ a.text-dark:hover, a.text-dark:focus {
     color: inherit;
     border-color: #dee2e6; } }
 
+/* Fim Bootstrap */
+
 * {
-  box-sizing: border-box; }
+  box-sizing: border-box;
+}
 
-.body {
-  margin: 0%;
-  padding: 0px; }
+/* Efeito de Transição na barra de rolagem */
 
-/* HEADER */
+html {
+  scroll-behavior: smooth;
+}
+
+
+/* Header */
+
 .jumbotron {
-  background-image: url("../../images/banner_text.png");
-  background-size: cover;
-  background-repeat: no-repeat;
+  background-color: rgb(211, 211, 211);
   width: 100%;
   max-width: 100%;
   height: 682px;
   padding: 0px !important;
-  position: relative; }
+  position: relative;
+}
 
 /* Menu */
+
 nav ul li a {
-  font-size: 18px;
+  font-size: 1.1rem;
   font: sans-serif bold;
-  color: white;
+  color: black;
   width: 100px;
   text-align: center;
   font-weight: 300px;
-  padding: 40px; }
+  padding: 40px;
+  white-space: nowrap;
+  font-family: 'Poppins', sans-serif;
+}
 
 nav ul li a:hover {
-  background-color: #f16d6e;
-  color: white;
-  border-radius: 15px; }
+  background-color: rgb(96, 195, 171);
+  color: black;
+  border-radius: 15px;
+}
+
 
 /* Menu drop-down */
+
 .navbar-nav .dropdown-menu {
-  left: -45px; }
+  left: -45px;
+}
 
 #navDrop.dropdown-menu.show {
-  background-color: #828979;
+  background-color: #4AE894;
   border-radius: 15px;
   text-align: center;
   list-style: none;
   padding: 0;
-  width: 100%; }
+  width: 100%;
+}
 
 #navDrop a {
-  font-size: 15px;
+  font-size: 1.1rem;
   font: sans-serif bold;
   color: white;
-  padding: .5em 0; }
+  padding: .5em 0;
+}
 
 #navDrop a:hover {
-  background-color: #f16d6e;
+  background-color: rgb(96, 195, 171);
   color: white;
-  border-radius: 15px; }
+  border-radius: 15px;
+}
 
 .navbar-toggler {
-  border: 1px solid lightgrey; }
+  border: 1px solid lightgrey;
+}
 
 .navbar-toggler-icon {
-  border: 1px solid lightgrey; }
+  border: 1px solid lightgrey;
+}
 
-/* Botão */
+/* Coluna que Contém o Texto do Banner */
+.coluna-texto-principal {
+  padding-top: 5%;
+  font-family: 'Pangolin', cursive;
+  font-size: 2rem;
+}
+
+/* Imagem do Banner */
+
+#imagem-principal {
+  padding-top: 15%;
+  width: 100%;
+}
+
+/* Botão "Conheça Nossa História" Logo Após o Banner */
+
 .button-header {
   display: inline-block;
-  background-color: #fec656;
-  color: grey;
+  padding: 10px 20px 10px 20px;
+  background-color: #4AE894;
+  font-family: 'Baloo Da 2', cursive;
+  font-size: 1.1rem;
   position: absolute;
   top: 550px;
   left: 100px;
-  padding: 10px;
   border-radius: 15px;
-  cursor: pointer; }
+  cursor: pointer;
+}
 
 .button-header:hover {
-  background-color: #f16d6e;
-  color: white; }
+  background-color: rgb(96, 195, 171);
+}
 
-a.button-header {
-  text-decoration: none;
-  font-size: 18px;
-  color: white; }
+/* Primeira Section (Imagens e Textos) */
 
-/* MAIN */
-/* Primeira Section*/
 article {
-  margin: 70px; }
+  margin: 70px;
+}
 
-article h2 {
-  font-family: sans-serif bold;
-  color: #60c3ab; }
+/* Títulos da Página (Títulos dos Textos e do Cadastro) */
+
+.titulo {
+  font-family: 'Poppins', sans-serif;
+  color: rgb(96, 195, 171);
+}
+
+/* Texto da Primeira Section */
 
 .body-text-p {
-  font-size: 18px;
+  font-size: 1.1rem;
   font: sans-serif bold;
   color: grey;
   text-align: justify;
-  line-height: 30px; }
+  line-height: 30px;
+  font-family: 'Baloo Da 2', cursive;
+  margin: 30px 0 30px 0;
+}
 
-a span {
-  font-family: sans-serif bold;
-  font-size: 15px; }
+/* Imagens da Primeira Section */
 
-/* Botao - leia mais */
-.sobre-nos-leia-mais {
-  font-family: sans-serif bold;
+.img{
+  width: 300px;
+  height: 300px;
+  display: block;
+}
+
+/* Div que Contém os Botões da Primeira Section */
+
+.div-botao-section{
+  margin-bottom:5%;
+}
+
+/* Botões das Sections (Textos e Formulário de Cadastro)*/
+
+.botao {
   color: white;
-  font-size: 15px;
-  background-color: #fec656;
+  font-size: 1.1rem;
   border-radius: 15px;
-  padding: 12px; }
+  padding: 10px 20px 10px 20px;
+  background-color: #4AE894;
+  font-family: 'Baloo Da 2', cursive;
+}
 
-.sobre-nos-leia-mais:hover {
-  background-color: #f16d6e;
-  border-radius: 15px;
+
+.botao:hover {
+  background-color: rgb(96, 195, 171);
   text-decoration: none;
-  color: white; }
-
-.body-linha-divisoria {
-  border: 0px;
-  border-top: 1px solid; }
-
-.img1 {
-  width: 300px;
-  height: 300px;
-  display: block;
-  margin-left: 100px;
-  margin-right: 0px;
-  max-width: 50%; }
-
-.img2 {
-  width: 300px;
-  height: 300px;
-  display: block;
-  margin-right: 100px;
-  margin-left: 0px; }
-
-.img3 {
-  width: 300px;
-  height: 300px;
-  display: block;
-  margin-left: 100px;
-  margin-right: 0px;
-  max-width: 50%; }
-
-.img4 {
-  width: 300px;
-  height: 300px;
-  display: block;
-  margin-right: 100px;
-  margin-left: 0px; }
+  color: white;
+}
 
 /* Segunda Section */
+
 .form {
-  background-color: lightgrey;
-  border-radius: 15px; }
-
-section h2 {
-  font-family: sans-serif bold;
-  color: #60c3ab; }
-
-.btn {
-  background-color: #fec656;
-  border-radius: 15px; }
-
-.btn:hover {
-  background-color: #f16d6e;
-  border-radius: 15px; }
+  background-color: rgba(211, 211, 211, 0.4);
+  border-radius: 15px;
+  font-family: 'Poppins', sans-serif;
+}
 
 /* Footer */
-.footer-titulo-f {
-  font-family: sans-serif bold;
-  color: #60c3ab; }
 
-.footer-titulo-s {
-  font-family: sans-serif bold;
-  color: #60c3ab;
-  margin-left: 100px; }
-
-.footer-titulo-t {
-  font-family: sans-serif bold;
-  color: #60c3ab;
-  margin-left: 50px; }
-
+/* Formatação do Texto Para o Footer */
 footer p {
   text-align: justify;
-  font-size: 12px;
+  font-size: 0.7rem;
   font-family: sans-serif bold;
-  margin: 0px 0px 10px; }
+  margin: 0px 0px 10px;
+}
 
-.footer-lista-f-item {
-  display: inline; }
+/* Títulos dos Footers (Sobre a Empresa, Links úteis, Contato) */
+
+.footer-titulo-f {
+  font-family: sans-serif bold;
+  color: rgb(96, 195, 171);
+}
+
+/* Links Para Contato e Dúvidas Frequentes */
 
 .footer-lista-s-item {
-  margin-left: 35%; }
+  margin-left: 35%;
+}
 
 .footer-lista-s-item-a {
   font-family: sans-serif bold;
-  font-size: 12px;
+  font-size: 0.7rem;
   color: black;
   padding: 0px;
-  /*margin-left: 60px;*/ }
+  /*margin-left: 60px;*/
+}
 
 .footer-lista-s-item-a:hover {
   color: black;
-  text-decoration: none; }
+  text-decoration: none;
+}
 
-.footer-lista-t-item {
-  font-family: sans-serif bold;
-  font-size: 12px;
-  color: black;
-  list-style-type: none;
-  padding: 0px;
-  /* margin-left: 11px;*/ }
+/* Linha Horizontal No Final do Rodapé */
+
+.body-linha-divisoria {
+  border: 0px;
+  border-top: 1px solid;
+}
+
+/* Copyrigth */
 
 .direitos-reservados {
   /*text-align: center;*/
-  font-size: 10px;
-  font-family: sans-serif bold; }
+  font-size: 0.7rem;
+  font-family: sans-serif bold;
+}
+
+/* Links das Redes Sociais */
+
+.footer-lista-f-item {
+  display: inline;
+}
+
+/* Botão Voltar Ao Topo */
 
 #botaotop {
-  text-decoration: none;
-  background: #f16d6e;
+  background: #4AE894;
   bottom: 30px;
   right: 30px;
   color: #fff;
   text-align: center;
   cursor: pointer;
-  padding: 15px;
-  font-size: 15px;
-  font-weight: bold;
-  text-transform: uppercase;
+  padding: 15px 20px 15px 20px;
   position: fixed;
   border: 0;
-  font-family: sans-serif;
-  opacity: .8;
-  border-radius: 50%; }
+  border-radius: 50%;
+}
 
 #botaotop:hover {
-  opacity: 1; }
+  opacity: .5;
+}
 
-body,
-html {
-  height: 100%;
-  font-family: Poppins-Regular, sans-serif; }
+/* Seta do Botão Voltar Ao Topo */
 
-a {
-  font-family: Poppins-Regular;
-  font-size: 14px;
-  line-height: 1.7;
-  color: #666666;
-  margin: 0px;
-  transition: all 0.4s;
-  -webkit-transition: all 0.4s;
-  -o-transition: all 0.4s;
-  -moz-transition: all 0.4s; }
+.setaTopo{
+  font-weight: bold;
+  font-size:1.5rem;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
 
-a:focus {
-  outline: none !important; }
+/* Media Querys Para Responsividade */
 
-a:hover {
-  text-decoration: none;
-  color: #57b846; }
+@media(max-width: 1680px) {
+  html{
+      font-size: 16px;
+  }
+}
 
-p {
-  font-family: Poppins-Regular;
-  font-size: 14px;
-  line-height: 1.7;
-  color: #666666;
-  margin: 0px; }
+@media(max-width: 1024px) {
+  html{
+      font-size: 13px;
+  }
+}
 
-input {
-  outline: none;
-  border: none; }
+/* BreakPoint Para Ocultar a Imagem do Banner */
+@media(max-width: 992px) {
+  #imagem-principal {
+      display: none;
+  }
+}
 
-input:focus {
-  border-color: transparent !important; }
+@media(max-width: 768px) {
+  html{
+      font-size: 13px;
+  }
+}
 
-input:focus::-webkit-input-placeholder {
-  color: transparent; }
+@media(max-width: 480px) {
+  html{
+      font-size: 11.5px;
+  }
+}
 
-input:focus:-moz-placeholder {
-  color: transparent; }
-
-input:focus::-moz-placeholder {
-  color: transparent; }
-
-input:focus:-ms-input-placeholder {
-  color: transparent; }
-
-input::-webkit-input-placeholder {
-  color: #999999; }
-
-input:-moz-placeholder {
-  color: #999999; }
-
-input::-moz-placeholder {
-  color: #999999; }
-
-input:-ms-input-placeholder {
-  color: #999999; }
-
-button {
-  outline: none !important;
-  border: none;
-  background: transparent; }
-
-button:hover {
-  cursor: pointer; }
-
-iframe {
-  border: none !important; }
-
-.txt1 {
-  font-family: Poppins-Regular;
-  font-size: 13px;
-  line-height: 1.5;
-  color: #999999; }
-
-.txt2 {
-  font-family: Poppins-Regular;
-  font-size: 13px;
-  line-height: 1.5;
-  color: #666666; }
-
-.container-login100 {
-  margin: 5%;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -moz-box;
-  display: -ms-flexbox;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  padding: 15px; }
-
-.wrap-login100 {
-  background: #fff;
-  border: black solid 3px;
-  border-radius: 10px;
-  overflow: hidden;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -moz-box;
-  display: -ms-flexbox;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  padding: 66px 130px 33px 95px; }
-
-/*------------------------------------------------------------------
-[  ]*/
-.login100-pic {
-  width: 316px; }
-
-.login100-pic img {
-  max-width: 100%; }
-
-/*------------------------------------------------------------------
-[  ]*/
-.login100-form {
-  width: 290px; }
-
-.login100-form-title {
-  font-family: Poppins-Bold;
-  font-size: 24px;
-  color: #333333;
-  line-height: 1.2;
-  text-align: center;
-  width: 100%;
-  display: block;
-  padding-bottom: 54px; }
-
-/*---------------------------------------------*/
-.wrap-input100 {
-  position: relative;
-  width: 100%;
-  z-index: 1;
-  margin-bottom: 10px; }
-
-.input100 {
-  font-family: Poppins-Medium;
-  font-size: 15px;
-  line-height: 1.5;
-  color: #666666;
-  display: block;
-  width: 100%;
-  background: #e6e6e6;
-  height: 50px;
-  border-radius: 25px;
-  padding: 0 30px 0 68px; }
-
-@-webkit-keyframes anim-shadow {
-  to {
-    box-shadow: 0px 0px 70px 25px;
-    opacity: 0; } }
-
-@keyframes anim-shadow {
-  to {
-    box-shadow: 0px 0px 70px 25px;
-    opacity: 0; } }
-
-/*------------------------------------------------------------------
-[ Button ]*/
-.container-login100-form-btn {
-  width: 100%;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -moz-box;
-  display: -ms-flexbox;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  padding-top: 20px; }
-
-.login100-form-btn {
-  font-family: Montserrat-Bold;
-  font-size: 15px;
-  line-height: 1.5;
-  color: #fff;
-  text-transform: uppercase;
-  width: 100%;
-  height: 50px;
-  border-radius: 25px;
-  background: #57b846;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -moz-box;
-  display: -ms-flexbox;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 0 25px;
-  -webkit-transition: all 0.4s;
-  -o-transition: all 0.4s;
-  -moz-transition: all 0.4s;
-  transition: all 0.4s; }
-
-.login100-form-btn:hover {
-  background: #333333; }
-
-/*------------------------------------------------------------------
-[ Responsive ]*/
-@media (max-width: 992px) {
-  .wrap-login100 {
-    padding: 66px 90px 33px 85px; }
-  .login100-pic {
-    width: 35%; }
-  .login100-form {
-    width: 50%; } }
-
-@media (max-width: 768px) {
-  .wrap-login100 {
-    padding: 66px 80px 33px 80px; }
-  .login100-pic {
-    display: none; }
-  .login100-form {
-    width: 100%; } }
-
-@media (max-width: 576px) {
-  .wrap-login100 {
-    padding: 66px 15px 33px 15px; } }
+/* Fim Index */
