@@ -7139,372 +7139,321 @@ a.text-dark:hover, a.text-dark:focus {
     color: inherit;
     border-color: #dee2e6; } }
 
-.d-grid {
-  display: grid !important; }
+/* Fim Bootstrap */
 
-.justify-self-center {
-  justify-self: center; }
+* {
+  box-sizing: border-box;
+}
 
-/* links da barra de navegação */
-#links {
-  display: flex;
-  justify-content: space-between; }
+/* Efeito de Transição na barra de rolagem */
 
-/* divisória do logo do sistema */
-#logo {
-  padding-left: 5%; }
-
-/* formatacao do texto da barra de navegação (logo e links) */
-.textoPrincipal {
-  font-family: 'Poppins', sans-serif;
-  padding: 40px 0; }
-
-/* formatacao do texto da descrião dos icones (professor, gráfico e calendário) */
-.descricao {
-  margin-top: 1rem;
-  margin-bottom: 1rem;
-  color: black;
-  font-family: 'Poppins', sans-serif;
-  text-align: center; }
-
-/* divisória da barra de navegação */
-#navegador {
-  background-color: #5c64bf;
-  border-bottom: solid 2px; }
-
-a:link {
-  color: black; }
-
-a:visited {
-  color: black; }
-
-a:hover {
-  color: black;
-  text-decoration: none; }
-
-/* Primeira Section */
-#fundo1 {
-  background-image: url(../../images/fundo-index1.png);
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  height: 45rem;
-  width: 100%; }
-
-/* Segunda Section  */
-#fundo2 {
-  height: 40%;
-  width: 100%; }
-
-/* Imagem da primeira section */
-#imagemIndex {
-  padding-top: 10%;
-  width: 75%; }
-
-/* formatação do texto das sections */
-.texto {
-  font-family: 'Oswald', sans-serif; }
-
-/* Coluna esquerda da primeira section */
-#colunaImagem1 {
-  padding-left: 5%;
-  padding-top: 10%; }
-
-/* icones (professor, gráfico e calendário) */
-.iconesIndex {
-  width: 100px; }
-
-/* divisória que contém os icones e suas descrições */
-#grupoIcones {
-  padding-top: 5%; }
-
-/* rodapé do sistema */
-#rodape {
-  background-image: url(../../images/footer.png);
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  height: 22.5rem;
-  width: 100%; }
-
-/* formatação do texto contido no rodapé */
-.textoRodape {
-  padding-top: 17%; }
-
-/* Formatação dos textos com a tela entre 300 e 576 pixels de largura */
-@media (min-width: 300px) {
-  a {
-    font-size: 12px; }
-  .textoPrincipal {
-    font-size: 20px; }
-  .texto {
-    font-size: 18px; }
-  .textoIcone {
-    font-size: 14px; } }
-
-/* Formatação dos textos com a tela entre 576 e 768 pixels de largura */
-@media (min-width: 576px) {
-  a {
-    font-size: 14px; }
-  .textoPrincipal {
-    font-size: 24px; }
-  .texto {
-    font-size: 22px; }
-  .textoIcone {
-    font-size: 16px; } }
-
-/* Formatação dos textos com a tela entre 768 e 992 pixels de largura */
-@media (min-width: 768px) {
-  a {
-    font-size: 16px; }
-  .textoPrincipal {
-    font-size: 28px; }
-  .texto {
-    font-size: 26px; }
-  .textoIcone {
-    font-size: 18px; } }
-
-/* Formatação dos textos com a tela entre 992 e 1200 pixels de largura */
-@media (min-width: 992px) {
-  a {
-    font-size: 20px; }
-  .textoPrincipal {
-    font-size: 32px; }
-  .texto {
-    font-size: 30px; }
-  .textoIcone {
-    font-size: 20px; } }
-
-/* Formatação dos textos com a tela com mais de 1200 pixels de largura */
-@media (min-width: 1200px) {
-  a {
-    font-size: 22px; }
-  .textoPrincipal {
-    font-size: 36px; }
-  .texto {
-    font-size: 34px; }
-  .textoIcone {
-    font-size: 22px; } }
-
-body,
 html {
-  height: 100%;
-  font-family: Poppins-Regular, sans-serif; }
+  scroll-behavior: smooth;
+}
 
-a {
-  font-family: Poppins-Regular;
-  font-size: 14px;
-  line-height: 1.7;
-  color: #666666;
-  margin: 0px;
-  transition: all 0.4s;
-  -webkit-transition: all 0.4s;
-  -o-transition: all 0.4s;
-  -moz-transition: all 0.4s; }
+/* Header */
 
-a:focus {
-  outline: none !important; }
-
-a:hover {
-  text-decoration: none;
-  color: #57b846; }
-
-p {
-  font-family: Poppins-Regular;
-  font-size: 14px;
-  line-height: 1.7;
-  color: #666666;
-  margin: 0px; }
-
-input {
-  outline: none;
-  border: none; }
-
-input:focus {
-  border-color: transparent !important; }
-
-input:focus::-webkit-input-placeholder {
-  color: transparent; }
-
-input:focus:-moz-placeholder {
-  color: transparent; }
-
-input:focus::-moz-placeholder {
-  color: transparent; }
-
-input:focus:-ms-input-placeholder {
-  color: transparent; }
-
-input::-webkit-input-placeholder {
-  color: #999999; }
-
-input:-moz-placeholder {
-  color: #999999; }
-
-input::-moz-placeholder {
-  color: #999999; }
-
-input:-ms-input-placeholder {
-  color: #999999; }
-
-button {
-  outline: none !important;
-  border: none;
-  background: transparent; }
-
-button:hover {
-  cursor: pointer; }
-
-iframe {
-  border: none !important; }
-
-.txt1 {
-  font-family: Poppins-Regular;
-  font-size: 13px;
-  line-height: 1.5;
-  color: #999999; }
-
-.txt2 {
-  font-family: Poppins-Regular;
-  font-size: 13px;
-  line-height: 1.5;
-  color: #666666; }
-
-.container-login100 {
-  margin: 5%;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -moz-box;
-  display: -ms-flexbox;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  padding: 15px; }
-
-.wrap-login100 {
-  background: #fff;
-  border: black solid 3px;
-  border-radius: 10px;
-  overflow: hidden;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -moz-box;
-  display: -ms-flexbox;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  padding: 66px 130px 33px 95px; }
-
-/*------------------------------------------------------------------
-[  ]*/
-.login100-pic {
-  width: 316px; }
-
-.login100-pic img {
-  max-width: 100%; }
-
-/*------------------------------------------------------------------
-[  ]*/
-.login100-form {
-  width: 290px; }
-
-.login100-form-title {
-  font-family: Poppins-Bold;
-  font-size: 24px;
-  color: #333333;
-  line-height: 1.2;
-  text-align: center;
+.jumbotron {
+  background-color: #F0F0F0;
   width: 100%;
-  display: block;
-  padding-bottom: 54px; }
-
-/*---------------------------------------------*/
-.wrap-input100 {
+  max-width: 100%;
+  height: 682px;
+  padding: 0px !important;
   position: relative;
-  width: 100%;
-  z-index: 1;
-  margin-bottom: 10px; }
+}
 
-.input100 {
-  font-family: Poppins-Medium;
-  font-size: 15px;
-  line-height: 1.5;
-  color: #666666;
+/* Menu */
+
+nav ul li a {
+  font-size: 1.1rem;
+  font: sans-serif bold;
+  color: black;
+  width: 100px;
+  text-align: center;
+  font-weight: 300px;
+  padding: 40px;
+  white-space: nowrap;
+  font-family: 'Poppins', sans-serif;
+}
+
+nav ul li a:hover {
+  background-color: rgb(96, 195, 171);
+  color: black;
+  border-radius: 15px;
+}
+
+/* Menu drop-down */
+
+.navbar-nav .dropdown-menu {
+  left: -45px;
+}
+
+#navDrop.dropdown-menu.show {
+  background-color: #4AE894;
+  border-radius: 15px;
+  text-align: center;
+  list-style: none;
+  padding: 0;
+  width: 100%;
+}
+
+#navDrop a {
+  font-size: 1.1rem;
+  font: sans-serif bold;
+  color: white;
+  padding: .5em 0;
+}
+
+#navDrop a:hover {
+  background-color: rgb(96, 195, 171);
+  color: white;
+  border-radius: 15px;
+}
+
+.navbar-toggler {
+  border: 1px solid lightgrey;
+}
+
+.navbar-toggler-icon {
+  border: 1px solid lightgrey;
+}
+
+/* Coluna que Contém o Texto do Banner */
+.coluna-texto-principal {
+  padding-top: 5%;
+  font-family: 'Pangolin', cursive;
+  font-size: 2rem;
+}
+
+/* Imagem do Banner */
+
+#imagem-principal {
+  padding-top: 15%;
+  width: 100%;
+}
+
+/* Botão "Conheça Nossa História" Logo Após o Banner */
+
+.button-header {
+  display: inline-block;
+  padding: 10px 20px 10px 20px;
+  background-color: #4AE894;
+  font-family: 'Baloo Da 2', cursive;
+  font-size: 1.1rem;
+  position: absolute;
+  top: 550px;
+  left: 100px;
+  border-radius: 15px;
+  cursor: pointer;
+}
+
+.button-header:hover {
+  background-color: rgb(96, 195, 171);
+}
+
+/* Primeira Section (Imagens e Textos) */
+
+article {
+  margin: 70px;
+}
+
+/* Títulos da Página (Títulos dos Textos e do Cadastro) */
+
+.titulo {
+  font-family: 'Poppins', sans-serif;
+  color: rgb(96, 195, 171);
+}
+
+/* Texto da Primeira Section */
+
+.body-text-p {
+  font-size: 1.1rem;
+  font: sans-serif bold;
+  color: grey;
+  text-align: justify;
+  line-height: 30px;
+  font-family: 'Baloo Da 2', cursive;
+  margin: 30px 0 30px 0;
+}
+
+/* Imagens da Primeira Section */
+
+.img{
+  width: 300px;
+  height: 300px;
   display: block;
-  width: 100%;
-  background: #e6e6e6;
-  height: 50px;
-  border-radius: 25px;
-  padding: 0 30px 0 68px; }
+}
 
-@-webkit-keyframes anim-shadow {
-  to {
-    box-shadow: 0px 0px 70px 25px;
-    opacity: 0; } }
+/* Div que Contém os Botões da Primeira Section */
 
-@keyframes anim-shadow {
-  to {
-    box-shadow: 0px 0px 70px 25px;
-    opacity: 0; } }
+.div-botao-section{
+  margin-bottom:5%;
+}
 
-/*------------------------------------------------------------------
-[ Button ]*/
-.container-login100-form-btn {
-  width: 100%;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -moz-box;
-  display: -ms-flexbox;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  padding-top: 20px; }
+/* Botões das Sections (Textos e Formulário de Cadastro)*/
 
-.login100-form-btn {
-  font-family: Montserrat-Bold;
-  font-size: 15px;
-  line-height: 1.5;
+.botao {
+  color: white;
+  font-size: 1.1rem;
+  border-radius: 15px;
+  padding: 10px 20px 10px 20px;
+  background-color: #4AE894;
+  font-family: 'Baloo Da 2', cursive;
+}
+
+
+.botao:hover {
+  background-color: rgb(96, 195, 171);
+  text-decoration: none;
+  color: white;
+}
+
+/* Segunda Section */
+
+.form {
+  background-color: #F0F0F0;
+  border-radius: 15px;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Footer */
+
+/* Formatação do Texto Para o Footer */
+footer p {
+  text-align: justify;
+  font-size: 0.7rem;
+  font-family: sans-serif bold;
+  margin: 0px 0px 10px;
+}
+
+/* Títulos dos Footers (Sobre a Empresa, Links úteis, Contato) */
+
+.footer-titulo-f {
+  font-family: sans-serif bold;
+  color: rgb(96, 195, 171);
+}
+
+/* Links Para Contato e Dúvidas Frequentes */
+
+.footer-lista-s-item {
+  margin-left: 35%;
+}
+
+.footer-lista-s-item-a {
+  font-family: sans-serif bold;
+  font-size: 0.7rem;
+  color: black;
+  padding: 0px;
+  /*margin-left: 60px;*/
+}
+
+.footer-lista-s-item-a:hover {
+  color: black;
+  text-decoration: none;
+}
+
+/* Linha Horizontal No Final do Rodapé */
+
+.body-linha-divisoria {
+  border: 0px;
+  border-top: 1px solid;
+}
+
+/* Copyrigth */
+
+.direitos-reservados {
+  /*text-align: center;*/
+  font-size: 0.7rem;
+  font-family: sans-serif bold;
+}
+
+/* Links das Redes Sociais */
+
+.footer-lista-f-item {
+  display: inline;
+}
+
+/* Botão Voltar Ao Topo */
+
+#botaotop {
+  background: #4AE894;
+  bottom: 30px;
+  right: 30px;
   color: #fff;
-  text-transform: uppercase;
-  width: 100%;
-  height: 50px;
-  border-radius: 25px;
-  background: #57b846;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -moz-box;
-  display: -ms-flexbox;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 0 25px;
-  -webkit-transition: all 0.4s;
-  -o-transition: all 0.4s;
-  -moz-transition: all 0.4s;
-  transition: all 0.4s; }
+  text-align: center;
+  cursor: pointer;
+  padding: 15px 20px 15px 20px;
+  position: fixed;
+  border: 0;
+  border-radius: 50%;
+}
 
-.login100-form-btn:hover {
-  background: #333333; }
+#botaotop:hover {
+  opacity: .5;
+}
 
-/*------------------------------------------------------------------
-[ Responsive ]*/
-@media (max-width: 992px) {
-  .wrap-login100 {
-    padding: 66px 90px 33px 85px; }
-  .login100-pic {
-    width: 35%; }
-  .login100-form {
-    width: 50%; } }
+/* Seta do Botão Voltar Ao Topo */
 
-@media (max-width: 768px) {
-  .wrap-login100 {
-    padding: 66px 80px 33px 80px; }
-  .login100-pic {
-    display: none; }
-  .login100-form {
-    width: 100%; } }
+.setaTopo{
+  font-weight: bold;
+  font-size:1.5rem;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
 
-@media (max-width: 576px) {
-  .wrap-login100 {
-    padding: 66px 15px 33px 15px; } }
+/* Media Querys Para Responsividade */
+
+@media(max-width: 1680px) {
+  html{
+      font-size: 16px;
+  }
+}
+
+@media(max-width: 1024px) {
+  html{
+      font-size: 13px;
+  }
+}
+
+/* BreakPoint Para Ocultar a Imagem do Banner */
+@media(max-width: 992px) {
+  #imagem-principal {
+      display: none;
+  }
+}
+
+@media(max-width: 768px) {
+  html{
+      font-size: 13px;
+  }
+}
+
+@media(max-width: 480px) {
+  html{
+      font-size: 11.5px;
+  }
+}
+
+/* Fim Index */
+
+/* Início not-found */
+
+/* Imagem Principal 404 */
+
+#imagem404{
+  width:35rem;
+  height:20rem;
+}
+
+/* Todo o corpo da página */
+
+.corpo404{
+  margin-top:5%;
+}
+
+/* Texto de Aviso */
+
+.texto404{
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Fim not-found */

@@ -1,165 +1,237 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 
-  <head>
+<head>
     <meta chartset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- css externos -->
     <link href="stylesheets/dist/main.css" rel="stylesheet">
-    <!-- links de fontes google -->
-    <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Oswald&display=swap" rel="stylesheet">
-  </head>
+    <link rel="stylesheet" href="../public/stylesheets/src/index.scss">
+    <!-- links de fontes google (Baloo Da 2, Pangolin e Poppins)-->
+    <link href="https://fonts.googleapis.com/css?family=Baloo+Da+2|Pangolin|Poppins&display=swap" rel="stylesheet">
+</head>
 
-  <body>
-    
-    <!-- Barra de navegação -->
-
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <a class="navbar-brand" href="./index.ejs">Logo</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNavDropdown">
-        <ul class="navbar-nav">
-          <li class="nav-item active">
-            <a class="nav-link" href="./index.ejs">Home <span class="sr-only">(current)</span></a>
-          </li>
-        </ul>
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Cadastre-se
-            </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-              <a class="dropdown-item" href="#cadastro">Como estudante</a>
-              <a class="dropdown-item" href="#cadastro">Como professor</a>
-            </div>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#cadastro">Login</a>
-          </li>
-        </ul>
-      </div>
-    </nav>
-    
-    <!-- Primeira Sessão, contém a descrição do sistema e uma imagem de exibição -->
-
-    <section id="fundo1">
-      <div class="container-fluid">
-        <div class="row">
-          <div id="colunaImagem1" class="col-xs-5 col-sm-7 col-md-6 texto">
-            <!-- Descrição do sistema -->
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero explicabo natus nesciunt tenetur obcaecati modi vitae iure! Laboriosam quisquam officia commodi? Sunt itaque excepturi quidem voluptas modi. Omnis, obcaecati pariatur.
-          </div>
-          <!-- Divisória que contém a imagem de exibição  -->
-          <div id="colunaImagem2" class="col-xs-7 col-sm-5 col-md-6">
-            <img id="imagemIndex" src="images/educacao-index.png">
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section>
-      <div id="grupoIcones" class="container-fluid">
-        <div class="row">
-          <div class="col d-flex">
-            <!-- Divisória que contém os três ícones e suas descrições -->
-            <div class="container-fluid">
-              
-              <div class="row justify-content-around">
-                <div class="col-sm-12 col-md-4">
-                  <!-- ícone do professor e sua descrição -->
-                  <div class="textoIcone d-grid">
-                    <img class="iconesIndex justify-self-center" src="images/professor.png">
-                    <p class="descricao"> APRENDA EM TEMPO REAL </p>
-                  </div>
+<body>
+    <!-- Jumbotron, Barra de Navegação, Frase Banner, Imagem Banner e Botão -->
+    <header>
+        <!-- Jumbotron -->
+        <div class="jumbotron jumbotron-fluid d-flex justify-content-end">
+            <div class="container">
+                <div id="topo" class="row">
+                    <!-- Tag que Engloba Toda a Barra de Navegação -->
+                    <nav class="navbar navbar-expand-lg col-12 navbar-fixed-top">
+                        <!-- Icone (Margem Esquerda) -->
+                        <a class="navbar-brand" href="#" alt="home">
+                            <img src="images/lampada-logo.png" alt="logo" id="logo-teste" class="ml-4">
+                        </a>
+                        <!-- Barra de Navegação -->
+                        <div class="navbar-collapse">
+                            <!-- (Margem Esquerda, Sobre Nós, Contato e Cadastro)  -->
+                            <ul class="navbar-nav mr-auto">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#sobre-nos" alt="Sobre nós">Sobre nós</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#contato" alt="Contato">Contato</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#cadastro" alt="Cadastro">Cadastro</a>
+                                </li>
+                            </ul>
+                            <!-- (Margem Direita (Menu Dropdown), Login - Aluno, Professor)  -->
+                            <ul class="navbar-nav ml-auto">
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" alt="Login">Login
+                                    </a>
+                                    <div class="dropdown-menu" id="navDrop">
+                                        <a class="dropdown-item" href="#" alt="login-aluno">Aluno</a>
+                                        <a class="dropdown-item" href="#" alt="login-professor">Professor</a>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </nav>
                 </div>
-
-                <div class="col-sm-12 col-md-4">
-                  <!-- ícone do gráfico e sua descrição -->
-                  <div class="textoIcone d-grid">
-                    <img class="iconesIndex justify-self-center" src="images/grafico.png">
-                      <p class="descricao"> AUMENTE SUA PRODUTIVIDADE </p>
-                  </div>
+                <!-- Tag que Engloba Todo o Banner -->
+                <div class="row">
+                    <!-- Div que Contém o Texto do Banner -->
+                    <div class="coluna-texto-principal col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                        <span> 
+                            Aprendemos Melhor Juntos! <br> <br>
+                            Gerencie Suas Salas. <br>
+                            Envolva Seus Alunos. <br> <br>
+                            Seguro. Simples. Livre.
+                        </span>
+                    </div>
+                    <!-- Div que Contém a Imagem do Banner -->
+                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                        <img id="imagem-principal" class="rounded float-right" src="images/principal.png" alt="icone">
+                    </div>
                 </div>
-
-                <div class="col-sm-12 col-md-4">
-                  <!-- ícone do calendário e sua descrição -->
-                  <div class="textoIcone d-grid">
-                    <img class="iconesIndex justify-self-center" src="images/calendario.png">
-                      <p class="descricao"> ORGANIZE SEU TEMPO </p>
-                  </div>
+            </div>
+        </div>
+        <!--Botão "Conheça Nossa História" Logo Após o Banner-->
+        <div class="container">
+            <a class="button-header">Conheça Nossa História</a>
+        </div>
+    </header>
+    <!-- Main -->
+    <main>
+        <!-- Primeira Section: Textos e Imagens -->
+        <section>
+            <!-- Article "Sobre Nós" -->
+            <article class="shadow-sm p-3 mb-5 bg-white rounded">
+                <div class="container">
+                    <div class="row">
+                        <!-- Div que Contém Título "Sobre Nós" e seu texto -->
+                        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 text">
+                            <h2 id="sobre-nos" class="titulo">Sobre nós</h2>
+                            <p class="body-text-p"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit repellendus vero quibusdam veniam blanditiis delectus sint! Aliquid amet quae perspiciatis doloremque error provident, eligendi sapiente obcaecati blanditiis nemo
+                                beatae itaque. Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus neque iste ullam corrupti maiores iusto reiciendis adipisci sequi eum vero. Aliquid ea numquam error provident quod aspernatur beatae eum hic?
+                            </p>
+                            <div class="div-botao-section">
+                                <a href="#" class="botao">Leia mais</a>
+                            </div>
+                        </div>
+                        <!-- Div que Contém a Imagem do Conteúdo "Sobre Nós" -->
+                        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                            <img src="images/informacao.png" class="rounded float-right img" alt="icone">
+                        </div>
+                    </div>
                 </div>
-              </div>
-
+            </article>
+            <!-- Article "Para Nossos Professores" -->
+            <article class="shadow-sm p-3 mb-5 bg-white rounded">
+                <div class="container">
+                    <div class="row">
+                        <!-- Div que Contém a Imagem do Conteúdo "Para Nossos Professores" -->
+                        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 text">
+                            <img src="images/professor.png" class="rounded float-left img" alt="icone">
+                        </div>
+                        <!-- Div que Contém Título "Para Nossos Professores" e seu texto -->
+                        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                            <h2 class="titulo">Para nossos professores</h2>
+                            <p class="body-text-p"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit repellendus vero quibusdam veniam blanditiis delectus sint! Aliquid amet quae perspiciatis doloremque error provident, eligendi sapiente obcaecati blanditiis nemo
+                                beatae itaque. Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus neque iste ullam corrupti maiores iusto reiciendis adipisci sequi eum vero. Aliquid ea numquam error provident quod aspernatur beatae eum hic?
+                            </p>
+                            <div class="div-botao-section">
+                                <a href="#" class="botao">Leia mais</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+            <!-- Article "Para Nossos Alunos" -->
+            <article class="shadow-sm p-3 mb-5 bg-white rounded">
+                <div class="container">
+                    <div class="row">
+                        <!-- Div que Contém Título "Para Nossos Alunos" e seu texto -->
+                        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 text">
+                            <h2 class="titulo">Para nossos alunos</h2>
+                            <p class="body-text-p"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit repellendus vero quibusdam veniam blanditiis delectus sint! Aliquid amet quae perspiciatis doloremque error provident, eligendi sapiente obcaecati blanditiis nemo
+                                beatae itaque. Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus neque iste ullam corrupti maiores iusto reiciendis adipisci sequi eum vero. Aliquid ea numquam error provident quod aspernatur beatae eum hic?
+                            </p>
+                            <div class="div-botao-section">
+                                <a href="#" class="botao">Leia mais</a>
+                            </div>
+                        </div>
+                        <!-- Div que Contém a Imagem do Conteúdo "Para Nossos Alunos" -->
+                        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                            <img src="images/aluno.png" class="rounded float-right img" alt="icone">
+                        </div>
+                    </div>
+                </div>
+            </article>
+            <!-- Article "Para Os Pais" -->
+            <article class="shadow-sm p-3 mb-5 bg-white rounded">
+                <div class="container">
+                    <div class="row">
+                        <!-- Div que Contém a Imagem do Conteúdo "Para Os Pais" -->
+                        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 text">
+                            <img src="images/pais.png" class="rounded float-left img" alt="icone">
+                        </div>
+                        <!-- Div que Contém Título "Para Os Pais" e seu texto -->
+                        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                            <h2 class="titulo">Para os pais</h2>
+                            <p class="body-text-p"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit repellendus vero quibusdam veniam blanditiis delectus sint! Aliquid amet quae perspiciatis doloremque error provident, eligendi sapiente obcaecati blanditiis nemo
+                                beatae itaque. Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus neque iste ullam corrupti maiores iusto reiciendis adipisci sequi eum vero. Aliquid ea numquam error provident quod aspernatur beatae eum hic?
+                            </p>
+                            <div class="div-botao-section">
+                                <a href="#" class="botao">Leia mais</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+        </section>
+        <!-- Segunda Section: Formulário de Cadastro -->
+        <section>
+            <div id="cadastro" class="container form">
+                <!-- Div que Contém o Título "Cadastro" -->
+                <div class="row">
+                    <div class="col-12 text-center my-5">
+                        <h2 class="titulo">Cadastro</h2>
+                    </div>
+                </div>
+                <!-- Div que Contém o Formulário de Cadastro -->
+                <div class="row justify-content-center">
+                    <div class="col-sm-12 col-md-10 col-lg-8">
+                        <form>
+                            <!-- Div que Contém o Campo "Nome Completo" -->
+                            <div class="form-row">
+                                <div class="form-group col-sm-12">
+                                    <label for="inputNome"></label>
+                                    <input type="text" class="form-control" id="inputNome" placeholder="Nome Completo">
+                                </div>
+                            </div>
+                            <!-- Div que Contém o Campo "Nome de Usuário" e o Campo "Código da Classe" -->
+                            <div class="form-row">
+                                <div class="form-group col-sm-6">
+                                    <label for="inputNome"></label>
+                                    <input type="text" class="form-control" id="inputNome" placeholder="Nome de usuário">
+                                </div>
+                                <div class="form-group col-sm-6">
+                                    <label for="inputNome"></label>
+                                    <input type="text" class="form-control" id="inputNome" placeholder="Código da classe">
+                                </div>
+                            </div>
+                            <!-- Div que Contém o Campo "E-mail" -->
+                            <div class="form-row">
+                                <div class="form-group col-sm-12">
+                                    <label for="inputNome"></label>
+                                    <input type="e-mail" class="form-control" id="inputNome" placeholder="E-mail">
+                                </div>
+                            </div>
+                            <!-- Div que Contém o Checkbox "Li e Concordo com os Termos" -->
+                            <div class="form-row">
+                                <div class="form-group col-sm-12">
+                                    <div class="form-check">
+                                        <label class="form-check-label">
+                                            <input class="form-check-input" type="checkbox"> Li e concordo com os termos
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Botão "Cadastrar" -->
+                            <button type="submit" class="botao">Cadastrar</button><br><br>
+                        </form>
+                    </div>
+                </div>
             </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Segunda Sessão, que contém uma imagem e os campos de login e senha -->
-
-    <section>
-      <div id="cadastro" class="container container-login100">
-        <div class="wrap-login100">
-          <!-- Imagem de exibição do cadastro -->
-          <div class="login100-pic js-tilt">
-            <img src="images/login.png">
-          </div>
-          <!-- Formulário de login -->
-          <form class="login100-form validate-form">
-            <span class="texto login100-form-title">
-              Entre em sua conta!
-            </span>
-            <!-- Campo de e-mail -->
-            <div class="wrap-input100 validate-input">
-              <input class="input100" type="text" name="email" placeholder="E-mail">
+        </section>
+        <!-- Footer da Página -->
+        <%- include('./partials/footer') %>
+        <!-- Botão Com Efeito Para Voltar Ao Topo Quando Clicado -->
+        <a href="#topo">
+            <div id="botaotop">
+                <i class="setaTopo">^</i>
             </div>
-            <!-- Campo de senha -->
-            <div class="wrap-input100 validate-input" data-validate="Password is required">
-              <input class="input100" type="password" name="pass" placeholder="Senha">
-            </div>
-            <!-- Botão de enviar -->
-            <div class="container-login100-form-btn">
-              <button class="login100-form-btn">
-                Login
-              </button>
-            </div>
-            <!-- Link para criar conta -->
-            <div class="text-center p-t-136">
-              <a class="txt2" href="#">
-                Crie sua conta
-              </a>
-            </div>
-          </form>
-        </div>
-      </div>
-    </section>
-
-    <!-- Rodapé do sistema -->
-
-    <footer>
-      <div id="rodape" class="container-fluid">
-        <div class="row">
-          <!-- Descrição Copyright -->
-          <div class="textoRodape texto col-xs-6 col-sm-6 col-md-6">
-            <br> Copyright ©2020 All rights reserved
-          </div>
-          <!-- Campo para Newsletter -->
-          <div class="textoRodape texto col-xs-3 col-sm-10 col-md-3">
-            Newsletter <br>
-            <div class="wrap-input100">
-              <input class="input100" type="text" name="email" placeholder="E-mail">
-            </div>
-          </div>
-        </div>
-      </div>
-    </footer>
-
-  </body>
-  <script type="text/javascript" src="/vendor/jquery.min.js"></script>
-  <script type="text/javascript" src="/vendor/bootstrap.bundle.min.js"></script>
+        </a>
+    </main>
+    <!-- Importando Jquery -->
+    <script type="text/javascript" src="/vendor/jquery.min.js"></script>
+    <!-- Importando Bootstrap JS -->
+    <script type="text/javascript" src="/vendor/bootstrap.bundle.min.js"></script>
+</body>
 </html>
