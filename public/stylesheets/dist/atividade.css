@@ -1,0 +1,84 @@
+* {
+    padding:0;
+    margin:0;
+}
+
+/* Título da Página */
+
+.titulo {
+    font-family: 'Poppins', sans-serif;
+    font-size:1.8rem;
+    color: #4AE894;
+}
+
+/* Corpo do texto */
+
+.body-text {
+    font-size: 1.1rem;
+    font: sans-serif bold;
+    color: grey;
+    text-align: justify;
+    line-height: 30px;
+    font-family: 'Baloo Da 2', cursive;
+    margin: 30px 0 30px 0;
+}
+
+/* Botões*/
+
+.botao {
+    color: white;
+    font-size: 1.1rem;
+    border-radius: 15px;
+    padding: 5px 10px 5px 10px;
+    background-color: #4AE894;
+    font-family: 'Baloo Da 2', cursive;
+}
+
+.botao:hover {
+    background-color: rgb(96, 195, 171);
+    text-decoration: none;
+    color: white;
+}
+
+/* Data das Atividades, Textos Pequenos */
+
+.texto-detalhes{
+    font-family: 'Poppins', sans-serif;
+    font-size:1.2rem;
+    color: grey;
+}
+
+/* Link para voltar à página inicial */
+
+.link-voltar{
+    font-size: 1.5rem;
+    font: sans-serif bold;
+    color:black;
+    font-family: 'Baloo Da 2', cursive;
+}
+
+/* Media Querys Para Responsividade */
+
+@media(max-width: 1680px) {
+    html{
+        font-size: 16px;
+    }
+}
+
+@media(max-width: 1024px) {
+    html{
+        font-size: 13px;
+    }
+}
+
+@media(max-width: 768px) {
+    html{
+        font-size: 13px;
+    }
+}
+
+@media(max-width: 480px) {
+    html{
+        font-size: 11.5px;
+    }
+}

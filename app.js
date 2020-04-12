@@ -6,6 +6,7 @@ var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+var AlunoRouter = require('./routes/AlunoRouter');
 
 var app = express();
 
@@ -23,6 +24,7 @@ app.use('/vendor', express.static(__dirname + '/node_modules/jquery/dist')); // 
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/', AlunoRouter);
 
 // catch 404 and forward to error handler
 app.use((req, res) => {

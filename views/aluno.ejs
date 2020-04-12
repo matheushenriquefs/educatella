@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta chartset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Icone da página -->
+    <link rel="sortcut icon" href="images/icone.png" type="image/x-icon" />
+    <title> Educatella </title> 
+    <!-- css externos -->
+    <link href="stylesheets/dist/bootstrap.css" rel="stylesheet">
+    <link href="stylesheets/dist/header.css" rel="stylesheet">
+    <link href="stylesheets/dist/aluno.css" rel="stylesheet">
+    <!-- links de fontes google (Baloo Da 2, Pangolin e Poppins)-->
+    <link href="https://fonts.googleapis.com/css?family=Baloo+Da+2|Pangolin|Poppins&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Header da Página -->
+    <%- include('./partials/header') %>
+    <main>
+        <div class="container-fluid">
+            <div class="row mb-5">
+                <!-- Recepção do aluno -->
+                <div class="offset-1 col-11">
+                   <h2 class="titulo"> Olá aluno! Essas são suas classes: </h2>
+                </div>
+            </div>
+            <div class="row mb-5">
+                <!-- Botão para pesquisar classes -->
+                <div class="offset-1 col-10">
+                    <a href="" class="botao"> Pesquisar Classe </a>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row shadow-sm p-3 mb-5">
+                <!-- Imagem de uma classe -->
+                <div class="offset-1 col-lg-1 col-md-2 col-sm-6 mb-5">
+                    <img class="imagem-classe" src="images/matematica.png">
+                </div>
+                <!-- Descrição de uma classe -->
+                <div class="col-lg-3 col-md-3 col-sm-6 mb-5">
+                    <p class="body-text"> Série: 3º Ano E.M </p>
+                    <p class="body-text"> Ano: 2020 </p>
+                    <p class="body-text"> Código: FDG456 </p>
+                    <a href="classe" class="botao"> Acessar Classe </a>
+                </div>
+                <!-- Imagem de uma classe -->
+                <div class="col-lg-1 col-md-2 col-sm-6 mb-5">
+                    <img class="imagem-classe" src="images/informatica.png">
+                </div>
+                <!-- Descriçãp de uma classe -->
+                <div class="col-lg-3 col-md-3 col-sm-6 mb-5">
+                    <p class="body-text"> Série: 3º Ano Técnico Inf. </p>
+                    <p class="body-text"> Ano: 2020 </p>
+                    <p class="body-text"> Código: GHG467 </p>
+                    <a href="classe" class="botao"> Acessar Classe </a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Importando Jquery -->
+    <script type="text/javascript" src="/vendor/jquery.min.js"></script>
+    <!-- Importando Bootstrap JS -->
+    <script type="text/javascript" src="/vendor/bootstrap.bundle.min.js"></script>
+</body>
