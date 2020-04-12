@@ -17,7 +17,6 @@
     font-size: 1.1rem;
     font: sans-serif bold;
     color: grey;
-    text-align: justify;
     line-height: 30px;
     font-family: 'Baloo Da 2', cursive;
     margin: 30px 0 30px 0;
@@ -29,7 +28,6 @@
     font-size: 1.1rem;
     font: sans-serif bold;
     color: green;
-    text-align: justify;
     line-height: 30px;
     font-family: 'Baloo Da 2', cursive;
     margin: 30px 0 30px 0;
@@ -41,7 +39,6 @@
     font-size: 1.1rem;
     font: sans-serif bold;
     color: red;
-    text-align: justify;
     line-height: 30px;
     font-family: 'Baloo Da 2', cursive;
     margin: 30px 0 30px 0;
@@ -53,36 +50,70 @@
     font-size: 1.3rem;
     font: sans-serif bold;
     color: black;
-    text-align: justify;
     line-height: 30px;
     font-family: 'Baloo Da 2', cursive;
     margin: 30px 0 30px 0;
 }
 
-/* Botões*/
+/* Título da Página */
 
-.botao {
-    color: white;
-    font-size: 1.1rem;
-    border-radius: 15px;
-    padding: 5px 10px 5px 10px;
-    background-color: #4AE894;
-    font-family: 'Baloo Da 2', cursive;
+.titulo-geral {
+    font-family: 'Poppins', sans-serif;
+    font-size:1.5rem;
+    color: black;
 }
 
-.botao:hover {
-    background-color: rgb(96, 195, 171);
+/* Div que contém a Data da Atividade */
+
+.informacao{
+    background-color:#4AE894;
+}
+
+/* Nome do Professor */
+
+.texto{
+    font-family: 'Poppins', sans-serif;
+    font-size:1rem;
+    color: grey;
+}
+
+/* Links da Página */
+
+.texto-link{
+    font-family: 'Poppins', sans-serif;
+    font-size:1rem;
+    color: grey;
+}
+
+.texto-link:hover{
     text-decoration: none;
-    color: white;
+    color:#4AE894;
 }
 
-/* Links para voltar à página anterior */
+/* Sombra das Divs */
 
-.link-voltar{
-    font-size: 1.5rem;
-    font: sans-serif bold;
-    color:black;
-    font-family: 'Baloo Da 2', cursive;
+.sombra{
+    box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.3);
+}
+
+/* Data das Atividades, Textos Pequenos */
+
+.texto-detalhes{
+    font-family: 'Poppins', sans-serif;
+    font-size:1.2rem;
+    color: grey;
+}
+
+/* Imagem do professor da sala */
+
+.imagem-professor{
+    width:5rem;
+}
+
+/* Imagem dos icones dos links */
+
+.imagens-classe{
+    width:1.5rem;
 }
 
 /* Media Querys Para Responsividade */

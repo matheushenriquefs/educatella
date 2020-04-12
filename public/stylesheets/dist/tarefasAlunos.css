@@ -7,42 +7,52 @@
 
 .titulo {
     font-family: 'Poppins', sans-serif;
-    font-size:1.5rem;
-    color: #4AE894;
+    font-size:1.2rem;
+    color: grey;
 }
 
 /* Título da Página */
 
 .titulo-geral {
     font-family: 'Poppins', sans-serif;
-    font-size:1.8rem;
+    font-size:1.5rem;
     color: black;
 }
 
-/* Botões*/
-
-.botao {
-    color: white;
-    font-size: 1.1rem;
-    border-radius: 15px;
-    padding: 5px 10px 5px 10px;
-    background-color: #4AE894;
-    font-family: 'Baloo Da 2', cursive;
-}
-
-.botao:hover {
-    background-color: rgb(96, 195, 171);
-    text-decoration: none;
-    color: white;
-}
-
-/* Div que contém a Data e Matéria das Atividades */
+/* Div que contém a Data da Atividade */
 
 .informacao{
     background-color:#4AE894;
 }
 
-/* Data e Matéria das Atividades */
+/* Nome do Professor */
+
+.texto{
+    font-family: 'Poppins', sans-serif;
+    font-size:1rem;
+    color: grey;
+}
+
+/* Links da Página */
+
+.texto-link{
+    font-family: 'Poppins', sans-serif;
+    font-size:1rem;
+    color: grey;
+}
+
+.texto-link:hover{
+    text-decoration: none;
+    color:#4AE894;
+}
+
+/* Sombra das Divs */
+
+.sombra{
+    box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.3);
+}
+
+/* Data das Atividades, Textos Pequenos */
 
 .texto-detalhes{
     font-family: 'Poppins', sans-serif;
@@ -50,13 +60,16 @@
     color: grey;
 }
 
-/* Link para voltar a página anterior */
+/* Imagem do professor da sala */
 
-.link-voltar{
-    font-size: 1.5rem;
-    font: sans-serif bold;
-    color:black;
-    font-family: 'Baloo Da 2', cursive;
+.imagem-professor{
+    width:5rem;
+}
+
+/* Imagem dos icones dos links */
+
+.imagens-classe{
+    width:1.5rem;
 }
 
 /* Media Querys Para Responsividade */

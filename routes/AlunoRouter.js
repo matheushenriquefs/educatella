@@ -5,9 +5,9 @@ var router = express.Router();
 const AlunoController = require('../controllers/AlunoController')
 
 // Rotas GET
-router.get('/aluno', AlunoController.acessarAluno);
-router.get('/classe', AlunoController.acessarClasse);
-router.get('/situacao', AlunoController.acessarSituacao);
-router.get('/atividade', AlunoController.acessarAtividade);
+router.get('/recadosAlunos', AlunoController.recadosAlunos);
+router.get('/tarefasAlunos', AlunoController.tarefasAlunos);
+router.get('/notasAlunos', AlunoController.notasAlunos);
+router.get('/salasAlunos', AlunoController.salasAlunos);
 
 module.exports = router;

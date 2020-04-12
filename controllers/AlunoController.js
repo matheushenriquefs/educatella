@@ -1,15 +1,15 @@
 // Exportando o Controller
 module.exports = {
-	acessarAluno: (req, res)=>{
-		res.render("aluno");
+	recadosAlunos: (req, res)=>{
+		res.render("recadosAlunos");
 	},
-	acessarClasse: (req, res)=>{
-		res.render("classe");
+	tarefasAlunos: (req, res)=>{
+		res.render("tarefasAlunos");
 	},
-	acessarSituacao: (req, res)=>{
-		res.render("situacao");
+	notasAlunos: (req, res)=>{
+		res.render("notasAlunos");
 	},
-	acessarAtividade: (req, res)=>{
-		res.render("atividade");
+	salasAlunos: (req, res)=>{
+		res.render("salasAlunos");
 	}
 }
