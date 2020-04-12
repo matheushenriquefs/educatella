@@ -3,32 +3,21 @@
     margin:0;
 }
 
-/* Títulos da página */
+/* Título da Página */
 
 .titulo {
     font-family: 'Poppins', sans-serif;
     font-size:1.8rem;
-    color: rgb(96, 195, 171);
+    color: #4AE894;
 }
 
-/* Texto de corpo da página */
-
-.body-text {
-    font-size: 1.1rem;
-    font: sans-serif bold;
-    color: grey;
-    text-align: justify;
-    line-height: 30px;
-    font-family: 'Baloo Da 2', cursive;
-}
-
-/* Botões*/
+/* Botão Pesquisar Salas */
 
 .botao {
     color: white;
     font-size: 1.1rem;
     border-radius: 15px;
-    padding: 5px 10px 5px 10px;
+    padding: 10px 20px 10px 20px;
     background-color: #4AE894;
     font-family: 'Baloo Da 2', cursive;
 }
@@ -39,12 +28,43 @@
     color: white;
 }
 
-/* Imagens das classes */
+/* Botão Acessar Salas */
 
-.imagem-classe{
-    width:5rem;
+.botao-pequeno{
+    color: white;
+    font-size: 1rem;
+    border-radius: 15px;
+    padding: 5px 10px 5px 10px;
+    background-color: #4AE894;
+    font-family: 'Baloo Da 2', cursive;
 }
 
+.botao-pequeno:hover{
+    background-color: rgb(96, 195, 171);
+    text-decoration: none;
+    color: white;
+}
+
+/* Nome do Professor */
+
+.texto{
+    font-family: 'Poppins', sans-serif;
+    font-size:1rem;
+    color: grey;
+}
+
+
+/* Sombra das Divs */
+
+.sombra{
+    box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.3);
+}
+
+/* Imagem do professor da sala */
+
+.imagem-professor{
+    width:5rem;
+}
 
 /* Media Querys Para Responsividade */
 
@@ -57,13 +77,6 @@
 @media(max-width: 1024px) {
     html{
         font-size: 13px;
-    }
-}
-
-/* BreakPoint Para Ocultar as imagens das classes */
-@media(max-width: 992px) {
-    .imagem-classe {
-        display: none;
     }
 }
 

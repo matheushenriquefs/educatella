@@ -1,0 +1,99 @@
+* {
+    padding:0;
+    margin:0;
+}
+
+/* Títulos dos Recados */
+
+.titulo {
+    font-family: 'Poppins', sans-serif;
+    font-size:1.2rem;
+    color: grey;
+}
+
+/* Título da Página */
+
+.titulo-geral {
+    font-family: 'Poppins', sans-serif;
+    font-size:1.5rem;
+    color: black;
+}
+
+/* Div que contém a Data do Recado */
+
+.informacao{
+    background-color:#4AE894;
+}
+
+/* Nome do Professor */
+
+.texto{
+    font-family: 'Poppins', sans-serif;
+    font-size:1rem;
+    color: grey;
+}
+
+/* Links da Página */
+
+.texto-link{
+    font-family: 'Poppins', sans-serif;
+    font-size:1rem;
+    color: grey;
+}
+
+.texto-link:hover{
+    text-decoration: none;
+    color:#4AE894;
+}
+
+/* Sombra das Divs */
+
+.sombra{
+    box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.3);
+}
+
+/* Data dos recados, Textos Pequenos */
+
+.texto-detalhes{
+    font-family: 'Poppins', sans-serif;
+    font-size:1.2rem;
+    color: grey;
+}
+
+/* Imagem do professor da sala */
+
+.imagem-professor{
+    width:5rem;
+}
+
+/* Imagem dos icones dos links */
+
+.imagens-classe{
+    width:1.5rem;
+}
+
+/* Media Querys Para Responsividade */
+
+@media(max-width: 1680px) {
+    html{
+        font-size: 16px;
+    }
+}
+
+@media(max-width: 1024px) {
+    html{
+        font-size: 13px;
+    }
+}
+
+@media(max-width: 768px) {
+    html{
+        font-size: 13px;
+    }
+}
+
+@media(max-width: 480px) {
+    html{
+        font-size: 11.5px;
+    }
+}
