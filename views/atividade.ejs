@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta chartset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Icone da página -->
+    <link rel="sortcut icon" href="images/icone.png" type="image/x-icon" />
+    <title> Educatella </title> 
+    <!-- css externos -->
+    <link href="stylesheets/dist/bootstrap.css" rel="stylesheet">
+    <link href="stylesheets/dist/header.css" rel="stylesheet">
+    <link href="stylesheets/dist/atividade.css" rel="stylesheet">
+    <!-- links de fontes google (Baloo Da 2, Pangolin e Poppins)-->
+    <link href="https://fonts.googleapis.com/css?family=Baloo+Da+2|Pangolin|Poppins&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Header da Página -->
+    <%- include('./partials/header') %>
+
+    <main>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="offset-1 col-lg-5 col-md-5 col-sm-12 col-xs-12">
+                    <a href="/classe"> <p class="link-voltar">  < Minha Classe  </p> </a>
+                </div>
+                <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12 text-right">
+                    <p class="texto-detalhes"> 10/05 </p>
+                </div>
+            </div>
+            <div class="row mb-5">
+                <div class="col-12 text-center">
+                   <h2 class="titulo"> Pesquisa Sobre a Guerra Fria </h2>
+                </div>
+            </div>
+            <div class="row mb-5"> 
+                <div class="offset-lg-3 offset-md-3 col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                    <p class="body-text">  Faça uma pesquisa com foco na guerra fria respondendo os seguintes tópicos: </p>
+                    <p class="body-text">  1 - O que causou a guerra fria ? </p>
+                    <p class="body-text">  2 - Quais países participaram diretamente desse evento ? </p>
+                    <p class="body-text">  3 - Quais países participaram indiretamente desse evento ? </p>
+                    <p class="body-text">  4 - Quais avanços esse evento causou  ? </p>
+                    <p class="body-text">  5 - Como esse evento terminou  ? </p>
+                </div>
+            </div>
+
+            <div class="row mb-5 text-center">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
+                    <a href="classe" class="botao"> Enviar Atividade </a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Importando Jquery -->
+    <script type="text/javascript" src="/vendor/jquery.min.js"></script>
+    <!-- Importando Bootstrap JS -->
+    <script type="text/javascript" src="/vendor/bootstrap.bundle.min.js"></script>
+</body>

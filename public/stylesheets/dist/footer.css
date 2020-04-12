@@ -1,0 +1,82 @@
+/* Footer */
+
+/* Formatação do Texto Para o Footer */
+footer p {
+    text-align: justify;
+    font-size: 0.7rem;
+    font-family: sans-serif bold;
+    margin: 0px 0px 10px;
+}
+
+/* Títulos dos Footers (Sobre a Empresa, Links úteis, Contato) */
+
+.footer-titulo-f {
+    font-family: sans-serif bold;
+    color: rgb(96, 195, 171);
+}
+
+/* Links Para Contato e Dúvidas Frequentes */
+
+.footer-lista-s-item {
+    margin-left: 35%;
+}
+
+.footer-lista-s-item-a {
+    font-family: sans-serif bold;
+    font-size: 0.7rem;
+    color: black;
+    padding: 0px;
+/*margin-left: 60px;*/
+}
+
+.footer-lista-s-item-a:hover {
+    color: black;
+    text-decoration: none;
+}
+
+/* Linha Horizontal No Final do Rodapé */
+
+.body-linha-divisoria {
+    border: 0px;
+    border-top: 1px solid;
+}
+
+/* Copyrigth */
+
+.direitos-reservados {
+/*text-align: center;*/
+    font-size: 0.7rem;
+    font-family: sans-serif bold;
+}
+
+/* Links das Redes Sociais */
+
+.footer-lista-f-item {
+    display: inline;
+}
+
+/* Media Querys Para Responsividade */
+
+@media(max-width: 1680px) {
+    html{
+        font-size: 16px;
+    }
+}
+
+@media(max-width: 1024px) {
+    html{
+        font-size: 13px;
+    }
+}
+
+@media(max-width: 768px) {
+    html{
+        font-size: 13px;
+    }
+}
+
+@media(max-width: 480px) {
+    html{
+        font-size: 11.5px;
+    }
+}
