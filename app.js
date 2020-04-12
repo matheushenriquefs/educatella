@@ -8,7 +8,6 @@ const cors = require("cors");
 const db = require("./models");
 
 var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
 var AlunoRouter = require('./routes/AlunoRouter');
 
 var app = express();
@@ -26,11 +25,11 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use('/vendor', express.static(__dirname + '/node_modules/bootstrap/dist/css/'));
 app.use('/vendor', express.static(__dirname + '/node_modules/bootstrap/dist/js')); // redirect bootstrap JS
 app.use('/vendor', express.static(__dirname + '/node_modules/jquery/dist')); // redirect JS jQuery
 
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
 app.use('/', AlunoRouter);
 
 // catch 404 and forward to error handler
