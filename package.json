@@ -3,7 +3,6 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "browsersync": "npx browser-sync start --server --files *.ejs views/*.ejs public/stylesheets/src/*.scss public/javascripts/src/*.js",
     "browserify": "npx browserify public/javascripts/src/main.js -o public/javascripts/src/bundle.js",
     "css-build": "node-sass public/stylesheets/src/main.scss public/stylesheets/dist/main.css",
     "css-deploy": "npm run css-build && npm run css-postcss",
@@ -13,7 +12,7 @@
     "js-build": "babel public/javascripts/src --out-dir public/javascripts/dist",
     "js-watch": "npm run js-build -- --watch",
     "nodemon": "nodemon bin/www",
-    "start": "npm-run-all --parallel css-watch js-watch nodemon browsersync"
+    "start": "npm-run-all --parallel css-watch js-watch nodemon"
   },
   "dependencies": {
     "body-parser": "^1.19.0",
@@ -34,7 +33,6 @@
     "autoprefixer": "^9.7.4",
     "bootstrap": "^4.4.1",
     "browserify": "^16.5.1",
-    "browsersync": "0.0.1-security",
     "jquery": "^3.4.1",
     "node-sass": "^4.13.1",
     "npm-run-all": "^4.1.5",
