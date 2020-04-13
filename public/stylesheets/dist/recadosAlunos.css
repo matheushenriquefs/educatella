@@ -56,8 +56,10 @@
 
 .texto-detalhes{
     font-family: 'Poppins', sans-serif;
-    font-size:1.2rem;
-    color: grey;
+    font-size: 1.2rem;
+    color: white;
+    margin-bottom: 0rem;
+    text-align: center;
 }
 
 /* Imagem do professor da sala */
