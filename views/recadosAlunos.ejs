@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta chartset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Icone da página -->
+    <link rel="sortcut icon" href="images/icone.png" type="image/x-icon" />
+    <title> Educatella </title> 
+    <!-- css externos -->
+    <link href="stylesheets/dist/bootstrap.css" rel="stylesheet">
+    <link href="stylesheets/dist/header.css" rel="stylesheet">
+    <link href="stylesheets/dist/recadosAlunos.css" rel="stylesheet">
+    <!-- links de fontes google (Baloo Da 2, Pangolin e Poppins)-->
+    <link href="https://fonts.googleapis.com/css?family=Baloo+Da+2|Pangolin|Poppins&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Header da Página -->
+    <%- include('./partials/header') %>
+
+    <main>
+        <div class="container-fluid">
+            <div class="row">
+                <!-- Coluna Esquerda (Links e Professor) -->
+                <div class="col-3 sombra p-5 mb-5">
+                    <!-- Foto do Professor e Detalhes -->
+                    <div class="row">
+                        <div class="col-12 text-center">
+                            <img class="imagem-professor" src="images/professor.ico">
+                            <p class="texto"> Marco Antonio, Matemática </p>
+                        </div>
+                    </div>
+                    <!-- Links -->
+                    <div class="row">
+                        <div class="offset-3 col-9">
+                            <a href="/recadosAlunos" class="texto-link"> <img class="imagens-classe" src="images/recados.png">  Recados </a> <br> <br>
+                            <a href="/tarefasAlunos" class="texto-link"> <img class="imagens-classe" src="images/tarefas.png"> Tarefas </a> <br> <br>
+                            <a href="/notasAlunos" class="texto-link"> <img class="imagens-classe" src="images/notas.png"> Notas e Faltas </a> <br> <br>
+                            <a href="/salasAlunos" class="texto-link"> <img class="imagens-classe" src="images/salas.png"> Salas </a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Coluna Direita -->
+                <div class="offset-1 col-8 sombra p-5 mb-5">
+                    <div class="row mb-4">
+                        <div class="col-12 text-center">
+                            <p class="titulo-geral"> Recados de Marco Antonio para você </p>
+                        </div>
+                    </div>
+                    <!-- Linha de Aviso -->
+                    <div class="row mb-4">
+                        <div class="offset-1 col-10 shadow-sm">
+                            <div class="row">
+                                <div class="col-3 informacao">
+                                    <div class="row">
+                                        <!-- Data do Aviso -->
+                                        <div class="col-12 text-center">
+                                            <p class="texto-detalhes"> 10/04 </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="offset-1 col-8">
+                                    <div class="row">
+                                        <!-- Texto do Aviso -->
+                                        <div class="col-9">
+                                            <p class="titulo"> Novo Método de Ensino  </p>
+                                        </div>
+                                        <!-- Botão Leia Mais -->
+                                        <div class="col-3">
+                                            <a href="" class="texto-link"> Leia Mais  </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Linha de Aviso -->
+                    <div class="row mb-4">
+                        <div class="offset-1 col-10 shadow-sm">
+                            <div class="row">
+                                <div class="col-3 informacao">
+                                    <div class="row">
+                                        <!-- Data do Aviso -->
+                                        <div class="col-12 text-center">
+                                            <p class="texto-detalhes"> 11/04 </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="offset-1 col-8">
+                                    <div class="row">
+                                        <!-- Texto do Aviso -->
+                                        <div class="col-9">
+                                            <p class="titulo"> Sobre Nossas Provas  </p>
+                                        </div>
+                                        <!-- Botão Leia Mais -->
+                                        <div class="col-3">
+                                            <a href="" class="texto-link"> Leia Mais  </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Linha de Aviso -->
+                    <div class="row mb-4">
+                        <div class="offset-1 col-10 shadow-sm">
+                            <div class="row">
+                                <div class="col-3 informacao">
+                                    <div class="row">
+                                        <!-- Data do Aviso -->
+                                        <div class="col-12 text-center">
+                                            <p class="texto-detalhes"> 12/04 </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="offset-1 col-8">
+                                    <div class="row">
+                                        <!-- Texto do Aviso -->
+                                        <div class="col-9">
+                                            <p class="titulo"> Limite de Faltas  </p>
+                                        </div>
+                                        <!-- Botão Leia Mais -->
+                                        <div class="col-3">
+                                            <a href="" class="texto-link"> Leia Mais  </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Linha de Aviso -->
+                    <div class="row mb-4">
+                        <div class="offset-1 col-10 shadow-sm">
+                            <div class="row">
+                                <div class="col-3 informacao">
+                                    <div class="row">
+                                        <!-- Data do Aviso -->
+                                        <div class="col-12 text-center">
+                                            <p class="texto-detalhes"> 14/04 </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="offset-1 col-8">
+                                    <div class="row">
+                                        <!-- Texto do Aviso -->
+                                        <div class="col-9">
+                                            <p class="titulo"> Façam os Exercícios  </p>
+                                        </div>
+                                        <!-- Botão Leia Mais -->
+                                        <div class="col-3">
+                                            <a href="" class="texto-link"> Leia Mais  </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Importando Jquery -->
+    <script type="text/javascript" src="/vendor/jquery.min.js"></script>
+    <!-- Importando Bootstrap JS -->
+    <script type="text/javascript" src="/vendor/bootstrap.bundle.min.js"></script>
+</body>

@@ -6,7 +6,7 @@ var EadController = require('../controllers/EadController');
 /* GET home page - index */
 
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+  res.render('index');
 });
 
 

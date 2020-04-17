@@ -1,3 +1,5 @@
+//Exportando o controller
+
 module.exports = {
     profInicio: (req, res) => {
         res.render('professor/inicio');

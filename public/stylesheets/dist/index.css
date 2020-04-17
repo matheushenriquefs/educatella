@@ -8,11 +8,16 @@ html {
     scroll-behavior: smooth;
 }
 
+/* Logo */
+
+#logo{
+    width:1rem;
+}
 
 /* Header */
 
 .jumbotron {
-    background-color: black;
+    background-color: #F0F0F0;
     width: 100%;
     max-width: 100%;
     height: 682px;
@@ -42,7 +47,6 @@ nav ul li a:hover {
     color: black;
     border-radius: 15px;
 }
-
 
 /* Menu drop-down */
 
@@ -173,66 +177,9 @@ article {
 /* Segunda Section */
 
 .form {
-    background-color: rgba(211, 211, 211, 0.4);
+    background-color: white;
     border-radius: 15px;
     font-family: 'Poppins', sans-serif;
-}
-
-/* Footer */
-
-/* Formatação do Texto Para o Footer */
-footer p {
-    text-align: justify;
-    font-size: 0.7rem;
-    font-family: sans-serif bold;
-    margin: 0px 0px 10px;
-}
-
-/* Títulos dos Footers (Sobre a Empresa, Links úteis, Contato) */
-
-.footer-titulo-f {
-    font-family: sans-serif bold;
-    color: rgb(96, 195, 171);
-}
-
-/* Links Para Contato e Dúvidas Frequentes */
-
-.footer-lista-s-item {
-    margin-left: 35%;
-}
-
-.footer-lista-s-item-a {
-    font-family: sans-serif bold;
-    font-size: 0.7rem;
-    color: black;
-    padding: 0px;
-    /*margin-left: 60px;*/
-}
-
-.footer-lista-s-item-a:hover {
-    color: black;
-    text-decoration: none;
-}
-
-/* Linha Horizontal No Final do Rodapé */
-
-.body-linha-divisoria {
-    border: 0px;
-    border-top: 1px solid;
-}
-
-/* Copyrigth */
-
-.direitos-reservados {
-    /*text-align: center;*/
-    font-size: 0.7rem;
-    font-family: sans-serif bold;
-}
-
-/* Links das Redes Sociais */
-
-.footer-lista-f-item {
-    display: inline;
 }
 
 /* Botão Voltar Ao Topo */
