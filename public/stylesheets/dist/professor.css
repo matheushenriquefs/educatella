@@ -28,7 +28,7 @@ body{
 
 /*Espaçamento entre menu-top e main*/
 .first-section{
-    margin: 70px;
+    margin: 50px;
 }
 
 
@@ -36,10 +36,6 @@ body{
 
 
 /* Menu TOP */
-
-header{
-    margin-top: 30px;
-}
 
 nav ul li a {
     font-size: 1.1rem;
