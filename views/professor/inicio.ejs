@@ -1,0 +1,50 @@
+<!-- Header da Página -->
+<%- include('../partials/professor-head') %>
+
+
+    <main>
+
+        <!-- Section engolba nav-left + mural de recados-->
+        <section class="first-section">
+        
+            <div class="container">
+                <div class="row">
+                
+                    <!-- Nav left -->
+                    <%- include('../partials/professor-nav-left') %>   
+
+                    <!--Mural de recados-->
+                    <div class="col-9 shadow-sm p-3 mb-5 bg-white rounded mural-recados">
+
+                            <!--Título-->
+                            <h3><strong>Mural de recados</strong></h3>
+                            
+                            <!--Conteúdo-->
+                            <p class="covid-alert"><img src="/images/covid-icon.png" alt="icone covid19" 
+                                class="covid-icon">Informaçoes COVID-19: isolamento social até 05 de maio de 2020
+                            </p>
+                            <h6>Abril</h6>
+                            <p> 10/04 - sexta-feira santa - feriado </p>
+                            <p> 20/04 - semana de avaliações </p>
+                            <h6>Maio</h6>
+                            <p> 10/04 - sexta-feira santa - feriado </p>
+                            <p> 20/04 - semana de avaliações </p>
+                    </div>
+
+                </div>
+            </div>
+
+        </section>
+    </main>
+
+    <!-- Footer da Página -->
+    <%- include('../partials/footer') %>
+    </main>
+
+    <!-- Importando Jquery -->
+    <script type="text/javascript" src="/vendor/jquery.min.js"></script>
+    <!-- Importando Bootstrap JS -->
+    <script type="text/javascript" src="/vendor/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

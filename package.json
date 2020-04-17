@@ -14,6 +14,7 @@
     "start": "npm-run-all --parallel css-watch js-watch nodemon"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.13.0",
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
     "ejs": "~2.6.1",
