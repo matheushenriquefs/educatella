@@ -11,6 +11,7 @@ var indexRouter = require('./routes/index');
 var AlunoRouter = require('./routes/AlunoRouter');
 var cadastroRouter = require('./routes/CadastroRouter');
 var loginRouter = require('./routes/LoginRouter');
+var admRouter = require('./routes/AdmRouter');
 
 var app = express();
 
@@ -35,6 +36,7 @@ app.use('/', indexRouter);
 app.use('/', AlunoRouter);
 app.use('/cadastro', cadastroRouter);
 app.use('/', loginRouter);
+app.use('/', admRouter);
 
 // catch 404 and forward to error handler
 app.use((req, res) => {
