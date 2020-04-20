@@ -1,0 +1,393 @@
+<!-- Header da Página -->
+<%- include('../partials/professor-head') %>
+
+
+<main>
+
+  <!-- Section engolba nav-left + Cadastrar aluno -->
+  <section class="first-section">
+
+    <div class="container cadastrar-aluno">
+      <div class="row formulario-cadastrar-aluno">
+
+        <!-- Nav left -->
+        <%- include('../partials/professor-nav-left') %>
+
+        <!--Formulário cadastrar aluno -->
+        <div class="col-9 shadow-sm p-3 mb-5 bg-white rounded formulário-cadastrar-aluno">
+
+          <!--Scroll-->
+          <div style="height: 400px; overflow-y: scroll;">
+
+            <!--Título-->
+            <h3 class="form-cadastrar-aluno-titulo">Cadastrar aluno</h3>
+
+            <!-- Form Cadastrar aluno -->
+            <form id="form-cadastrar-aluno" method="GET" action="/professor/cadastrar-aluno">
+
+              <!--Div matéria, série e período selector-->
+              <div class="form-row justify-content-center">
+
+                <!--Matéria selector-->
+                <div class="form-group col-md-3">
+                  <label for="inputMateria"></label>
+                  <select id="inputMateria" class="form-control">
+                    <option selected>Matéria</option>
+                    <option>Maquiavel</option>
+                    <option>John Locke</option>
+                  </select>
+                </div>
+
+                <!--Série selector-->
+                <div class="form-group col-md-3">
+                  <label for="inputSerie"></label>
+                  <select id="inputSerie" class="form-control">
+                    <option selected>Série</option>
+                    <option>1 col A</option>
+                    <option>1 col B</option>
+                    <option>2 col A</option>
+                    <option>2 col B</option>
+                    <option>3 col A</option>
+                    <option>3 col B</option>
+                  </select>
+                </div>
+
+                <!--Periodo selector-->
+                <div class="form-group col-md-2">
+                  <label for="inputPeriodo"></label>
+                  <select id="inputPeriodo" class="form-control">
+                    <option selected>Periodo</option>
+                    <option>Manhã</option>
+                    <option>Tarde</option>
+                    <option>Noite</option>
+                  </select>
+                </div>
+
+              </div>
+
+              <!--Div Nome Aluno-->
+              <div class="form-row justify-content-center">
+                <div class="form-group col-md-8">
+                  <label for="nomeAluno"></label>
+                  <input type="text" class="form-control" id="nomeAluno" placeholder="Nome Completo" name="nomeAluno">
+                </div>
+              </div>
+
+              <!--Div email e código-->
+              <div class="form-row justify-content-center">
+
+                <!--Email-->
+                <div class="form-group col-md-6">
+                  <label for="emailAluno"></label>
+                  <input type="email" class="form-control" id="emailAluno" placeholder="E-mail" name="emailAluno">
+                </div>
+
+                <!--Código-->
+                <div class="form-group col-md-2">
+                  <label for="codAluno"></label>
+                  <input type="email" class="form-control" id="codAluno" placeholder="Código" name="codAluno">
+                </div>
+
+              </div>
+
+              <!--Div Nome Aluno-->
+              <div class="form-row justify-content-center">
+                <div class="form-group col-md-8">
+                  <label for="nomeAluno"></label>
+                  <input type="text" class="form-control" id="nomeAluno" placeholder="Nome Completo" name="nomeAluno">
+                </div>
+              </div>
+
+              <!--Div email e código-->
+              <div class="form-row justify-content-center">
+
+                <!--Email-->
+                <div class="form-group col-md-6">
+                  <label for="emailAluno"></label>
+                  <input type="email" class="form-control" id="emailAluno" placeholder="E-mail" name="emailAluno">
+                </div>
+
+                <!--Código-->
+                <div class="form-group col-md-2">
+                  <label for="codAluno"></label>
+                  <input type="email" class="form-control" id="codAluno" placeholder="Código" name="codAluno">
+                </div>
+
+              </div>
+
+              <!--Div Nome Aluno-->
+              <div class="form-row justify-content-center">
+                <div class="form-group col-md-8">
+                  <label for="nomeAluno"></label>
+                  <input type="text" class="form-control" id="nomeAluno" placeholder="Nome Completo" name="nomeAluno">
+                </div>
+              </div>
+
+              <!--Div email e código-->
+              <div class="form-row justify-content-center">
+
+                <!--Email-->
+                <div class="form-group col-md-6">
+                  <label for="emailAluno"></label>
+                  <input type="email" class="form-control" id="emailAluno" placeholder="E-mail" name="emailAluno">
+                </div>
+
+                <!--Código-->
+                <div class="form-group col-md-2">
+                  <label for="codAluno"></label>
+                  <input type="email" class="form-control" id="codAluno" placeholder="Código" name="codAluno">
+                </div>
+
+              </div>
+
+              <!--Div Senha e button-->
+              <div class="form-row">
+                <div class="form-group col-md-4">
+                  <label for="inputPasswordCadastrarAluno"></label>
+                  <input type="password" class="form-control" id="inputPasswordCadastrarAluno"
+                    placeholder="Digite sua senha" name="inputPasswordCadastrarAluno">
+                </div>
+                <button type="submit" class="btn-cadastrar-aluno">Enviar</button>
+              </div>
+
+            </form>
+
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+
+  </section>
+
+
+  <!--Section engloba gerenciador de alunos cadastrados-->
+  <section class="second-section">
+
+    <div class="container cadastrar-aluno">
+      <div class="row tabela-gerenciar-aluno">
+
+        <!--Div Tabela-->
+        <div class="col-12 shadow-sm p-3 mb-5 bg-white rounded formulário-gerenciar-aluno">
+
+          <!--Scroll-->
+          <div style="width: 100%; height: 400px; overflow-y: scroll;">
+
+            <!--Título-->
+            <h3 class="tabela-gerenciar-aluno-titulo">Gerenciar alunos</h3>
+
+
+            <div class="table-group col-12 gerenciar-aluno">
+              <table class="table gerenciar-aluno">
+
+                <!--Linha fixa -->
+                <thead>
+                  <tr>
+                    <th scope="col-1">#</th>
+                    <th scope="col-4">Nome</th>
+                    <th scope="col-1">Código</th>
+                    <th scope="col-1">Faltas</th>
+                    <th scope="col-1">Nota 1</th>
+                    <th scope="col-1">Nota 2</th>
+                    <th scope="col-1">Nota 3</th>
+                    <th scope="col-1">Nota 4</th>
+                    <th scope="col-1">Action</th>
+                  </tr>
+                </thead>
+
+                <!--Linhas aluno-->
+                </tbody>
+
+                <!--Linha 1-->
+                <tr>
+                  <th scope="row">1</th>
+                  <td>Duda Beat</td>
+                  <td>ESC-0000</td>
+                  <td>0</td>
+                  <td>A</td>
+                  <td>B</td>
+                  <td>C</td>
+                  <td>A</td>
+                  <td>
+                    <a href="#" class="btn-edit" data-toggle="modal" data-target="#editModalAluno">
+                      <i class="material-icons" data-toggle="tooltip" title="Edit"
+                        style="color: rgb(46, 45, 45);">&#xE8B8;</i>
+                    </a>
+                    <a href="#" class="delete" onclick="return confirm
+                            ('Deseja mesmo excluir este aluno?')">
+                      <i class="material-icons" data-toggle="tooltip" title="Delet" style="color: red;">&#xE5C9;</i>
+                    </a>
+                  </td>
+                </tr>
+
+                <!--Linha 2-->
+                <tr>
+                  <th scope="row">1</th>
+                  <td>Duda Beat</td>
+                  <td>ESC-0000</td>
+                  <td>0</td>
+                  <td>A</td>
+                  <td>B</td>
+                  <td>C</td>
+                  <td>A</td>
+                  <td>
+                    <a href="#" class="btn-edit" data-toggle="modal" data-target="#editModalAluno">
+                      <i class="material-icons" data-toggle="tooltip" title="Edit"
+                        style="color: rgb(46, 45, 45);">&#xE8B8;</i>
+                    </a>
+                    <a href="#" class="delete" onclick="return confirm
+                            ('Deseja mesmo excluir este aluno?')">
+                      <i class="material-icons" data-toggle="tooltip" title="Delet" style="color: red;">&#xE5C9;</i>
+                    </a>
+                  </td>
+                </tr>
+
+                <!--Linha 3-->
+                <tr>
+                  <th scope="row">1</th>
+                  <td>Duda Beat</td>
+                  <td>ESC-0000</td>
+                  <td>0</td>
+                  <td>A</td>
+                  <td>B</td>
+                  <td>C</td>
+                  <td>A</td>
+                  <td>
+                    <a href="#" class="btn-edit" data-toggle="modal" data-target="#editModalAluno">
+                      <i class="material-icons" data-toggle="tooltip" title="Edit"
+                        style="color: rgb(46, 45, 45);">&#xE8B8;</i>
+                    </a>
+                    <a href="#" class="delete" onclick="return confirm
+                            ('Deseja mesmo excluir este aluno?')">
+                      <i class="material-icons" data-toggle="tooltip" title="Delet" style="color: red;">&#xE5C9;</i>
+                    </a>
+                  </td>
+                </tr>
+
+                <!--Linha 3-->
+                <tr>
+                  <th scope="row">1</th>
+                  <td>Duda Beat</td>
+                  <td>ESC-0000</td>
+                  <td>0</td>
+                  <td>A</td>
+                  <td>B</td>
+                  <td>C</td>
+                  <td>A</td>
+                  <td>
+                    <a href="#" class="btn-edit" data-toggle="modal" data-target="#editModalAluno">
+                      <i class="material-icons" data-toggle="tooltip" title="Edit"
+                        style="color: rgb(46, 45, 45);">&#xE8B8;</i>
+                    </a>
+                    <a href="#" class="delete" onclick="return confirm
+                            ('Deseja mesmo excluir este aluno?')">
+                      <i class="material-icons" data-toggle="tooltip" title="Delet" style="color: red;">&#xE5C9;</i>
+                    </a>
+                  </td>
+                </tr>
+
+
+                </tbody>
+              </table>
+
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+
+  </section>
+
+
+  <!-- Footer da Página -->
+  <%- include('../partials/footer') %>
+</main>
+
+<!-- Modal editar sala de aula  -->
+<div id="editModalAluno" class="modal fade">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!--Form modal-->
+      <form method="GET" action="">
+
+        <!--Header - titulo-->
+        <div class="modal-header aluno">
+          <h4 class="modal-title">Editar informações</h4>
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        </div>
+
+        <!--Body-->
+        <div class="modal-body aluno">
+
+          <!--Nome-->
+          <div class="form-group">
+            <label for="modal-alunos"></label>
+            <input type="text" class="form-control" id="modal-alunos" placeholder="Nome" required name="modal-alunos">
+          </div>
+
+          <!--Código e faltas-->
+          <div class="form-group">
+            <div class="row">
+              <!--Código-->
+              <div class="form-group col-md-6">
+                <label for="modal-periodo"></label>
+                <input type="text" class="form-control" id="modal-periodo" placeholder="Código" required name="modal-periodo">
+              </div>
+              <!--Faltas-->
+              <div class="form-group col-md-6">
+                <label for="modal-falta"></label>
+                <input type="text" class="form-control" id="modal-periodo" placeholder="Faltas" required name="modal-falta">
+              </div>
+            </div>
+          </div>
+
+          <!--Notas-->
+          <div class="form-group">
+            <div class="row">
+              <!--Nota 1-->
+              <div class="form-group col-md-3">
+                <label for="modal-nota"></label>
+                <input type="text" class="form-control" id="modal-periodo" placeholder="Nota 1" required name="modal-nota1">
+              </div>
+              <!--Nota 2-->
+              <div class="form-group col-md-3">
+                <label for="modal-nota"></label>
+                <input type="text" class="form-control" id="modal-periodo" placeholder="Nota 2" required name="modal-nota2">
+              </div>
+              <!--Nota 3-->
+              <div class="form-group col-md-3">
+                <label for="modal-nota"></label>
+                <input type="text" class="form-control" id="modal-periodo" placeholder="Nota 3" required name="modal-nota3">
+              </div>
+              <!--Nota 4-->
+              <div class="form-group col-md-3">
+                <label for="modal-nota"></label>
+                <input type="text" class="form-control" id="modal-periodo" placeholder="Nota 4" required name="modal-nota4">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!--Footer-->
+        <div class="modal-footer aluno">
+          <input type="button" class="btn-modal-cancelar" data-dismiss="modal" value="Desistir" name="modal-cancelar">
+          <input type="submit" class="btn-modal-enviar" value="Alterar" name="modal-enviar">
+        </div>
+        
+      </form>
+    </div>
+  </div>
+</div>
+
+
+<!-- Importando Jquery -->
+<script type="text/javascript" src="/vendor/jquery.min.js"></script>
+<!-- Importando Bootstrap JS -->
+<script type="text/javascript" src="/vendor/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>

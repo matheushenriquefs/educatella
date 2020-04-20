@@ -1,0 +1,799 @@
+
+/* 'Poppins', sans-serif; - código font-family*/
+/* #ffae00; - código cor amarela*/
+/* rgb(96, 195, 171); - código cor verde*/
+/* rgb(241, 109, 110); - código cor rosa*/
+/* rgb(135, 206, 235); - código cor azul*/
+
+
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+/* Efeito de Transição na barra de rolagem */
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+body{
+    background-color: whitesmoke;
+}
+
+
+/*Espaçamento entre menu-top e main*/
+.first-section{
+    margin: 50px;
+}
+
+
+
+
+
+/* Menu TOP */
+
+nav ul li a {
+    font-size: 1.1rem;
+    font: sans-serif bold;
+    color: black;
+    width: 100px;
+    text-align: center;
+    font-weight: 300px;
+    padding: 40px;
+    white-space: nowrap;
+    font-family: 'Poppins', sans-serif;
+}
+
+nav ul li a:hover {
+    background-color: rgb(96, 195, 171);
+    color: black;
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+
+/* Menu TOP drop-down */
+
+.navbar-nav .dropdown-menu {
+    left: -45px;
+}
+
+#navDrop.dropdown-menu.show {
+    background-color:white;
+    border-radius: 15px;
+    text-align: center;
+    list-style: none;
+    padding: 0;
+    width: 100%;
+}
+
+#navDrop a {
+    font-size: 1.1rem;
+    font: sans-serif bold;
+    color: black;
+    padding: .5em 0;
+    background-color: whitesmoke;
+}
+
+#navDrop a:hover {
+    background-color: rgb(96, 195, 171);
+    color: black;
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+.navbar-toggler {
+    border: 1px solid lightgrey;
+}
+
+.navbar-toggler-icon {
+    border: 1px solid lightgrey;
+}
+
+
+
+
+
+/*Menu LEFT */
+
+/* Foto + nome + matéria professor */
+.foto-professor{
+    height: 55px;
+    border-radius: 50%!important;
+    margin: 10px;
+}
+
+.nome-professor{
+    font-family: 'Poppins', sans-serif;
+    font-size: 15px;
+}
+
+.materia-professor{
+    font-family: 'Poppins', sans-serif;
+    font-size: 12px;
+    margin-top: -15px;
+}
+
+
+/* Menu */
+
+#menu-left{
+    margin-left: -15px;
+    margin-bottom: 10px;
+}
+
+#menu-left .nav-link:hover{
+    background-color: rgb(96, 195, 171);
+    color: black;
+    width: 200px;
+    height: 50px;
+    cursor: pointer;
+}
+
+
+/* Menu LEFT drop-down */
+
+#menu-left .dropdown-menu{
+    border: none;
+}    
+
+#menu-left .dropdown-item{
+    font-family: 'Poppins', sans-serif;
+    color: black;
+}
+
+#menu-left .dropdown-item:hover{
+    background-color: rgb(96, 195, 171);
+    color: black;
+    cursor: pointer;
+}
+
+
+
+
+
+/* FOOTER */
+
+/* Formatação do Texto Para o Footer */
+footer p {
+    text-align: justify;
+    font-size: 0.7rem;
+    font-family: sans-serif bold;
+    margin: 0px 0px 10px;
+}
+
+
+/* Títulos dos Footers (Sobre a Empresa, Links úteis, Contato) */
+
+.footer-titulo-f {
+    font-family: sans-serif bold;
+    color: rgb(96, 195, 171);
+}
+
+
+/* Links Para Contato e Dúvidas Frequentes */
+
+.footer-lista-s-item {
+    margin-left: 35%;
+}
+
+.footer-lista-s-item-a {
+    font-family: sans-serif bold;
+    font-size: 0.7rem;
+    color: black;
+    padding: 0px;
+}
+
+.footer-lista-s-item-a:hover {
+    color: black;
+    text-decoration: none;
+}
+
+
+/* Linha Horizontal No Final do Rodapé */
+
+.body-linha-divisoria {
+    border: 0px;
+    border-top: 1px solid;
+}
+
+
+/* Copyrigth */
+
+.direitos-reservados {
+    font-size: 0.7rem;
+    font-family: sans-serif bold;
+}
+
+
+/* Links das Redes Sociais */
+
+.footer-lista-f-item {
+    display: inline;
+}
+
+
+/* Botão Voltar Ao Topo */
+
+#botaotop {
+    background: #4AE894;
+    bottom: 30px;
+    right: 30px;
+    color: #fff;
+    text-align: center;
+    cursor: pointer;
+    padding: 15px 20px 15px 20px;
+    position: fixed;
+    border: 0;
+    border-radius: 50%;
+}
+
+#botaotop:hover {
+    opacity: .5;
+    cursor: pointer;
+}
+
+/* Seta do Botão Voltar Ao Topo */
+
+.setaTopo{
+    font-weight: bold;
+    font-size:1.5rem;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+
+
+
+
+/* daqui para cima serve para todas as páginas e daqui para baixo para cada página em separado */
+
+
+
+
+
+/* Formulário estilo */
+.form-control{
+    display: block;
+    width: 100%;
+    height: calc(1.5em + 0.75rem + 2px);
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    font-family: 'Poppins', sans-serif;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    cursor: pointer;
+}
+
+
+
+
+
+/* Tela RECADOS */
+
+.mural-recados h3{
+    font-family: 'Poppins', sans-serif;
+    color: rgb(241, 109, 110);
+    text-align: center;
+    
+}
+
+.covid-alert{
+    color: red;
+    font-size: 16px;
+    padding-top: 20px;
+}
+
+.mural-recados h6{
+    font-family: 'Poppins', sans-serif;
+    color: rgb(241, 109, 110);
+    padding-top: 20px;
+}
+
+.mural-recados p {
+    font-family: 'Poppins', sans-serif;
+} 
+
+
+
+
+
+/* Tela POSTAR PRESENCA/FALTA */
+
+/* Titulo */
+.form-presenca-titulo{
+    font-family: 'Poppins', sans-serif;
+    color: #ffae00;
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* Classe e matéria */
+.form-group .col-md-4 .presenca{
+    margin-top: 20px;
+}
+
+/* Data */
+#presenca-label label{
+    font-family: 'Poppins', sans-serif;
+    font-size: 18px;
+    padding-right: 20px;
+    margin-top: 20px
+}
+
+#presenca {
+    border-radius: 6px;
+    border: 0.5px solid lightgray;
+    text-align: center;
+    height: calc(1.5em + 0.75rem + 2px);
+    color: #495057;
+    font-family: 'Poppins', sans-serif;
+    cursor: pointer;
+}
+
+
+/* Tabela */
+.table th, .table td{
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+}
+
+
+/* Senha */
+#inputPasswordPresenca {
+    display: block;
+    font-family: 'Poppins', sans-serif;
+    margin-left: 135px;
+    color: black;
+    margin-top: -40px;
+}
+
+.btn-enviar-presenca{
+    width: 60px;
+    height: 30px;
+    background-color: rgb(241, 109, 110);
+    border: none;
+    border-radius: 15px;
+    margin-top: -13px;
+    margin-left: 137px;
+    font-size: 16px;
+}
+
+.btn-enviar-presenca:hover{
+    cursor: pointer;
+    background-color: rgb(241, 109, 110, 0.8);
+}
+
+
+
+
+
+/* Tela POSTAR TAREFA */
+
+/* Título */
+.form-tarefa-titulo{
+    font-family: 'Poppins', sans-serif;
+    color: rgb(96, 195, 171);
+    text-align: center;
+    margin-top: 40px;
+}
+
+/* Botão carregar arquivo */
+.float-right {
+    float: right !important;
+    width: 65px;
+    height: 30px;
+    border-radius: 15px;
+    background-color: #3bc472;
+    border: none;
+    margin-right: 211px;
+    color: black;
+    margin-top: 5px;
+    font-size: 15px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.float-right:hover{
+    opacity: 0.8;
+}
+
+
+/* Mascarar type file */
+.file-field input[type="file"] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
+    filter: alpha(opacity=0);
+    opacity: 0;
+}
+
+
+/* Input carregue o arquivo aqui */
+.file-path-wrapper{
+    display: block;
+    width: 48%;
+    height: calc(1.5em + 0.75rem + 2px);
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    margin-top: 20px;
+    font-family: 'Poppins', sans-serif;
+}
+
+
+/* Esconder borda type text */
+.file-path-validate{
+    border: none;
+    width: 100%;
+}
+
+
+/* Div senha e botão enviar */
+
+/* Senha */
+#inputPasswordTarefa {
+    display: block;
+    margin-left: 135px;
+    color: #495057;
+}
+
+/*Botão enviar*/
+.btn-enviar-tarefa{
+    width: 65px;
+    height: 30px;
+    background-color: rgb(241, 109, 110);
+    border: none;
+    border-radius: 15px;
+    margin-top: 30px;
+    margin-left: 137px;
+    font-size: 16px;
+    font-family: 'Poppins', sans-serif;
+
+}
+
+.btn-enviar-tarefa:hover{
+    cursor: pointer;
+    opacity: 0.8;
+}
+
+
+
+
+
+/* Tela POSTAR NOTA */
+
+.form-notas-titulo{
+    font-family: 'Poppins', sans-serif;
+    color: rgb(135, 206, 235);
+    /* rgb(241, 109, 110); */
+    text-align: center;
+    margin-top: 15px;
+}
+
+#inputPasswordNota {
+    display: block;
+    font-family: 'Poppins', sans-serif;
+    margin-left: 135px;
+    color: black;
+    
+}
+
+.btn-enviar-nota{
+    width: 65px;
+    height: 30px;
+    background-color: rgb(241, 109, 110);
+    font-family: 'Poppins', sans-serif;
+    border: none;
+    border-radius: 15px;
+    margin-top: 30px;
+    margin-left: 137px;
+    font-size: 16px;
+}
+
+.btn-enviar-nota:hover{
+    opacity: 0.8;
+}
+
+
+
+
+
+/* Tela DIARIO DE CLASSE */
+
+
+
+
+
+/* Tela CRIAR SALA */
+
+/* primeira section - form */
+
+.form-criar-classe-titulo{
+    font-family: 'Poppins', sans-serif;
+    color: rgb(135, 206, 235);
+    text-align: center;
+    margin-top: 30px;
+}
+
+#inputPasswordCriarSala {
+    display: block;
+    font-family: 'Poppins', sans-serif;
+    margin-left: 135px;
+    color: black;
+    
+}
+
+.btn-criar-sala{
+    width: 65px;
+    height: 30px;
+    background-color: rgb(241, 109, 110);
+    font-family: 'Poppins', sans-serif;
+    border: none;
+    border-radius: 15px;
+    margin-top: 30px;
+    margin-left: 137px;
+    font-size: 16px;
+}
+
+.btn-criar-sala:hover{
+    opacity: 0.8;
+    cursor: pointer;
+}
+
+
+/* segunda section - cards */
+
+.container .gerenciar-sala{
+    margin-top: -45px;
+}
+
+.card-gereciar-sala-titulo{
+    font-family: 'Poppins', sans-serif;
+    color: rgb(135, 206, 235);
+    text-align: center;
+    margin-top: 30px;
+    height: 60px;
+}
+
+.card-title{
+    font-family: 'Poppins', sans-serif;
+    color: #3da4c4;
+}
+
+.card-text{
+    font-family: 'Poppins', sans-serif;
+}
+
+.btn-alterar{
+    font-family: 'Poppins', sans-serif;
+    background-color: #03c03c;
+    border: 0.5px solid #03c03c;
+    border-radius: 15px;
+    width: 70px;
+    height: 30px;
+    margin-right: 20px;
+}
+
+.btn-alterar:hover{
+    opacity: 0.8;
+}
+
+.btn-excluir{
+    font-family: 'Poppins', sans-serif;
+    background-color:  #ff261b;
+    border: 0.5px solid #ff261b;
+    border-radius: 15px;
+    width: 70px;
+    height: 30px;
+}
+
+.btn-excluir:hover{
+    opacity: 0.8;
+}
+
+
+/* Modal */
+
+.modal-title{
+    font-family: 'Poppins', sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+#modal-alunos, #modal-periodo, #modal-conteudo{
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+}
+
+.btn-modal-enviar{
+    font-family: 'Poppins', sans-serif;
+    background-color: #ff261b;
+    border: 0.5px solid #ff261b;
+    border-radius: 15px;
+    width: 80px;
+    height: 30px;
+}
+
+.btn-modal-enviar:hover{
+    opacity: 0.8;
+}
+
+.btn-modal-cancelar{
+    font-family: 'Poppins', sans-serif;
+    background-color:  #03c03c;
+    border: 0.5px solid #03c03c;
+    border-radius: 15px;
+    width: 80px;
+    height: 30px;
+}
+
+.btn-modal-cancelar:hover{
+    opacity: 0.8;
+}
+
+
+
+
+
+/* Tela CADASTRAR ALUNO */
+
+/* primeira section - form */
+
+.form-cadastrar-aluno-titulo{
+    font-family: 'Poppins', sans-serif;
+    color: #ffae00;
+    text-align: center;
+    margin-top: 30px;
+
+}
+
+#inputPasswordCadastrarAluno {
+    display: block;
+    font-family: 'Poppins', sans-serif;
+    margin-left: 135px;
+    color: black;
+    
+}
+
+.btn-cadastrar-aluno{
+    width: 65px;
+    height: 30px;
+    background-color: rgb(241, 109, 110);
+    font-family: 'Poppins', sans-serif;
+    border: none;
+    border-radius: 15px;
+    margin-top: 30px;
+    margin-left: 137px;
+    font-size: 16px;
+}
+
+.btn-cadastrar-aluno:hover{
+    opacity: 0.8;
+    cursor: pointer;
+}
+
+
+/* segunda section - tabela e modal */
+
+.second-section-cadastro{
+    margin-top: -45px;
+}
+
+
+/* Tabela */
+
+/* Título */
+.tabela-gerenciar-aluno-titulo{
+    font-family: 'Poppins', sans-serif;
+    color: #ffae00;
+    text-align: center;
+    margin-top: 40px;
+    padding-bottom: 35px;
+}
+
+/* Linha fixa da tabela */
+.table thead th{
+    font-family: 'Poppins', sans-serif;
+    color: rgb(254, 198, 86);
+    text-align: center;
+}
+
+/* Linhas editáveis da tabela */
+.table td{
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+}
+
+.material-icons:hover{
+    opacity: 0.8;  
+}
+
+
+/* Modal */
+
+/* Altura no modal */
+.modal .modal-dialog {
+    max-width: 400px;
+}
+
+/* Fixa padding para estilizar margens */
+.modal .modal-header, .modal .modal-body, .modal .modal-footer {
+    padding: 20px 30px;
+}
+
+.modal .modal-content {
+    border-radius: 3px;
+}
+
+/* Footer */
+.modal .modal-footer {
+    background: #ecf0f1;
+    border-radius: 0 0 3px 3px;
+}
+
+/* Título */
+.modal .modal-title {
+    display: inline-block;
+}
+
+/* Form caixas */
+.modal .form-control {
+    border-radius: 2px;
+    box-shadow: none;
+    border-color: #dddddd;
+}
+
+
+/* Text Area */
+.modal textarea.form-control {
+    resize: vertical;
+}
+
+/* Label */
+.modal form label {
+    font-weight: normal;
+}
+
+/* Btn enviar */
+.btn-modal-enviar-aluno{
+    font-family: 'Poppins', sans-serif;
+    background-color: #ff261b;
+    border: 0.5px solid #ff261b;
+    border-radius: 15px;
+    width: 80px;
+    height: 30px;
+}
+
+/* Btn cancelar */
+.btn-modal-cancelar-aluno{
+    font-family: 'Poppins', sans-serif;
+    background-color:  #03c03c;
+    border: 0.5px solid #03c03c;
+    border-radius: 15px;
+    width: 80px;
+    height: 30px;
+}
+

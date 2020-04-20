@@ -1,0 +1,56 @@
+<!--Div menu LEFT -->
+<div class="col-3 shadow-sm p-3 mb-5 bg-white rounded" id="menu-left-global">
+
+    <!--Foto e nome do professor-->
+    <div id="dados-prof">
+        <img src="/images/obama.jpg" alt="foto-professor" class="foto-professor">
+        <p class="nome-professor">Prof Barack Obama</p>
+        <p class="materia-professor">Política aplicada</p>
+    </div>
+
+    <!--Menu esquerda-->
+    <nav id="menu-left">
+
+        <ul class="nav flex-column">
+
+            <!-- Recados -->
+            <li class="nav-item">
+                <a class="nav-link" href="#inicio">
+                    <img src="/images/recados-icon.png" alt="icone recados" class="recados-icon">Recados
+                </a>
+            </li>
+
+            <!-- Dropdown: presença, tarefas, notas, diário de sala-->
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
+                    aria-expanded="false">
+                    <img src="/images/classes-icon.png" alt="icone classes" class="classes-icon">Salas
+                </a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="#postar-presenca">Postar presença</a>
+                    <a class="dropdown-item" href="#postar-tarefa">Postar tarefa</a>
+                    <a class="dropdown-item" href="#postar-nota">Postar nota</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#">Diário de sala</a>
+                </div>
+            </li>
+            <!-- Dropdown: criar sala e cadastrar aluno -->
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
+                    aria-expanded="false">
+                    <img src="/images/criar-icon.png" alt="icone criação" class="criar-icon">Criar
+                </a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="#criar-sala">Criar salas</a>
+                    <a class="dropdown-item" href="#cadastrar-aluno">Cadastrar alunos</a>
+            </li>
+            <!-- Sair -->
+            <li class="nav-item">
+                <a class="nav-link" href="../">
+                    <img src="/images/logout2-icon.png" alt="icone logout" class="logout-icon">Sair</a>
+            </li>
+        </ul>
+
+    </nav>
+
+</div>

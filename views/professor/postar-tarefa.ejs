@@ -1,0 +1,115 @@
+<!-- Header da Página -->
+<%- include('../partials/professor-head') %>
+
+
+<main>
+
+    <!-- Section engolba nav-left + form tarefa-->
+    <section class="first-section">
+
+        <div class="container">
+            <div class="row">
+
+                <!-- Nav left -->
+                <%- include('../partials/professor-nav-left') %>
+
+                <!--Formulário-->
+                <div class="col-9 shadow-sm p-3 mb-5 bg-white rounded formulário-tarefa">
+
+                    <!--Título-->
+                    <h3 class="form-tarefa-titulo">Postar tarefa</h3>
+
+
+                    <form method="" action="" id="">
+
+                        <!-- DIV Matéria, série e período -->
+                        <div class="form-row justify-content-center">
+
+                            <!-- Matéria -->
+                            <div class="form-group col-md-4 tarefa">
+                                <label for="inputMateria"></label>
+                                <select id="inputMateria" class="form-control">
+                                    <option selected>Matéria</option>
+                                    <option>Maquiavel</option>
+                                    <option>John Locke</option>
+                                </select>
+                            </div>
+
+                            <!-- Série -->
+                            <div class="form-group col-md-4 tarefa">
+                                <label for="inputSerie"></label>
+                                <select id="inputSerie" class="form-control">
+                                    <option selected>Série</option>
+                                    <option>1 col A</option>
+                                    <option>1 col B</option>
+                                    <option>2 col A</option>
+                                    <option>2 col B</option>
+                                    <option>3 col A</option>
+                                    <option>3 col B</option>
+                                </select>
+                            </div>
+
+                            <!-- Período 
+                                <div class="form-group col-md-2 tarefa">
+                                    <label for="inputPeriodo"></label>
+                                    <select id="inputPeriodo" class="form-control">
+                                        <option selected>Periodo</option>
+                                        <option>Manhã</option>
+                                        <option>Tarde</option>
+                                        <option>Tarde</option>
+                                    </select>
+                                </div>
+                                -->
+                        </div>
+
+                        <!--DIV Carregar tarefa-->
+                        <div class="form-row justify-content-center">
+                            <!-- Carregar tarefa -->
+                            <div class="form-group col-md-8 tarefa">
+                                <div class="file-field">
+                                    <div class="btn btn-sm float-right">
+                                        <span>Clique</span>
+                                        <input type="file" class="sumir">
+                                    </div>
+                                    <div class="file-path-wrapper">
+                                        <input class="file-path-validate" type="text"
+                                            placeholder="Carregue o arquivo aqui">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- DIV Senha e botão -->
+                        <div class="form-row input-senha">
+                            <div class="form-group col-md-4 tarefa">
+                                <label for="inputPasswordTarefa"></label>
+                                <input type="password" class="form-control" id="inputPasswordTarefa"
+                                    placeholder="Digite sua senha">
+                            </div>
+                            <button type="submit" class="btn-enviar-tarefa">Envie</button>
+                        </div>
+
+                    </form>
+
+                </div>
+
+            </div>
+        </div>
+
+    </section>
+
+
+
+    <!-- Footer da Página -->
+    <%- include('../partials/footer') %>
+</main>
+
+
+<!-- Importando Jquery -->
+<script type="text/javascript" src="/vendor/jquery.min.js"></script>
+<!-- Importando Bootstrap JS -->
+<script type="text/javascript" src="/vendor/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>
