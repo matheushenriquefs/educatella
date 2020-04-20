@@ -1,0 +1,37 @@
+/* Efeito de Transição na barra de rolagem */
+
+html {
+    scroll-behavior: smooth;
+    font-family: 'Poppins', sans-serif;
+}
+
+body{
+    background-color: #F0F0F0;
+}
+
+/* Títulos da Página */
+
+.titulo {
+    font-size: 2rem;
+    font-family: 'Poppins', sans-serif;
+    color: rgb(96, 195, 171);
+    margin-top: 1rem;
+}
+
+.sub-titulo {
+    font-size: 1rem;
+    font-family: 'Poppins', sans-serif;
+    margin-top: 1rem;
+}
+
+
+/* Botões das Sections (Textos e Formulário de Cadastro)*/
+
+.botao {
+    color: white;
+    font-size: 1.1rem;
+    border-radius: 15px;
+    padding: 10px 20px 10px 20px;
+    background-color: #4AE894;
+    font-family: 'Baloo Da 2', cursive;
+}

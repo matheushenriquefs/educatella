@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+    <head>
+        <meta chartset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <!-- Icone da página -->
+        <link rel="sortcut icon" href="images/icone.png" type="image/x-icon" />
+        <title> Educatella </title> 
+        <!-- css externos -->
+        <link href="stylesheets/dist/bootstrap.css" rel="stylesheet">
+        <link href="stylesheets/dist/header.css" rel="stylesheet">
+        <link href="stylesheets/dist/salaAdm.css" rel="stylesheet">
+        <!-- links de fontes google (Baloo Da 2, Pangolin e Poppins)-->
+        <link href="https://fonts.googleapis.com/css?family=Baloo+Da+2|Pangolin|Poppins&display=swap" rel="stylesheet">
+    </head>
+
+    <body>
+        <!-- Header da Página -->
+        <%- include('./partials/header') %>
+        <main>
+            <div class="container-fluid">
+                <div class="row mb-5">
+                    <!-- Recepção do aluno -->
+                    <div class="offset-1 col-11">
+                    <h2 class="titulo"> Lista de classes: </h2>
+                    </div>
+                </div>
+                <div class="row mb-5">
+
+                    <div class="offset-1 col">
+
+                        <button type="button" class="btn text-white bg-custom-green" data-toggle="modal" data-target="#modal-adicionar-classe">
+                            Adicionar Classe
+                        </button>
+
+                    </div>
+
+                    <div class="col-9">
+
+                        <!-- Botão para pesquisar classes -->
+                        <form action="" method="GET" class="form-inline my-2 my-lg-0">
+                            <input class="form-control mr-sm-2" type="search" aria-label="Search">
+                            <button class="btn border-success my-2 my-sm-0" type="submit">Pesquisar</button>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+            <!-- Coluna de professores -->
+            <div class="container-fluid">
+                <div class="row p-3 mb-5">
+                    <!-- Foto e descrição do professor e botão para acessar a sala -->
+                    <div class="offset-1 col-3 text-center">
+                        <img class="imagem-professor" src="images/professor.ico">
+                        <p class="texto"> Marco Antonio, Matemática </p>
+                        <button class="botao-pequeno-excluir bg-danger mb-4"> Remover </button>
+                    </div>
+                    <!-- Foto e descrição do professor e botão para acessar a sala -->
+                    <div class="offset-1 col-3 text-center">
+                        <img class="imagem-professor" src="images/professor.ico">
+                        <p class="texto"> Paulo Rogério, Química </p>
+                        <button class="botao-pequeno-excluir bg-danger mb-4"> Remover </button>
+                    </div>
+                    <!-- Foto e descrição do professor e botão para acessar a sala -->
+                    <div class="offset-1 col-3 text-center">
+                        <img class="imagem-professor" src="images/professor.ico">
+                        <p class="texto"> Virgínia Souza, Geografia </p>
+                        <button class="botao-pequeno-excluir bg-danger mb-4"> Remover </button>
+                    </div>
+                </div>
+                <div class="row p-3 mb-5">
+                    <!-- Foto e descrição do professor e botão para acessar a sala -->
+                    <div class="offset-1 col-3 text-center">
+                        <img class="imagem-professor" src="images/professor.ico">
+                        <p class="texto"> Talita Souza, Programação </p>
+                        <button class="botao-pequeno-excluir bg-danger mb-4"> Remover </button>
+                    </div>
+                    <!-- Foto e descrição do professor e botão para acessar a sala -->
+                    <div class="offset-1 col-3 text-center">
+                        <img class="imagem-professor" src="images/professor.ico">
+                        <p class="texto"> Fábio Queiroz, Redação </p>
+                        <button class="botao-pequeno-excluir bg-danger mb-4"> Remover </button>
+                    </div>
+                    <!-- Foto e descrição do professor e botão para acessar a sala -->
+                    <div class="offset-1 col-3 text-center">
+                        <img class="imagem-professor" src="images/professor.ico">
+                        <p class="texto"> Ana Paula, Lógica </p>
+                        <button class="botao-pequeno-excluir bg-danger mb-4"> Remover </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container-fluid">
+                <div class="row mb-5">
+                    <!-- Recepção do aluno -->
+                    <div class="offset-1 col-11">
+                    <h2 class="titulo"> Lista de alunos: </h2>
+                    </div>
+                </div>
+                <div class="row mb-5">
+
+                    <div class="offset-1 col-11">
+
+                        <!-- Botão para pesquisar classes -->
+                        <form action="" method="GET" class="form-inline my-2 my-lg-0">
+                            <input class="form-control mr-sm-2" type="search" aria-label="Search">
+                            <button class="btn border-success my-2 my-sm-0" type="submit">Pesquisar</button>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- Coluna de alunos -->
+            <div class="container-fluid">
+                <div class="row p-3 mb-5">
+                    <!-- Foto e descrição do aluno-->
+                    <div class="offset-1 col-3 text-center">
+                        <img class="imagem-aluno" src="images/avatar.png">
+                        <p class="texto"> Marco Antonio </p>
+                        <p class="texto"> Notas: </p>
+                        <p class="texto"> Matemática: 7 </p>
+                        <p class="texto"> Português: 8 </p>
+                        <p class="texto"> História: 5 </p>
+                        <p class="texto"> Faltas: </p>
+                        <p class="texto"> Matemática: 2 </p>
+                        <p class="texto"> Português: 0 </p>
+                        <p class="texto"> História: 5 </p>
+                        <button class="botao-pequeno-transferir d-block bg-warning" style="margin-bottom: 1rem !important;"> Transferir de sala </button>
+                        <button class="botao-pequeno-excluir d-block bg-danger mb-4"> Remover </button>
+                    </div>
+                    <!-- Foto e descrição do aluno-->
+                    <div class="offset-1 col-3 text-center">
+                        <img class="imagem-aluno" src="images/avatar.png">
+                        <p class="texto"> Paulo Rogério </p>
+                        <p class="texto"> Notas: </p>
+                        <p class="texto"> Matemática: 7 </p>
+                        <p class="texto"> Português: 8 </p>
+                        <p class="texto"> História: 5 </p>
+                        <p class="texto"> Faltas: </p>
+                        <p class="texto"> Matemática: 2 </p>
+                        <p class="texto"> Português: 0 </p>
+                        <p class="texto"> História: 5 </p>
+                        <button class="botao-pequeno-transferir d-block bg-warning" style="margin-bottom: 1rem !important;"> Transferir de sala </button>
+                        <button class="botao-pequeno-excluir d-block bg-danger mb-4"> Remover </button>
+                    </div>
+                    <!-- Foto e descrição do aluno-->
+                    <div class="offset-1 col-3 text-center">
+                        <img class="imagem-aluno" src="images/avatar.png">
+                        <p class="texto"> Ana Souza </p>
+                        <p class="texto"> Notas: </p>
+                        <p class="texto"> Matemática: 7 </p>
+                        <p class="texto"> Português: 8 </p>
+                        <p class="texto"> História: 5 </p>
+                        <p class="texto"> Faltas: </p>
+                        <p class="texto"> Matemática: 2 </p>
+                        <p class="texto"> Português: 0 </p>
+                        <p class="texto"> História: 5 </p>
+                        <button class="botao-pequeno-transferir d-block bg-warning" style="margin-bottom: 1rem !important;"> Transferir de sala </button>
+                        <button class="botao-pequeno-excluir d-block bg-danger mb-4"> Remover </button>
+                    </div>
+                </div>
+                <div class="row p-3 mb-5">
+                    <!-- Foto e descrição do aluno-->
+                    <div class="offset-1 col-3 text-center">
+                        <img class="imagem-aluno" src="images/avatar.png">
+                        <p class="texto"> Talita Santos </p>
+                        <p class="texto"> Notas: </p>
+                        <p class="texto"> Matemática: 7 </p>
+                        <p class="texto"> Português: 8 </p>
+                        <p class="texto"> História: 5 </p>
+                        <p class="texto"> Faltas: </p>
+                        <p class="texto"> Matemática: 2 </p>
+                        <p class="texto"> Português: 0 </p>
+                        <p class="texto"> História: 5 </p>
+                        <button class="botao-pequeno-transferir d-block bg-warning" style="margin-bottom: 1rem !important;"> Transferir de sala </button>
+                        <button class="botao-pequeno-excluir d-block bg-danger mb-4"> Remover </button>
+                    </div>
+                    <!-- Foto e descrição do aluno-->
+                    <div class="offset-1 col-3 text-center">
+                        <img class="imagem-aluno" src="images/avatar.png">
+                        <p class="texto"> Fabio Queiroz </p>
+                        <p class="texto"> Notas: </p>
+                        <p class="texto"> Matemática: 7 </p>
+                        <p class="texto"> Português: 8 </p>
+                        <p class="texto"> História: 5 </p>
+                        <p class="texto"> Faltas: </p>
+                        <p class="texto"> Matemática: 2 </p>
+                        <p class="texto"> Português: 0 </p>
+                        <p class="texto"> História: 5 </p>
+                        <button class="botao-pequeno-transferir d-block bg-warning" style="margin-bottom: 1rem !important;"> Transferir de sala </button>
+                        <button class="botao-pequeno-excluir d-block bg-danger mb-4"> Remover </button>
+                    </div>
+                    <!-- Foto e descrição do aluno-->
+                    <!-- Foto e descrição do aluno-->
+                    <div class="offset-1 col-3 text-center">
+                        <img class="imagem-aluno" src="images/avatar.png">
+                        <p class="texto"> Ana Paula </p>
+                        <p class="texto"> Notas: </p>
+                        <p class="texto"> Matemática: 7 </p>
+                        <p class="texto"> Português: 8 </p>
+                        <p class="texto"> História: 5 </p>
+                        <p class="texto"> Faltas: </p>
+                        <p class="texto"> Matemática: 2 </p>
+                        <p class="texto"> Português: 0 </p>
+                        <p class="texto"> História: 5 </p>
+                        <button class="botao-pequeno-transferir d-block bg-warning" style="margin-bottom: 1rem !important;"> Transferir de sala </button>
+                        <button class="botao-pequeno-excluir d-block bg-danger mb-4"> Remover </button>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+
+        <section>
+
+            <!-- Modal Adicionar Classe -->
+            <div class="modal fade" id="modal-adicionar-classe" tabindex="-1" role="dialog" aria-labelledby="modal-adicionar-classe-titulo" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="modal-adicionar-classe-titulo">Adicionar classe:</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+
+                        <div class="modal-body">
+                            
+                            <div class="row justify-content-center">
+    
+                                <div class="col-lg-8">
+                
+                                    
+                                    <form action="" method="POST">
+                
+                                        <div class="form-group row mb-0">
+                        
+                                            <label for="grade" class="col-sm-2 col-form-label">Série:</label>
+                        
+                                            <div class="col-md-12">
+                        
+                                            <input type="name" class="form-control" id="grade" name="grade">
+                        
+                                            </div>
+                        
+                                        </div>
+                
+                                        <div class="form-group row mb-0">
+                        
+                                            <label for="year" class="col-sm-2 col-form-label">Ano:</label>
+                            
+                                            <div class="col-md-12">
+                            
+                                                <input type="year" class="form-control" id="year" name="year">
+                            
+                                            </div>
+                        
+                                        </div>
+                        
+                                        <div class="form-group row">
+                        
+                                            <label for="number-of-students" class="col-sm-2 col-form-label">Qntd Alunos:</label>
+                            
+                                            <div class="col-md-12">
+                            
+                                                <input type="number-of-students" class="form-control" id="number-of-students" name="number-of-students">
+                            
+                                            </div>
+                        
+                                        </div>
+                        
+                                    </form>
+                
+                                </div>
+                
+                            </div>            
+
+                        </div>
+
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-danger" data-dismiss="modal">Fechar</button>
+                            <button type="button" class="btn btn-success">Adicionar</button>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+    </body>
+    <!-- Importando Jquery -->
+    <script type="text/javascript" src="/vendor/jquery.min.js"></script>
+    <!-- Importando Bootstrap JS -->
+    <script type="text/javascript" src="/vendor/bootstrap.bundle.min.js"></script>
+
+</html>

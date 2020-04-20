@@ -3,28 +3,40 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+const bodyParser = require("body-parser");
+const cors = require("cors");
+const db = require("./models");
 
 var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
 var AlunoRouter = require('./routes/AlunoRouter');
+var cadastroRouter = require('./routes/CadastroRouter');
+var loginRouter = require('./routes/LoginRouter');
+var admRouter = require('./routes/AdmRouter');
 
 var app = express();
+
+//Sincronizando modelos com o banco de dados
+db.sequelize.sync();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
+app.use(cors());
 app.use(logger('dev'));
-app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: false}));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use('/vendor', express.static(__dirname + '/node_modules/bootstrap/dist/css/'));
 app.use('/vendor', express.static(__dirname + '/node_modules/bootstrap/dist/js')); // redirect bootstrap JS
 app.use('/vendor', express.static(__dirname + '/node_modules/jquery/dist')); // redirect JS jQuery
 
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
 app.use('/', AlunoRouter);
+app.use('/cadastro', cadastroRouter);
+app.use('/', loginRouter);
+app.use('/', admRouter);
 
 // catch 404 and forward to error handler
 app.use((req, res) => {

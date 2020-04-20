@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+    <head>
+        <meta chartset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <!-- Icone da página -->
+        <link rel="sortcut icon" href="images/icone.png" type="image/x-icon" />
+        <title> Educatella </title> 
+        <!-- css externos -->
+        <link href="stylesheets/dist/bootstrap.css" rel="stylesheet">
+        <link href="stylesheets/dist/header.css" rel="stylesheet">
+        <link href="stylesheets/dist/salaAdm.css" rel="stylesheet">
+        <!-- links de fontes google (Baloo Da 2, Pangolin e Poppins)-->
+        <link href="https://fonts.googleapis.com/css?family=Baloo+Da+2|Pangolin|Poppins&display=swap" rel="stylesheet">
+    </head>
+
+    <body>
+        <!-- Header da Página -->
+        <%- include('./partials/header') %>
+        <main>
+            <div class="container-fluid">
+                <div class="row mb-5">
+                    <!-- Recepção do aluno -->
+                    <div class="offset-1 col-11">
+                    <h2 class="titulo"> Lista de professores: </h2>
+                    </div>
+                </div>
+                <div class="row mb-5">
+                    <div class="offset-1 col-11">
+
+                        <!-- Botão para pesquisar classes -->
+                        <form action="" method="GET" class="form-inline my-2 my-lg-0">
+                            <input class="form-control mr-sm-2" type="search" aria-label="Search">
+                            <button class="btn border-success my-2 my-sm-0" type="submit">Pesquisar</button>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+            <!-- Coluna de professores -->
+            <div class="container-fluid">
+                <div class="row p-3 mb-5">
+                    <!-- Foto e descrição do professor e botão para acessar a sala -->
+                    <div class="offset-1 col-3 text-center">
+                        <img class="imagem-professor" src="images/professor.ico">
+                        <p class="texto"> Marco Antonio, Matemática </p>
+                        <button class="botao-pequeno-excluir bg-danger mb-4"> Remover </button>
+                    </div>
+                    <!-- Foto e descrição do professor e botão para acessar a sala -->
+                    <div class="offset-1 col-3 text-center">
+                        <img class="imagem-professor" src="images/professor.ico">
+                        <p class="texto"> Paulo Rogério, Química </p>
+                        <button class="botao-pequeno-excluir bg-danger mb-4"> Remover </button>
+                    </div>
+                    <!-- Foto e descrição do professor e botão para acessar a sala -->
+                    <div class="offset-1 col-3 text-center">
+                        <img class="imagem-professor" src="images/professor.ico">
+                        <p class="texto"> Virgínia Souza, Geografia </p>
+                        <button class="botao-pequeno-excluir bg-danger mb-4"> Remover </button>
+                    </div>
+                </div>
+                <div class="row p-3 mb-5">
+                    <!-- Foto e descrição do professor e botão para acessar a sala -->
+                    <div class="offset-1 col-3 text-center">
+                        <img class="imagem-professor" src="images/professor.ico">
+                        <p class="texto"> Talita Souza, Programação </p>
+                        <button class="botao-pequeno-excluir bg-danger mb-4"> Remover </button>
+                    </div>
+                    <!-- Foto e descrição do professor e botão para acessar a sala -->
+                    <div class="offset-1 col-3 text-center">
+                        <img class="imagem-professor" src="images/professor.ico">
+                        <p class="texto"> Fábio Queiroz, Redação </p>
+                        <button class="botao-pequeno-excluir bg-danger mb-4"> Remover </button>
+                    </div>
+                    <!-- Foto e descrição do professor e botão para acessar a sala -->
+                    <div class="offset-1 col-3 text-center">
+                        <img class="imagem-professor" src="images/professor.ico">
+                        <p class="texto"> Ana Paula, Lógica </p>
+                        <button class="botao-pequeno-excluir bg-danger mb-4"> Remover </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container-fluid">
+                <div class="row mb-5">
+                    <!-- Recepção do aluno -->
+                    <div class="offset-1 col-11">
+                    <h2 class="titulo"> Lista de alunos: </h2>
+                    </div>
+                </div>
+                <div class="row mb-5">
+                    <div class="offset-1 col-11">
+
+                        <!-- Botão para pesquisar classes -->
+                        <form action="" method="GET" class="form-inline my-2 my-lg-0">
+                            <input class="form-control mr-sm-2" type="search" aria-label="Search">
+                            <button class="btn border-success my-2 my-sm-0" type="submit">Pesquisar</button>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- Coluna de alunos -->
+            <div class="container-fluid">
+                <div class="row p-3 mb-5">
+                    <!-- Foto e descrição do aluno-->
+                    <div class="offset-1 col-3 text-center">
+                        <img class="imagem-aluno" src="images/avatar.png">
+                        <p class="texto"> Marco Antonio </p>
+                        <p class="texto"> Notas: </p>
+                        <p class="texto"> Matemática: 7 </p>
+                        <p class="texto"> Português: 8 </p>
+                        <p class="texto"> História: 5 </p>
+                        <p class="texto"> Faltas: </p>
+                        <p class="texto"> Matemática: 2 </p>
+                        <p class="texto"> Português: 0 </p>
+                        <p class="texto"> História: 5 </p>
+                        <button class="botao-pequeno-transferir d-block bg-warning" style="margin-bottom: 1rem !important;"> Transferir de sala </button>
+                        <button class="botao-pequeno-excluir d-block bg-danger mb-4"> Remover </button>
+                    </div>
+                    <!-- Foto e descrição do aluno-->
+                    <div class="offset-1 col-3 text-center">
+                        <img class="imagem-aluno" src="images/avatar.png">
+                        <p class="texto"> Paulo Rogério </p>
+                        <p class="texto"> Notas: </p>
+                        <p class="texto"> Matemática: 7 </p>
+                        <p class="texto"> Português: 8 </p>
+                        <p class="texto"> História: 5 </p>
+                        <p class="texto"> Faltas: </p>
+                        <p class="texto"> Matemática: 2 </p>
+                        <p class="texto"> Português: 0 </p>
+                        <p class="texto"> História: 5 </p>
+                        <button class="botao-pequeno-transferir d-block bg-warning" style="margin-bottom: 1rem !important;"> Transferir de sala </button>
+                        <button class="botao-pequeno-excluir d-block bg-danger mb-4"> Remover </button>
+                    </div>
+                    <!-- Foto e descrição do aluno-->
+                    <div class="offset-1 col-3 text-center">
+                        <img class="imagem-aluno" src="images/avatar.png">
+                        <p class="texto"> Ana Souza </p>
+                        <p class="texto"> Notas: </p>
+                        <p class="texto"> Matemática: 7 </p>
+                        <p class="texto"> Português: 8 </p>
+                        <p class="texto"> História: 5 </p>
+                        <p class="texto"> Faltas: </p>
+                        <p class="texto"> Matemática: 2 </p>
+                        <p class="texto"> Português: 0 </p>
+                        <p class="texto"> História: 5 </p>
+                        <button class="botao-pequeno-transferir d-block bg-warning" style="margin-bottom: 1rem !important;"> Transferir de sala </button>
+                        <button class="botao-pequeno-excluir d-block bg-danger mb-4"> Remover </button>
+                    </div>
+                </div>
+                <div class="row p-3 mb-5">
+                    <!-- Foto e descrição do aluno-->
+                    <div class="offset-1 col-3 text-center">
+                        <img class="imagem-aluno" src="images/avatar.png">
+                        <p class="texto"> Talita Santos </p>
+                        <p class="texto"> Notas: </p>
+                        <p class="texto"> Matemática: 7 </p>
+                        <p class="texto"> Português: 8 </p>
+                        <p class="texto"> História: 5 </p>
+                        <p class="texto"> Faltas: </p>
+                        <p class="texto"> Matemática: 2 </p>
+                        <p class="texto"> Português: 0 </p>
+                        <p class="texto"> História: 5 </p>
+                        <button class="botao-pequeno-transferir d-block bg-warning" style="margin-bottom: 1rem !important;"> Transferir de sala </button>
+                        <button class="botao-pequeno-excluir d-block bg-danger mb-4"> Remover </button>
+                    </div>
+                    <!-- Foto e descrição do aluno-->
+                    <div class="offset-1 col-3 text-center">
+                        <img class="imagem-aluno" src="images/avatar.png">
+                        <p class="texto"> Fabio Queiroz </p>
+                        <p class="texto"> Notas: </p>
+                        <p class="texto"> Matemática: 7 </p>
+                        <p class="texto"> Português: 8 </p>
+                        <p class="texto"> História: 5 </p>
+                        <p class="texto"> Faltas: </p>
+                        <p class="texto"> Matemática: 2 </p>
+                        <p class="texto"> Português: 0 </p>
+                        <p class="texto"> História: 5 </p>
+                        <button class="botao-pequeno-transferir d-block bg-warning" style="margin-bottom: 1rem !important;"> Transferir de sala </button>
+                        <button class="botao-pequeno-excluir d-block bg-danger mb-4"> Remover </button>
+                    </div>
+                    <!-- Foto e descrição do aluno-->
+                    <!-- Foto e descrição do aluno-->
+                    <div class="offset-1 col-3 text-center">
+                        <img class="imagem-aluno" src="images/avatar.png">
+                        <p class="texto"> Ana Paula </p>
+                        <p class="texto"> Notas: </p>
+                        <p class="texto"> Matemática: 7 </p>
+                        <p class="texto"> Português: 8 </p>
+                        <p class="texto"> História: 5 </p>
+                        <p class="texto"> Faltas: </p>
+                        <p class="texto"> Matemática: 2 </p>
+                        <p class="texto"> Português: 0 </p>
+                        <p class="texto"> História: 5 </p>
+                        <button class="botao-pequeno-transferir d-block bg-warning" style="margin-bottom: 1rem !important;"> Transferir de sala </button>
+                        <button class="botao-pequeno-excluir d-block bg-danger mb-4"> Remover </button>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+    </body>
+    <!-- Importando Jquery -->
+    <script type="text/javascript" src="/vendor/jquery.min.js"></script>
+    <!-- Importando Bootstrap JS -->
+    <script type="text/javascript" src="/vendor/bootstrap.bundle.min.js"></script>
+
+</html>
