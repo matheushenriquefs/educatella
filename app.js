@@ -9,6 +9,8 @@ const db = require("./models");
 
 var indexRouter = require('./routes/index');
 var AlunoRouter = require('./routes/AlunoRouter');
+var cadastroRouter = require('./routes/CadastroRouter');
+var loginRouter = require('./routes/LoginRouter');
 
 var app = express();
 
@@ -31,6 +33,8 @@ app.use('/vendor', express.static(__dirname + '/node_modules/jquery/dist')); // 
 
 app.use('/', indexRouter);
 app.use('/', AlunoRouter);
+app.use('/cadastro', cadastroRouter);
+app.use('/', loginRouter);
 
 // catch 404 and forward to error handler
 app.use((req, res) => {
