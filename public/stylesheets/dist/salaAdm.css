@@ -1,0 +1,138 @@
+* {
+    padding:0;
+    margin:0;
+}
+
+.bg-custom-green{   
+    background-color: #4AE894;;
+}
+
+/* Título da Página */
+
+.titulo {
+    font-family: 'Poppins', sans-serif;
+    font-size:1.8rem;
+    color: #4AE894;
+}
+
+/* Botão Pesquisar Salas */
+
+.botao {
+    color: white;
+    font-size: 1.1rem;
+    border-radius: 15px;
+    padding: 10px 20px 10px 20px;
+    background-color: #4AE894;
+    font-family: 'Baloo Da 2', cursive;
+}
+
+.botao:hover {
+    background-color: rgb(96, 195, 171);
+    text-decoration: none;
+    color: white;
+}
+
+/* Botão Acessar Salas */
+
+.botao-pequeno{
+
+    color: white;
+    font-size: 1rem;
+    border-radius: 15px;
+    padding: 10px 15px 10pxpx 15px;
+    background-color: #4AE894;
+    font-family: 'Baloo Da 2', cursive;
+}
+
+.botao-pequeno-excluir{
+    border: none;
+    color: white;
+    font-size: 1rem;
+    border-radius: 15px;
+    font-family: 'Baloo Da 2', cursive;
+    width: 5rem;
+    height: 2rem;
+    border-bottom: 0 !important;
+    margin: 0 auto !important;
+}
+
+.botao-pequeno-transferir{
+    border: none;
+    color: white;
+    font-size: 1rem;
+    border-radius: 15px;
+    font-family: 'Baloo Da 2', cursive;
+    width: 8rem;
+    height: 2rem;
+    border-bottom: 0 !important;
+    margin: 0 auto !important;
+}
+
+.botao-pequeno:hover{
+    background-color: rgb(96, 195, 171);
+    text-decoration: none;
+    color: white;
+}
+
+.border-success {
+    border-color: #4AE894 !important;
+    color: #4AE894;
+}
+
+.border-success:hover{
+    border-color: #4AE894 !important;
+    background-color: #4AE894 !important;
+    color: white;
+}
+
+/* Nome do Professor */
+
+.texto{
+    font-family: 'Poppins', sans-serif;
+    font-size:1rem;
+    color: grey;
+}
+
+
+/* Sombra das Divs */
+
+.sombra{
+    box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.3);
+}
+
+/* Imagem do professor da sala */
+
+.imagem-professor{
+    width:5rem;
+}
+
+/* Imagem do aluno*/
+.imagem-aluno{
+    width:5rem;
+}
+
+/* Media Querys Para Responsividade */
+
+@media(max-width: 1680px) {
+    html{
+        font-size: 16px;
+    }
+}
+
+@media(max-width: 1024px) {
+    html{
+        font-size: 13px;
+    }
+}
+
+@media(max-width: 768px) {
+    html{
+        font-size: 13px;
+    }
+}
+
+@media(max-width: 480px) {
+    html{
+        font-size: 11.5px;
+    }
+}
