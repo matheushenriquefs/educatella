@@ -9,38 +9,21 @@
     <link rel="sortcut icon" href="images/icone.png" type="image/x-icon" />
     <title> Educatella </title> 
     <!-- css externos -->
-    <link href="stylesheets/dist/bootstrap.css" rel="stylesheet">
-    <link href="stylesheets/dist/header.css" rel="stylesheet">
-    <link href="stylesheets/dist/notasAlunos.css" rel="stylesheet">
+    <link href="/stylesheets/dist/bootstrap.css" rel="stylesheet">
+    <link href="/stylesheets/dist/header.css" rel="stylesheet">
+    <link href="/stylesheets/dist/notasAlunos.css" rel="stylesheet">
     <!-- links de fontes google (Baloo Da 2, Pangolin e Poppins)-->
     <link href="https://fonts.googleapis.com/css?family=Baloo+Da+2|Pangolin|Poppins&display=swap" rel="stylesheet">
 </head>
 
 <body>
     <!-- Header da Página -->
-    <%- include('./partials/header') %>
+    <%- include('../partials/header') %>
     <main>
         <div class="container-fluid">
             <div class="row">
                 <!-- Coluna Esquerda (Links e Professor) -->
-                <div class="col-3 sombra p-5 mb-5">
-                    <!-- Foto do Professor e Detalhes -->
-                    <div class="row">
-                        <div class="col-12 text-center">
-                            <img class="imagem-professor" src="images/professor.ico">
-                            <p class="texto"> Marco Antonio, Matemática </p>
-                        </div>
-                    </div>
-                    <!-- Links -->
-                    <div class="row">
-                        <div class="offset-3 col-9">
-                            <a href="/recadosAlunos" class="texto-link"> <img class="imagens-classe" src="images/recados.png">  Recados </a> <br> <br>
-                            <a href="/tarefasAlunos" class="texto-link"> <img class="imagens-classe" src="images/tarefas.png"> Tarefas </a> <br> <br>
-                            <a href="/notasAlunos" class="texto-link"> <img class="imagens-classe" src="images/notas.png"> Notas e Faltas </a> <br> <br>
-                            <a href="/salasAlunos" class="texto-link"> <img class="imagens-classe" src="images/salas.png"> Salas </a>
-                        </div>
-                    </div>
-                </div>
+                <%- include('../partials/aluno-left') %>
                 <!-- Coluna Direita -->
                 <div class="offset-1 col-8 sombra p-5 mb-5">
                     <div class="row mb-4">

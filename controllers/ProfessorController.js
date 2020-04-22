@@ -5,6 +5,10 @@ module.exports = {
         res.render('professor/inicio');
     },
 
+    profRecados: (req, res) => {
+        res.render('professor/recados');
+    },
+
     profNotas: (req, res) => {
         res.render('professor/postar-nota');
     },
@@ -21,7 +25,7 @@ module.exports = {
         res.render('professor/criar-sala');
     },
 
-    profCadastrarAluno: (req, res) => {
-        res.render('professor/cadastrar-aluno');
+    profGerenciarAluno: (req, res) => {
+        res.render('professor/gerenciar-aluno');
     }
 }

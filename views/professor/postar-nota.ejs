@@ -1,5 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta chartset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- css externos -->
+    <link href="/stylesheets/dist/bootstrap.css" rel="stylesheet">
+    <link href="/stylesheets/dist/header.css" rel="stylesheet">
+    <link href="/stylesheets/dist/professor.css" rel="stylesheet" >
+    <!-- links de fontes google (Baloo Da 2, Pangolin e Poppins)-->
+    <link href="https://fonts.googleapis.com/css?family=Baloo+Da+2|Pangolin|Poppins&display=swap" rel="stylesheet">
+    <!--link meterial icons + fontawesome-->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="/node_modules/@fortawesome/fontawesome-free/css/all.css">
+</head>
+
+<body>
+
 <!-- Header da Página -->
-<%- include('../partials/professor-head') %>
+<%- include('../partials/header') %>
 
 
 <main>
@@ -7,47 +27,19 @@
     <!-- Section engolba nav-left + form postar nota-->
     <section class="first-section">
 
-        <div class="container">
+        <div class="container-fluid">
             <div class="row">
 
                 <!-- Nav left -->
-                <%- include('../partials/professor-nav-left') %>
+                <%- include('../partials/professor-left') %>
 
                 <!--Formulário-->
-                <div class="col-9 shadow-sm p-3 mb-5 bg-white rounded formulário-notas">
+                <div class="offset-1 col-8 sombra p-5 mb-5 bg-white rounded formulário-notas">
 
                     <!--Título-->
                     <h3 class="form-notas-titulo">Cadastro de notas</h3>
 
                     <form id="cadastrar-nota" method="POST" action="/professor/postar-nota">
-
-                        <!--DIV engloba - serie e matéria-->
-                        <div class="form-row justify-content-center">
-
-                            <!--DIV serie selector-->
-                            <div class="form-group col-md-4">
-                                <label for="inputSerie"></label>
-                                <select id="inputSerie" class="form-control">
-                                    <option selected>Série</option>
-                                    <option>1 col A</option>
-                                    <option>1 col B</option>
-                                    <option>2 col A</option>
-                                    <option>2 col B</option>
-                                    <option>3 col A</option>
-                                    <option>3 col B</option>
-                                </select>
-                            </div>
-
-                            <!--DIV materia selector-->
-                            <div class="form-group col-md-4">
-                                <label for="inputMateria"></label>
-                                <select id="inputMateria" class="form-control">
-                                    <option selected>Matéria</option>
-                                    <option>Maquiavel</option>
-                                    <option>John Locke</option>
-                                </select>
-                            </div>
-                        </div>
 
                         <!--DIV engloba - aluno e nota-->
                         <div class="form-row justify-content-center">
@@ -79,7 +71,7 @@
                         </div>
 
                         <!--DIV Senha e button enviar-->
-                        <div <div class="form-row">
+                        <div class="form-row">
                             <div class="form-group col-md-4">
                                 <label for="inputPassword"></label>
                                 <input type="password" class="form-control" id="inputPasswordNota"
@@ -95,10 +87,6 @@
         </div>
 
     </section>
-</main>
-
-<!-- Footer da Página -->
-<%- include('../partials/footer') %>
 </main>
 
 <!-- Importando Jquery -->

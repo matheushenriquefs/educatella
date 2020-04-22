@@ -1,50 +1,71 @@
-<!-- Header da Página -->
-<%- include('../partials/professor-head') %>
+<!DOCTYPE html>
+<html lang="pt-br">
 
+<head>
+    <meta chartset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Icone da página -->
+    <link rel="sortcut icon" href="/images/icone.png" type="image/x-icon" />
+    <title> Educatella </title> 
+    <!-- css externos -->
+    <link href="/stylesheets/dist/bootstrap.css" rel="stylesheet">
+    <link href="/stylesheets/dist/header.css" rel="stylesheet">
+    <link href="/stylesheets/dist/salasAlunos.css" rel="stylesheet">
+    <!-- links de fontes google (Baloo Da 2, Pangolin e Poppins)-->
+    <link href="https://fonts.googleapis.com/css?family=Baloo+Da+2|Pangolin|Poppins&display=swap" rel="stylesheet">
+</head>
 
+<body>
+    <!-- Header da Página -->
+    <%- include('../partials/header') %>
     <main>
-
-        <!-- Section engolba nav-left + mural de recados-->
-        <section class="first-section">
-        
-            <div class="container">
-                <div class="row">
-                
-                    <!-- Nav left -->
-                    <%- include('../partials/professor-nav-left') %>   
-
-                    <!--Mural de recados-->
-                    <div class="col-9 shadow-sm p-3 mb-5 bg-white rounded mural-recados">
-
-                            <!--Título-->
-                            <h3><strong>Mural de recados</strong></h3>
-                            
-                            <!--Conteúdo-->
-                            <p class="covid-alert"><img src="/images/covid-icon.png" alt="icone covid19" 
-                                class="covid-icon">Informaçoes COVID-19: isolamento social até 05 de maio de 2020
-                            </p>
-                            <h6>Abril</h6>
-                            <p> 10/04 - sexta-feira santa - feriado </p>
-                            <p> 20/04 - semana de avaliações </p>
-                            <h6>Maio</h6>
-                            <p> 10/04 - sexta-feira santa - feriado </p>
-                            <p> 20/04 - semana de avaliações </p>
-                    </div>
-
+        <div class="container-fluid">
+            <div class="row mb-5">
+                <!-- Recepção do aluno -->
+                <div class="offset-1 col-11">
+                   <h2 class="titulo"> Olá Professor! Essas são suas classes: </h2>
                 </div>
             </div>
-
-        </section>
+            <div class="row mb-5">
+                <!-- Botão para pesquisar classes -->
+                <div class="offset-1">
+                    <a href="" class="botao"> Pesquisar Classe </a>
+                </div>
+                <div class="ml-3">
+                    <a href="" class="botao"> Criar uma Classe </a>
+                </div>
+            </div>
+        </div>
+        <!-- Coluna de professores -->
+        <div class="container-fluid">
+            <div class="row p-3 mb-5">
+                <!-- Foto e descrição do professor e botão para acessar a sala -->
+                <div class="offset-1 col-3 text-center">
+                    <img class="imagem-professor" src="/images/professor.ico">
+                    <p class="texto"> Matemática </p>
+                    <p class="texto"> ASDB-0905 </p>
+                    <a href="/professor/recados" class="botao-pequeno mb-4"> Acessar Sala </a>
+                </div>
+                <!-- Foto e descrição do professor e botão para acessar a sala -->
+                <div class="offset-1 col-3 text-center">
+                    <img class="imagem-professor" src="/images/professor.ico">
+                    <p class="texto"> Javascript </p>
+                    <p class="texto"> ASDB-0906 </p>
+                    <a href="/professor/recados" class="botao-pequeno"> Acessar Sala </a>
+                </div>
+                <!-- Foto e descrição do professor e botão para acessar a sala -->
+                <div class="offset-1 col-3 text-center">
+                    <img class="imagem-professor" src="/images/professor.ico">
+                    <p class="texto"> HTML </p>
+                    <p class="texto"> ASDB-0907 </p>
+                    <a href="/professor/recados" class="botao-pequeno"> Acessar Sala </a>
+                </div>
+            </div>
+        </div>
     </main>
-
-    <!-- Footer da Página -->
-    <%- include('../partials/footer') %>
-    </main>
-
     <!-- Importando Jquery -->
     <script type="text/javascript" src="/vendor/jquery.min.js"></script>
     <!-- Importando Bootstrap JS -->
     <script type="text/javascript" src="/vendor/bootstrap.bundle.min.js"></script>
-
 </body>
-</html>

@@ -21,83 +21,54 @@ html {
 }
 
 
-body{
-    background-color: whitesmoke;
+/* Imagem do professor da sala */
+
+.imagem-professor{
+    width:5rem;
 }
 
+/* Imagem dos icones dos links */
 
-/*Espaçamento entre menu-top e main*/
-.first-section{
-    margin: 50px;
+.imagens-classe{
+    width:1.5rem;
 }
 
+/* Nome do Professor */
 
-
-
-
-/* Menu TOP */
-
-nav ul li a {
-    font-size: 1.1rem;
-    font: sans-serif bold;
-    color: black;
-    width: 100px;
-    text-align: center;
-    font-weight: 300px;
-    padding: 40px;
-    white-space: nowrap;
+.texto{
     font-family: 'Poppins', sans-serif;
+    font-size:1rem;
+    color: grey;
 }
 
-nav ul li a:hover {
-    background-color: rgb(96, 195, 171);
-    color: black;
-    border-radius: 15px;
-    cursor: pointer;
+/* Links da Página */
+
+.texto-link{
+    font-family: 'Poppins', sans-serif;
+    font-size:1rem;
+    color: grey;
 }
 
-
-/* Menu TOP drop-down */
-
-.navbar-nav .dropdown-menu {
-    left: -45px;
+.texto-link:hover{
+    text-decoration: none;
+    color:#4AE894;
 }
 
-#navDrop.dropdown-menu.show {
-    background-color:white;
-    border-radius: 15px;
+/* Sombra das Divs */
+
+.sombra{
+    box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.3);
+}
+
+/* Data dos recados, Textos Pequenos */
+
+.texto-detalhes{
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.2rem;
+    color: white;
+    margin-bottom: 0rem;
     text-align: center;
-    list-style: none;
-    padding: 0;
-    width: 100%;
 }
-
-#navDrop a {
-    font-size: 1.1rem;
-    font: sans-serif bold;
-    color: black;
-    padding: .5em 0;
-    background-color: whitesmoke;
-}
-
-#navDrop a:hover {
-    background-color: rgb(96, 195, 171);
-    color: black;
-    border-radius: 15px;
-    cursor: pointer;
-}
-
-.navbar-toggler {
-    border: 1px solid lightgrey;
-}
-
-.navbar-toggler-icon {
-    border: 1px solid lightgrey;
-}
-
-
-
-
 
 /*Menu LEFT */
 
@@ -119,7 +90,6 @@ nav ul li a:hover {
     margin-top: -15px;
 }
 
-
 /* Menu */
 
 #menu-left{
@@ -128,13 +98,9 @@ nav ul li a:hover {
 }
 
 #menu-left .nav-link:hover{
-    background-color: rgb(96, 195, 171);
-    color: black;
-    width: 200px;
-    height: 50px;
+    color: rgb(96, 195, 171);
     cursor: pointer;
 }
-
 
 /* Menu LEFT drop-down */
 
@@ -152,9 +118,6 @@ nav ul li a:hover {
     color: black;
     cursor: pointer;
 }
-
-
-
 
 
 /* FOOTER */

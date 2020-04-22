@@ -1,5 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta chartset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- css externos -->
+    <link href="/stylesheets/dist/bootstrap.css" rel="stylesheet">
+    <link href="/stylesheets/dist/header.css" rel="stylesheet">
+    <link href="/stylesheets/dist/professor.css" rel="stylesheet" >
+    <!-- links de fontes google (Baloo Da 2, Pangolin e Poppins)-->
+    <link href="https://fonts.googleapis.com/css?family=Baloo+Da+2|Pangolin|Poppins&display=swap" rel="stylesheet">
+    <!--link meterial icons + fontawesome-->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="/node_modules/@fortawesome/fontawesome-free/css/all.css">
+</head>
+
+<body>
+
 <!-- Header da Página -->
-<%- include('../partials/professor-head') %>
+<%- include('../partials/header') %>
 
 
 <main>
@@ -7,59 +27,31 @@
     <!-- Section engolba nav-left + form tarefa-->
     <section class="first-section">
 
-        <div class="container">
+        <div class="container-fluid">
             <div class="row">
 
                 <!-- Nav left -->
-                <%- include('../partials/professor-nav-left') %>
+                <%- include('../partials/professor-left') %>
 
                 <!--Formulário-->
-                <div class="col-9 shadow-sm p-3 mb-5 bg-white rounded formulário-tarefa">
+                <div class="offset-1 col-8 sombra p-5 mb-5 bg-white rounded formulário-tarefa">
 
                     <!--Título-->
-                    <h3 class="form-tarefa-titulo">Postar tarefa</h3>
+                    <h3 class="mb-5 form-tarefa-titulo">Postar tarefa</h3>
 
 
                     <form method="" action="" id="">
 
                         <!-- DIV Matéria, série e período -->
-                        <div class="form-row justify-content-center">
+                        <div class="form-row">
 
                             <!-- Matéria -->
-                            <div class="form-group col-md-4 tarefa">
-                                <label for="inputMateria"></label>
-                                <select id="inputMateria" class="form-control">
-                                    <option selected>Matéria</option>
-                                    <option>Maquiavel</option>
-                                    <option>John Locke</option>
-                                </select>
-                            </div>
+                            <div class="form-group col-10 text-center">
 
-                            <!-- Série -->
-                            <div class="form-group col-md-4 tarefa">
-                                <label for="inputSerie"></label>
-                                <select id="inputSerie" class="form-control">
-                                    <option selected>Série</option>
-                                    <option>1 col A</option>
-                                    <option>1 col B</option>
-                                    <option>2 col A</option>
-                                    <option>2 col B</option>
-                                    <option>3 col A</option>
-                                    <option>3 col B</option>
-                                </select>
-                            </div>
+                                <textarea id="descricao" rows="4" cols="50"></textarea>
 
-                            <!-- Período 
-                                <div class="form-group col-md-2 tarefa">
-                                    <label for="inputPeriodo"></label>
-                                    <select id="inputPeriodo" class="form-control">
-                                        <option selected>Periodo</option>
-                                        <option>Manhã</option>
-                                        <option>Tarde</option>
-                                        <option>Tarde</option>
-                                    </select>
-                                </div>
-                                -->
+                            </div>
+                            
                         </div>
 
                         <!--DIV Carregar tarefa-->
@@ -97,11 +89,6 @@
         </div>
 
     </section>
-
-
-
-    <!-- Footer da Página -->
-    <%- include('../partials/footer') %>
 </main>
 
 

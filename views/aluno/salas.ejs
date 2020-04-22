@@ -6,19 +6,19 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Icone da página -->
-    <link rel="sortcut icon" href="images/icone.png" type="image/x-icon" />
+    <link rel="sortcut icon" href="/images/icone.png" type="image/x-icon" />
     <title> Educatella </title> 
     <!-- css externos -->
-    <link href="stylesheets/dist/bootstrap.css" rel="stylesheet">
-    <link href="stylesheets/dist/header.css" rel="stylesheet">
-    <link href="stylesheets/dist/salasAlunos.css" rel="stylesheet">
+    <link href="/stylesheets/dist/bootstrap.css" rel="stylesheet">
+    <link href="/stylesheets/dist/header.css" rel="stylesheet">
+    <link href="/stylesheets/dist/salasAlunos.css" rel="stylesheet">
     <!-- links de fontes google (Baloo Da 2, Pangolin e Poppins)-->
     <link href="https://fonts.googleapis.com/css?family=Baloo+Da+2|Pangolin|Poppins&display=swap" rel="stylesheet">
 </head>
 
 <body>
     <!-- Header da Página -->
-    <%- include('./partials/header') %>
+    <%- include('../partials/header') %>
     <main>
         <div class="container-fluid">
             <div class="row mb-5">
@@ -29,8 +29,11 @@
             </div>
             <div class="row mb-5">
                 <!-- Botão para pesquisar classes -->
-                <div class="offset-1 col-10">
+                <div class="offset-1">
                     <a href="" class="botao"> Pesquisar Classe </a>
+                </div>
+                <div class="ml-3">
+                    <a href="" class="botao"> Entrar em uma Classe </a>
                 </div>
             </div>
         </div>
@@ -39,41 +42,41 @@
             <div class="row p-3 mb-5">
                 <!-- Foto e descrição do professor e botão para acessar a sala -->
                 <div class="offset-1 col-3 text-center">
-                    <img class="imagem-professor" src="images/professor.ico">
+                    <img class="imagem-professor" src="/images/professor.ico">
                     <p class="texto"> Marco Antonio, Matemática </p>
-                    <a href="/recadosAlunos" class="botao-pequeno mb-4"> Acessar Sala </a>
+                    <a href="/aluno/recados" class="botao-pequeno mb-4"> Acessar Sala </a>
                 </div>
                 <!-- Foto e descrição do professor e botão para acessar a sala -->
                 <div class="offset-1 col-3 text-center">
-                    <img class="imagem-professor" src="images/professor.ico">
+                    <img class="imagem-professor" src="/images/professor.ico">
                     <p class="texto"> Paulo Rogério, Química </p>
-                    <a href="/recadosAlunos" class="botao-pequeno"> Acessar Sala </a>
+                    <a href="/aluno/recados" class="botao-pequeno"> Acessar Sala </a>
                 </div>
                 <!-- Foto e descrição do professor e botão para acessar a sala -->
                 <div class="offset-1 col-3 text-center">
-                    <img class="imagem-professor" src="images/professor.ico">
+                    <img class="imagem-professor" src="/images/professor.ico">
                     <p class="texto"> Virgínia Souza, Geografia </p>
-                    <a href="/recadosAlunos" class="botao-pequeno"> Acessar Sala </a>
+                    <a href="/aluno/recados" class="botao-pequeno"> Acessar Sala </a>
                 </div>
             </div>
             <div class="row p-3 mb-5">
                 <!-- Foto e descrição do professor e botão para acessar a sala -->
                 <div class="offset-1 col-3 text-center">
-                    <img class="imagem-professor" src="images/professor.ico">
+                    <img class="imagem-professor" src="/images/professor.ico">
                     <p class="texto"> Talita Souza, Programação </p>
-                    <a href="/recadosAlunos" class="botao-pequeno"> Acessar Sala </a>
+                    <a href="/aluno/recados" class="botao-pequeno"> Acessar Sala </a>
                 </div>
                 <!-- Foto e descrição do professor e botão para acessar a sala -->
                 <div class="offset-1 col-3 text-center">
-                    <img class="imagem-professor" src="images/professor.ico">
+                    <img class="imagem-professor" src="/images/professor.ico">
                     <p class="texto"> Fábio Queiroz, Redação </p>
-                    <a href="/recadosAlunos" class="botao-pequeno"> Acessar Sala </a>
+                    <a href="/aluno/recados" class="botao-pequeno"> Acessar Sala </a>
                 </div>
                 <!-- Foto e descrição do professor e botão para acessar a sala -->
                 <div class="offset-1 col-3 text-center">
-                    <img class="imagem-professor" src="images/professor.ico">
+                    <img class="imagem-professor" src="/images/professor.ico">
                     <p class="texto"> Ana Paula, Lógica </p>
-                    <a href="/recadosAlunos" class="botao-pequeno"> Acessar Sala </a>
+                    <a href="/aluno/recados" class="botao-pequeno"> Acessar Sala </a>
                 </div>
             </div>
         </div>

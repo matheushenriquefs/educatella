@@ -1,178 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta chartset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- css externos -->
+    <link href="/stylesheets/dist/bootstrap.css" rel="stylesheet">
+    <link href="/stylesheets/dist/header.css" rel="stylesheet">
+    <link href="/stylesheets/dist/professor.css" rel="stylesheet" >
+    <!-- links de fontes google (Baloo Da 2, Pangolin e Poppins)-->
+    <link href="https://fonts.googleapis.com/css?family=Baloo+Da+2|Pangolin|Poppins&display=swap" rel="stylesheet">
+    <!--link meterial icons + fontawesome-->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="/node_modules/@fortawesome/fontawesome-free/css/all.css">
+</head>
+
+<body>
+
 <!-- Header da Página -->
-<%- include('../partials/professor-head') %>
+<%- include('../partials/header') %>
 
 
 <main>
-
-  <!-- Section engolba nav-left + Cadastrar aluno -->
-  <section class="first-section">
-
-    <div class="container cadastrar-aluno">
-      <div class="row formulario-cadastrar-aluno">
-
-        <!-- Nav left -->
-        <%- include('../partials/professor-nav-left') %>
-
-        <!--Formulário cadastrar aluno -->
-        <div class="col-9 shadow-sm p-3 mb-5 bg-white rounded formulário-cadastrar-aluno">
-
-          <!--Scroll-->
-          <div style="height: 400px; overflow-y: scroll;">
-
-            <!--Título-->
-            <h3 class="form-cadastrar-aluno-titulo">Cadastrar aluno</h3>
-
-            <!-- Form Cadastrar aluno -->
-            <form id="form-cadastrar-aluno" method="GET" action="/professor/cadastrar-aluno">
-
-              <!--Div matéria, série e período selector-->
-              <div class="form-row justify-content-center">
-
-                <!--Matéria selector-->
-                <div class="form-group col-md-3">
-                  <label for="inputMateria"></label>
-                  <select id="inputMateria" class="form-control">
-                    <option selected>Matéria</option>
-                    <option>Maquiavel</option>
-                    <option>John Locke</option>
-                  </select>
-                </div>
-
-                <!--Série selector-->
-                <div class="form-group col-md-3">
-                  <label for="inputSerie"></label>
-                  <select id="inputSerie" class="form-control">
-                    <option selected>Série</option>
-                    <option>1 col A</option>
-                    <option>1 col B</option>
-                    <option>2 col A</option>
-                    <option>2 col B</option>
-                    <option>3 col A</option>
-                    <option>3 col B</option>
-                  </select>
-                </div>
-
-                <!--Periodo selector-->
-                <div class="form-group col-md-2">
-                  <label for="inputPeriodo"></label>
-                  <select id="inputPeriodo" class="form-control">
-                    <option selected>Periodo</option>
-                    <option>Manhã</option>
-                    <option>Tarde</option>
-                    <option>Noite</option>
-                  </select>
-                </div>
-
-              </div>
-
-              <!--Div Nome Aluno-->
-              <div class="form-row justify-content-center">
-                <div class="form-group col-md-8">
-                  <label for="nomeAluno"></label>
-                  <input type="text" class="form-control" id="nomeAluno" placeholder="Nome Completo" name="nomeAluno">
-                </div>
-              </div>
-
-              <!--Div email e código-->
-              <div class="form-row justify-content-center">
-
-                <!--Email-->
-                <div class="form-group col-md-6">
-                  <label for="emailAluno"></label>
-                  <input type="email" class="form-control" id="emailAluno" placeholder="E-mail" name="emailAluno">
-                </div>
-
-                <!--Código-->
-                <div class="form-group col-md-2">
-                  <label for="codAluno"></label>
-                  <input type="email" class="form-control" id="codAluno" placeholder="Código" name="codAluno">
-                </div>
-
-              </div>
-
-              <!--Div Nome Aluno-->
-              <div class="form-row justify-content-center">
-                <div class="form-group col-md-8">
-                  <label for="nomeAluno"></label>
-                  <input type="text" class="form-control" id="nomeAluno" placeholder="Nome Completo" name="nomeAluno">
-                </div>
-              </div>
-
-              <!--Div email e código-->
-              <div class="form-row justify-content-center">
-
-                <!--Email-->
-                <div class="form-group col-md-6">
-                  <label for="emailAluno"></label>
-                  <input type="email" class="form-control" id="emailAluno" placeholder="E-mail" name="emailAluno">
-                </div>
-
-                <!--Código-->
-                <div class="form-group col-md-2">
-                  <label for="codAluno"></label>
-                  <input type="email" class="form-control" id="codAluno" placeholder="Código" name="codAluno">
-                </div>
-
-              </div>
-
-              <!--Div Nome Aluno-->
-              <div class="form-row justify-content-center">
-                <div class="form-group col-md-8">
-                  <label for="nomeAluno"></label>
-                  <input type="text" class="form-control" id="nomeAluno" placeholder="Nome Completo" name="nomeAluno">
-                </div>
-              </div>
-
-              <!--Div email e código-->
-              <div class="form-row justify-content-center">
-
-                <!--Email-->
-                <div class="form-group col-md-6">
-                  <label for="emailAluno"></label>
-                  <input type="email" class="form-control" id="emailAluno" placeholder="E-mail" name="emailAluno">
-                </div>
-
-                <!--Código-->
-                <div class="form-group col-md-2">
-                  <label for="codAluno"></label>
-                  <input type="email" class="form-control" id="codAluno" placeholder="Código" name="codAluno">
-                </div>
-
-              </div>
-
-              <!--Div Senha e button-->
-              <div class="form-row">
-                <div class="form-group col-md-4">
-                  <label for="inputPasswordCadastrarAluno"></label>
-                  <input type="password" class="form-control" id="inputPasswordCadastrarAluno"
-                    placeholder="Digite sua senha" name="inputPasswordCadastrarAluno">
-                </div>
-                <button type="submit" class="btn-cadastrar-aluno">Enviar</button>
-              </div>
-
-            </form>
-
-          </div>
-
-        </div>
-
-      </div>
-    </div>
-
-  </section>
-
-
   <!--Section engloba gerenciador de alunos cadastrados-->
   <section class="second-section">
 
-    <div class="container cadastrar-aluno">
+    <div class="container-fluid cadastrar-aluno">
       <div class="row tabela-gerenciar-aluno">
 
+        <!-- Nav left -->
+        <%- include('../partials/professor-left') %>
+
         <!--Div Tabela-->
-        <div class="col-12 shadow-sm p-3 mb-5 bg-white rounded formulário-gerenciar-aluno">
+        <div class="offset-1 col-8 sombra p-5 mb-5 bg-white rounded formulário-gerenciar-aluno">
 
           <!--Scroll-->
-          <div style="width: 100%; height: 400px; overflow-y: scroll;">
+          <div>
 
             <!--Título-->
             <h3 class="tabela-gerenciar-aluno-titulo">Gerenciar alunos</h3>
@@ -186,7 +50,6 @@
                   <tr>
                     <th scope="col-1">#</th>
                     <th scope="col-4">Nome</th>
-                    <th scope="col-1">Código</th>
                     <th scope="col-1">Faltas</th>
                     <th scope="col-1">Nota 1</th>
                     <th scope="col-1">Nota 2</th>
@@ -203,7 +66,6 @@
                 <tr>
                   <th scope="row">1</th>
                   <td>Duda Beat</td>
-                  <td>ESC-0000</td>
                   <td>0</td>
                   <td>A</td>
                   <td>B</td>
@@ -225,7 +87,6 @@
                 <tr>
                   <th scope="row">1</th>
                   <td>Duda Beat</td>
-                  <td>ESC-0000</td>
                   <td>0</td>
                   <td>A</td>
                   <td>B</td>
@@ -247,7 +108,6 @@
                 <tr>
                   <th scope="row">1</th>
                   <td>Duda Beat</td>
-                  <td>ESC-0000</td>
                   <td>0</td>
                   <td>A</td>
                   <td>B</td>
@@ -269,7 +129,6 @@
                 <tr>
                   <th scope="row">1</th>
                   <td>Duda Beat</td>
-                  <td>ESC-0000</td>
                   <td>0</td>
                   <td>A</td>
                   <td>B</td>
@@ -300,9 +159,6 @@
 
   </section>
 
-
-  <!-- Footer da Página -->
-  <%- include('../partials/footer') %>
 </main>
 
 <!-- Modal editar sala de aula  -->

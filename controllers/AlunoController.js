@@ -1,15 +1,15 @@
 // Exportando o Controller
 module.exports = {
 	recadosAlunos: (req, res)=>{
-		res.render("recadosAlunos");
+		res.render("aluno/recados");
 	},
 	tarefasAlunos: (req, res)=>{
-		res.render("tarefasAlunos");
+		res.render("aluno/tarefas");
 	},
 	notasAlunos: (req, res)=>{
-		res.render("notasAlunos");
+		res.render("aluno/notas");
 	},
 	salasAlunos: (req, res)=>{
-		res.render("salasAlunos");
+		res.render("aluno/salas");
 	}
 }

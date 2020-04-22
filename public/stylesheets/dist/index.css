@@ -17,7 +17,7 @@ html {
 /* Header */
 
 .jumbotron {
-    background-color: #F0F0F0;
+    background-color: #F9F9F9;
     width: 100%;
     max-width: 100%;
     height: 682px;
@@ -46,6 +46,7 @@ nav ul li a:hover {
     background-color: rgb(96, 195, 171);
     color: black;
     border-radius: 15px;
+    width:100%;
 }
 
 /* Menu drop-down */

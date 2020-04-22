@@ -9,6 +9,7 @@ const db = require("./models");
 
 var indexRouter = require('./routes/index');
 var AlunoRouter = require('./routes/AlunoRouter');
+var ProfessorRouter = require('./routes/ProfessorRouter');
 var cadastroRouter = require('./routes/CadastroRouter');
 var loginRouter = require('./routes/LoginRouter');
 var admRouter = require('./routes/AdmRouter');
@@ -34,6 +35,7 @@ app.use('/vendor', express.static(__dirname + '/node_modules/jquery/dist')); // 
 
 app.use('/', indexRouter);
 app.use('/', AlunoRouter);
+app.use('/', ProfessorRouter);
 app.use('/cadastro', cadastroRouter);
 app.use('/', loginRouter);
 app.use('/', admRouter);

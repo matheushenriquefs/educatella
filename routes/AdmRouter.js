@@ -1,9 +1,9 @@
 const express = require("express");
 const router = express.Router();
 
-const controller = require("../controllers/AdmController");
+const AdmController = require("../controllers/AdmController");
 
-router.get("/salaAdm", controller.salaAdm);
-router.get("/classesAdm", controller.classesAdm);
+router.get("/adm/salaAdm", AdmController.salaAdm);
+router.get("/adm/classesAdm", AdmController.classesAdm);
 
 module.exports = router;

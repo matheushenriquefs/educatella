@@ -2,12 +2,12 @@ module.exports = {
 
     salaAdm: (req, res) => {
 
-        res.render("salaAdm");
+        res.render("adm/salaAdm");
 
     },
     classesAdm: (req, res) => {
 
-        res.render("classesAdm");
+        res.render("adm/classesAdm");
 
     }
 
