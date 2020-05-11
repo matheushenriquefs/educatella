@@ -8,6 +8,6 @@ const AlunoController = require('../controllers/AlunoController')
 router.get('/aluno/recados', AlunoController.recadosAlunos);
 router.get('/aluno/tarefas', AlunoController.tarefasAlunos);
 router.get('/aluno/notas', AlunoController.notasAlunos);
-router.get('/aluno/salas', AlunoController.salasAlunos);
+router.get('/aluno/inicio', AlunoController.inicioAlunos);
 
 module.exports = router;

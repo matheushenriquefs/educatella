@@ -9,7 +9,7 @@ module.exports = {
 	notasAlunos: (req, res)=>{
 		res.render("aluno/notas");
 	},
-	salasAlunos: (req, res)=>{
-		res.render("aluno/salas");
+	inicioAlunos: (req, res)=>{
+		res.render("aluno/inicio");
 	}
 }
