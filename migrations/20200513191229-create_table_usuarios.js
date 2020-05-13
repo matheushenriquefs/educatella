@@ -10,16 +10,24 @@ module.exports = {
         autoIncrement: true
       },
       nome:{
-          type: Sequelize.STRING,
-          allowNull: false
+        type: Sequelize.STRING,
+        allowNull: false
       },
       email:{
-          type: Sequelize.STRING, 
-          allowNull: false
+        type: Sequelize.STRING, 
+        allowNull: false
       },
       senha:{
-          type: Sequelize.STRING, 
-          allowNull: false
+        type: Sequelize.STRING, 
+        allowNull: false
+      },
+      createdAt: {
+        type: Sequelize.DATE,
+        allowNull: false
+      },
+      updatedAt: {
+        type: Sequelize.DATE,
+        allowNull: false
       }
     });
   },

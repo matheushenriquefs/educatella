@@ -9,6 +9,14 @@ module.exports = {
         allowNull: false,
         autoIncrement: true
       },
+      createdAt: {
+        type: Sequelize.DATE,
+        allowNull: false
+      },
+      updatedAt: {
+        type: Sequelize.DATE,
+        allowNull: false
+      },
       id_usuario:{
         type: Sequelize.INTEGER,
         references:{
@@ -17,7 +25,7 @@ module.exports = {
           },
           key:'id'
         }
-      }
+      },
     });
   },
   down: (queryInterface, Sequelize) => {
