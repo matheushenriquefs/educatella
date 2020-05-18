@@ -16,11 +16,7 @@ let Recados = (sequelize, Datatypes) => {
                 type: Datatypes.STRING, 
                 allowNull: false
             },
-            data_entrega:{
-                type: Datatypes.DATE,
-                allowNull: false
-            },
-            data_criacao:{
+             data_criacao:{
                 type: Datatypes.DATE,
                 allowNull: false
             },
