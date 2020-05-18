@@ -6,10 +6,10 @@ module.exports = {
         res.render('professor/inicio');
     },
 
-    profRecados: async (req, res) => {
+    profRecados:  (req, res) => {
         
         
-            let recados = await Recados.findAll({
+            let recadosDB =  Recados.findAll({
                 include:
                  [
                  {model:Recados,
@@ -22,9 +22,8 @@ module.exports = {
                  include:"titulo"
                  }
              ]})
-                     
-        
-        res.render('professor/recados');
+             console.log(recadosDB)
+        res.render('professor/recados',{recadosDB});
     },
 
     profNotas: (req, res) => {
