@@ -11,7 +11,7 @@ html {
 /* Logo */
 
 #logo{
-    width:1rem;
+    width:7rem;
 }
 
 /* Header */
@@ -43,10 +43,8 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-    background-color: rgb(96, 195, 171);
-    color: black;
+    color: rgb(96, 195, 171);
     border-radius: 15px;
-    width:100%;
 }
 
 /* Menu drop-down */
