@@ -15,23 +15,25 @@ module.exports = {
     },
     cadastrarAluno: (req, res, next) => {
 
-        const {name, email, password, type} = req.body;
-
+        const {name, email, password} = req.body;
 
         bcrypt.hash(password, 10, (error, hash) => {
 
             if(error) {return res.status(500).send({error: error})}
 
-            models.User.create({
+            models.Usuario.create(
+            {
 
-                name: name,
+                nome: name,
                 email: email,
-                password: hash,
-                type: type
-    
+                senha: hash
+
             })
-            .then(result => res.status(200).send({
-                data: result,
+            .then(user => models.Aluno.create({
+                id_usuario: user.id
+            }))
+            .then(response => res.status(201).send({
+                data: response,
                 message: "Aluno cadastrado."
             }))
             .catch(error => res.status(500).send(error));
@@ -41,22 +43,24 @@ module.exports = {
     },
     cadastrarProfessor: (req, res, next) => {
 
-        const {name, email, password, type} = req.body;
+        const {name, email, password} = req.body;
 
         bcrypt.hash(password, 10, (error, hash) => {
 
             if(error) {return res.status(500).send({error: error})}
 
-            models.User.create({
+            models.Usuario.create({
 
-                name: name,
+                nome: name,
                 email: email,
-                password: hash,
-                type: type
+                senha: hash
     
             })
-            .then(result => res.status(200).send({
-                data: result,
+            .then(user => models.Professor.create({
+                id_usuario: user.id
+            }))
+            .then(response => res.status(201).send({
+                data: response,
                 message: "Professor cadastrado."
             }))
             .catch(error => res.status(500).send(error));
