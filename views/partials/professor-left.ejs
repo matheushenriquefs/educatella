@@ -13,10 +13,23 @@
             <nav id="menu-left">
                 <ul class="nav flex-column">
                     <!-- Recados -->
-                    <li class="nav-item">
-                        <a class="texto-link nav-link" href="/professor/recados">
+             
+                    <li class="nav-item dropdown">
+                        <a class="texto-link nav-link dropdown-toggle" data-toggle="dropdown" href="" role="button" aria-haspopup="true"
+                            aria-expanded="false">
                             <img src="/images/recados.png" alt="icone recados" class="imagens-classe"> Recados
                         </a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="/professor/recados">
+                                 Recados
+                            </a>
+                            <a class="dropdown-item" href="/professor/criar-recado">
+                                Criar Recados
+                            </a>
+                            <a class="dropdown-item" href="/professor/recados/apagar-recado">
+                                Apagar Recados
+                            </a>
+                        </div>
                     </li>
                     <!-- Dropdown: presença, tarefas, notas, diário de sala-->
                     <li class="nav-item dropdown">

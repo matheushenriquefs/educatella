@@ -8,23 +8,16 @@ module.exports = {
     },
 
     profRecados: async  (req, res) => {
-        
+        let recadosDB = await Recados.findAll()
+        res.render('professor/recados',{recadosDB});
+    },
+    profRecadosCriar :async  (req, res) => {
+        let recadosDB = await Recados.findAll()
+        res.render('professor/criar-recado',{recadosDB});
+    },
+    profRecadosApagar: async (req,res)=> {
 
-       let recadosDB = await Recados.findAll(
-    //        {
-    //     where:{
-    //         titulo:"Buen Dia",
-       
-    //     }
-         
-        
-    //    }
-       )
-             
-     
-     
-
- 
+        let recadosDB = await Recados.findAll()
         res.render('professor/recados',{recadosDB});
     },
 

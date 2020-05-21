@@ -7,6 +7,8 @@ var ProfessorController = require('../controllers/ProfessorController');
 
 router.get('/professor/inicio', ProfessorController.profInicio);
 router.get('/professor/recados', ProfessorController.profRecados);
+router.get('/professor/criar-recado', ProfessorController.profRecadosCriar);
+router.get('/professor/recados/apagar', ProfessorController.profRecadosApagar);
 router.get('/professor/postar-nota', ProfessorController.profNotas);
 router.get('/professor/postar-tarefa', ProfessorController.profPostarTarefa);
 router.get('/professor/postar-presenca', ProfessorController.profPostarPresenca);
