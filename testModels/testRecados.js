@@ -2,7 +2,7 @@ const Sequelize = require("sequelize");
 const dbConfig = require("../config/database");
 const dbConn = new Sequelize(dbConfig);
 
-dbConn.query("select * from Recados", Sequelize.QueryTypes.SELECT)
+dbConn.query("select titulo from Recados", Sequelize.QueryTypes.SELECT)
 .then(
     data => {
         console.log(data);

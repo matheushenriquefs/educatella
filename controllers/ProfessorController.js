@@ -1,28 +1,30 @@
 //Exportando o controller
 const  {Recados} = require("../models")
 
+
 module.exports = {
-    profInicio: (req, res) => {
+    profInicio:  (req, res) => {
         res.render('professor/inicio');
     },
 
-    profRecados:  (req, res) => {
+    profRecados: async  (req, res) => {
         
+
+       let recadosDB = await Recados.findAll(
+    //        {
+    //     where:{
+    //         titulo:"Buen Dia",
+       
+    //     }
+         
         
-            let recadosDB =  Recados.findAll({
-                include:
-                 [
-                 {model:Recados,
-                    include:"Recados",
-                     attributes:["id","titulo","decricao"]
-                 },
+    //    }
+       )
+             
      
-                 {model:Recados,
-                 as :"descricap",
-                 include:"titulo"
-                 }
-             ]})
-             console.log(recadosDB)
+     
+
+ 
         res.render('professor/recados',{recadosDB});
     },
 
