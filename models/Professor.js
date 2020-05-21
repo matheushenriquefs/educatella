@@ -24,7 +24,7 @@ let Professor = (sequelize, Datatypes) => {
             models.Usuario,
             {
                 foreignKey: 'id_usuario',
-                as: 'usuario'
+                as: 'usuarioProfessor'
             }
         ),
         professor.hasMany(
