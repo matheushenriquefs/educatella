@@ -8,8 +8,13 @@ module.exports = {
     },
 
     profRecados: async  (req, res) => {
-        let recadosDB = await Recados.findAll()
-        res.render('professor/recados',{recadosDB});
+        let {page=1} = req.query 
+        let {count:total, rows:recadosDB} = await Recados.findAndCountAll({
+            limit:5,
+            offset:(page -1)* 5
+        })
+        let totalPagina= Math.round(total/5)
+        res.render('professor/recados',{recadosDB,totalPagina});
     },
     profRecadosCriar :async  (req, res) => {
         let recadosDB = await Recados.findAll()

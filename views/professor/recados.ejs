@@ -41,13 +41,26 @@
                             <p class="covid-alert"><img src="/images/covid-icon.png" alt="icone covid19" 
                                 class="covid-icon">  Informaçoes COVID-19: isolamento social até 05 de maio de 2020
                             </p>
-                            <ul>
+
+                            <nav aria-label="Page navigation example">
+                                <ul class="pagination">
+                                    <% for (let nrPagina=1 ; nrPagina <= totalPagina ; nrPagina ++) { %>
+                                
+                                <li class="page-item"><a class="page-link" href="?page=<%=nrPagina%>"><%=nrPagina%></a></li>
+                                 
+                                 <%}%>
+                                 
+                                   
+                                </ul>
+                              </nav>
+                            <ul >
                                 <% for (recadosDB of recadosDB) {%>
                                 
+                                <div class="page-item" >
                                 <h6><img src="/images/recados.png" alt="icone recados" class="imagens-classe"> <%= recadosDB.titulo %> </h6>
                                 <p> <%= recadosDB.createdAt %>  </p>
-                                   <p><%= recadosDB.descricao %></p>
-                                
+                                <p><%= recadosDB.descricao %></p>
+                                </div>
                                <%} 
                                 %>
                                 
