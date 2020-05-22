@@ -17,7 +17,7 @@ var admRouter = require('./routes/AdmRouter');
 var app = express();
 
 //Sincronizando modelos com o banco de dados
-db.sequelize.sync();
+db.sequelize.sync( { force: true } );
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

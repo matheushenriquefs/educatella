@@ -22,12 +22,13 @@ let Recados = (sequelize, Datatypes) => {
             },
             classes_id:{
                 type: Datatypes.INTEGER,
-                allowNull: false
+                allowNull: true,
+           
             }
         },
         {
             tableName: "Recados",
-            timestamps: false
+            timestamps: true
         }
     )
 

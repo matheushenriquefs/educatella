@@ -34,28 +34,28 @@
                 <%- include('../partials/professor-left') %>
 
                 <!--Formulário-->
-                <div class="offset-1 col-8 sombra p-5 mb-5 bg-white rounded formulário-tarefa">
+                <div class="offset-1 col-8 sombra p-5 mb-5 bg-white rounded formulário-recado">
 
                     <!--Título-->
                     <h3 class="mb-5 form-tarefa-titulo">Criar Recado</h3>
 
 
-                    <form method="" action="" id="">
+                    <form method="post" action="/professor/criar-recado" id="criar-recado" class="card p-3">
 
               
                         <div class="form-row">
 
                             <!--  titulo, recado -->
                             <div class="form-group col-10 text-center"  >
-                                <textarea id="titulo" rows="1" cols="50">Titulo</textarea>
-                                <textarea id="descricao" rows="4" cols="50"> Descreva tarefa</textarea>
-                                
+                                <input type="text" id="titulo" name="titulo"  rows="1" cols="50"></input>
+                                <textarea  type="text" id="descricao" name="descricao" rows="5" cols="50"> </textarea>
+                                <button class="btn btn-outline-success" type="submit" rows="2" cols="50"  >Enviar</button>                        
                             </div>
-                            <button type="submit" class="btn-enviar-recado" " >Enviar</button>
+                           
+                           
+                            
                         </div>                    
-                        <!-- enviar recado botão -->
-            
-                                                  
+ 
                         
 
                     </form>

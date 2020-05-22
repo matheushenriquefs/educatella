@@ -6,12 +6,13 @@ var ProfessorController = require('../controllers/ProfessorController');
 // Middlewares
 const authUser = require("../middlewares/authUser");
 
-/* Rotas Professor */
+/* Rotas Professor */ /*tirar authUser pra desenvolver*/
 
-router.get('/professor/inicio', authUser, ProfessorController.profInicio);
-router.get('/professor/recados', authUser, ProfessorController.profRecados);
-router.get('/professor/criar-recado', authUser, ProfessorController.profRecadosCriar);
-router.get('/professor/recados/apagar', authUser, ProfessorController.profRecadosApagar);
+router.get('/professor/inicio', ProfessorController.profInicio);
+router.get('/professor/recados',  ProfessorController.profRecados);
+router.get('/professor/criar-recado', ProfessorController.profRecadosCriar);
+router.post('/professor/criar-recado', ProfessorController.profRecadosCriar2);
+router.get('/professor/apagar-recado', authUser, ProfessorController.profRecadosApagar);
 router.get('/professor/postar-nota', authUser, ProfessorController.profNotas);
 router.get('/professor/postar-tarefa', authUser, ProfessorController.profPostarTarefa);
 router.get('/professor/postar-presenca', authUser, ProfessorController.profPostarPresenca);
