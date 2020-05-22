@@ -18,11 +18,12 @@ module.exports = {
     },profRecadosCriar2 :async  (req, res) => {
         const {titulo,descricao}= req.body
         console.log(titulo,descricao)
-
+        
      const resultado = await Recados.create({
+       
          titulo,
-         descricao,
-         data_criacao: Date.now()
+         descricao
+        
     }).catch(err=>{console.log(err)})
 
         console.log(resultado)
