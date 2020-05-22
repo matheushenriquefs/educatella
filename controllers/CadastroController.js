@@ -35,8 +35,11 @@ module.exports = {
             if(query.length > 0){
 
                 res.status(409).send({
+                    title: "Erro!",
                     message: "Aluno já cadastrado!"
                 });
+
+                return;
 
             }else{
 
@@ -57,9 +60,10 @@ module.exports = {
                     }))
                     .then(response => res.status(201).send({
                         data: response,
+                        title: "Sucesso!",
                         message: "Aluno cadastrado."
                     }))
-                    .catch(error => res.status(503).send(error));
+                    .catch(error => res.status(500).send(error));
                 });
             }
         })
@@ -87,8 +91,11 @@ module.exports = {
             if(query.length > 0){
 
                 res.status(409).send({
+                    title: "Erro!",
                     message: "Professor já cadastrado!"
                 });
+
+                return;
 
             }else{
 
@@ -109,9 +116,10 @@ module.exports = {
                     }))
                     .then(response => res.status(201).send({
                         data: response,
+                        title: "Sucesso!",
                         message: "Professor cadastrado."
                     }))
-                    .catch(error => res.status(503).send(error));
+                    .catch(error => res.status(500).send(error));
                 });
             }
         })
