@@ -27,6 +27,25 @@ let Usuario = (sequelize, Datatypes) => {
         }
     )
 
+    usuario.associate = (models) => {
+
+        usuario.hasOne(
+            models.Aluno,
+            {
+                foreignKey: 'id_usuario',
+                as: 'usuarioAluno'
+            }
+        );
+
+        usuario.hasOne(
+            models.Professor,
+            {
+                foreignKey: 'id_usuario',
+                as: 'usuarioProfessor'
+            }
+        );
+    }
+
     return usuario;
 
 }

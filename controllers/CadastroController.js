@@ -15,53 +15,115 @@ module.exports = {
     },
     cadastrarAluno: (req, res, next) => {
 
-        const {name, email, password, type} = req.body;
+        const {name, email, password} = req.body;
 
+        models.Aluno.findAll(
+            {
+                attributes: ["id_usuario"],
+                include: [
+                    {
+                        model: models.Usuario,
+                        as: "usuarioAluno",
+                        required: true,
+                        where: { email: email }
+                    }
+                ]
+            }
+        )
+        .then(query => {
 
-        bcrypt.hash(password, 10, (error, hash) => {
+            if(query.length > 0){
 
-            if(error) {return res.status(500).send({error: error})}
+                res.status(409).send({
+                    title: "Erro!",
+                    message: "Aluno já cadastrado!"
+                });
 
-            models.User.create({
+                return;
 
-                name: name,
-                email: email,
-                password: hash,
-                type: type
+            }else{
+
+                bcrypt.hash(String(password), 10, (error, hash) => {
     
-            })
-            .then(result => res.status(200).send({
-                data: result,
-                message: "Aluno cadastrado."
-            }))
-            .catch(error => res.status(500).send(error));
-
-        });
-    
+                    if(error) return res.status(500).send({error: error});
+        
+                    models.Usuario.create(
+                    {
+        
+                        nome: name,
+                        email: email,
+                        senha: hash
+        
+                    })
+                    .then(user => models.Aluno.create({
+                        id_usuario: user.id
+                    }))
+                    .then(response => res.status(201).send({
+                        data: response,
+                        title: "Sucesso!",
+                        message: "Aluno cadastrado."
+                    }))
+                    .catch(error => res.status(500).send(error));
+                });
+            }
+        })
+        .catch(error => res.status(500).send(error));
     },
     cadastrarProfessor: (req, res, next) => {
 
-        const {name, email, password, type} = req.body;
+        const {name, email, password} = req.body;
 
-        bcrypt.hash(password, 10, (error, hash) => {
+        models.Professor.findAll(
+            {
+                attributes: ["id_usuario"],
+                include: [
+                    {
+                        model: models.Usuario,
+                        as: "usuarioProfessor",
+                        required: true,
+                        where: { email: email }
+                    }
+                ]
+            }
+        )
+        .then(query => {
 
-            if(error) {return res.status(500).send({error: error})}
+            if(query.length > 0){
 
-            models.User.create({
+                res.status(409).send({
+                    title: "Erro!",
+                    message: "Professor já cadastrado!"
+                });
 
-                name: name,
-                email: email,
-                password: hash,
-                type: type
+                return;
+
+            }else{
+
+                bcrypt.hash(String(password), 10, (error, hash) => {
     
-            })
-            .then(result => res.status(200).send({
-                data: result,
-                message: "Professor cadastrado."
-            }))
-            .catch(error => res.status(500).send(error));
-
-        });
+                    if(error) return res.status(500).send({error: error});
+        
+                    models.Usuario.create(
+                    {
+        
+                        nome: name,
+                        email: email,
+                        senha: hash
+        
+                    })
+                    .then(user => models.Professor.create({
+                        id_usuario: user.id
+                    }))
+                    .then(response => res.status(201).send({
+                        data: response,
+                        title: "Sucesso!",
+                        message: "Professor cadastrado."
+                    }))
+                    .catch(error => res.status(500).send(error));
+                });
+            }
+        })
+        .catch(error => res.status(500).send(error));
     
     }
 
