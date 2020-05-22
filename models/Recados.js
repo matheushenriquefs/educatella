@@ -2,7 +2,7 @@ let Recados = (sequelize, Datatypes) => {
     let recados = sequelize.define(
         'Recados', 
         {
-            id:{
+            id_recados:{
                 type: Datatypes.INTEGER,
                 primaryKey: true,
                 allowNull: false,
@@ -20,14 +20,14 @@ let Recados = (sequelize, Datatypes) => {
                 type: Datatypes.DATE,
                 allowNull: false
             },
-            id_classe:{
+            classes_id:{
                 type: Datatypes.INTEGER,
                 allowNull: false
             }
         },
         {
             tableName: "Recados",
-            timestamps: true
+            timestamps: false
         }
     )
 

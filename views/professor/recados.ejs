@@ -29,23 +29,38 @@
                     <%- include('../partials/professor-left') %>   
 
                     <!--Mural de recados-->
+                  
                     <div class="offset-1 col-8 sombra p-5 mb-5 bg-white rounded mural-recados">
 
                             <!--Título-->
                             <h3><strong>Mural de recados</strong></h3>
-                            
+                          
+                             
+                               
                             <!--Conteúdo-->
                             <p class="covid-alert"><img src="/images/covid-icon.png" alt="icone covid19" 
-                                class="covid-icon">Informaçoes COVID-19: isolamento social até 05 de maio de 2020
+                                class="covid-icon">  Informaçoes COVID-19: isolamento social até 05 de maio de 2020
                             </p>
-                            <h6>Abril</h6>
+                            <ul>
+                                <% for (recadosDB of recadosDB) {%>
+                                
+                                <h6> <%= recadosDB.titulo %> </h6>
+                                <p> <%=recadosDB.data_criacao %> <%= recadosDB.descricao %> </p>
+                                   
+                                
+                               <%} 
+                                %>
+                                
+                            </ul>
+        
+                            <h6>h6>Abril</h6>
                             <p> 10/04 - sexta-feira santa - feriado </p>
                             <p> 20/04 - semana de avaliações </p>
                             <h6>Maio</h6>
                             <p> 10/04 - sexta-feira santa - feriado </p>
                             <p> 20/04 - semana de avaliações </p>
                     </div>
-
+                   
                 </div>
             </div>
 
