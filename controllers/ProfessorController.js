@@ -50,7 +50,7 @@ module.exports = {
             where:{ id_recados : id}
         })
         console.log(resultado)
-        res.redirect('/professor/recados');
+        res.redirect('/professor/apagar-recado');
     },
 
     profNotas: (req, res) => {
