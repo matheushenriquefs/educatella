@@ -20,11 +20,11 @@ module.exports = {
         let recadosDB = await Recados.findAll()
         res.render('professor/criar-recado',{recadosDB});
         
-    },profRecadosCriar2 :async  (req, res) => {
+    },
+    profRecadosCriar2 :async  (req, res) => {
         const {titulo,descricao}= req.body
         console.log(titulo,descricao)
-        
-     const resultado = await Recados.create({
+        const resultado = await Recados.create({
        
          titulo,
          descricao
@@ -34,11 +34,23 @@ module.exports = {
         console.log(resultado)
         
        return res.redirect('recados');
+    }, profRecadosApagar: async  (req, res) => {
+        let {page=1} = req.query 
+        let {count:total, rows:recadosDB} = await Recados.findAndCountAll({
+            limit:5,
+            offset:(page -1)* 5
+        })
+        let totalPagina= Math.round(total/5)
+        res.render('professor/apagar-recado',{recadosDB,totalPagina});
     },
-    profRecadosApagar: async (req,res)=> {
-
-        let recadosDB = await Recados.findAll()
-        res.render('professor/apagar-recado',{recadosDB});
+    profRecadosApagar2: async  (req, res) => {
+        const {id}= req.params
+        console.log(id)
+        const resultado = await Recados.destroy({
+            where:{ id_recados : id}
+        })
+        console.log(resultado)
+        res.redirect('/professor/recados');
     },
 
     profNotas: (req, res) => {
