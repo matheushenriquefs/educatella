@@ -2,6 +2,12 @@ let Classe_Aluno = (sequelize, Datatypes) => {
     let classe_aluno = sequelize.define(
         'Classe_Aluno', 
         {
+            id:{
+                type: Datatypes.INTEGER,
+                primaryKey: true,
+                allowNull: false,
+                autoIncrement: true
+            },
             id_classe:{
                 type: Datatypes.INTEGER,
                 allowNull: false
