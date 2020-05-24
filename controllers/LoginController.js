@@ -10,6 +10,11 @@ module.exports = {
         res.render("login");
 
     },
+    escolherUsuario: (req, res) => {
+
+        res.render("escolherUsuario");
+
+    },
     efetuarLogin: (req, res, next) => {
 
         const {email, password} = req.body;
@@ -39,7 +44,7 @@ module.exports = {
 
             if(query.length < 1){
 
-                res.status(401).send({
+                res.status(401).render("login", {
                     title: "Erro!",
                     message: "Falha na autenticação!"
                 });
@@ -54,7 +59,7 @@ module.exports = {
 
                         if(error){
     
-                            res.status(401).send({
+                            res.status(401).render("login", {
                                 title: "Erro!",
                                 message: "Falha na autenticação!"
                             });
@@ -69,7 +74,7 @@ module.exports = {
     
                                 if(error2){
     
-                                    res.status(401).send({
+                                    res.status(401).render("login", {
                                         title: "Erro!",
                                         message: "Falha na autenticação!"
                                     });
@@ -92,19 +97,22 @@ module.exports = {
                                     {
                                         expiresIn: "3h"
                                     });
+
+                                    res.cookie("token", token, { httpOnly: true });
             
-                                    res.status(200).send({
+                                    res.status(200).render("/professor/inicio", {
                                         title: "Sucesso!",
                                         message: "Autenticado com sucesso!",
-                                        type: "Aluno e Professor",
-                                        token: token
+                                        type: "Aluno e Professor"
                                     });
+
+                                    res.redirect("/escolherUsuario");
     
                                     return;
     
                                 }
     
-                                return res.status(401).send({ title: "Erro!", message: "Falha na autenticação!"});
+                                return res.status(401).render("login", { title: "Erro!", message: "Falha na autenticação!"});
     
                             });       
     
@@ -115,7 +123,7 @@ module.exports = {
                     
                 }catch (error){
                     
-                    return res.status(401).send({ title: "Erro!", message: error});
+                    return res.status(401).render("login", { title: "Erro!", message: error});
 
                 }
 
@@ -128,7 +136,7 @@ module.exports = {
     
                         if(error){
 
-                            res.status(401).send({
+                            res.status(401).render("login", {
                                 title: "Erro!",
                                 message: "Falha na autenticação!"
                             });
@@ -149,19 +157,16 @@ module.exports = {
                             {
                                 expiresIn: "3h"
                             });
-    
-                            res.status(200).send({
-                                title: "Sucesso!",
-                                message: "Autenticado com sucesso!",
-                                type: "Aluno",
-                                token: token
-                            });
+
+                            res.cookie("token", token, { httpOnly: true });
+
+                            res.redirect("/aluno/inicio");
 
                             return;
 
                         }
 
-                        return res.status(401).send({ title: "Erro!", message: "Falha na autenticação!"});
+                        return res.status(401).render("login", { title: "Erro!", message: "Falha na autenticação!"});
 
                     });
 
@@ -171,7 +176,7 @@ module.exports = {
     
                         if(error){
 
-                            res.status(401).send({
+                            res.status(401).render("login", {
                                 title: "Erro!",
                                 message: "Falha na autenticação!"
                             });
@@ -192,19 +197,16 @@ module.exports = {
                             {
                                 expiresIn: "3h"
                             });
-    
-                            res.status(200).send({
-                                title: "Sucesso!",
-                                message: "Autenticado com sucesso!",
-                                type: "Professor",
-                                token: token
-                            });
+
+                            res.cookie("token", token, { httpOnly: true });
+
+                            res.redirect("/professor/inicio");
 
                             return;
 
                         }
 
-                        return res.status(401).send({ title: "Erro!", message: "Falha na autenticação!"});
+                        return res.status(401).render("login", { title: "Erro!", message: "Falha na autenticação!"});
 
                     });
 
