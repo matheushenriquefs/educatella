@@ -5,7 +5,7 @@ module.exports = (req, res, next) => {
 
     if(req.headers.authorization === undefined){
         
-        return res.status(401).render('not-found');
+        return res.status(401).render('erros/401');
 
     }else{
 
