@@ -44,7 +44,11 @@ app.use('/', errorRouter);
 
 // catch 404 and forward to error handler
 app.use((req, res) => {
-  return res.status(404).render('not-found');
+  return res.status(404).render('errors/404');
+});
+
+app.use((req, res) => {
+  return res.status(401).render('errors/401');
 });
 
 // error handler
