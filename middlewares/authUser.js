@@ -3,23 +3,22 @@ require("dotenv").config();
 
 module.exports = (req, res, next) => {
 
-    if(req.headers.authorization === undefined){
+    if(req.cookies.token === undefined){
         
-        return res.status(401).render('erros/401');
+        return res.redirect("/error/401")
 
     }else{
-
-        const token = req.headers.authorization.split(" ")[1];
-
+        
         try {
 
+            const {token} = req.cookies;
             const decode = jwt.verify(token, process.env.JWT_KEY);
             req.usuario = decode;
             next();
             
         } catch (error) {
             
-            return res.status(401).send({ title: "Erro!", message: "Falha na autenticação!" });
+            return res.redirect("/error/401")
     
         }
 
