@@ -34,7 +34,7 @@ module.exports = {
 
             if(query.length > 0){
 
-                res.status(409).send({
+                res.status(409).render("cadastroAluno", {
                     title: "Erro!",
                     message: "Aluno já cadastrado!"
                 });
@@ -58,11 +58,7 @@ module.exports = {
                     .then(user => models.Aluno.create({
                         id_usuario: user.id
                     }))
-                    .then(response => res.status(201).send({
-                        data: response,
-                        title: "Sucesso!",
-                        message: "Aluno cadastrado."
-                    }))
+                    .then(response => res.redirect("/login"))
                     .catch(error => res.status(500).send(error));
                 });
             }
@@ -90,7 +86,7 @@ module.exports = {
 
             if(query.length > 0){
 
-                res.status(409).send({
+                res.status(409).render("cadastroProfessor", {
                     title: "Erro!",
                     message: "Professor já cadastrado!"
                 });
@@ -114,11 +110,7 @@ module.exports = {
                     .then(user => models.Professor.create({
                         id_usuario: user.id
                     }))
-                    .then(response => res.status(201).send({
-                        data: response,
-                        title: "Sucesso!",
-                        message: "Professor cadastrado."
-                    }))
+                    .then(response => res.redirect("/login"))
                     .catch(error => res.status(500).send(error));
                 });
             }
