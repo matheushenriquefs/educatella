@@ -1,6 +1,6 @@
-let Presenca = (sequelize, Datatypes) => {
-    let presenca = sequelize.define(
-        'Presenca', 
+let Recado = (sequelize, Datatypes) => {
+    let recado = sequelize.define(
+        'Recado', 
         {
             id:{
                 type: Datatypes.INTEGER,
@@ -8,7 +8,11 @@ let Presenca = (sequelize, Datatypes) => {
                 allowNull: false,
                 autoIncrement: true
             },
-            presenca:{
+            titulo:{
+                type: Datatypes.STRING, 
+                allowNull: false
+            },
+            descricao:{
                 type: Datatypes.STRING, 
                 allowNull: false
             },
@@ -22,13 +26,13 @@ let Presenca = (sequelize, Datatypes) => {
             }
         },
         {
-            tableName: "presencas",
+            tableName: "recados",
             timestamps: true
         }
     )
 
-    presenca.associate = (models) => {
-        presenca.belongsTo(
+    recado.associate = (models) => {
+        recado.belongsTo(
             models.Classe,
             {
                 foreignKey: 'id_classe',
@@ -37,8 +41,8 @@ let Presenca = (sequelize, Datatypes) => {
         );
     }
 
-    return presenca;
+    return recado;
 
 }
 
-module.exports = Presenca;
+module.exports = Recado;
