@@ -2,7 +2,7 @@ let Recado = (sequelize, Datatypes) => {
     let recado = sequelize.define(
         'Recado', 
         {
-            id:{
+            id_recados:{
                 type: Datatypes.INTEGER,
                 primaryKey: true,
                 allowNull: false,
@@ -16,13 +16,9 @@ let Recado = (sequelize, Datatypes) => {
                 type: Datatypes.STRING, 
                 allowNull: false
             },
-            data:{
-                type: Datatypes.DATE,
-                allowNull: false
-            },
             id_classe:{
                 type: Datatypes.INTEGER,
-                allowNull: false
+                allowNull: true
             }
         },
         {

@@ -1,5 +1,5 @@
 //Exportando o controller
-const  {Recados} = require("../models")
+const  {Recado} = require("../models")
 
 
 module.exports = {
@@ -9,7 +9,7 @@ module.exports = {
 
     profRecados: async  (req, res) => {
         let {page=1} = req.query 
-        let {count:total, rows:recadosDB} = await Recados.findAndCountAll({
+        let {count:total, rows:recadosDB} = await Recado.findAndCountAll({
             limit:5,
             offset:(page -1)* 5
         })
@@ -17,14 +17,14 @@ module.exports = {
         res.render('professor/recados',{recadosDB,totalPagina});
     },
     profRecadosCriar :async  (req, res) => {
-        let recadosDB = await Recados.findAll()
+        let recadosDB = await Recado.findAll()
         res.render('professor/criar-recado',{recadosDB});
         
     },
     profRecadosCriar2 :async  (req, res) => {
         const {titulo,descricao}= req.body
         console.log(titulo,descricao)
-        const resultado = await Recados.create({
+        const resultado = await Recado.create({
        
          titulo,
          descricao
@@ -36,7 +36,7 @@ module.exports = {
        return res.redirect('recados');
     }, profRecadosApagar: async  (req, res) => {
         let {page=1} = req.query 
-        let {count:total, rows:recadosDB} = await Recados.findAndCountAll({
+        let {count:total, rows:recadosDB} = await Recado.findAndCountAll({
             limit:5,
             offset:(page -1)* 5
         })
@@ -46,7 +46,7 @@ module.exports = {
     profRecadosApagar2: async  (req, res) => {
         const {id}= req.params
         console.log(id)
-        const resultado = await Recados.destroy({
+        const resultado = await Recado.destroy({
             where:{id_recados: id}
         })
         console.log(resultado)
@@ -54,7 +54,7 @@ module.exports = {
     },
     profRecadosEditar: async  (req, res) => {
         let {page=1} = req.query 
-        let {count:total, rows:recadosDB} = await Recados.findAndCountAll({
+        let {count:total, rows:recadosDB} = await Recado.findAndCountAll({
             limit:2,
             offset:(page -1)* 2
         })
@@ -66,7 +66,7 @@ module.exports = {
         console.log('soy consola'+ id)
         const {titulo,descricao}= req.body
         console.log(titulo +"consola numero 2"+ descricao)
-        const resultado = await Recados.update({
+        const resultado = await Recado.update({
             titulo: titulo,
             descricao: descricao,
             updatedAt: Date.now()
