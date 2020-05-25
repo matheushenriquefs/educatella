@@ -32,7 +32,7 @@ let Aluno = (sequelize, Datatypes) => {
             models.Classe,
             {
                 foreignKey: 'id_classe',
-                as: 'classe',
+                as: 'classes',
                 through: models.Classe_Aluno
             }
         );

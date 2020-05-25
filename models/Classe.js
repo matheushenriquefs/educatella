@@ -46,10 +46,10 @@ let Classe = (sequelize, Datatypes) => {
         );
 
         classe.hasMany(
-            models.Aviso,
+            models.Recado,
             {
                 foreignKey: 'id_classe',
-                as: 'aviso'
+                as: 'recado'
             }
         );
 
@@ -61,13 +61,6 @@ let Classe = (sequelize, Datatypes) => {
             }
         );
 
-        classe.hasMany(
-            models.Presenca,
-            {
-                foreignKey: 'id_classe',
-                as: 'presenca'
-            }
-        );
     }
 
     return classe;
