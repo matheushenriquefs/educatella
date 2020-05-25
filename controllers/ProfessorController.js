@@ -84,6 +84,9 @@ module.exports = {
 
     profPostarTarefa: (req, res) => {
         res.render('professor/postar-tarefa');
+    }, 
+    profPresenca: (req, res) => {
+        res.render('professor/presenca');
     },
 
     profPostarPresenca: (req, res) => {

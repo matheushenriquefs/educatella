@@ -41,7 +41,7 @@
 
               <!--Título-->
               <h3 class="form-presenca-titulo">Controle de Presença</h3>
-
+              <form action="/professor/presenca" method="get"></form>
               <!-- DIV Calendário -->
               <div class="form-row justify-content-center">
                 <div class="form-group col-md-8" id="presenca-label">
@@ -55,11 +55,11 @@
                 <div class="form-group col-md-8 presenca">
                   <table class="table presenca">
 
-                    <!--Linha fixa-->
+                    <!--Linha fixa-->   
                     <thead>
                       <tr>
                         <th scope="col">#</th>
-                        <th scope="col">Nome</th>
+                        <th scope="col">Aluno</th>
                         <th scope="col">Sim</th>
                         <th scope="col">Não</th>
                       </tr>
@@ -73,70 +73,16 @@
                         <th scope="row">1</th>
                         <td>Duda Beat</td>
                         <td>
-                          <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                          <input type="radio" class="form-check-input" name="presenca" id="exampleCheck1">
                           <label class="form-check-label" for="exampleCheck1">Sim</label>
                         </td>
                         <td>
-                          <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                          <input type="radio" class="form-check-input" name="presenca" id="exampleCheck1">
                           <label class="form-check-label" for="exampleCheck1">Não</label>
                         </td>
                       </tr>
+                      
 
-                      <!--linha 2-->
-                      <tr>
-                        <th scope="row">2</th>
-                        <td>Duda Beat</td>
-                        <td>
-                          <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                          <label class="form-check-label" for="exampleCheck1">Sim</label>
-                        </td>
-                        <td>
-                          <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                          <label class="form-check-label" for="exampleCheck1">Não</label>
-                        </td>
-                      </tr>
-
-                      <!--linha 3-->
-                      <tr>
-                        <th scope="row">3</th>
-                        <td>Duda Beat</td>
-                        <td>
-                          <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                          <label class="form-check-label" for="exampleCheck1">Sim</label>
-                        </td>
-                        <td>
-                          <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                          <label class="form-check-label" for="exampleCheck1">Não</label>
-                        </td>
-                      </tr>
-
-                      <!--linha 4-->
-                      <tr>
-                        <th scope="row">4</th>
-                        <td>Duda Beat</td>
-                        <td>
-                          <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                          <label class="form-check-label" for="exampleCheck1">Sim</label>
-                        </td>
-                        <td>
-                          <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                          <label class="form-check-label" for="exampleCheck1">Não</label>
-                        </td>
-                      </tr>
-
-                      <!--linha 5-->
-                      <tr>
-                        <th scope="row">5</th>
-                        <td>Duda Beat</td>
-                        <td>
-                          <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                          <label class="form-check-label" for="exampleCheck1">Sim</label>
-                        </td>
-                        <td>
-                          <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                          <label class="form-check-label" for="exampleCheck1">Não</label>
-                        </td>
-                      </tr>
 
                     </tbody>
                   </table>
