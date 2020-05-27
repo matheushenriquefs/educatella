@@ -29,9 +29,10 @@
                 <div class="offset-1 col-8 sombra p-5 mb-5">
                     <div class="row mb-4">
                         <div class="col-12 text-center">
-                            <p class="titulo-geral"> Tarefas de Matemática </p>
+                            <p class="titulo-geral"> Tarefas de <%= classe.nome %> </p>
                         </div>
                     </div>
+                    <% for (tarefas of classe.tarefa) {%>
                     <!-- Linha de Tarefa -->
                     <div class="row mb-4">
                         <div class="offset-1 col-10 shadow-sm">
@@ -39,14 +40,14 @@
                                 <div class="col-3 informacao d-flex align-items-center">
                                     <div class="container">
                                         <!-- Data da Tarefa -->
-                                        <p class="texto-detalhes"> 10/04 </p>
+                                        <p class="texto-detalhes"> <%= tarefas.createdAt.toLocaleString('pt-BR') %> </p>
                                     </div>
                                 </div>
                                 <div class="offset-1 col-8">
                                     <div class="row">
                                         <!-- Texto da Tarefa -->
                                         <div class="col-9">
-                                            <p class="titulo"> Exercícios Geometria  </p>
+                                            <p class="titulo"> <%= tarefas.titulo %>  </p>
                                         </div>
                                         <!-- Botão Leia Mais -->
                                         <div class="col-3">
@@ -57,81 +58,7 @@
                             </div>
                         </div>
                     </div>
-                    <!-- Linha da Tarefa -->
-                    <div class="row mb-4">
-                        <div class="offset-1 col-10 shadow-sm">
-                            <div class="row">
-                                <div class="col-3 informacao d-flex align-items-center">
-                                    <div class="container">
-                                        <!-- Data da Tarefa -->
-                                        <p class="texto-detalhes"> 11/04 </p>
-                                    </div>
-                                </div>
-                                <div class="offset-1 col-8">
-                                    <div class="row">
-                                        <!-- Texto da Tarefa -->
-                                        <div class="col-9">
-                                            <p class="titulo"> Exercícios Probabilidade  </p>
-                                        </div>
-                                        <!-- Botão Leia Mais -->
-                                        <div class="col-3">
-                                            <a href="" class="texto-link"> Leia Mais  </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Linha de Tarefa -->
-                    <div class="row mb-4">
-                        <div class="offset-1 col-10 shadow-sm">
-                            <div class="row">
-                                <div class="col-3 informacao d-flex align-items-center">
-                                    <div class="container">
-                                        <!-- Data da Tarefa -->
-                                        <p class="texto-detalhes"> 12/04 </p>
-                                    </div>
-                                </div>
-                                <div class="offset-1 col-8">
-                                    <div class="row">
-                                        <!-- Texto da Tarefa -->
-                                        <div class="col-9">
-                                            <p class="titulo"> Exercícios Gráficos  </p>
-                                        </div>
-                                        <!-- Botão Leia Mais -->
-                                        <div class="col-3">
-                                            <a href="" class="texto-link"> Leia Mais  </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Linha de Tarefa -->
-                    <div class="row mb-4">
-                        <div class="offset-1 col-10 shadow-sm">
-                            <div class="row">
-                                <div class="col-3 informacao d-flex align-items-center">
-                                    <div class="container">
-                                        <!-- Data da Tarefa -->
-                                        <p class="texto-detalhes"> 14/04 </p>
-                                    </div>
-                                </div>
-                                <div class="offset-1 col-8">
-                                    <div class="row">
-                                        <!-- Texto da Tarefa -->
-                                        <div class="col-9">
-                                            <p class="titulo"> Exercícios Equações </p>
-                                        </div>
-                                        <!-- Botão Leia Mais -->
-                                        <div class="col-3">
-                                            <a href="" class="texto-link"> Leia Mais  </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <% } %>
                 </div>
             </div>
         </div>
