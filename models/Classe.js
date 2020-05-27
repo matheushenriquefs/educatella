@@ -39,7 +39,7 @@ let Classe = (sequelize, Datatypes) => {
         classe.belongsToMany(
             models.Aluno,
             {
-                foreignKey: 'id_aluno',
+                foreignKey: 'id_classe',
                 as: 'aluno',
                 through: models.Classe_Aluno
             }
