@@ -11,6 +11,62 @@
     color: #4AE894;
 }
 
+.bg-custom-green{   
+    background-color: #4AE894;;
+}
+
+.botao-pequeno{
+
+    color: white;
+    font-size: 1rem;
+    border-radius: 15px;
+    padding: 10px 15px 10pxpx 15px;
+    background-color: #4AE894;
+    font-family: 'Baloo Da 2', cursive;
+}
+
+.botao-pequeno-excluir{
+    border: none;
+    color: white;
+    font-size: 1rem;
+    border-radius: 15px;
+    font-family: 'Baloo Da 2', cursive;
+    width: 5rem;
+    height: 2rem;
+    border-bottom: 0 !important;
+    margin: 0 auto !important;
+}
+
+.botao-pequeno-transferir{
+    border: none;
+    color: white;
+    font-size: 1rem;
+    border-radius: 15px;
+    font-family: 'Baloo Da 2', cursive;
+    width: 8rem;
+    height: 2rem;
+    border-bottom: 0 !important;
+    margin: 0 auto !important;
+}
+
+.botao-pequeno:hover{
+    background-color: rgb(96, 195, 171);
+    text-decoration: none;
+    color: white;
+}
+
+.border-success {
+    border-color: #4AE894 !important;
+    color: #4AE894;
+}
+
+.border-success:hover{
+    border-color: #4AE894 !important;
+    background-color: #4AE894 !important;
+    color: white;
+}
+
+
 /* Botão Pesquisar Salas */
 
 .botao {
