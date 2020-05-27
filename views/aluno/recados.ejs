@@ -51,7 +51,7 @@
                                         </div>
                                         <!-- Botão Leia Mais -->
                                         <div class="col-3">
-                                            <a href="" class="texto-link"> Leia Mais  </a>
+                                            <a href="" class="texto-link" data-toggle="modal" data-target="#modal-adicionar-classe<%= recados.id_recados %>"> Leia Mais  </a>
                                         </div>
                                     </div>
                                 </div>
@@ -63,6 +63,32 @@
             </div>
         </div>
     </main>
+
+    <% for (recados of classe.recado) { %>
+    <section>
+        <!-- Modal Adicionar Classe -->
+        <div class="modal fade" id="modal-adicionar-classe<%= recados.id_recados %>" tabindex="-1" role="dialog" aria-labelledby="modal-adicionar-classe-titulo" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modal-adicionar-classe-titulo"> <%= recados.titulo %> </h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+
+                    <div class="modal-body">        
+                        <div class="row justify-content-center">
+                            <div class="col-lg-10"> 
+                                <p class="texto"> <%= recados.descricao %> </p>
+                            </div>
+                        </div>            
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <% } %>
 
     <!-- Importando Jquery -->
     <script type="text/javascript" src="/vendor/jquery.min.js"></script>
