@@ -20,5 +20,6 @@ router.get('/professor/postar-nota', authUser, ProfessorController.profNotas);
 router.get('/professor/postar-tarefa', authUser, ProfessorController.profPostarTarefa);
 router.get('/professor/criar-sala', authUser, ProfessorController.profCriarSala);
 router.get('/professor/gerenciar-aluno',  ProfessorController.profGerenciarAluno);
+router.post('/professor/gerenciar-aluno',  ProfessorController.profGerenciarAluno1);
 
 module.exports = router; 

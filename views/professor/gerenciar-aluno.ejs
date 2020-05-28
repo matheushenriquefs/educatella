@@ -33,126 +33,49 @@
         <%- include('../partials/professor-left') %>
 
         <!--Div Tabela-->
-        <div class="offset-1 col-8 sombra p-5 mb-5 bg-white rounded formulário-gerenciar-aluno">
+        <div class="offset-1 col-8 sombra p-1 mb-6 bg-white rounded formulário-gerenciar-aluno">
 
           <!--Scroll-->
-          <div>
+         
+          <nav aria-label="Page navigation example">
+            <ul class="pagination">
+                <% for (let nrPagina=1 ; nrPagina <= totalPagina ; nrPagina ++) { %>
+            
+            <li class="page-item"><a class="page-link" href="?page=<%=nrPagina%>"><%=nrPagina%></a></li>
+             
+             <%}%>
+             
+               
+            </ul>
+          </nav>
 
-            <!--Título-->
-            <h3 class="tabela-gerenciar-aluno-titulo">Gerenciar alunos</h3>
+            <% for (recadosDB of recadosDB) {%>
+              <div class="container-fluid">
+                <div class="row p-3 mb-5">
+                    <!-- Foto e descrição do professor e botão para acessar a Classe -->
+                    <div class="offset-1 col-3 text-center">
+                        <img class="imagem-professor" src="/images/professor.ico">
+                        <p class="texto"><%=recadosDB.id +" " + recadosDB.nome%></p>
+                        <p class="texto"> ASDB-0905 </p>
+                        <a href="/professor/recados" class="btn-danger"> Excluir </a>
+                    </div>
+                  </div>
+                </div>
+                  
+                
+                    
+                   
+             
+               <%}%>
 
-
-            <div class="table-group col-12 gerenciar-aluno">
-              <table class="table gerenciar-aluno">
-
-                <!--Linha fixa -->
-                <thead>
-                  <tr>
-                    <th scope="col-1">#</th>
-                    <th scope="col-4">Nome</th>
-                    <th scope="col-1">Faltas</th>
-                    <th scope="col-1">Nota 1</th>
-                    <th scope="col-1">Nota 2</th>
-                    <th scope="col-1">Nota 3</th>
-                    <th scope="col-1">Nota 4</th>
-                    <th scope="col-1">Action</th>
-                  </tr>
-                </thead>
-
-                <!--Linhas aluno-->
-                </tbody>
-
-                <!--Linha 1-->
-                <tr>
-                  <th scope="row">1</th>
-                  <td>Duda Beat</td>
-                  <td>0</td>
-                  <td>A</td>
-                  <td>B</td>
-                  <td>C</td>
-                  <td>A</td>
-                  <td>
-                    <a href="#" class="btn-edit" data-toggle="modal" data-target="#editModalAluno">
-                      <i class="material-icons" data-toggle="tooltip" title="Edit"
-                        style="color: rgb(46, 45, 45);">&#xE8B8;</i>
-                    </a>
-                    <a href="#" class="delete" onclick="return confirm
-                            ('Deseja mesmo excluir este aluno?')">
-                      <i class="material-icons" data-toggle="tooltip" title="Delet" style="color: red;">&#xE5C9;</i>
-                    </a>
-                  </td>
-                </tr>
-
-                <!--Linha 2-->
-                <tr>
-                  <th scope="row">1</th>
-                  <td>Duda Beat</td>
-                  <td>0</td>
-                  <td>A</td>
-                  <td>B</td>
-                  <td>C</td>
-                  <td>A</td>
-                  <td>
-                    <a href="#" class="btn-edit" data-toggle="modal" data-target="#editModalAluno">
-                      <i class="material-icons" data-toggle="tooltip" title="Edit"
-                        style="color: rgb(46, 45, 45);">&#xE8B8;</i>
-                    </a>
-                    <a href="#" class="delete" onclick="return confirm
-                            ('Deseja mesmo excluir este aluno?')">
-                      <i class="material-icons" data-toggle="tooltip" title="Delet" style="color: red;">&#xE5C9;</i>
-                    </a>
-                  </td>
-                </tr>
-
-                <!--Linha 3-->
-                <tr>
-                  <th scope="row">1</th>
-                  <td>Duda Beat</td>
-                  <td>0</td>
-                  <td>A</td>
-                  <td>B</td>
-                  <td>C</td>
-                  <td>A</td>
-                  <td>
-                    <a href="#" class="btn-edit" data-toggle="modal" data-target="#editModalAluno">
-                      <i class="material-icons" data-toggle="tooltip" title="Edit"
-                        style="color: rgb(46, 45, 45);">&#xE8B8;</i>
-                    </a>
-                    <a href="#" class="delete" onclick="return confirm
-                            ('Deseja mesmo excluir este aluno?')">
-                      <i class="material-icons" data-toggle="tooltip" title="Delet" style="color: red;">&#xE5C9;</i>
-                    </a>
-                  </td>
-                </tr>
-
-                <!--Linha 3-->
-                <tr>
-                  <th scope="row">1</th>
-                  <td>Duda Beat</td>
-                  <td>0</td>
-                  <td>A</td>
-                  <td>B</td>
-                  <td>C</td>
-                  <td>A</td>
-                  <td>
-                    <a href="#" class="btn-edit" data-toggle="modal" data-target="#editModalAluno">
-                      <i class="material-icons" data-toggle="tooltip" title="Edit"
-                        style="color: rgb(46, 45, 45);">&#xE8B8;</i>
-                    </a>
-                    <a href="#" class="delete" onclick="return confirm
-                            ('Deseja mesmo excluir este aluno?')">
-                      <i class="material-icons" data-toggle="tooltip" title="Delet" style="color: red;">&#xE5C9;</i>
-                    </a>
-                  </td>
-                </tr>
+                
 
 
-                </tbody>
-              </table>
 
-            </div>
+               
 
-          </div>
+
+          
 
         </div>
       </div>

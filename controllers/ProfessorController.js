@@ -1,5 +1,5 @@
 //Exportando o controller
-const  {Recado} = require("../models")
+const  {Aluno, Professor, Classe, Recado, Tarefa, Classe_Aluno,Usuario} = require("../models")
 
 
 module.exports = {
@@ -89,7 +89,34 @@ module.exports = {
         res.render('professor/criar-sala');
     },
 
-    profGerenciarAluno: (req, res) => {
-        res.render('professor/gerenciar-aluno');
+    profGerenciarAluno: async  (req, res) => {
+        let {page=1} = req.query
+        
+        
+        let recadosDB = await Usuario.findAll({
+            where:{Usuario_id:1},
+            include:[{
+                
+                model: Aluno, 
+                as:'usuarioAluno', 
+                include: 'usuarioAluno'
+
+                    },
+                    {
+                        model: Professor,
+                        as: 'usuarioProfessor'
+                    }]
+            
+        },{
+            limit:5,
+            offset:(page -1)* 5
+        }).catch(err=>{console.log(err)})
+        let totalPagina= "hola"
+        //Math.round(total/5)
+        console.log("@@@@@@@@@@@@@@@@@@@@@@@@"+recadosDB +"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
+        res.render('professor/gerenciar-aluno',{recadosDB,totalPagina});
+    },
+    profGerenciarAluno1: (req,res)=>{
+        res.redirect('/professor/gerenciar-aluno');
     }
 }
