@@ -10,7 +10,7 @@
     <title> Educatella </title> 
     <!-- css externos -->
     <link href="/stylesheets/dist/bootstrap.css" rel="stylesheet">
-    <link href="/stylesheets/dist/header.css" rel="stylesheet">
+    <link href="/stylesheets/dist/header.css" rel="stylesheet"> 
     <link href="/stylesheets/dist/tarefasAlunos.css" rel="stylesheet">
     <!-- links de fontes google (Baloo Da 2, Pangolin e Poppins)-->
     <link href="https://fonts.googleapis.com/css?family=Baloo+Da+2|Pangolin|Poppins&display=swap" rel="stylesheet">
@@ -29,9 +29,10 @@
                 <div class="offset-1 col-8 sombra p-5 mb-5">
                     <div class="row mb-4">
                         <div class="col-12 text-center">
-                            <p class="titulo-geral"> Tarefas de Matemática </p>
+                            <p class="titulo-geral"> Tarefas de <%= classe.nome %> </p>
                         </div>
                     </div>
+                    <% for (tarefas of classe.tarefa) {%>
                     <!-- Linha de Tarefa -->
                     <div class="row mb-4">
                         <div class="offset-1 col-10 shadow-sm">
@@ -39,103 +40,74 @@
                                 <div class="col-3 informacao d-flex align-items-center">
                                     <div class="container">
                                         <!-- Data da Tarefa -->
-                                        <p class="texto-detalhes"> 10/04 </p>
+                                        <p class="texto-detalhes"> <%= tarefas.createdAt.toLocaleString('pt-BR') %> </p>
                                     </div>
                                 </div>
                                 <div class="offset-1 col-8">
                                     <div class="row">
                                         <!-- Texto da Tarefa -->
                                         <div class="col-9">
-                                            <p class="titulo"> Exercícios Geometria  </p>
+                                            <p class="titulo"> <%= tarefas.titulo %>  </p>
                                         </div>
                                         <!-- Botão Leia Mais -->
                                         <div class="col-3">
-                                            <a href="" class="texto-link"> Leia Mais  </a>
+                                            <a href="" class="texto-link" data-toggle="modal" data-target="#modal-adicionar-classe<%= tarefas.id %>"> Leia Mais  </a>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <!-- Linha da Tarefa -->
-                    <div class="row mb-4">
-                        <div class="offset-1 col-10 shadow-sm">
-                            <div class="row">
-                                <div class="col-3 informacao d-flex align-items-center">
-                                    <div class="container">
-                                        <!-- Data da Tarefa -->
-                                        <p class="texto-detalhes"> 11/04 </p>
-                                    </div>
-                                </div>
-                                <div class="offset-1 col-8">
-                                    <div class="row">
-                                        <!-- Texto da Tarefa -->
-                                        <div class="col-9">
-                                            <p class="titulo"> Exercícios Probabilidade  </p>
-                                        </div>
-                                        <!-- Botão Leia Mais -->
-                                        <div class="col-3">
-                                            <a href="" class="texto-link"> Leia Mais  </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Linha de Tarefa -->
-                    <div class="row mb-4">
-                        <div class="offset-1 col-10 shadow-sm">
-                            <div class="row">
-                                <div class="col-3 informacao d-flex align-items-center">
-                                    <div class="container">
-                                        <!-- Data da Tarefa -->
-                                        <p class="texto-detalhes"> 12/04 </p>
-                                    </div>
-                                </div>
-                                <div class="offset-1 col-8">
-                                    <div class="row">
-                                        <!-- Texto da Tarefa -->
-                                        <div class="col-9">
-                                            <p class="titulo"> Exercícios Gráficos  </p>
-                                        </div>
-                                        <!-- Botão Leia Mais -->
-                                        <div class="col-3">
-                                            <a href="" class="texto-link"> Leia Mais  </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Linha de Tarefa -->
-                    <div class="row mb-4">
-                        <div class="offset-1 col-10 shadow-sm">
-                            <div class="row">
-                                <div class="col-3 informacao d-flex align-items-center">
-                                    <div class="container">
-                                        <!-- Data da Tarefa -->
-                                        <p class="texto-detalhes"> 14/04 </p>
-                                    </div>
-                                </div>
-                                <div class="offset-1 col-8">
-                                    <div class="row">
-                                        <!-- Texto da Tarefa -->
-                                        <div class="col-9">
-                                            <p class="titulo"> Exercícios Equações </p>
-                                        </div>
-                                        <!-- Botão Leia Mais -->
-                                        <div class="col-3">
-                                            <a href="" class="texto-link"> Leia Mais  </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <% } %>
                 </div>
             </div>
         </div>
     </main>
+
+    <% for (tarefas of classe.tarefa) { %>
+
+        <!-- Modal Adicionar Classe -->
+        <div class="modal fade" id="modal-adicionar-classe<%= tarefas.id %>" tabindex="-1" role="dialog" aria-labelledby="modal-adicionar-classe-titulo" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modal-adicionar-classe-titulo"> <%= tarefas.titulo %> </h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+
+                    <div class="modal-body">        
+                        <div class="row justify-content-center">
+                            <div class="col-12"> 
+                                <p class="texto"> <%= tarefas.descricao %> </p>
+                            </div>
+                        </div>   
+                        <form>
+                            <!--DIV Carregar tarefa-->
+                            <div class="form-row justify-content-center">
+                                <!-- Carregar tarefa -->
+                                <div class="form-group col-12 tarefa">
+                                    <div class="file-field">
+                                        <div class="btn btn-sm float-right">
+                                            <span>Clique</span>
+                                            <input type="file" class="sumir">
+                                        </div>
+                                        <div class="file-path-wrapper">
+                                            <input class="file-path-validate" type="text"
+                                                placeholder="Carregue o arquivo aqui">
+                                        </div>
+                                    </div>
+                                </div>
+                                <button type="submit"  class="btn-enviar-tarefa">Envie</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+ 
+    <% } %>
 
     <!-- Importando Jquery -->
     <script type="text/javascript" src="/vendor/jquery.min.js"></script>

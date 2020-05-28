@@ -29,113 +29,66 @@
                 <div class="offset-1 col-8 sombra p-5 mb-5">
                     <div class="row mb-4">
                         <div class="col-12 text-center">
-                            <p class="titulo-geral"> Recados de Marco Antonio para você </p>
+                            <p class="titulo-geral"> Recados de <%= classe.professor.usuarioProfessor.nome %> para você </p>
                         </div>
                     </div>
                     <!-- Linha de Aviso -->
+                    <% for (recados of classe.recado) { %>
                     <div class="row mb-4">
                         <div class="offset-1 col-10 shadow-sm">
                             <div class="row">
                                 <div class="col-3 informacao d-flex align-items-center">
                                     <div class="container">
                                         <!-- Data do Aviso -->
-                                        <p class="texto-detalhes"> 10/04 </p>
+                                        <p class="texto-detalhes"> <%= recados.createdAt.toLocaleString('pt-BR') %> </p>
                                     </div>
                                 </div>
                                 <div class="offset-1 col-8">
                                     <div class="row">
                                         <!-- Texto do Aviso -->
                                         <div class="col-9">
-                                            <p class="titulo"> Novo Método de Ensino  </p>
+                                            <p class="titulo"> <%= recados.titulo %>   </p>
                                         </div>
                                         <!-- Botão Leia Mais -->
                                         <div class="col-3">
-                                            <a href="" class="texto-link"> Leia Mais  </a>
+                                            <a href="" class="texto-link" data-toggle="modal" data-target="#modal-adicionar-classe<%= recados.id_recados %>"> Leia Mais  </a>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <!-- Linha de Aviso -->
-                    <div class="row mb-4">
-                        <div class="offset-1 col-10 shadow-sm">
-                            <div class="row">
-                                <div class="col-3 informacao d-flex align-items-center">
-                                    <div class="container">
-                                        <!-- Data do Aviso -->
-                                        <p class="texto-detalhes"> 11/04 </p>
-                                    </div>
-                                </div>
-                                <div class="offset-1 col-8">
-                                    <div class="row">
-                                        <!-- Texto do Aviso -->
-                                        <div class="col-9">
-                                            <p class="titulo"> Sobre Nossas Provas  </p>
-                                        </div>
-                                        <!-- Botão Leia Mais -->
-                                        <div class="col-3">
-                                            <a href="" class="texto-link"> Leia Mais  </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Linha de Aviso -->
-                    <div class="row mb-4">
-                        <div class="offset-1 col-10 shadow-sm">
-                            <div class="row">
-                                <div class="col-3 informacao d-flex align-items-center">
-                                    <div class="container">
-                                        <!-- Data do Aviso -->
-                                        <p class="texto-detalhes"> 12/04 </p>
-                                    </div>
-                                </div>
-                                <div class="offset-1 col-8">
-                                    <div class="row">
-                                        <!-- Texto do Aviso -->
-                                        <div class="col-9">
-                                            <p class="titulo"> Limite de Faltas  </p>
-                                        </div>
-                                        <!-- Botão Leia Mais -->
-                                        <div class="col-3">
-                                            <a href="" class="texto-link"> Leia Mais  </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Linha de Aviso -->
-                    <div class="row mb-4">
-                        <div class="offset-1 col-10 shadow-sm">
-                            <div class="row">
-                                <div class="col-3 informacao d-flex align-items-center">
-                                    <div class="container">
-                                        <!-- Data do Aviso -->
-                                        <p class="texto-detalhes"> 14/04 </p>
-                                    </div>
-                                </div>
-                                <div class="offset-1 col-8">
-                                    <div class="row">
-                                        <!-- Texto do Aviso -->
-                                        <div class="col-9">
-                                            <p class="titulo"> Façam os Exercícios  </p>
-                                        </div>
-                                        <!-- Botão Leia Mais -->
-                                        <div class="col-3">
-                                            <a href="" class="texto-link"> Leia Mais  </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <% } %>
                 </div>
             </div>
         </div>
     </main>
+
+    <% for (recados of classe.recado) { %>
+    <section>
+        <!-- Modal Adicionar Classe -->
+        <div class="modal fade" id="modal-adicionar-classe<%= recados.id_recados %>" tabindex="-1" role="dialog" aria-labelledby="modal-adicionar-classe-titulo" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modal-adicionar-classe-titulo"> <%= recados.titulo %> </h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+
+                    <div class="modal-body">        
+                        <div class="row justify-content-center">
+                            <div class="col-lg-10"> 
+                                <p class="texto"> <%= recados.descricao %> </p>
+                            </div>
+                        </div>            
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <% } %>
 
     <!-- Importando Jquery -->
     <script type="text/javascript" src="/vendor/jquery.min.js"></script>

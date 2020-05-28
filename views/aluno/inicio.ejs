@@ -21,66 +21,83 @@
     <%- include('../partials/header') %>
     <main>
         <div class="container-fluid">
-            <div class="row mb-5">
+            <div class="row mb-4">
                 <!-- Recepção do aluno -->
                 <div class="offset-1 col-11">
-                   <h2 class="titulo"> Olá aluno! Essas são suas classes: </h2>
+                   <h2 class="titulo"> Olá <%= usuario.name %>! Essas são suas classes: </h2>
                 </div>
             </div>
             <div class="row mb-5">
                 <!-- Botão para pesquisar classes -->
                 <div class="offset-1">
-                    <a href="" class="botao"> Pesquisar Classe </a>
+                    <button type="button" class="btn text-white bg-custom-green">
+                        Pesquisar Classe
+                    </button>
                 </div>
                 <div class="ml-3">
-                    <a href="" class="botao"> Entrar em uma Classe </a>
+                    <button type="button" class="btn text-white bg-custom-green" data-toggle="modal" data-target="#modal-adicionar-classe">
+                        Adicionar Classe
+                    </button>
                 </div>
             </div>
         </div>
         <!-- Coluna de professores -->
         <div class="container-fluid">
             <div class="row p-3 mb-5">
+                <% for(classes of aluno.classes) { %>
                 <!-- Foto e descrição do professor e botão para acessar a Classe -->
                 <div class="offset-1 col-3 text-center">
                     <img class="imagem-professor" src="/images/professor.ico">
-                    <p class="texto"> Marco Antonio, Matemática </p>
-                    <a href="/aluno/recados" class="botao-pequeno mb-4"> Acessar Classe </a>
+                    <p class="texto"> <%= classes.professor.usuarioProfessor.nome %>, <%= classes.nome %> </p>
+                    <form action="/aluno/acessarClasse" method="POST">
+                        <input type="hidden" class="form-control" value="<%= classes.id %>" name="idClasse">
+                        <button type="submit" class="btn text-white bg-custom-green"> Acessar Classe </button>
+                    </form>
                 </div>
-                <!-- Foto e descrição do professor e botão para acessar a Classe -->
-                <div class="offset-1 col-3 text-center">
-                    <img class="imagem-professor" src="/images/professor.ico">
-                    <p class="texto"> Paulo Rogério, Química </p>
-                    <a href="/aluno/recados" class="botao-pequeno"> Acessar Classe </a>
-                </div>
-                <!-- Foto e descrição do professor e botão para acessar a Classe -->
-                <div class="offset-1 col-3 text-center">
-                    <img class="imagem-professor" src="/images/professor.ico">
-                    <p class="texto"> Virgínia Souza, Geografia </p>
-                    <a href="/aluno/recados" class="botao-pequeno"> Acessar Classe </a>
-                </div>
-            </div>
-            <div class="row p-3 mb-5">
-                <!-- Foto e descrição do professor e botão para acessar a Classe -->
-                <div class="offset-1 col-3 text-center">
-                    <img class="imagem-professor" src="/images/professor.ico">
-                    <p class="texto"> Talita Souza, Programação </p>
-                    <a href="/aluno/recados" class="botao-pequeno"> Acessar Classe </a>
-                </div>
-                <!-- Foto e descrição do professor e botão para acessar a Classe -->
-                <div class="offset-1 col-3 text-center">
-                    <img class="imagem-professor" src="/images/professor.ico">
-                    <p class="texto"> Fábio Queiroz, Redação </p>
-                    <a href="/aluno/recados" class="botao-pequeno"> Acessar Classe </a>
-                </div>
-                <!-- Foto e descrição do professor e botão para acessar a Classe -->
-                <div class="offset-1 col-3 text-center">
-                    <img class="imagem-professor" src="/images/professor.ico">
-                    <p class="texto"> Ana Paula, Lógica </p>
-                    <a href="/aluno/recados" class="botao-pequeno"> Acessar Classe </a>
-                </div>
+                <% } %>
             </div>
         </div>
     </main>
+
+    <section>
+
+        <!-- Modal Adicionar Classe -->
+        <div class="modal fade" id="modal-adicionar-classe" tabindex="-1" role="dialog" aria-labelledby="modal-adicionar-classe-titulo" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modal-adicionar-classe-titulo">Adicionar classe:</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+
+                    <div class="modal-body">        
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8"> 
+                                <form action="/aluno/adicionarClasse" method="POST">
+                                    <div class="form-group row">
+                                        <label for="number-of-students" class="col-12 col-form-label">Código da Classe:</label>
+                                        <div class="col-12">
+                                            <input type="text" class="form-control" name="codigo">
+                                            <input type="hidden" class="form-control" value="<%= aluno.id %>" name="idAluno">
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-danger" data-dismiss="modal"> Fechar </button>
+                                        <button type="submit" class="btn btn-success"> Entrar na Classe </button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>            
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
     <!-- Importando Jquery -->
     <script type="text/javascript" src="/vendor/jquery.min.js"></script>
     <!-- Importando Bootstrap JS -->

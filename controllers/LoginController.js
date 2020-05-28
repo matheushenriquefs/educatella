@@ -86,8 +86,8 @@ module.exports = {
                                 if(result2){
     
                                     const token = jwt.sign({
-                                        idAluno: query[0].id_usuario,
-                                        idProfessor: query[1].id_usuario,
+                                        idAluno: query[0].id,
+                                        idProfessor: query[1].id,
                                         nameAluno: query[0].nome,
                                         nameProfessor: query[1].nome,
                                         email: query[0].email,
@@ -142,7 +142,7 @@ module.exports = {
                         if(result){
 
                             const token = jwt.sign({
-                                id: query[0].id_usuario,
+                                id: query[0].id,
                                 name: query[0].nome,
                                 email: query[0].email,
                                 type: "Aluno"
@@ -182,7 +182,7 @@ module.exports = {
                         if(result){
 
                             const token = jwt.sign({
-                                id: query[0].id_usuario,
+                                id: query[0].id,
                                 name: query[0].nome,
                                 email: query[0].email,
                                 type: "Professor"

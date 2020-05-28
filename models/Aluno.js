@@ -31,8 +31,8 @@ let Aluno = (sequelize, Datatypes) => {
         aluno.belongsToMany(
             models.Classe,
             {
-                foreignKey: 'id_classe',
-                as: 'classe',
+                foreignKey: 'id_aluno',
+                as: 'classes',
                 through: models.Classe_Aluno
             }
         );

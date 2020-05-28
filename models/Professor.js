@@ -31,7 +31,7 @@ let Professor = (sequelize, Datatypes) => {
             models.Classe,
             {
                 foreignKey: 'id_professor',
-                as: 'classe'
+                as: 'classes'
             }
         );
     }

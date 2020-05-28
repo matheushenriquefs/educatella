@@ -18,8 +18,7 @@ router.get('/professor/editar-recado', authUser,  ProfessorController.profRecado
 router.post('/professor/editar-recado/:id', authUser,  ProfessorController.profRecadosEditar2);
 router.get('/professor/postar-nota', authUser, ProfessorController.profNotas);
 router.get('/professor/postar-tarefa', authUser, ProfessorController.profPostarTarefa);
-router.get('/professor/postar-presenca', authUser, ProfessorController.profPostarPresenca);
 router.get('/professor/criar-sala', authUser, ProfessorController.profCriarSala);
-router.get('/professor/gerenciar-aluno', authUser, ProfessorController.profGerenciarAluno);
+router.get('/professor/gerenciar-aluno',  ProfessorController.profGerenciarAluno);
 
 module.exports = router; 

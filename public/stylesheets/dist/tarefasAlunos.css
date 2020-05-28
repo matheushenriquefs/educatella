@@ -11,6 +11,19 @@
     color: grey;
 }
 
+.botao-link{
+    background-color:white;
+    border:0;
+    font-family: 'Poppins', sans-serif;
+    font-size:1rem;
+    color: grey;
+}
+
+.botao-link:hover{
+    text-decoration: none;
+    color:#4AE894;
+}
+
 /* Título da Página */
 
 .titulo-geral {
@@ -44,6 +57,87 @@
 .texto-link:hover{
     text-decoration: none;
     color:#4AE894;
+}
+
+/* Botão carregar arquivo */
+.float-right {
+    float: right !important;
+    width: 65px;
+    height: 30px;
+    border-radius: 15px;
+    background-color: #3bc472;
+    border: none;
+    margin-right: 150px;
+    color: black;
+    margin-top: 5px;
+    font-size: 15px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.float-right:hover{
+    opacity: 0.8;
+}
+
+
+/* Mascarar type file */
+.file-field input[type="file"] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 60%;
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
+    filter: alpha(opacity=0);
+    opacity: 0;
+}
+
+
+/* Input carregue o arquivo aqui */
+.file-path-wrapper{
+    display: block;
+    width: 48%;
+    height: calc(1.5em + 0.75rem + 2px);
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    margin-top: 20px;
+    font-family: 'Poppins', sans-serif;
+}
+
+
+/* Esconder borda type text */
+.file-path-validate{
+    border: none;
+    width: 100%;
+}
+
+/*Botão enviar*/
+.btn-enviar-tarefa{
+    width: 65px;
+    height: 30px;
+    background-color: rgb(241, 109, 110);
+    border: none;
+    border-radius: 15px;
+    margin-top: 30px;
+    margin-left: 137px;
+    font-size: 16px;
+    font-family: 'Poppins', sans-serif;
+
+}
+
+.btn-enviar-tarefa:hover{
+    cursor: pointer;
+    opacity: 0.8;
 }
 
 /* Sombra das Divs */

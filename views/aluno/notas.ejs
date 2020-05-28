@@ -28,36 +28,26 @@
                 <div class="offset-1 col-8 sombra p-5 mb-5">
                     <div class="row mb-4">
                         <div class="col-12 text-center">
-                            <p class="titulo-geral"> Notas e Faltas em Matemática </p>
+                            <p class="titulo-geral"> Notas em <%= classe.nome %> </p>
                         </div>
                     </div>
                     <!-- Linha e Coluna Gerais -->
                     <div class="row">
                         <div class="offset-1 col-10 shadow-sm">
                             <div class="row">
-                                <!-- Coluna dos Bimetres -->
-                                <div class="col-4 text-center">
-                                    <p class="body-text-titulo"> Bimestres </p>
-                                    <p class="body-text"> 1º Bimestre </p>
-                                    <p class="body-text"> 2º Bimestre </p>
-                                    <p class="body-text"> 3º Bimestre </p>
-                                    <p class="body-text"> 4º Bimestre </p>
+                                <!-- Coluna das tarefas -->
+                                <div class="col-8 text-center">
+                                    <p class="body-text-titulo"> Tarefa </p>
+                                    <% for(tarefas of classe.tarefa){ %>
+                                    <p class="body-text"> <%= tarefas.titulo %> </p>
+                                    <% } %>
                                 </div>
                                 <!-- Coluna das notas -->
                                 <div class="col-4 text-center">
-                                    <p class="body-text-titulo"> Notas </p>
-                                    <p class="body-text-verde"> 10 </p>
-                                    <p class="body-text-verde"> 9 </p>
-                                    <p class="body-text-verde"> 7 </p>
-                                    <p class="body-text-vermelho"> 0 </p>    
-                                </div>
-                                <!-- Coluna das faltas -->
-                                <div class="col-4 text-center">
-                                    <p class="body-text-titulo"> Faltas </p>
-                                    <p class="body-text-verde"> 0 </p>  
-                                    <p class="body-text-verde"> 2 </p>
-                                    <p class="body-text-verde"> 3 </p>
-                                    <p class="body-text-vermelho"> 10 </p>
+                                    <p class="body-text-titulo"> Nota </p>
+                                    <% for(tarefas of classe.tarefa){ %>
+                                    <p class="body-text"> <%= tarefas.nota %> </p>
+                                    <% } %>
                                 </div>
                             </div>
                         </div>
