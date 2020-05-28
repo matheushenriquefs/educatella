@@ -94,7 +94,8 @@ module.exports = {
         
         
         let recadosDB = await Usuario.findAll({
-            where:{Usuario_id:1},
+           
+            
             include:[{
                 
                 model: Aluno, 
@@ -113,7 +114,7 @@ module.exports = {
         }).catch(err=>{console.log(err)})
         let totalPagina= "hola"
         //Math.round(total/5)
-        console.log("@@@@@@@@@@@@@@@@@@@@@@@@"+recadosDB +"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
+        
         res.render('professor/gerenciar-aluno',{recadosDB,totalPagina});
     },
     profGerenciarAluno1: (req,res)=>{
