@@ -99,12 +99,6 @@ module.exports = {
                                     });
 
                                     res.cookie("token", token, { httpOnly: true });
-            
-                                    res.status(200).render("/professor/inicio", {
-                                        title: "Sucesso!",
-                                        message: "Autenticado com sucesso!",
-                                        type: "Aluno e Professor"
-                                    });
 
                                     res.redirect("/escolherUsuario");
     
