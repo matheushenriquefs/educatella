@@ -17,16 +17,8 @@ module.exports = {
         type: Sequelize.STRING, 
         allowNull: false
       },
-      data_entrega:{
-        type: Sequelize.DATE, 
-        allowNull: false
-      },
-      data_criacao:{
-        type: Sequelize.DATE, 
-        allowNull: false
-      },
-      nota:{
-        type: Sequelize.INTEGER, 
+      arquivo:{
+        type: Sequelize.STRING, 
         allowNull: false
       },
       createdAt: {

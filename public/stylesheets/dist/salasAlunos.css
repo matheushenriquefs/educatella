@@ -11,62 +11,6 @@
     color: #4AE894;
 }
 
-.bg-custom-green{   
-    background-color: #4AE894;;
-}
-
-.botao-pequeno{
-
-    color: white;
-    font-size: 1rem;
-    border-radius: 15px;
-    padding: 10px 15px 10pxpx 15px;
-    background-color: #4AE894;
-    font-family: 'Baloo Da 2', cursive;
-}
-
-.botao-pequeno-excluir{
-    border: none;
-    color: white;
-    font-size: 1rem;
-    border-radius: 15px;
-    font-family: 'Baloo Da 2', cursive;
-    width: 5rem;
-    height: 2rem;
-    border-bottom: 0 !important;
-    margin: 0 auto !important;
-}
-
-.botao-pequeno-transferir{
-    border: none;
-    color: white;
-    font-size: 1rem;
-    border-radius: 15px;
-    font-family: 'Baloo Da 2', cursive;
-    width: 8rem;
-    height: 2rem;
-    border-bottom: 0 !important;
-    margin: 0 auto !important;
-}
-
-.botao-pequeno:hover{
-    background-color: rgb(96, 195, 171);
-    text-decoration: none;
-    color: white;
-}
-
-.border-success {
-    border-color: #4AE894 !important;
-    color: #4AE894;
-}
-
-.border-success:hover{
-    border-color: #4AE894 !important;
-    background-color: #4AE894 !important;
-    color: white;
-}
-
-
 /* Botão Pesquisar Salas */
 
 .botao {
@@ -80,22 +24,23 @@
 
 .botao:hover {
     background-color: rgb(96, 195, 171);
-    text-decoration: none;
+    text-decoration: none; 
     color: white;
 }
 
 /* Botão Acessar Salas */
 
-.botao-pequeno{
+.btn-entrar-classe{
     color: white;
     font-size: 1rem;
     border-radius: 15px;
     padding: 5px 10px 5px 10px;
     background-color: #4AE894;
+    border: #4AE894;
     font-family: 'Baloo Da 2', cursive;
 }
 
-.botao-pequeno:hover{
+.btn-entrar-classe:hover{
     background-color: rgb(96, 195, 171);
     text-decoration: none;
     color: white;
@@ -103,12 +48,17 @@
 
 /* Nome do Professor */
 
-.texto{
-    font-family: 'Poppins', sans-serif;
-    font-size:1rem;
-    color: grey;
+.horizontal{
+    display: inline-block;
 }
 
+.texto {
+    font-family: 'Poppins', sans-serif;
+    font-size:1.1rem;
+    color: grey;
+    list-style-type: none;
+    margin-bottom: 0.5rem;
+}
 
 /* Sombra das Divs */
 
@@ -121,6 +71,116 @@
 .imagem-professor{
     width:5rem;
 }
+
+
+
+
+/*Form criar classe*/
+.mb-5 .form-criar-classe{
+    font-family: 'Poppins', sans-serif;
+    color: #4AE894;
+    text-align: center;
+}
+
+.btn-criar-classe{
+    width: 60px;
+    height: 30px;
+    font-family: 'Poppins', sans-serif;
+    background-color: rgb(241, 109, 110);
+    border: none;
+    border-radius: 15px;
+    margin-top: -13px;
+    margin-left: 90px;
+    font-size: 16px;
+    color: white;
+}
+
+.btn-criar-classe:hover{
+    cursor: pointer;
+    background-color: rgb(241, 109, 110, 0.8);
+    color: white;
+}
+
+/* Formulário estilo */
+.form-control{
+    display: block;
+    width: 100%;
+    height: calc(1.5em + 0.75rem + 2px);
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    font-family: 'Poppins', sans-serif;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    cursor: pointer;
+}
+
+
+/* Tabela gerenciar classe */
+
+/* Título */
+.form-editar-classe{
+    font-family: 'Poppins', sans-serif;
+    color: #4AE894;
+    text-align: center;
+}
+
+/* Linha fixa da tabela */
+.table thead th{
+    font-family: 'Poppins', sans-serif;
+    color: #4AE894;
+    text-align: center;
+}
+
+/* Linhas editáveis da tabela */
+.table td{
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+}
+
+.material-icons:hover{
+    opacity: 0.8;  
+}
+
+.button-delete{
+    background-color: white;
+    border: white;
+}
+
+
+/* Modal ediatr classe */
+
+.modal-title{
+    font-family: 'Poppins', sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    color: #03c03c;
+}
+
+#modal-alunos, #modal-periodo, #modal-conteudo{
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+}
+
+.btn-modal-enviar{
+    font-family: 'Poppins', sans-serif;
+    background-color:  #03c03c;
+    border: 0.5px solid  #03c03c;
+    border-radius: 15px;
+    width: 80px;
+    height: 30px;
+    color: white;
+}
+
+.btn-modal-enviar:hover{
+    opacity: 0.8;
+}
+
 
 /* Media Querys Para Responsividade */
 
