@@ -11,18 +11,28 @@ module.exports = {
       },
       id_classe:{
         type: Sequelize.INTEGER,
-        allowNull: false
+        references:{
+          model:'classes',
+          key:'id'
+        },
+        onDelete:"CASCADE",
+        onUpdate:"CASCADE"
       },
       id_aluno:{
         type: Sequelize.INTEGER,
+        references:{
+          model:'alunos',
+          key:'id'
+        },
+        onDelete:"CASCADE",
+        onUpdate:"CASCADE"
+      },
+      createdAt:{
+        type: Sequelize.DATE, 
         allowNull: false
       },
-      createdAt: {
-        type: Sequelize.DATE,
-        allowNull: false
-      },
-      updatedAt: {
-        type: Sequelize.DATE,
+      updatedAt:{
+        type: Sequelize.DATE, 
         allowNull: false
       }
     });
