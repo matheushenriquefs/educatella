@@ -18,7 +18,7 @@ let Tarefa = (sequelize, Datatypes) => {
             },
             arquivo:{
                 type: Datatypes.STRING,
-                allowNull: false
+                allowNull: true
             },
             id_classe:{
                 type: Datatypes.INTEGER,

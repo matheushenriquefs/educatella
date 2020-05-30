@@ -19,6 +19,10 @@ let Usuario = (sequelize, Datatypes) => {
             senha:{
                 type: Datatypes.STRING, 
                 allowNull: false
+            },
+            imagem:{
+                type: Datatypes.STRING, 
+                allowNull: true
             }
         },
         {

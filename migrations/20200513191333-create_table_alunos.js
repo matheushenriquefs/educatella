@@ -9,23 +9,23 @@ module.exports = {
         allowNull: false,
         autoIncrement: true
       },
-      createdAt: {
-        type: Sequelize.DATE,
-        allowNull: false
-      },
-      updatedAt: {
-        type: Sequelize.DATE,
-        allowNull: false
-      },
       id_usuario:{
         type: Sequelize.INTEGER,
         references:{
-          model:{
-            tableName: 'usuarios'
-          },
+          model:'usuarios',
           key:'id'
-        }
+        },
+        onDelete:"CASCADE",
+        onUpdate:"CASCADE"
       },
+      createdAt:{
+        type: Sequelize.DATE, 
+        allowNull: false
+      },
+      updatedAt:{
+        type: Sequelize.DATE, 
+        allowNull: false
+      }
     });
   },
   down: (queryInterface, Sequelize) => {

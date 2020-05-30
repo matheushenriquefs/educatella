@@ -17,22 +17,22 @@ module.exports = {
           type: Sequelize.STRING, 
           allowNull: false
       },
-      createdAt: {
-        type: Sequelize.DATE,
-        allowNull: false
-      },
-      updatedAt: {
-        type: Sequelize.DATE,
-        allowNull: false
-      },
       id_professor:{
         type: Sequelize.INTEGER,
         references:{
-          model:{
-            tableName: 'professores'
-          },
+          model:'professores',
           key:'id'
-        }
+        },
+        onDelete:"CASCADE",
+        onUpdate:"CASCADE"
+      },
+      createdAt:{
+        type: Sequelize.DATE, 
+        allowNull: false
+      },
+      updatedAt:{
+        type: Sequelize.DATE, 
+        allowNull: false
       }
     });
   },
