@@ -46,7 +46,7 @@
             <div class="row p-3 mb-5">
                 <% for(classes of aluno.classes) { %>
                 <!-- Foto e descrição do professor e botão para acessar a Classe -->
-                <div class="offset-1 col-3 text-center">
+                <div class="mb-5 offset-1 col-3 text-center">
                     <img class="imagem-professor" src="/images/professor.ico">
                     <p class="texto"> <%= classes.professor.usuarioProfessor.nome %>, <%= classes.nome %> </p>
                     <form action="/aluno/acessarClasse" method="POST">

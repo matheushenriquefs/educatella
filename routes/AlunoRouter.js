@@ -14,5 +14,6 @@ router.post('/aluno/notas', authUser, AlunoController.notasAlunos);
 router.get('/aluno/inicio', authUser, AlunoController.inicioAlunos);
 router.post('/aluno/adicionarClasse', authUser, AlunoController.adicionarClasse);
 router.post('/aluno/acessarClasse', authUser, AlunoController.acessarClasse);
+router.post('/aluno/excluirClasse', authUser, AlunoController.excluirClasse);
 
 module.exports = router;

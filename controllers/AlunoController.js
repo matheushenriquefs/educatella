@@ -217,5 +217,23 @@ module.exports = {
 
 		res.render("aluno/recados", {classe, classes:classesAluno.classes, usuario: req.usuario});
 
+	},
+
+	excluirClasse: async (req,res)=> {
+
+		const idUsuario = req.usuario.id;
+		const idClasse = req.body.idClasse;
+
+		let aluno = await Aluno.findOne({where:{id_usuario:idUsuario}});
+
+		await Classe_Aluno.destroy({
+			where:{
+				id_aluno:aluno.id,
+				id_classe:idClasse
+			}
+		});
+
+		res.redirect("/aluno/inicio");
+
 	}
 }
