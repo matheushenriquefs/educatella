@@ -10,7 +10,7 @@ module.exports = {
         const profId = req.params;
 
 
-        res.render('professor/inicio', { criarSalas, profId });
+        res.render('professor/inicio', { criarSalas, profId }); 
     },
 
     // Classes 
@@ -40,7 +40,7 @@ module.exports = {
     },
 
     updateClasse: async (req, res) => {
-        o
+
         res.render('professor/inicio');
     },
 
