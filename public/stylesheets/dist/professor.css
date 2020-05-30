@@ -364,7 +364,7 @@ html {
 /* Título */
 .tabela-gerenciar-aluno-titulo{
     font-family: 'Poppins', sans-serif;
-    color: #ffae00;
+    color: #4AE894;
     text-align: center;
     margin-top: 40px;
     padding-bottom: 35px;
@@ -373,7 +373,7 @@ html {
 /* Linha fixa da tabela */
 .table thead th{
     font-family: 'Poppins', sans-serif;
-    color: rgb(254, 198, 86);
+    color: #4AE894;
     text-align: center;
 }
 
