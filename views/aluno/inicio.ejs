@@ -30,12 +30,12 @@
             <div class="row mb-5">
                 <!-- Botão para pesquisar classes -->
                 <div class="offset-1">
-                    <button type="button" class="btn text-white bg-custom-green">
+                    <button class="btn text-white botao">
                         Pesquisar Classe
                     </button>
                 </div>
                 <div class="ml-3">
-                    <button type="button" class="btn text-white bg-custom-green" data-toggle="modal" data-target="#modal-adicionar-classe">
+                    <button class="btn text-white botao" data-toggle="modal" data-target="#modal-adicionar-classe">
                         Adicionar Classe
                     </button>
                 </div>
@@ -51,7 +51,7 @@
                     <p class="texto"> <%= classes.professor.usuarioProfessor.nome %>, <%= classes.nome %> </p>
                     <form action="/aluno/acessarClasse" method="POST">
                         <input type="hidden" class="form-control" value="<%= classes.id %>" name="idClasse">
-                        <button type="submit" class="btn text-white bg-custom-green"> Acessar Classe </button>
+                        <button type="submit" class="btn text-white botao"> Acessar Classe </button>
                     </form>
                 </div>
                 <% } %>

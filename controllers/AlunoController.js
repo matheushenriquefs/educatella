@@ -4,6 +4,7 @@ module.exports = {
 
 	recadosAlunos: async (req, res)=>{
 
+		const idUsuario = req.usuario.id;
 		const idClasse = req.body.idClasse;
 		
 		let classe = await Classe.findByPk(idClasse,
@@ -22,13 +23,28 @@ module.exports = {
 			}
 		);
 
-		let todasClasses = await Classe.findAll();
+		let aluno = await Aluno.findOne({where:{id_usuario:idUsuario}});
 
-		res.render("aluno/recados", {classe, classes:todasClasses, usuario: req.usuario});
+		let classesAluno = await Aluno.findByPk(aluno.id,
+			{
+				include:{
+					model: Classe, 
+					as:'classes', 
+					include:{
+						model: Professor,
+						as:'professor',
+						include: 'usuarioProfessor'
+					}
+				}
+			}
+		)
+
+		res.render("aluno/recados", {classe, classes:classesAluno.classes, usuario: req.usuario});
 	},
 
 	tarefasAlunos: async (req, res)=>{
 
+		const idUsuario = req.usuario.id;
 		const idClasse = req.body.idClasse;
 		
 		let classe = await Classe.findByPk(idClasse,
@@ -47,13 +63,28 @@ module.exports = {
 			}
 		);
 
-		let todasClasses = await Classe.findAll();
+		let aluno = await Aluno.findOne({where:{id_usuario:idUsuario}});
 
-		res.render("aluno/tarefas", {classe, classes:todasClasses, usuario: req.usuario});
+		let classesAluno = await Aluno.findByPk(aluno.id,
+			{
+				include:{
+					model: Classe, 
+					as:'classes', 
+					include:{
+						model: Professor,
+						as:'professor',
+						include: 'usuarioProfessor'
+					}
+				}
+			}
+		)
+
+		res.render("aluno/tarefas", {classe, classes:classesAluno.classes, usuario: req.usuario});
 	},
 
 	notasAlunos: async (req, res)=>{
 
+		const idUsuario = req.usuario.id;
 		const idClasse = req.body.idClasse;
 		
 		let classe = await Classe.findByPk(idClasse,
@@ -72,9 +103,23 @@ module.exports = {
 			}
 		);
 
-		let todasClasses = await Classe.findAll();
+		let aluno = await Aluno.findOne({where:{id_usuario:idUsuario}});
 
-		res.render("aluno/notas", {classe, classes:todasClasses, usuario: req.usuario});
+		let classesAluno = await Aluno.findByPk(aluno.id,
+			{
+				include:{
+					model: Classe, 
+					as:'classes', 
+					include:{
+						model: Professor,
+						as:'professor',
+						include: 'usuarioProfessor'
+					}
+				}
+			}
+		)
+
+		res.render("aluno/notas", {classe, classes:classesAluno.classes, usuario: req.usuario});
 	},
 
 	inicioAlunos: (req, res)=>{
@@ -134,6 +179,7 @@ module.exports = {
 
 	acessarClasse: async (req,res)=> {
 
+		const idUsuario = req.usuario.id;
 		const idClasse = req.body.idClasse;
 		
 
@@ -153,9 +199,23 @@ module.exports = {
 			}
 		);
 
-		let todasClasses = await Classe.findAll();
+		let aluno = await Aluno.findOne({where:{id_usuario:idUsuario}});
 
-		res.render("aluno/recados", {classe, classes:todasClasses, usuario: req.usuario});
+		let classesAluno = await Aluno.findByPk(aluno.id,
+			{
+				include:{
+					model: Classe, 
+					as:'classes', 
+					include:{
+						model: Professor,
+						as:'professor',
+						include: 'usuarioProfessor'
+					}
+				}
+			}
+		)
+
+		res.render("aluno/recados", {classe, classes:classesAluno.classes, usuario: req.usuario});
 
 	}
 }
