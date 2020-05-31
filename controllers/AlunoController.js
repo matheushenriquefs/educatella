@@ -1,4 +1,7 @@
-const {Aluno, Professor, Classe, Recado, Tarefa, Classe_Aluno} = require("../models");
+const {Aluno, Professor, Classe, Recado, Usuario, Tarefa, Classe_Aluno} = require("../models");
+
+let bcrypt = require("bcrypt");
+
 // Exportando o Controller
 module.exports = {
 
@@ -232,6 +235,101 @@ module.exports = {
 				id_classe:idClasse
 			}
 		});
+
+		res.redirect("/aluno/inicio");
+
+	},
+
+	alterarImagem: async (req,res)=> {
+
+		const idUsuario = req.usuario.id;
+		let img = "/images/" + req.file.filename;
+
+		await Usuario.update({
+			imagem:img
+		},
+		{
+			where:{
+				id:idUsuario
+			}
+		});
+
+		res.redirect("/aluno/inicio");
+
+	},
+
+	alterarNome: async (req,res)=> {
+		
+		const idUsuario = req.usuario.id;
+		let nomeUsuario = req.body.nome;
+
+		await Usuario.update({
+			nome:nomeUsuario
+		},
+		{
+			where:{
+				id:idUsuario
+			}
+		});
+
+		res.redirect("/aluno/inicio");
+
+	},
+
+	alterarEmail: async (req,res)=> {
+
+		const idUsuario = req.usuario.id;
+		let email = req.body.email;
+		let senha = req.body.senhaEmail;
+
+		let usuarioBanco = await Usuario.findOne(
+		{
+			where:{
+				id:idUsuario
+			}
+		});
+
+		if(bcrypt.compareSync(senha, usuarioBanco.senha)){
+
+			await Usuario.update({
+				email
+			},
+			{
+				where:{
+					id:idUsuario
+				}
+			});	
+
+		}
+
+		res.redirect("/aluno/inicio");
+
+	},
+
+	alterarSenha: async (req,res)=> {
+
+		const idUsuario = req.usuario.id;
+		let senhaAntiga = req.body.senhaAntiga;
+		let senhaNova = req.body.senhaNova;
+
+		let usuarioBanco = await Usuario.findOne(
+		{
+			where:{
+				id:idUsuario
+			}
+		});
+
+		if(bcrypt.compareSync(senhaAntiga, usuarioBanco.senha)){
+
+			await Usuario.update({
+				senha: bcrypt.hashSync(senhaNova, 10)
+			},
+			{
+				where:{
+					id:idUsuario
+				}
+			});	
+		}
 
 		res.redirect("/aluno/inicio");
 

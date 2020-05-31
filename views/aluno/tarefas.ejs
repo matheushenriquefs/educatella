@@ -18,7 +18,7 @@
 
 <body>
     <!-- Header da Página -->
-    <%- include('../partials/header') %>
+    <%- include('../partials/header-aluno') %>
 
     <main>
         <div class="container-fluid">
@@ -26,7 +26,7 @@
                 <!-- Coluna Esquerda (Links e Professor) -->
                 <%- include('../partials/aluno-left') %>
                 <!-- Coluna Direita -->
-                <div class="offset-1 col-8 sombra p-5 mb-5">
+                <div class="ml-5 col-8 sombra p-5 mb-5">
                     <div class="row mb-4">
                         <div class="col-12 text-center">
                             <p class="titulo-geral"> Tarefas de <%= classe.nome %> </p>
@@ -76,33 +76,37 @@
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
-
-                    <div class="modal-body">        
-                        <div class="row justify-content-center">
-                            <div class="col-12"> 
-                                <p class="texto"> <%= tarefas.descricao %> </p>
-                            </div>
-                        </div>   
-                        <form>
-                            <!--DIV Carregar tarefa-->
-                            <div class="form-row justify-content-center">
-                                <!-- Carregar tarefa -->
-                                <div class="form-group col-12 tarefa">
-                                    <div class="file-field">
-                                        <div class="btn btn-sm float-right">
-                                            <span>Clique</span>
-                                            <input type="file" class="sumir">
-                                        </div>
-                                        <div class="file-path-wrapper">
-                                            <input class="file-path-validate" type="text"
-                                                placeholder="Carregue o arquivo aqui">
+                    <form>
+                        <div class="modal-body">        
+                            <div class="row justify-content-center">
+                                <div class="col-12"> 
+                                    <p class="texto"> <%= tarefas.descricao %> </p>
+                                </div>
+                            </div>   
+                            
+                                <!--DIV Carregar tarefa-->
+                                <div class="form-row justify-content-center">
+                                    <!-- Carregar tarefa -->
+                                    <div class="form-group col-12 tarefa">
+                                        <div class="file-field">
+                                            <div class="btn btn-sm float-right">
+                                                <span>Clique</span>
+                                                <input type="file" class="sumir">
+                                            </div>
+                                            <div class="file-path-wrapper">
+                                                <input class="file-path-validate" type="text"
+                                                    placeholder="Carregue o arquivo aqui">
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                                <button type="submit"  class="btn-enviar-tarefa">Envie</button>
-                            </div>
-                        </form>
-                    </div>
+                            
+                        </div>
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-success"> Enviar Tarefa </button>
+                            <button type="button" class="btn btn-danger" data-dismiss="modal"> Fechar </button>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>

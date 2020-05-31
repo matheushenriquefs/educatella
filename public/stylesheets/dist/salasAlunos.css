@@ -72,8 +72,9 @@
     width:5rem;
 }
 
-
-
+.imagem-padrao{
+    width:7rem;
+}
 
 /*Form criar classe*/
 .mb-5 .form-criar-classe{

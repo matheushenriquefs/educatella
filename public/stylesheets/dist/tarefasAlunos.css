@@ -59,6 +59,10 @@
     color:#4AE894;
 }
 
+.imagem-padrao{
+    width:7rem;
+}
+
 /* Botão carregar arquivo */
 .float-right {
     float: right !important;
