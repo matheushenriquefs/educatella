@@ -91,6 +91,8 @@ module.exports = {
                                         nameAluno: query[0].nome,
                                         nameProfessor: query[1].nome,
                                         email: query[0].email,
+                                        imagemAluno: query[0].imagem,
+                                        imagemProfessor: query[1].imagem,
                                         type: "Aluno e Professor"
                                     }, 
                                     process.env.JWT_KEY,
@@ -145,6 +147,7 @@ module.exports = {
                                 id: query[0].id,
                                 name: query[0].nome,
                                 email: query[0].email,
+                                imagem: query[0].imagem,
                                 type: "Aluno"
                             }, 
                             process.env.JWT_KEY,
@@ -185,6 +188,7 @@ module.exports = {
                                 id: query[0].id,
                                 name: query[0].nome,
                                 email: query[0].email,
+                                imagem: query[0].imagem,
                                 type: "Professor"
                             }, 
                             process.env.JWT_KEY,
