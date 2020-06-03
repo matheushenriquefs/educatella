@@ -4,7 +4,9 @@
     <div class="row">
         <div class="col-12 text-center">
             <img class="imagem-professor" src="/images/professor.ico">
-            <p class="texto"> Marco Antonio, Matemática </p>
+            <br>
+            <p class="texto"> <%= usuario.name %> </p>
+            <p class="texto" style="margin-top: -12px;"> <%= acessarClasse.nome %> </p>
         </div>
     </div>
     <!-- Links -->
@@ -13,55 +15,54 @@
             <nav id="menu-left">
                 <ul class="nav flex-column">
                     <!-- Recados -->
-             
-                    <li class="nav-item dropdown">
-                        <a class="texto-link nav-link dropdown-toggle" data-toggle="dropdown" href="" role="button" aria-haspopup="true"
-                            aria-expanded="false">
-                            <img src="/images/recados.png" alt="icone recados" class="imagens-classe"> Recados
+                        <a class="texto-link nav-link dropdown-toggle" data-toggle="dropdown" href="" role="button"
+                            aria-haspopup="true" aria-expanded="false">
+                            <img class="imagens-classe" src="/images/recados.png" alt="icone recados"> <button class="botao-link" type="submit"> Recados </button>
                         </a>
                         <div class="dropdown-menu">
-                            <a class="dropdown-item" href="/professor/recados">
-                                 Recados
-                            </a>
-                            <a class="dropdown-item" href="/professor/criar-recado">
-                                Criar Recados
-                            </a>
-                            <a class="dropdown-item" href="/professor/apagar-recado">
-                                Apagar Recados
-                            </a>
-                            <a class="dropdown-item" href="/professor/editar-recado">
-                                Editar Recados
-                            </a>
+                            <form action="#" method="POST">
+                                <button class="botao-link dropdown-item" type="submit"> Recados </button>
+                                <input type="hidden" value="#" name="#">
+                            </form>
+                            <form action="#" method="POST">
+                                <button class="botao-link dropdown-item" type="submit"> Criar Recados </button>
+                                <input type="hidden" value="#" name="#">
+                            </form>
+                            <form action="#" method="POST">
+                                <button class="botao-link dropdown-item" type="submit"> Apagar Recados </button>
+                                <input type="hidden" value="#" name="#">
+                            </form>
+                            <form action="#" method="POST">
+                                <button class="botao-link dropdown-item" type="submit"> Editar Recados </button>
+                                <input type="hidden" value="#" name="#">
+                            </form>
                         </div>
-                    </li>
-                    <!-- Dropdown: presença, tarefas, notas, diário de sala-->
-                    <li class="nav-item dropdown">
-                        <a class="texto-link nav-link dropdown-toggle" data-toggle="dropdown" href="" role="button" aria-haspopup="true"
-                            aria-expanded="false">
-                            <img src="/images/notas.png" alt="icone classes" class="imagens-classe"> Postar
-                        </a>
-                        <div class="dropdown-menu">
-                            <a class="dropdown-item" href="/professor/postar-tarefa">Postar tarefa</a>
-                            <a class="dropdown-item" href="/professor/postar-nota">Postar nota</a>
-                        </div>
-                    </li>
-                    <!-- Dropdown: criar sala e cadastrar aluno -->
-                    <li class="nav-item dropdown">
-                        <a class="texto-link nav-link dropdown-toggle" data-toggle="dropdown" href="" role="button" aria-haspopup="true"
-                            aria-expanded="false">
-                            <img src="/images/criar-icon.png" alt="icone criação" class="imagens-classe"> Gerenciar
-                        </a>
-                        <div class="dropdown-menu">
-                            <a class="dropdown-item" href="/professor/gerenciar-aluno">Gerenciar alunos</a>
-                            
-                        </div>
-                    </li>
+                        <p></p>
+                    <!-- Tarefa -->
+                    <form action="/professor/tarefa" method="POST" style="margin-left: 16px; margin-top: -12px;">
+                        <img class="imagens-classe" src="/images/tarefas.png"> <button class="botao-link" type="submit"> Tarefas </button>
+                        <input type="hidden" value="<%= acessarClasse.id %>" name="id_classe">
+                    </form>
+                    <!-- Notas -->
+                    <form action="#" method="POST" style="margin-left: 16px; margin-top: 12px;">
+                        <img class="imagens-classe" src="/images/notas.png" alt="icone notas"> <button class="botao-link" type="submit"> Notas </button>
+                        <input type="hidden" value="#" name="#">
+                    </form>
+
+                    <!-- Gerenciar -->
+                    <form action="#" method="POST" style="margin-left: 16px; margin-top: 12px;">
+                        <img class="imagens-classe" src="/images/criar-icon.png" alt="icone notas"> <button class="botao-link" type="submit"> Gerenciar aluno </button>
+                        <input type="hidden" value="#" name="#">
+                    </form>
+                        
                     <!-- Salas -->
                     <li class="nav-item">
                         <a class="texto-link nav-link" href="/professor/inicio">
                             <img src="/images/salas.png" alt="icone recados" class="imagens-classe"> Classes
                         </a>
                     </li>
+
+
                 </ul>
             </nav>
         </div>

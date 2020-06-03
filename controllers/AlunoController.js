@@ -18,7 +18,7 @@ module.exports = {
 						as:'professor', 
 						include: 'usuarioProfessor'
                     },
-                    {
+                    { 
                         model: Recado, 
                         as:'recado'
                     }

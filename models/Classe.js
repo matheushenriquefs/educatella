@@ -29,7 +29,7 @@ let Classe = (sequelize, Datatypes) => {
 
     classe.associate = (models) => {
         classe.belongsTo(
-            models.Professor,
+            models.Professor, 
             {
                 foreignKey: 'id_professor',
                 as: 'professor'

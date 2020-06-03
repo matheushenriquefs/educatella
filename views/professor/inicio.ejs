@@ -35,7 +35,7 @@
                 <div class="row mb-5">
                     <!-- Recepção do professor -->
                     <div class="offset-1 col-11">
-                        <h2 class="titulo"> Olá, Professor! Estas são suas classes </h2>
+                        <h2 class="titulo"> Olá, Professor <%= usuario.name %>! Estas são suas classes </h2>
                     </div>
                 </div>
                 <div class="row mb-5">
@@ -45,28 +45,24 @@
                     </div>
                 </div>
             </div>
-
-            <!-- Coluna de professores -->
+ 
+            <!-- Coluna de professores --> 
             <div class="container box-2">
                 <div class="row p-3 mb-5 mt-9">
 
                     <!-- Foto e descrição do professor e botão para acessar a Classe -->
 
-                    <% criarSalas.forEach(criarSala => { %>
+                    <% professor.classes.forEach(classe => { %>
 
-                    <div class="offset-1 col-2 text-center horizontal">
-
-                        <li class="texto"><img class="imagem-professor" src="/images/professor.ico">
-                            <%= criarSala.img %> </li>
-                        <li class="texto"> <%= criarSala.nome %> </li>
-                        <li class="texto"> <%= criarSala.codigo %> </li>
-                        <form method="POST" action="/professor/acessar-classe">
-                            <input type="hidden" class="form-control" value="<%= criarSalas.id %>" name="idClasse">
-                            <button class="btn-entrar-classe" type="submit">Acessar Classe</button>
-                        </form>
-                        </br> </br>
-
-                    </div>
+                        <div class="mb-5 offset-1 col-3 text-center">
+                            <img class="imagem-padrao" src="/images/professor.ico">
+                            <p class="texto"> <%= classe.nome %> </p>
+                            <p class="texto"> <%= classe.codigo %> </p>
+                            <form action="/professor/tarefa" method="POST">
+                                <input type="hidden" class="form-control" value="<%= classe.id %>" name="id_classe">
+                                <button type="submit" class="btn text-white botao"> Acessar Classe </button>
+                            </form>
+                        </div>
 
                     <% }) %>
 
@@ -85,27 +81,23 @@
                     <!--Formulário-->
                     <div class="offset-1 col-10 sombra p-5 mb-5 formulário-criar-classe">
 
-                        <!--Título-->
+                        <!--Título--> 
                         <h3 class="mb-5 form-criar-classe">Criar Classe</h3>
 
 
                         <form action="/professor/inicio" method="POST" id="form-criar-classe">
 
                             <!-- ID prof -->
-                            <div class="form-row justify-content-center">
+                            <div class="form-row justify-content-center"> 
                                 <div class="col-10">
-                                    <!--  <input type="hidden" class="form-control" value="<%= criarSalas.id_professor %>" name="id_professor"> -->
-                                    <input type="text" name="id_professor" class="form-control"
-                                        placeholder="ID Professor">
-
+                                    <input type="hidden" name="id_professor" value="<%= professor.id %>" class="form-control">
                                 </div>
-                            </div>
-                            <br>
+                        </div>
+                        <br>
 
                             <!-- Matéria-->
                             <div class="form-row justify-content-center">
                                 <div class="col-10">
-
                                     <input type="text" name="nome" class="form-control" placeholder="Digite a matéria">
                                 </div>
                             </div>
@@ -154,7 +146,7 @@
                             </thead>
                             <tbody>
 
-                                <% criarSalas.forEach(alterar => { %>
+                                <% professor.classes.forEach(alterar => { %>
 
                                 <tr>
                                     <td>
@@ -202,10 +194,6 @@
         <div class="modal-dialog">
             <div class="modal-content">
 
-                <!--Form modal-->
-                <form action="/professor/editar-classe/:id" method="POST">
-
-
                     <!--Header - titulo-->
                     <div class="modal-header">
                         <h4 class="modal-title">Editar informações</h4>
@@ -214,34 +202,28 @@
                         </button>
                     </div>
 
+                <!--Form modal-->
+                <form action="/professor/editar-classe" method="POST">
+
                     <!--Body -->
                     <div class="modal-body">
-
                         <!--ID-->
                         <div class="form-group">
-                            <input type="text" class="form-control" name="id_professor" placeholder="ID Professor"
-                                required>
-
+                            <input type="hidden" name="id_professor" value="<%= professor.id %>" class="form-control">
                         </div>
-
                         <!--nome-->
                         <div class="form-group">
                             <input type="text" class="form-control" name="nome" placeholder="Matéria" required>
                         </div>
-
                         <!--codigo-->
                         <div class="form-group">
                             <input type="text" class="form-control" name="codigo" placeholder="Código" required>
                         </div>
-
-
                     </div>
-
                     <!--Footer - buttons alterar-->
                     <div class="modal-footer">
                         <button type="submit" class="btn-modal-enviar"> Enviar </button>
                     </div>
-
 
                 </form>
 

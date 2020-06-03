@@ -5,23 +5,36 @@ const { Aluno, Professor, Classe, Recado, Tarefa, Classe_Aluno, Usuario } = requ
 module.exports = {
     // inicio view
     profInicio: async (req, res) => {
-        const criarSalas = await Classe.findAll();
 
-        const profId = req.params;
+        const idUsuario = req.usuario.id
 
-
-        res.render('professor/inicio', { criarSalas, profId }); 
+        Professor.findOne({ where: { id_usuario: idUsuario } }).then(
+            professor => {
+                Professor.findByPk(professor.id,
+                    {
+                        include: {
+                            model: Classe,
+                            as: 'classes'
+                        }
+                    }).then(
+                        professorClasses => {
+                            res.render('professor/inicio', { usuario: req.usuario, professor: professorClasses })
+                        }
+                    )
+            }
+        )
     },
 
-    // Classes 
+    // Classes - criar, acessar, alterar e deletar
     criarClasse: async (req, res) => {
-        const { nome, codigo, id_professor } = req.body;
+
+        const { nome, codigo, id_professor } = req.body
 
         const criar = await Classe.create(
             {
-                nome: nome,
-                codigo: codigo,
-                id_professor: id_professor
+                nome,
+                codigo,
+                id_professor
             })
             .catch(error => res.status(500).send(error))
 
@@ -33,44 +46,57 @@ module.exports = {
 
     acessarClasse: async (req, res) => {
 
-        const { id } = req.params;
+        const idUsuario = req.usuario.id
+        const { id_classe } = req.body
 
-        res.render('/professor/postar-tarefa', { id })
+        let acessarClasse = await Classe.findByPk(id_classe,
+            {
+                include: [
+                    {
+                        model: Professor,
+                        as: 'professor'
+                    },
+                    {
+                        model: Recado,
+                        as: 'recado'
+                    }
+                ]
+            }
+        );
+
+        let professor = await Professor.findOne({ where: { id_usuario: idUsuario } });
+
+        res.render('professor/recados', { acessarClasse, professor, usuario: req.usuario })
 
     },
 
     updateClasse: async (req, res) => {
 
-        res.render('professor/inicio');
-    },
-
-    updateClasse: async (req, res) => {
-        const { id } = req.params;
+        const idUsuario = req.usuario.id
 
         const { nome, codigo, id_professor } = req.body;
 
-        const alterarModal = await Classe.update({
+        await Classe.update({
             nome,
             codigo,
             id_professor
         },
             {
                 where: {
-                    id: id
+                    id: idUsuario
                 }
             })
 
-        console.log(alterarModal);
-        o
         res.redirect('/professor/inicio');
     },
 
     destroyClasse: async (req, res) => {
-        const { id } = req.params;
+        
+        const idUsuario = req.usuario.id
 
         const deletar = await Classe.destroy({
             where: {
-                id: id
+                id: idUsuario
             }
         })
 
@@ -154,21 +180,72 @@ module.exports = {
 
     //Tarefas
     // view tarefas
-    profPostarTarefa: async (req, res) => {
-        let posts = await Tarefa.findAll()
-        let prof = await Professor.findAll()
-        let classeDb = await Classe.findAll()
+    tarefaMenu: async (req, res) => {
 
-        res.render('professor/postar-tarefa', { posts, prof, classeDb });
+        const idUsuario = req.usuario.id
+
+        const { id_classe } = req.body
+
+        let acessarClasse = await Classe.findByPk(id_classe,
+            {
+                include: [
+                    {
+                        model: Professor,
+                        as: 'professor'
+                    },
+                    {
+                        model: Recado,
+                        as: 'recado'
+                    }
+                ]
+            }
+        );
+
+        let posts = await Tarefa.findAll({
+            include: {
+                model: Classe,
+                as: 'classe',
+                required: true
+            }
+        })
+
+
+        let professor = await Professor.findOne({ where: { id_usuario: idUsuario } });
+
+
+        res.render('professor/postar-tarefa', { acessarClasse, professor, usuario: req.usuario, posts })
 
     },
 
     addTarefa: async (req, res) => {
 
+        const idUsuario = req.usuario.id
         const { tituloTarefa, descricaoTarefa, id_classe } = req.body;
-        const { files } = req
-        let classeDb = await Classe.findAll()
+        const { files } = req;
+        let classeDb = await Classe.findAll();
 
+        let acessarClasse = await Classe.findByPk(id_classe,
+            {
+                include: [
+                    {
+                        model: Professor,
+                        as: 'professor'
+                    },
+                    {
+                        model: Recado,
+                        as: 'recado'
+                    }
+                ]
+            }
+        );
+
+        let posts = await Tarefa.findAll({
+            include: {
+                model: Classe,
+                as: 'classe',
+                required: true
+            }
+        });
 
         const resultado = await Tarefa.create(
             {
@@ -177,43 +254,42 @@ module.exports = {
                 arquivo: files[0].originalname,
                 id_classe: id_classe
             })
-            .catch(error => res.status(500).send(error))
+            .catch(error => res.status(500).send(error));
 
-        res.render('/professor/tarefa', { classeDb })
+        let professor = await Professor.findOne({ where: { id_usuario: idUsuario } });
+
+        res.render('professor/postar-tarefa', { classeDb, acessarClasse, professor, usuario: req.usuario, posts });
 
         res.redirect('/professor/postar-tarefa');
 
-    },
-
-    edit: async (req, res) => {
-
-        res.render('professor/postar-tarefa')
     },
 
     update: async (req, res) => {
-        const { id } = req.params;
+
+        const idUsuario = req.usuario.id
 
         const { titulo, descricao, arquivo, id_classe } = req.body;
 
-        const alterar = await Tarefa.update({
-            titulo: titulo,
-            descricao: descricao,
-            arquivo: arquivo,
-            id_classe: id_classe,
-        },
-            {
-                where: {
-                    id: id
-                }
-            })
+       const resultado = await Tarefa.update({
+             titulo: titulo,
+             descricao: descricao,
+             arquivo: arquivo,
+             id_classe: id_classe,
+         },
+             {
+                 where: {
+                     id: idUsuario
+                 }
+             });
 
-        console.log(alterar);
+             console.log(resultado)
 
-        res.redirect('/professor/postar-tarefa');
+        res.redirect('/professor/inicio');
     },
 
     destroy: async (req, res) => {
-        const { id } = req.params;
+
+        const {id} = req.params;
 
         const deletar = await Tarefa.destroy({
             where: {
@@ -221,7 +297,7 @@ module.exports = {
             }
         })
 
-        res.redirect('/professor/postar-tarefa');
+        res.redirect('/professor/inicio');
     },
 
 
