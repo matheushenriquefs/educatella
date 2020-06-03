@@ -47,7 +47,7 @@ router.post('/professor/delete/:id', authUser, ProfessorController.destroy);
 router.post('/professor/tarefa', authUser, ProfessorController.tarefaMenu); //rota para acessar classes
 //GERENCIAR
 router.get('/professor/gerenciar-aluno', authUser, ProfessorController.profGerenciarAluno);
-router.post('/professor/gerenciar-aluno', authUser, ProfessorController.profGerenciarAluno1);
+router.post('/professor/gerenciar-aluno/:id', authUser, ProfessorController.profGerenciarAluno1);
 
 
 module.exports = router; 

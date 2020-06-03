@@ -157,7 +157,7 @@
                                     </td>
                                     <td class="actions">
                                         <a href="#" class="settings" title="Settings" data-toggle="modal"
-                                            data-target="#siteModal">
+                                            data-target="#siteModal<%= alterar.id %>">
                                             <i class="material-icons">&#xE8B8;</i>
                                         </a>
                                     </td>
@@ -188,9 +188,9 @@
 
     </main>
 
-
+    <% professor.classes.forEach(alterar => { %>
     <!-- Modal editar classe  -->
-    <div id="siteModal" class="modal fade">
+    <div id="siteModal<%= alterar.id %>" class="modal fade">
         <div class="modal-dialog">
             <div class="modal-content">
 
@@ -209,7 +209,7 @@
                     <div class="modal-body">
                         <!--ID-->
                         <div class="form-group">
-                            <input type="hidden" name="id_professor" value="<%= professor.id %>" class="form-control">
+                            <input type="hidden" name="id_classe" value="<%= alterar.id %>" class="form-control">
                         </div>
                         <!--nome-->
                         <div class="form-group">
@@ -230,6 +230,7 @@
             </div>
         </div>
     </div>
+    <% });%>
 
 
        <!-- Importando Jquery -->

@@ -49,16 +49,17 @@
             </ul>
           </nav>
 
-            <% for (let i=0; recadosDB.aluno.length > i; i++) {%>
+            <% for (recadosDB.aluno of recadosDB.aluno ) {%>
               <div class="container-fluid">
                 <div class="row p-3 mb-5">
-                    <!-- Foto e descrição do professor e botão para acessar a Classe -->
+                  <form action="/professor/gerenciar-aluno/<%=recadosDB.aluno.id%>" method="post">
                     <div class="offset-1 col-3 text-center">
                         <img class="imagem-professor" src="/images/professor.ico">
-                        <p class="texto"><%=recadosDB.aluno%></p>
+                        <p class="texto"><%=recadosDB.aluno.usuarioAluno.nome%></p>
                         <p class="texto"> <%=recadosDB.nome%> </p>
-                        <a href="/professor/recados" class="btn-danger"> Excluir </a>
+                        <button type="submit" class="btn btn-danger">Excluir</button>
                     </div>
+                  </form>
                   </div>
                 </div>
                   

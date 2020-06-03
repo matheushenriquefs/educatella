@@ -20,19 +20,20 @@
                             <img class="imagens-classe" src="/images/recados.png" alt="icone recados"> <button class="botao-link" type="submit"> Recados </button>
                         </a>
                         <div class="dropdown-menu">
-                            <form action="#" method="POST">
+                            
+                            <form action="/professor/recados" method="GET">
                                 <button class="botao-link dropdown-item" type="submit"> Recados </button>
                                 <input type="hidden" value="#" name="#">
                             </form>
-                            <form action="#" method="POST">
+                            <form action="/professor/criar-recado" method="GET">
                                 <button class="botao-link dropdown-item" type="submit"> Criar Recados </button>
                                 <input type="hidden" value="#" name="#">
                             </form>
-                            <form action="#" method="POST">
+                            <form action="/professor/apagar-recado"method="GET">
                                 <button class="botao-link dropdown-item" type="submit"> Apagar Recados </button>
                                 <input type="hidden" value="#" name="#">
                             </form>
-                            <form action="#" method="POST">
+                            <form action="/professor/editar-recado" method="GET">
                                 <button class="botao-link dropdown-item" type="submit"> Editar Recados </button>
                                 <input type="hidden" value="#" name="#">
                             </form>
@@ -45,7 +46,7 @@
                     </form>
 
                     <!-- Gerenciar -->
-                    <form action="#" method="POST" style="margin-left: 16px; margin-top: 12px;">
+                    <form action="/professor/gerenciar-aluno" method="GET" style="margin-left: 16px; margin-top: 12px;">
                         <img class="imagens-classe" src="/images/criar-icon.png" alt="icone notas"> <button class="botao-link" type="submit"> Gerenciar aluno </button>
                         <input type="hidden" value="#" name="#">
                     </form>

@@ -40,7 +40,7 @@
                         <h3 class="mb-5 form-tarefa-titulo">Postar tarefa</h3>
 
 
-                        <form action="/professor/postar-tarefa" method="POST" enctype="multipart/form-data" id="">
+                        <form action="/professor/postar" method="POST" enctype="multipart/form-data" id="">
 
                             <!--Titulo-->
                             <div class="form-row justify-content-center">
@@ -123,7 +123,7 @@
 
                                     <td class="Editar">
                                         <button class="button-delete" title="Settings" style="color:blue"
-                                            data-toggle="modal" data-target="#siteModal">
+                                            data-toggle="modal" data-target="#siteModal<%= post.id %>">
                                             <i class="material-icons">&#xE8B8;</i>
                                         </button>
                                     </td>
@@ -152,9 +152,9 @@
         </section>
     </main>
 
-
+    <% posts.forEach(post => { %>
     <!-- Modal editar tarefa  -->
-    <div id="siteModal" class="modal fade" tabindex="-1">
+    <div id="siteModal<%= post.id %>" class="modal fade" tabindex="-1">
         <div class="modal-dialog">
             <div class="modal-content">
 
@@ -170,6 +170,10 @@
                 <form action="/professor/editar" method="POST">
                     <!--Body -->
                     <div class="modal-body">
+                         <!--ID-->
+                         <div class="form-group">
+                            <input type="hidden" name="id_tarefa" value="<%= post.id %>" class="form-control">
+                        </div>
                         <!--título-->
                         <div class="form-group">
                             <label for="modal-alunos"></label>
@@ -182,13 +186,6 @@
                             <input type="text" class="form-control" id="modal-periodo" name="descricao"
                                 placeholder="Descrição">
                         </div>
-                        <!--Arquivo e ID -->
-                        <div class="form-row justify-content-center">
-                            <div class="col-10">
-                                <input type="hidden" value="<%= posts.arquivo %>">
-                                <input type="hidden" value="<%= posts.classe %>">
-                            </div>
-                        </div>
 
                     </div>
                     <!--Footer - buttons alterar-->
@@ -200,6 +197,7 @@
             </div>
         </div>
     </div>
+    <% });%>
 
     <!-- Importando Jquery -->
     <script type="text/javascript" src="/vendor/jquery.min.js"></script>
