@@ -31,13 +31,8 @@ router.post('/professor/inicio', authUser, ProfessorController.criarClasse);
 router.post('/professor/acessar-classe', authUser, ProfessorController.acessarClasse);
 router.post('/professor/editar-classe', authUser, ProfessorController.updateClasse);
 router.post('/professor/delete-classe/:id', authUser, ProfessorController.destroyClasse);
-<<<<<<< HEAD
 //RECADOS
 router.get('/professor/recados', authUser, ProfessorController.profRecados);
-=======
-//Gerenciar Recados
-router.get('/professor/recados', authUser,  ProfessorController.profRecados);
->>>>>>> 9fc939eed98236f5ecaa03e4a05b9d21e90cf384
 router.get('/professor/criar-recado', authUser, ProfessorController.profRecadosCriar);
 router.post('/professor/criar-recado', authUser, ProfessorController.profRecadosCriar2);
 router.get('/professor/apagar-recado', authUser, ProfessorController.profRecadosApagar);
@@ -49,16 +44,10 @@ router.get('/professor/postar-nota', authUser, ProfessorController.profNotas);
 router.post('/professor/postar', authUser, upload.any(), ProfessorController.addTarefa);
 router.post('/professor/editar', authUser, ProfessorController.update);
 router.post('/professor/delete/:id', authUser, ProfessorController.destroy);
-<<<<<<< HEAD
 router.post('/professor/tarefa', authUser, ProfessorController.tarefaMenu); //rota para acessar classes
 //GERENCIAR
 router.get('/professor/gerenciar-aluno', authUser, ProfessorController.profGerenciarAluno);
-router.post('/professor/gerenciar-aluno', authUser, ProfessorController.profGerenciarAluno1);
+router.post('/professor/gerenciar-aluno/:id', authUser, ProfessorController.profGerenciarAluno1);
 
-=======
-//Gerenciar Alunos
-router.get('/professor/gerenciar-aluno',  ProfessorController.profGerenciarAluno);
-router.post('/professor/gerenciar-aluno',  ProfessorController.profGerenciarAluno1);
->>>>>>> 9fc939eed98236f5ecaa03e4a05b9d21e90cf384
 
 module.exports = router; 

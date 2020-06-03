@@ -102,24 +102,85 @@ module.exports = {
 
         res.redirect('/professor/inicio');
     },
-
+    //olhar recados////////////////////////////////////////////////////////////////
     profRecados: async (req, res) => {
+        let usuario = req.usuario
+        const idUsuario = req.usuario.id
+
+        const { id_classe } = req.body
+
+        let acessarClasse = await Classe.findByPk(idUsuario,
+            {
+                include: [
+                    {
+                        model: Professor,
+                        as: 'professor'
+                    },
+                    {
+                        model: Recado,
+                        as: 'recado'
+                    }
+                ]
+            }
+        );
+        
         let { page = 1 } = req.query
         let { count: total, rows: recadosDB } = await Recado.findAndCountAll({
             limit: 5,
             offset: (page - 1) * 5
         })
         let totalPagina = Math.round(total / 5)
-        res.render('professor/recados', { recadosDB, totalPagina });
+        res.render('professor/recados', { recadosDB, totalPagina,usuario,acessarClasse, });
     },
+     //criar Recados////////////////////////////////////////////////////////////////
     profRecadosCriar: async (req, res) => {
+        let usuario = req.usuario
+        const idUsuario = req.usuario.id
+
+        const { id_classe } = req.body
+
+        let acessarClasse = await Classe.findByPk(idUsuario,
+            {
+                include: [
+                    {
+                        model: Professor,
+                        as: 'professor'
+                    },
+                    {
+                        model: Recado,
+                        as: 'recado'
+                    }
+                ]
+            }
+        );
         let recadosDB = await Recado.findAll()
-        res.render('professor/criar-recado', { recadosDB });
+        
+        res.render('professor/criar-recado', { recadosDB, usuario,acessarClasse});
 
     },
+    //criar Recados////////////////////////////////////////////////////////////////
     profRecadosCriar2: async (req, res) => {
         const { titulo, descricao } = req.body
         console.log(titulo, descricao)
+        let usuario = req.usuario
+        const idUsuario = req.usuario.id
+
+        const { id_classe } = req.body
+
+        let acessarClasse = await Classe.findByPk(idUsuario,
+            {
+                include: [
+                    {
+                        model: Professor,
+                        as: 'professor'
+                    },
+                    {
+                        model: Recado,
+                        as: 'recado'
+                    }
+                ]
+            }
+        );
         const resultado = await Recado.create({
 
             titulo,
@@ -130,33 +191,76 @@ module.exports = {
         console.log(resultado)
 
         return res.redirect('recados');
-    }, profRecadosApagar: async (req, res) => {
+    },
+    //apagar recados////////////////////////////////////////////////////////////////
+    profRecadosApagar: async (req, res) => {
         let { page = 1 } = req.query
+        let usuario = req.usuario
+        const idUsuario = req.usuario.id
+
+        const { id_classe } = req.body
+
+        let acessarClasse = await Classe.findByPk(idUsuario,
+            {
+                include: [
+                    {
+                        model: Professor,
+                        as: 'professor'
+                    },
+                    {
+                        model: Recado,
+                        as: 'recado'
+                    }
+                ]
+            }
+        );
         let { count: total, rows: recadosDB } = await Recado.findAndCountAll({
             limit: 5,
             offset: (page - 1) * 5
         })
         let totalPagina = Math.round(total / 5)
-        res.render('professor/apagar-recado', { recadosDB, totalPagina });
+        res.render('professor/apagar-recado', { recadosDB, totalPagina, usuario,acessarClasse });
     },
+        //apagar Recados////////////////////////////////////////////////////////////////
     profRecadosApagar2: async (req, res) => {
-        const { id } = req.params
-        console.log(id)
+        const id  = req.params.id
+    console.log(id)
         const resultado = await Recado.destroy({
             where: { id_recados: id }
         })
         console.log(resultado)
         res.redirect('/professor/apagar-recado');
     },
+    //Editar Recados////////////////////////////////////////////////////////////////
     profRecadosEditar: async (req, res) => {
         let { page = 1 } = req.query
+        let usuario = req.usuario
+        const idUsuario = req.usuario.id
+
+        const { id_classe } = req.body
+
+        let acessarClasse = await Classe.findByPk(idUsuario,
+            {
+                include: [
+                    {
+                        model: Professor,
+                        as: 'professor'
+                    },
+                    {
+                        model: Recado,
+                        as: 'recado'
+                    }
+                ]
+            }
+        );
         let { count: total, rows: recadosDB } = await Recado.findAndCountAll({
             limit: 2,
             offset: (page - 1) * 2
         })
         let totalPagina = Math.round(total / 2)
-        res.render('professor/editar-recado', { recadosDB, totalPagina });
+        res.render('professor/editar-recado', { recadosDB, totalPagina,usuario,acessarClasse });
     },
+        //Editar Recados////////////////////////////////////////////////////////////////
     profRecadosEditar2: async (req, res) => {
         const { id } = req.params
         console.log('soy consola' + id)
@@ -300,18 +404,39 @@ module.exports = {
         res.redirect('/professor/inicio');
     },
 
-
+    //Gerenciar aluno////////////////////////////////////////////////////////////////
     profGerenciarAluno: async (req, res) => {
         let { page = 1 } = req.query
+        const { tituloTarefa, descricaoTarefa, id_classe } = req.body;
+        const { files } = req;
+        let classeDb = await Classe.findAll();
+        let usuario = req.usuario
+        const idUsuario = req.usuario.id
 
+       
+
+        let acessarClasse = await Classe.findByPk(idUsuario,
+                {
+                include: [
+                    {
+                        model: Professor,
+                        as: 'professor'
+                    },
+                        {
+                            model: Recado,
+                            as: 'recado'
+                        }
+                    ]
+                }
+            );
       
         let recadosDB = await Classe.findByPk(1,{
 
             
             include:{
 
-                model: Aluno,
-                as: 'aluno',
+              model: Aluno,
+              as: 'aluno',
               include:"usuarioAluno"
 
             }
@@ -323,14 +448,21 @@ module.exports = {
         let totalPagina = "hola"
         //Math.round(total/5)
         
-        console.log(recadosDB.aluno[1])
+        console.log(recadosDB.aluno[2].usuarioAluno.nome)
     
 
 
 
-      res.render('professor/gerenciar-aluno', { recadosDB, totalPagina });
+      res.render('professor/gerenciar-aluno', { recadosDB, totalPagina,usuario,acessarClasse,classeDb });
     },
-    profGerenciarAluno1: (req, res) => {
+    ///Gerenciar aluno////////////////////////////////////////////////////////////////
+    profGerenciarAluno1: async (req, res) => {
+        const id  = req.params.id
+        console.log(id +" consola *****************************************************")
+            const resultado = await Classe_Aluno.destroy({
+                where: { id_aluno: id }
+            })
+            console.log(resultado)
         res.redirect('/professor/gerenciar-aluno');
     }
 }
