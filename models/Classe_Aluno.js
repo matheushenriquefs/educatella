@@ -25,6 +25,15 @@ let Classe_Aluno = (sequelize, Datatypes) => {
 
     return classe_aluno;
 
+
+
+
+
 }
+
+
+
+
+
 
 module.exports = Classe_Aluno;

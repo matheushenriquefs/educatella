@@ -49,14 +49,14 @@
             </ul>
           </nav>
 
-            <% for (recadosDB of recadosDB) {%>
+            <% for (let i=0; recadosDB.aluno.length > i; i++) {%>
               <div class="container-fluid">
                 <div class="row p-3 mb-5">
                     <!-- Foto e descrição do professor e botão para acessar a Classe -->
                     <div class="offset-1 col-3 text-center">
                         <img class="imagem-professor" src="/images/professor.ico">
-                        <p class="texto"><%=recadosDB.id +" " + recadosDB.nome%></p>
-                        <p class="texto"> <%=recadosDB.id_professor%> </p>
+                        <p class="texto"><%=recadosDB.aluno%></p>
+                        <p class="texto"> <%=recadosDB.nome%> </p>
                         <a href="/professor/recados" class="btn-danger"> Excluir </a>
                     </div>
                   </div>
