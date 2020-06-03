@@ -228,21 +228,17 @@ module.exports = {
     profGerenciarAluno: async (req, res) => {
         let { page = 1 } = req.query
 
+      
+        let recadosDB = await Classe.findByPk(1,{
 
-        let recadosDB = await Usuario.findAll({
-
-
-            include: [{
+            
+            include:{
 
                 model: Aluno,
-                as: 'usuarioAluno',
-                include: 'usuarioAluno'
+                as: 'aluno',
+              include:"usuarioAluno"
 
-            },
-            {
-                model: Professor,
-                as: 'usuarioProfessor'
-            }]
+            }
 
         }, {
             limit: 5,
@@ -250,8 +246,13 @@ module.exports = {
         }).catch(err => { console.log(err) })
         let totalPagina = "hola"
         //Math.round(total/5)
+        
+        console.log(recadosDB.aluno[1])
+    
 
-        res.render('professor/gerenciar-aluno', { recadosDB, totalPagina });
+
+
+      res.render('professor/gerenciar-aluno', { recadosDB, totalPagina });
     },
     profGerenciarAluno1: (req, res) => {
         res.redirect('/professor/gerenciar-aluno');

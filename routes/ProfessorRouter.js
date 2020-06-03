@@ -31,7 +31,7 @@ router.post('/professor/acessar-classe/:id', authUser, ProfessorController.acess
 router.get('/professor/editar-classe/:id', authUser, ProfessorController.updateClasse);
 router.post('/professor/editar-classe/:id', authUser, ProfessorController.updateClasse);
 router.post('/professor/delete-classe/:id', authUser, ProfessorController.destroyClasse);
-
+//Gerenciar Recados
 router.get('/professor/recados', authUser,  ProfessorController.profRecados);
 router.get('/professor/criar-recado', authUser, ProfessorController.profRecadosCriar);
 router.post('/professor/criar-recado', authUser, ProfessorController.profRecadosCriar2);
@@ -47,7 +47,7 @@ router.post('/professor/postar-tarefa', upload.any(), ProfessorController.addTar
 router.get('/professor/editar/:id', authUser, ProfessorController.edit);
 router.post('/professor/editar/:id', authUser, ProfessorController.update);
 router.post('/professor/delete/:id', authUser, ProfessorController.destroy);
-
+//Gerenciar Alunos
 router.get('/professor/gerenciar-aluno',  ProfessorController.profGerenciarAluno);
 router.post('/professor/gerenciar-aluno',  ProfessorController.profGerenciarAluno1);
 
