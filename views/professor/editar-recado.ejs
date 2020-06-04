@@ -33,34 +33,18 @@
                     <div class="offset-1 col-8 sombra p-5 mb-5 bg-white rounded mural-recados">
 
                             <!--Título-->
-                            <h3><strong>Mural de recados</strong></h3>
+                            <h3><strong>Editar de recados</strong></h3>
                           
                              
                                
-                            <!--Conteúdo-->
-                            <p class="covid-alert"><img src="/images/covid-icon.png" alt="icone covid19" 
-                                class="covid-icon">  Informaçoes COVID-19: isolamento social até 05 de maio de 2020
-                            </p>
-
-                            <nav aria-label="Page navigation example">
-                                <ul class="pagination">
-                                    <% for (let nrPagina=1 ; nrPagina <= totalPagina ; nrPagina ++) { %>
-                                
-                                <li class="page-item"><a class="page-link" href="?page=<%=nrPagina%>"><%=nrPagina%></a></li>
-                                 
-                                 <%}%>
-                                 
-                                   
-                                </ul>
-                              </nav>
-                            <ul >
-                                <% for (recadosDB of recadosDB) {%>
+                          
+                                <% for (acessarClasse of acessarClasse.recado) {%>
                                 
                                
-                                    <form method="POST" action="/professor/editar-recado/<%=recadosDB.id_recados%>" class="card p-3">
+                                    <form method="POST" action="/professor/editar-recado/<%=acessarClasse.id_recados%>" class="card p-3">
                                         <div class="page-item" >
-                                            <h6><img src="/images/recados.png" alt="icone recados" class="imagens-classe"> <%= recadosDB.titulo %> </h6>
-                                            <p><%= recadosDB.descricao %></p>
+                                            <h6><img src="/images/recados.png" alt="icone recados" class="imagens-classe"> <%= acessarClasse.titulo %> </h6>
+                                            <p><%= acessarClasse.descricao %></p>
                                          <div class="form-row">
                                         <div class="form-group col-10 "  >
                                             <input type="text" id="titulo" name="titulo"  rows="1" cols="50" ></input>

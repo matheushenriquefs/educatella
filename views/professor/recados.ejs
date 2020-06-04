@@ -35,31 +35,16 @@
                             <!--Título-->
                             <h3><strong>Mural de recados</strong></h3>
                           
+                         
+                                                     
+                                 
                              
-                               
-                            <!--Conteúdo-->
-                            <p class="covid-alert"><img src="/images/covid-icon.png" alt="icone covid19" 
-                                class="covid-icon">  Informaçoes COVID-19: isolamento social até 05 de maio de 2020
-                            </p>
-
-                            <nav aria-label="Page navigation example">
-                                <ul class="pagination">
-                                    <% for (let nrPagina=1 ; nrPagina <= totalPagina ; nrPagina ++) { %>
-                                
-                                <li class="page-item"><a class="page-link" href="?page=<%=nrPagina%>"><%=nrPagina%></a></li>
-                                 
-                                 <%}%>
-                                 
-                                   
-                                </ul>
-                              </nav>
-                            <ul >
-                                <% for (recadosDB of recadosDB) {%>
+                                <% for (acessarClasse of acessarClasse.recado) {%>
                                 
                                 <div class="page-item" >
-                                <h6><img src="/images/recados.png" alt="icone recados" class="imagens-classe"> <%= recadosDB.titulo %> </h6>
-                                <p> <%= recadosDB.createdAt %>  </p>
-                                <p><%= recadosDB.descricao %></p>
+                                <h6><img src="/images/recados.png" alt="icone recados" class="imagens-classe"> <%= acessarClasse.titulo %> </h6>
+                                <p> <%= acessarClasse.createdAt %>  </p>
+                                <p><%= acessarClasse.descricao %></p>
                                 </div>
                                <%}%>
                                 
