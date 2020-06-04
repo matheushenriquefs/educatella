@@ -1,0 +1,197 @@
+<!-- Jumbotron, Barra de Navegação, Frase Banner, Imagem Banner e Botão -->
+<header>
+    <div id="barra" class="container-fluid">
+        <div class="row">
+            <!-- Tag que Engloba Toda a Barra de Navegação -->
+            <nav class="navbar navbar-expand-lg offset-1 col-11 navbar-fixed-top">
+                <!-- Icone (Margem Esquerda) -->
+                <a class="navbar-brand" href="../" alt="home">
+                    <img src="../images/logo.png" alt="logo" id="logo-teste">
+                </a>
+                <!-- Barra de Navegação -->
+                <div class="navbar-collapse">
+                    <!-- (Margem Direita (Menu Dropdown), Login - Aluno, Professor)  -->
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" alt="avatar">
+                                <div id="avatar">
+                                    <img src="<%= usuario.imagem %>">
+                                </div>    
+                            </a>
+                            <div class="dropdown-menu" id="navDrop">
+                                <a class="dropdown-item" href="" data-toggle="modal" data-target="#modal-alterar-imagem"> Alterar Imagem </a>
+                                <a class="dropdown-item" href="" data-toggle="modal" data-target="#modal-alterar-nome"> Alterar Nome </a>
+                                <a class="dropdown-item" href="" data-toggle="modal" data-target="#modal-alterar-email"> Alterar E-mail </a>
+                                <a class="dropdown-item" href="" data-toggle="modal" data-target="#modal-alterar-senha"> Alterar Senha </a>
+                                <a id="logout" class="dropdown-item" href="../" alt="login-professor"> Sair </a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
+
+<section>
+    <div class="modal fade" id="modal-alterar-imagem" tabindex="-1" role="dialog" aria-labelledby="modal-adicionar-classe-titulo" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modal-adicionar-classe-titulo"> Alterar Imagem </h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+
+                <div class="modal-body">        
+                    <div class="row justify-content-center">
+                        <div class="col-12"> 
+                            <form action="/professor/alterarImagem" method="POST" enctype="multipart/form-data">
+                                <div class="form-group row">
+                                    <div class="col-12">
+                                         <!--DIV Carregar tarefa-->
+                                        <div class="form-row justify-content-center">
+                                            <!-- Carregar tarefa -->
+                                            <div class="form-group col-12 tarefa">
+                                                <p class="texto"> Carregue sua imagem: </p>
+                                                <div class="file-field">
+                                                    <div class="btn btn-sm float-right">
+                                                        <span>Clique</span>
+                                                        <input type="file" class="sumir" name="img">
+                                                    </div>
+                                                    <div class="file-path-wrapper">
+                                                        <input class="file-path-validate" type="text"
+                                                            placeholder="Carregue o arquivo aqui">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="submit" class="btn btn-success"> Alterar Imagem </button>
+                                    <button type="button" class="btn btn-danger" data-dismiss="modal"> Fechar </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>            
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="modal fade" id="modal-alterar-nome" tabindex="-1" role="dialog" aria-labelledby="modal-adicionar-classe-titulo" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modal-adicionar-classe-titulo"> Alterar Nome </h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+
+                <div class="modal-body">        
+                    <div class="row justify-content-center">
+                        <div class="col-lg-8"> 
+                            <form action="/professor/alterarNome" method="POST">
+                                <div class="form-group row">
+                                    <label class="col-12 col-form-label">Digite um novo nome:</label>
+                                    <div class="col-12">
+                                        <input type="text" class="form-control" value="<%= usuario.name %>" name="nome">
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="submit" class="btn btn-success"> Alterar Nome </button>
+                                    <button type="button" class="btn btn-danger" data-dismiss="modal"> Fechar </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>            
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="modal fade" id="modal-alterar-email" tabindex="-1" role="dialog" aria-labelledby="modal-adicionar-classe-titulo" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modal-adicionar-classe-titulo"> Alterar e-mail </h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+
+                <div class="modal-body">        
+                    <div class="row justify-content-center">
+                        <div class="col-lg-8"> 
+                            <form action="/professor/alterarEmail" method="POST">
+                                <div class="form-group row">
+                                    <label class="col-12 col-form-label">Digite um novo e-mail:</label>
+                                    <div class="col-12">
+                                        <input type="text" class="form-control" value="<%= usuario.email %>" name="email">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-12 col-form-label">Digite sua senha:</label>
+                                    <div class="col-12">
+                                        <input type="password" class="form-control" name="senhaEmail">
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="submit" class="btn btn-success"> Alterar E-mail </button>
+                                    <button type="button" class="btn btn-danger" data-dismiss="modal"> Fechar </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>            
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="modal fade" id="modal-alterar-senha" tabindex="-1" role="dialog" aria-labelledby="modal-adicionar-classe-titulo" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modal-adicionar-classe-titulo"> Alterar Senha </h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+
+                <div class="modal-body">        
+                    <div class="row justify-content-center">
+                        <div class="col-lg-8"> 
+                            <form action="/professor/alterarSenha" method="POST">
+                                <div class="form-group row">
+                                    <label class="col-12 col-form-label">Digite sua senha antiga:</label>
+                                    <div class="col-12">
+                                        <input type="password" class="form-control" name="senhaAntiga">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-12 col-form-label">Digite sua nova senha:</label>
+                                    <div class="col-12">
+                                        <input type="password" class="form-control" name="senhaNova">
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="submit" class="btn btn-success"> Alterar Senha </button>
+                                    <button type="button" class="btn btn-danger" data-dismiss="modal"> Fechar </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>            
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
