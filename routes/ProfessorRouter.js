@@ -43,7 +43,7 @@ router.get('/professor/postar-nota', authUser, ProfessorController.profNotas);
 //TAREFAS
 router.post('/professor/postar', authUser, upload.any(), ProfessorController.addTarefa);
 router.post('/professor/editar', authUser, ProfessorController.update);
-router.post('/professor/delete/:id', authUser, ProfessorController.destroy);
+router.post('/professor/delete', authUser, ProfessorController.destroy);
 router.post('/professor/tarefa', authUser, ProfessorController.tarefaMenu); //rota para acessar classes
 //GERENCIAR
 router.get('/professor/gerenciar-aluno', authUser, ProfessorController.profGerenciarAluno);
