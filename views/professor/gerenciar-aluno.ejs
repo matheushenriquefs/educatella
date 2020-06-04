@@ -49,34 +49,20 @@
             </ul>
           </nav>
 
-            <% for (recadosDB.aluno of recadosDB.aluno ) {%>
-              <div class="container-fluid">
-                <div class="row p-3 mb-5">
-                  <form action="/professor/gerenciar-aluno/<%=recadosDB.aluno.id%>" method="post">
-                    <div class="offset-1 col-3 text-center">
-                        <img class="imagem-professor" src="/images/professor.ico">
-                        <p class="texto"><%=recadosDB.aluno.usuarioAluno.nome%></p>
-                        <p class="texto"> <%=recadosDB.nome%> </p>
-                        <button type="submit" class="btn btn-danger">Excluir</button>
-                    </div>
-                  </form>
-                  </div>
+          <div class="container-fluid">
+            <div class="row p-3 mb-5">
+              <% for (recadosDB.aluno of recadosDB.aluno ) {%>
+              <form action="/professor/gerenciar-aluno/<%=recadosDB.aluno.id%>" method="post">
+                <div class="mb-5 offset-1 col-5 text-center">
+                    <img class="imagem-professor" src="/images/professor.ico">
+                    <p class="texto"><%=recadosDB.aluno.usuarioAluno.nome%></p>
+                    <p class="texto"> <%=recadosDB.nome%> </p>
+                    <button type="submit" class="btn btn-danger">Excluir</button>
                 </div>
-                  
-                
-                    
-                   
-             
-               <%}%>
-
-                
-
-
-
-               
-
-
-          
+              </form>
+              <%}%>
+              </div>
+            </div>
 
         </div>
       </div>

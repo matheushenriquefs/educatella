@@ -128,7 +128,9 @@
                                         </button>
                                     </td>
                                     <td class="Excluir">
-                                        <form action="/professor/delete/<%= post.id %>" method="POST">
+                                        <form action="/professor/delete" method="POST">
+                                            <input type="hidden" name="id" value="<%= post.id %>">
+                                            <input type="hidden" name="id_classe" value="<%= post.classe.id %>">
                                             <button type="submit" class="button-delete"
                                                 onclick="return confirm('Deseja mesmo excluir a tarefa?')"
                                                 style="color: red;">
@@ -170,23 +172,21 @@
                 <form action="/professor/editar" method="POST">
                     <!--Body -->
                     <div class="modal-body">
-                         <!--ID-->
-                         <div class="form-group">
+                        <!--ID-->
+                        <div class="form-group">
                             <input type="hidden" name="id_tarefa" value="<%= post.id %>" class="form-control">
+                            <input type="hidden" name="id_classe" value="<%= post.classe.id %>" class="form-control">
                         </div>
                         <!--título-->
                         <div class="form-group">
-                            <label for="modal-alunos"></label>
-                            <input type="text" class="form-control" id="modal-alunos" name="titulo"
-                                placeholder="Título">
+                            <label for="modal-alunos" class="texto"> Título </label>
+                            <input type="text" value="<%= post.titulo %>" class="form-control" id="modal-alunos" name="titulo" placeholder="Título">
                         </div>
                         <!--descricao-->
                         <div class="form-group">
-                            <label for="modal-periodo"></label>
-                            <input type="text" class="form-control" id="modal-periodo" name="descricao"
-                                placeholder="Descrição">
+                            <label for="modal-periodo" class="texto"> Descrição </label>
+                            <textarea class="form-control" rows="6" id="modal-periodo" name="descricao" placeholder="Descrição"> <%= post.descricao %> </textarea>
                         </div>
-
                     </div>
                     <!--Footer - buttons alterar-->
                     <div class="modal-footer">
