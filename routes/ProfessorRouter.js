@@ -17,6 +17,8 @@ var storage = multer.diskStorage({
    
 var upload = multer({ storage: storage })  
 
+const uploadImagem = require("../lib/upload");
+
 // controllers
 var ProfessorController = require('../controllers/ProfessorController');
 
@@ -48,6 +50,12 @@ router.post('/professor/tarefa', authUser, ProfessorController.tarefaMenu); //ro
 //GERENCIAR
 router.get('/professor/gerenciar-aluno', authUser, ProfessorController.profGerenciarAluno);
 router.post('/professor/gerenciar-aluno/:id', authUser, ProfessorController.profGerenciarAluno1);
+//Alterar informações usuário
+router.post('/professor/alterarImagem', uploadImagem.single("img"), authUser, ProfessorController.alterarImagem);
+router.post('/professor/alterarNome', authUser, ProfessorController.alterarNome);
+router.post('/professor/alterarEmail', authUser, ProfessorController.alterarEmail);
+router.post('/professor/alterarSenha', authUser, ProfessorController.alterarSenha);
+
 
 
 module.exports = router; 
