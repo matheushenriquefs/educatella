@@ -17,6 +17,7 @@ html {
 
 .imagem-professor{
     width:5rem;
+    border-radius:50%;
 }
 
 /* Imagem dos icones dos links */

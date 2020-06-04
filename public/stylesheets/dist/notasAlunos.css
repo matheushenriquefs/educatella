@@ -37,6 +37,7 @@
 
 .imagem-padrao{
     width:7rem;
+    border-radius:50%;
 }
 
 /* Corpo do texto para notas verdes */

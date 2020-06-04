@@ -70,10 +70,12 @@
 
 .imagem-professor{
     width:5rem;
+    border-radius:50%;
 }
 
 .imagem-padrao{
     width:6rem;
+    border-radius:50%;
 }
 
 /*Form criar classe*/

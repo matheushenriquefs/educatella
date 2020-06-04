@@ -61,6 +61,7 @@
 
 .imagem-padrao{
     width:7rem;
+    border-radius:50%;
 }
 
 /* Botão carregar arquivo */
