@@ -262,7 +262,7 @@ module.exports = {
                 where: { id_recados: id }
             })
         console.log(resultado)
-        res.redirect('/professor/editar-recado');
+        res.redirect('/professor/recados');
     },
 
     profNotas: (req, res) => {
@@ -274,9 +274,9 @@ module.exports = {
     tarefaMenu: async (req, res) => {
 
         const idUsuario = req.usuario.id
-
+    
         const { id_classe } = req.body
-
+    
         let acessarClasse = await Classe.findByPk(id_classe,
             {
                 include: [
@@ -291,21 +291,24 @@ module.exports = {
                 ]
             }
         );
-
+    
         let posts = await Tarefa.findAll({
             include: {
                 model: Classe,
                 as: 'classe',
                 required: true
+            },
+            where:{
+                id_classe
             }
         })
-
-
+    
+    
         let professor = await Professor.findOne({ where: { id_usuario: idUsuario } });
-
-
+    
+    
         res.render('professor/postar-tarefa', { acessarClasse, professor, usuario: req.usuario, posts })
-
+    
     },
 
     addTarefa: async (req, res) => {
@@ -314,7 +317,7 @@ module.exports = {
         const { tituloTarefa, descricaoTarefa, id_classe } = req.body;
         const { files } = req;
         let classeDb = await Classe.findAll();
-
+    
         let acessarClasse = await Classe.findByPk(id_classe,
             {
                 include: [
@@ -329,15 +332,18 @@ module.exports = {
                 ]
             }
         );
-
+    
         let posts = await Tarefa.findAll({
             include: {
                 model: Classe,
                 as: 'classe',
                 required: true
+            },
+            where:{
+                id_classe
             }
-        });
-
+        })
+    
         const resultado = await Tarefa.create(
             {
                 titulo: tituloTarefa,
@@ -346,19 +352,21 @@ module.exports = {
                 id_classe: id_classe
             })
             .catch(error => res.status(500).send(error));
-
+    
         let professor = await Professor.findOne({ where: { id_usuario: idUsuario } });
-
+    
         res.render('professor/postar-tarefa', { acessarClasse, posts, professor, usuario:req.usuario})
-
+    
         res.redirect('/professor/postar-tarefa');
-
+    
     },
 
     update: async (req, res) => {
 
-        const { id_tarefa, titulo, descricao } = req.body;
-
+        const idUsuario = req.usuario.id
+    
+        const { id_classe, id_tarefa, titulo, descricao } = req.body;
+    
         const alterar = await Tarefa.update({
             titulo,
             descricao,
@@ -369,21 +377,78 @@ module.exports = {
                 }
             });
         console.log(alterar);
-
-        res.redirect('/professor/inicio');
+    
+        let acessarClasse = await Classe.findByPk(id_classe,
+            {
+                include: [
+                    {
+                        model: Professor,
+                        as: 'professor'
+                    },
+                    {
+                        model: Recado,
+                        as: 'recado'
+                    }
+                ]
+            }
+        );
+    
+        let posts = await Tarefa.findAll({
+            include: {
+                model: Classe,
+                as: 'classe',
+                required: true
+            },
+            where:{
+                id_classe
+            }
+        })
+    
+        let professor = await Professor.findOne({ where: { id_usuario: idUsuario } });
+    
+        res.render('professor/postar-tarefa', { acessarClasse, posts, professor, usuario:req.usuario})
     },
 
     destroy: async (req, res) => {
 
-        const {id} = req.params;
-
+        const idUsuario = req.usuario.id
+        const {id, id_classe} = req.body;
+    
         const deletar = await Tarefa.destroy({
             where: {
                 id: id
             }
         });
-
-        res.redirect('/professor/inicio');
+    
+        let acessarClasse = await Classe.findByPk(id_classe,
+            {
+                include: [
+                    {
+                        model: Professor,
+                        as: 'professor'
+                    },
+                    {
+                        model: Recado,
+                        as: 'recado'
+                    }
+                ]
+            }
+        );
+    
+        let posts = await Tarefa.findAll({
+            include: {
+                model: Classe,
+                as: 'classe',
+                required: true
+            },
+            where:{
+                id_classe
+            }
+        })
+    
+        let professor = await Professor.findOne({ where: { id_usuario: idUsuario } });
+    
+        res.render('professor/postar-tarefa', { acessarClasse, posts, professor, usuario:req.usuario})
     },
 
     //Gerenciar aluno////////////////////////////////////////////////////////////////
@@ -432,9 +497,6 @@ module.exports = {
         
         console.log(recadosDB.aluno[2].usuarioAluno.nome)
     
-
-
-
       res.render('professor/gerenciar-aluno', { recadosDB, totalPagina,usuario,acessarClasse,classeDb });
     },
     ///Gerenciar aluno////////////////////////////////////////////////////////////////
