@@ -14,7 +14,8 @@ let Classe = (sequelize, Datatypes) => {
             },
             codigo:{
                 type: Datatypes.STRING, 
-                allowNull: false
+                allowNull: false,
+                unique: true
             },
             id_professor:{
                 type: Datatypes.INTEGER,

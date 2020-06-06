@@ -15,7 +15,8 @@ module.exports = {
       },
       codigo:{
           type: Sequelize.STRING, 
-          allowNull: false
+          allowNull: false,
+          unique: true
       },
       id_professor:{
         type: Sequelize.INTEGER,
