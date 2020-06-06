@@ -55,7 +55,7 @@
                     <% professor.classes.forEach(classe => { %>
 
                         <div class="mb-5 offset-1 col-3 text-center">
-                            <img class="imagem-padrao" src="<%= usuario.imagem %>">
+                            <img class="imagem-padrao" src="/images/<%= usuario.imagem %>">
                             <p class="texto"> <%= classe.nome %> </p>
                             <p class="texto"> <%= classe.codigo %> </p>
                             <form action="/professor/tarefa" method="POST">

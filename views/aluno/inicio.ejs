@@ -47,7 +47,7 @@
                 <% for(classes of aluno.classes) { %>
                 <!-- Foto e descrição do professor e botão para acessar a Classe -->
                 <div class="mb-5 offset-1 col-3 text-center">
-                    <img class="imagem-padrao" src="<%= classes.professor.usuarioProfessor.imagem %>">
+                    <img class="imagem-padrao" src="/images/<%= classes.professor.usuarioProfessor.imagem %>">
                     <p class="texto"> <%= classes.professor.usuarioProfessor.nome %>, <%= classes.nome %> </p>
                     <form action="/aluno/acessarClasse" method="POST">
                         <input type="hidden" class="form-control" value="<%= classes.id %>" name="idClasse">

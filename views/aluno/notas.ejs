@@ -38,15 +38,21 @@
                                 <!-- Coluna das tarefas -->
                                 <div class="col-8 text-center">
                                     <p class="body-text-titulo"> Tarefa </p>
-                                    <% for(tarefas of classe.tarefa){ %>
-                                    <p class="body-text"> <%= tarefas.titulo %> </p>
+                                    <% for(tarefa of tarefas){ %>
+                                    <p class="body-text"> <%= tarefa.titulo %> </p>
                                     <% } %>
                                 </div>
                                 <!-- Coluna das notas -->
                                 <div class="col-4 text-center">
                                     <p class="body-text-titulo"> Nota </p>
-                                    <% for(tarefas of classe.tarefa){ %>
-                                    <p class="body-text"> <%= tarefas.nota %> </p>
+                                    <% for(tarefa of tarefas){ %>
+                                        <% for(tarefaAluno of tarefa.tarefasAlunos){ %>
+                                            <% if(tarefaAluno.nota == null){ %>
+                                                <p class="body-text"> Tarefa Não Corrigida </p>
+                                            <% } else { %>
+                                                <p class="body-text"> <%= tarefaAluno.nota %> </p>
+                                            <% } %>
+                                        <% } %>
                                     <% } %>
                                 </div>
                             </div>
