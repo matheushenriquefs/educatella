@@ -1,4 +1,4 @@
-const {Aluno, Professor, Classe, Recado, Usuario, Tarefa, Classe_Aluno} = require("../models");
+const {Aluno, Professor, Classe, Recado, Usuario, Tarefa, Classe_Aluno, Tarefa_Aluno} = require("../models");
 
 let bcrypt = require("bcrypt");
 
@@ -108,6 +108,18 @@ module.exports = {
 
 		let aluno = await Aluno.findOne({where:{id_usuario:idUsuario}});
 
+		let tarefas = await Tarefa.findAll(
+			{
+				include:{
+					model: Tarefa_Aluno, 
+					as:'tarefasAlunos'
+				},
+				where: {
+					id_classe:idClasse
+				}
+			}
+		);
+
 		let classesAluno = await Aluno.findByPk(aluno.id,
 			{
 				include:{
@@ -122,7 +134,7 @@ module.exports = {
 			}
 		)
 
-		res.render("aluno/notas", {classe, classes:classesAluno.classes, usuario: req.usuario});
+		res.render("aluno/notas", {classe, classes:classesAluno.classes, usuario: req.usuario, tarefas});
 	},
 
 	inicioAlunos: (req, res)=>{
@@ -243,7 +255,7 @@ module.exports = {
 	alterarImagem: async (req,res)=> {
 
 		const idUsuario = req.usuario.id;
-		let img = "/images/" + req.file.filename;
+		let img = req.file.filename;
 
 		await Usuario.update({
 			imagem:img

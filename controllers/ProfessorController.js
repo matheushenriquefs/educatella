@@ -514,7 +514,7 @@ module.exports = {
 	alterarImagem: async (req,res)=> {
 
 		const idUsuario = req.usuario.id;
-		let img = "/images/" + req.file.filename;
+		let img = req.file.filename;
 
 		await Usuario.update({
 			imagem:img
