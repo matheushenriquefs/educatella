@@ -21,6 +21,10 @@ module.exports = {
         type: Sequelize.STRING, 
         allowNull: true
       },
+      data_entrega:{
+        type: Sequelize.DATE, 
+        allowNull: false
+      },
       id_classe:{
         type: Sequelize.INTEGER,
         references:{

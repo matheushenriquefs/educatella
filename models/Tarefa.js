@@ -20,6 +20,10 @@ let Tarefa = (sequelize, Datatypes) => {
                 type: Datatypes.STRING,
                 allowNull: true
             },
+            data_entrega:{
+                type: Datatypes.DATE, 
+                allowNull: false
+            },
             id_classe:{
                 type: Datatypes.INTEGER,
                 allowNull: false
@@ -37,6 +41,23 @@ let Tarefa = (sequelize, Datatypes) => {
             {
                 foreignKey: 'id_classe',
                 as: 'classe'
+            }
+        );
+
+        tarefa.belongsToMany(
+            models.Aluno,
+            {
+                foreignKey: 'id_tarefa',
+                as: 'aluno',
+                through: models.Tarefa_Aluno
+            }
+        );
+
+        tarefa.hasMany(
+            models.Tarefa_Aluno,
+            {
+                foreignKey: 'id_tarefa',
+                as: 'tarefasAlunos'
             }
         );
     }
