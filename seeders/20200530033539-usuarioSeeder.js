@@ -9,7 +9,7 @@ module.exports = {
         nome: "Sérgio Pereira",
         email: "sergio@dh.com",
         senha: bcrypt.hashSync("123456", 10),
-        imagem: "/images/avatar.png",
+        imagem: "sergio.jpg",
         createdAt: new Date().toISOString().slice(0, 19).replace('T', ' '),
         updatedAt: new Date().toISOString().slice(0, 19).replace('T', ' ')
       },
@@ -18,7 +18,7 @@ module.exports = {
         nome: "Gabriel Brunetti",
         email: "gabriel@dh.com",
         senha: bcrypt.hashSync("123456", 10),
-        imagem: "/images/avatar.png",
+        imagem: "gabriel.jpg",
         createdAt: new Date().toISOString().slice(0, 19).replace('T', ' '),
         updatedAt: new Date().toISOString().slice(0, 19).replace('T', ' ')
       },
@@ -27,7 +27,7 @@ module.exports = {
         nome: "Talita Gomes",
         email: "talita@dh.com",
         senha: bcrypt.hashSync("123456", 10),
-        imagem: "/images/avatar.png",
+        imagem: "talita.jpg",
         createdAt: new Date().toISOString().slice(0, 19).replace('T', ' '),
         updatedAt: new Date().toISOString().slice(0, 19).replace('T', ' ')
       },
@@ -36,7 +36,7 @@ module.exports = {
         nome: "Camila Silva",
         email: "camila@dh.com",
         senha: bcrypt.hashSync("123456", 10),
-        imagem: "/images/avatar.png",
+        imagem: "camila.jpg",
         createdAt: new Date().toISOString().slice(0, 19).replace('T', ' '),
         updatedAt: new Date().toISOString().slice(0, 19).replace('T', ' ')
       },
@@ -45,7 +45,7 @@ module.exports = {
         nome: "Matheus Reyes",
         email: "matheus@dh.com",
         senha: bcrypt.hashSync("123456", 10),
-        imagem: "/images/avatar.png",
+        imagem: "matheus.jpg",
         createdAt: new Date().toISOString().slice(0, 19).replace('T', ' '),
         updatedAt: new Date().toISOString().slice(0, 19).replace('T', ' ')
       },
@@ -54,7 +54,7 @@ module.exports = {
         nome: "Luisa Gonçalves",
         email: "luisa@dh.com",
         senha: bcrypt.hashSync("123456", 10),
-        imagem: "/images/avatar.png",
+        imagem: "avatar.png",
         createdAt: new Date().toISOString().slice(0, 19).replace('T', ' '),
         updatedAt: new Date().toISOString().slice(0, 19).replace('T', ' ')
       },
@@ -63,7 +63,7 @@ module.exports = {
         nome: "Adrian Silva",
         email: "adrian@dh.com",
         senha: bcrypt.hashSync("123456", 10),
-        imagem: "/images/avatar.png",
+        imagem: "avatar.png",
         createdAt: new Date().toISOString().slice(0, 19).replace('T', ' '),
         updatedAt: new Date().toISOString().slice(0, 19).replace('T', ' ')
       },
@@ -72,7 +72,7 @@ module.exports = {
         nome: "Lucas Silva",
         email: "lucas@dh.com",
         senha: bcrypt.hashSync("123456", 10),
-        imagem: "/images/avatar.png",
+        imagem: "avatar.png",
         createdAt: new Date().toISOString().slice(0, 19).replace('T', ' '),
         updatedAt: new Date().toISOString().slice(0, 19).replace('T', ' ')
       }
