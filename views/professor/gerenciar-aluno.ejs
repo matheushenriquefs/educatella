@@ -51,12 +51,12 @@
 
           <div class="container-fluid">
             <div class="row p-3 mb-5">
-              <% for (recadosDB.aluno of recadosDB.aluno ) {%>
-              <form action="/professor/gerenciar-aluno/<%=recadosDB.aluno.id%>" method="post">
+              <% for (gerenciarDB.aluno of gerenciarDB.aluno ) {%>
+              <form action="/professor/gerenciar-aluno/<%=gerenciarDB.aluno.id%>" method="post">
                 <div class="mb-5 offset-1 col-5 text-center">
-                    <img class="imagem-professor" src="/images/<%=recadosDB.aluno.usuarioAluno.imagem%>">
-                    <p class="texto"><%=recadosDB.aluno.usuarioAluno.nome%></p>
-                    <p class="texto"> <%=recadosDB.nome%> </p>
+                    <img class="imagem-professor" src="/images/<%=gerenciarDB.aluno.usuarioAluno.imagem%>">
+                    <p class="texto"><%=gerenciarDB.aluno.usuarioAluno.nome%></p>
+                    <p class="texto"> <%=gerenciarDB.nome%> </p>
                     <button type="submit" class="btn btn-danger">Excluir</button>
                 </div>
               </form>

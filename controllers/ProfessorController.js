@@ -477,7 +477,7 @@ module.exports = {
                 }
             );
       
-        let recadosDB = await Classe.findByPk(1,{
+        let gerenciarDB = await Classe.findByPk(idUsuario,{
 
             
             include:{
@@ -495,15 +495,14 @@ module.exports = {
         let totalPagina = "hola"
         //Math.round(total/5)
         
-        console.log(recadosDB.aluno[2].usuarioAluno.nome)
+
     
-      res.render('professor/gerenciar-aluno', { recadosDB, totalPagina,usuario,acessarClasse,classeDb });
+      res.render('professor/gerenciar-aluno', { gerenciarDB, totalPagina,usuario,acessarClasse,classeDb });
     },
     ///Gerenciar aluno////////////////////////////////////////////////////////////////
     profGerenciarAluno1: async (req, res) => {
         const id  = req.params.id
-        console.log(id +" consola *****************************************************")
-            const resultado = await Classe_Aluno.destroy({
+               const resultado = await Classe_Aluno.destroy({
                 where: { id_aluno: id }
             })
             console.log(resultado)
