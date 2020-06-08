@@ -106,9 +106,9 @@ module.exports = {
         let usuario = req.usuario
         const idUsuario = req.usuario.id
 
-        const { id_classe } = req.body
+        const { id_classe } = req.query
 
-        let acessarClasse = await Classe.findByPk(idUsuario,
+        let acessarClasse = await Classe.findByPk(id_classe,
             {
                 include: [
                     {
@@ -122,20 +122,20 @@ module.exports = {
                 ]
             }
         );
-        console.log(acessarClasse.recado)
+        console.log(acessarClasse)
         
        
        
-        res.render('professor/recados', { usuario,acessarClasse, });
+        res.render('professor/recados', {usuario,acessarClasse});
     },
      //criar Recados////////////////////////////////////////////////////////////////
     profRecadosCriar: async (req, res) => {
         let usuario = req.usuario
         const idUsuario = req.usuario.id
 
-        const { id_classe } = req.body
+        const { id_classe } = req.query
 
-        let acessarClasse = await Classe.findByPk(idUsuario,
+        let acessarClasse = await Classe.findByPk(id_classe,
             {
                 include: [
                     {
@@ -163,7 +163,8 @@ module.exports = {
 
         const { id_classe } = req.body
         console.log (id_classe + "******************************")
-        let acessarClasse = await Classe.findByPk(idUsuario,
+        
+        let acessarClasse = await Classe.findByPk(id_classe,
             {
                 include: [
                     {
@@ -185,17 +186,18 @@ module.exports = {
 
         }).catch(err => { console.log(err) })
 
-        console.log(resultado)
+        
 
-        return res.redirect('recados');
+        //return res.redirect('recados');
+        return res.redirect('back');
     },
     //apagar recados////////////////////////////////////////////////////////////////
     profRecadosApagar: async (req, res) => {
         let usuario = req.usuario
         const idUsuario = req.usuario.id
-        const { id_classe } = req.body
+        const { id_classe } = req.query
 
-        let acessarClasse = await Classe.findByPk(idUsuario,
+        let acessarClasse = await Classe.findByPk(id_classe,
             {
                 include: [
                     {
@@ -220,7 +222,7 @@ module.exports = {
             where: {id_recados: id}
         })
         console.log(resultado)
-        res.redirect('/professor/apagar-recado');
+        return res.redirect('back');
     },
     //Editar Recados////////////////////////////////////////////////////////////////
     profRecadosEditar: async (req, res) => {
@@ -228,9 +230,9 @@ module.exports = {
         let usuario = req.usuario
         const idUsuario = req.usuario.id
 
-        const { id_classe } = req.body
-
-        let acessarClasse = await Classe.findByPk(idUsuario,
+        const { id_classe } = req.query
+        
+        let acessarClasse = await Classe.findByPk(id_classe,
             {
                 include: [
                     {
@@ -262,7 +264,10 @@ module.exports = {
                 where: { id_recados: id }
             })
         console.log(resultado)
-        res.redirect('/professor/recados');
+        
+
+        return res.redirect('back');
+        
     },
 
     profNotas: (req, res) => {
@@ -454,7 +459,9 @@ module.exports = {
     //Gerenciar aluno////////////////////////////////////////////////////////////////
     profGerenciarAluno: async (req, res) => {
         let { page = 1 } = req.query
-        const { tituloTarefa, descricaoTarefa, id_classe } = req.body;
+        const { tituloTarefa, descricaoTarefa } = req.body;
+        const { id_classe } = req.query
+        console.log(id_classe + "**************************")
         const { files } = req;
         let classeDb = await Classe.findAll();
         let usuario = req.usuario
@@ -462,7 +469,7 @@ module.exports = {
 
        
 
-        let acessarClasse = await Classe.findByPk(idUsuario,
+        let acessarClasse = await Classe.findByPk(id_classe,
                 {
                 include: [
                     {
@@ -477,7 +484,7 @@ module.exports = {
                 }
             );
       
-        let gerenciarDB = await Classe.findByPk(idUsuario,{
+        let gerenciarDB = await Classe.findByPk(id_classe,{
 
             
             include:{
@@ -506,7 +513,7 @@ module.exports = {
                 where: { id_aluno: id }
             })
             console.log(resultado)
-        res.redirect('/professor/gerenciar-aluno');
+            return res.redirect('back');
     },
 
     //Alterar usuário
@@ -524,7 +531,7 @@ module.exports = {
 			}
 		});
 
-		res.redirect("/professor/inicio");
+		res.redirect("back");
 
 	},
 
