@@ -44,16 +44,21 @@
         <!-- Coluna de professores -->
         <div class="container-fluid">
             <div class="row p-3 mb-5">
+                <% if(aluno.classes.length == 0){ %>
+                    <div class="col-12 text-center">
+                        <p class="texto"> Você ainda não está em nenhuma classe! Tente adicionar uma </p>
+                    </div>
+                <% } %>
                 <% for(classes of aluno.classes) { %>
-                <!-- Foto e descrição do professor e botão para acessar a Classe -->
-                <div class="mb-5 offset-1 col-3 text-center">
-                    <img class="imagem-padrao" src="/images/<%= classes.professor.usuarioProfessor.imagem %>">
-                    <p class="texto"> <%= classes.professor.usuarioProfessor.nome %>, <%= classes.nome %> </p>
-                    <form action="/aluno/acessarClasse" method="POST">
-                        <input type="hidden" class="form-control" value="<%= classes.id %>" name="idClasse">
-                        <button type="submit" class="btn text-white botao"> Acessar Classe </button>
-                    </form>
-                </div>
+                    <!-- Foto e descrição do professor e botão para acessar a Classe -->
+                    <div class="mb-5 offset-1 col-3 text-center">
+                        <img class="imagem-padrao" src="/images/<%= classes.professor.usuarioProfessor.imagem %>">
+                        <p class="texto"> <%= classes.professor.usuarioProfessor.nome %>, <%= classes.nome %> </p>
+                        <form action="/aluno/acessarClasse" method="POST">
+                            <input type="hidden" class="form-control" value="<%= classes.id %>" name="idClasse">
+                            <button type="submit" class="btn text-white botao"> Acessar Classe </button>
+                        </form>
+                    </div>
                 <% } %>
             </div>
         </div>
