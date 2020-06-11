@@ -39,8 +39,8 @@
                             <div class="row">
                                 <div class="col-3 informacao d-flex align-items-center">
                                     <div class="container">
-                                        <!-- Data da Tarefa -->
-                                        <p class="texto-detalhes"> <%= tarefas.createdAt.toLocaleString('pt-BR') %> </p>
+                                        <input class="dataBanco" type="hidden" value="<%= tarefas.createdAt.toLocaleString('pt-BR') %>">
+                                        <p class="texto-detalhes data"> </p>
                                     </div>
                                 </div>
                                 <div class="offset-1 col-8">
@@ -118,4 +118,5 @@
     <!-- Importando Bootstrap JS -->
     <script type="text/javascript" src="/vendor/bootstrap.bundle.min.js"></script>
     <script type="text/javascript" src="/javascripts/src/main.js"></script>
+    <script type="text/javascript" src="/javascripts/dist/AlunoTarefas.js"></script>
 </body>

@@ -40,7 +40,8 @@
                                 <div class="col-3 informacao d-flex align-items-center">
                                     <div class="container">
                                         <!-- Data do Aviso -->
-                                        <p class="texto-detalhes"> <%= recados.createdAt.toLocaleString('pt-BR') %> </p>
+                                        <input class="dataBanco" type="hidden" value="<%= recados.createdAt.toLocaleString('pt-BR') %>">
+                                        <p class="texto-detalhes data"> </p>
                                     </div>
                                 </div>
                                 <div class="offset-1 col-8">
@@ -97,4 +98,5 @@
     <!-- Importando Bootstrap JS -->
     <script type="text/javascript" src="/vendor/bootstrap.bundle.min.js"></script>
     <script type="text/javascript" src="/javascripts/src/main.js"></script>
+    <script type="text/javascript" src="/javascripts/dist/AlunoRecados.js"></script>
 </body>
