@@ -45,7 +45,11 @@
                                 <!-- Coluna das notas -->
                                 <div class="col-4 text-center">
                                     <p class="body-text-titulo"> Nota </p>
+                                    <% console.log(tarefas[1].tarefasAlunos) %>
                                     <% for(tarefa of tarefas){ %>
+                                        <% if(tarefa.tarefasAlunos.length == 0){ %>
+                                            <p class="body-text"> Tarefa Não Enviada </p>
+                                        <% } %>
                                         <% for(tarefaAluno of tarefa.tarefasAlunos){ %>
                                             <% if(tarefaAluno.nota == null){ %>
                                                 <p class="body-text"> Tarefa Não Corrigida </p>
