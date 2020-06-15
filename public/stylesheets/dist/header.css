@@ -17,6 +17,10 @@ nav ul li a:hover {
     border-radius: 0;
 }
 
+.cursorText:hover{
+    cursor: text;
+}
+
 /* Menu drop-down */
 
 /* Botão carregar arquivo */

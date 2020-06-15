@@ -11,6 +11,10 @@
     color: grey;
 }
 
+#imagemDownload{
+    width:1.5rem;
+}
+
 .botao-link{
     background-color:white;
     border:0;

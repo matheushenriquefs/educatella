@@ -22,6 +22,10 @@
     font-family: 'Baloo Da 2', cursive;
 }
 
+.cursorText:hover{
+    cursor: text;
+}
+
 .botao:hover {
     background-color: rgb(96, 195, 171);
     text-decoration: none; 
