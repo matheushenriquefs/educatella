@@ -85,6 +85,55 @@ module.exports = {
 		res.render("aluno/tarefas", {classe, classes:classesAluno.classes, usuario: req.usuario});
 	},
 
+	enviarTarefaAlunos: async (req, res) => {
+
+		const idUsuario = req.usuario.id;
+		const idClasse = req.body.idClasse;
+		const idTarefa = req.body.idTarefa;
+		const { files } = req;
+		
+		let classe = await Classe.findByPk(idClasse,
+			{
+				include:[
+                    {
+                        model: Professor, 
+						as:'professor', 
+						include: 'usuarioProfessor'
+                    },
+                    {
+                        model: Tarefa, 
+                        as:'tarefa'
+                    }
+                ]
+			}
+		);
+
+		let aluno = await Aluno.findOne({where:{id_usuario:idUsuario}});
+
+		let classesAluno = await Aluno.findByPk(aluno.id,
+			{
+				include:{
+					model: Classe, 
+					as:'classes', 
+					include:{
+						model: Professor,
+						as:'professor',
+						include: 'usuarioProfessor'
+					}
+				}
+			}
+		)
+
+		await Tarefa_Aluno.create({
+			id_tarefa: idTarefa,
+			id_aluno: aluno.id,
+			arquivo: files[0].originalname
+		});
+
+		res.render("aluno/tarefas", {classe, classes:classesAluno.classes, usuario: req.usuario});
+
+	},
+
 	notasAlunos: async (req, res)=>{
 
 		const idUsuario = req.usuario.id;
