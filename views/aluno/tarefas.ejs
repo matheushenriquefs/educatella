@@ -76,30 +76,47 @@
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
-                    <form>
-                        <div class="modal-body">        
+                    <form action="/aluno/enviarTarefa" method="POST" enctype="multipart/form-data">
+                        <div class="modal-body">     
+                            <div class="row justify-content-center">
+                                <div class="col-12">
+                                    <input class="dataCriacaoBanco" type="hidden" value="<%=tarefas.createdAt%>"> 
+                                    <p class="dataCriacao texto"> </p>
+                                </div>
+                                <div class="col-12"> 
+                                    <input class="dataEntregaBanco" type="hidden" value="<%=tarefas.data_entrega%>"> 
+                                    <p class="dataEntrega texto"> </p>
+                                </div>
+                            </div>
+
                             <div class="row justify-content-center">
                                 <div class="col-12"> 
                                     <p class="texto"> <%= tarefas.descricao %> </p>
                                 </div>
-                            </div>   
+                            </div>
                             
-                                <!--DIV Carregar tarefa-->
-                                <div class="form-row justify-content-center">
-                                    <!-- Carregar tarefa -->
-                                    <div class="form-group col-12 tarefa">
-                                        <div class="file-field">
-                                            <div class="btn btn-sm float-right">
-                                                <span>Clique</span>
-                                                <input type="file" class="sumir">
-                                            </div>
-                                            <div class="file-path-wrapper">
-                                                <input class="file-path-validate" type="text"
-                                                    placeholder="Carregue o arquivo aqui">
-                                            </div>
-                                        </div>
-                                    </div>
+                            <div class="row mb-5 justify-content-center">
+                                <div class="col-12"> 
+                                    <% if(tarefas.arquivo != null){ %>
+                                        <a class="texto-link" href="/tarefaTeste.docx" download="<%=tarefas.arquivo%>"> 
+                                        <img id="imagemDownload" src="/images/download.png"> <%=tarefas.arquivo%> </a> 
+                                    <% } %>
                                 </div>
+                            </div>
+
+                            <!--Arquivo-->
+                            <div class="form-row justify-content-center">
+                                <div class="custom-file col-10">
+                                    <input type="file" class="custom-file-input" accept="txt" id="validatedCustomFile"
+                                        name="arquivo">
+                                    <label class="custom-file-label" for="validatedCustomFile" id="file-label">Escolher
+                                        arquivo</label>
+                                    <div class="invalid-feedback">Arquivo inválido</div>
+                                </div>
+                            </div>
+
+                            <input type="hidden" value="<%=classe.id%>" name="idClasse">
+                            <input type="hidden" value="<%=tarefas.id%>" name="idTarefa">
                             
                         </div>
                         <div class="modal-footer">

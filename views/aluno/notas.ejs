@@ -39,23 +39,23 @@
                                 <div class="col-8 text-center">
                                     <p class="body-text-titulo"> Tarefa </p>
                                     <% for(tarefa of tarefas){ %>
-                                    <p class="body-text"> <%= tarefa.titulo %> </p>
+                                        <p class="body-text"> <%= tarefa.titulo %> </p>
                                     <% } %>
                                 </div>
                                 <!-- Coluna das notas -->
                                 <div class="col-4 text-center">
                                     <p class="body-text-titulo"> Nota </p>
-                                    <% console.log(tarefas[1].tarefasAlunos) %>
                                     <% for(tarefa of tarefas){ %>
-                                        <% if(tarefa.tarefasAlunos.length == 0){ %>
-                                            <p class="body-text"> Tarefa Não Enviada </p>
-                                        <% } %>
-                                        <% for(tarefaAluno of tarefa.tarefasAlunos){ %>
-                                            <% if(tarefaAluno.nota == null){ %>
-                                                <p class="body-text"> Tarefa Não Corrigida </p>
-                                            <% } else { %>
-                                                <p class="body-text"> <%= tarefaAluno.nota %> </p>
+                                        <% if(tarefa.tarefasAlunos.length != 0){ %>
+                                            <% for(tarefaAluno of tarefa.tarefasAlunos){ %>
+                                                <% if(tarefaAluno.nota == null){ %>
+                                                    <p class="body-text"> Tarefa Não Corrigida </p>
+                                                <% } else { %>
+                                                    <p class="body-text"> <%= tarefaAluno.nota %> </p>
+                                                <% } %>
                                             <% } %>
+                                        <% } else if(tarefa.tarefasAlunos.length == 0){ %>
+                                            <p class="body-text"> Tarefa Não Enviada </p>
                                         <% } %>
                                     <% } %>
                                 </div>

@@ -53,7 +53,8 @@
                     <!-- Foto e descrição do professor e botão para acessar a Classe -->
                     <div class="mb-5 offset-1 col-3 text-center">
                         <img class="imagem-padrao" src="/images/<%= classes.professor.usuarioProfessor.imagem %>">
-                        <p class="texto"> <%= classes.professor.usuarioProfessor.nome %>, <%= classes.nome %> </p>
+                        <p class="texto"> <%= classes.nome %> </p>
+                        <p class="texto"> <%= classes.professor.usuarioProfessor.nome %> </p>
                         <form action="/aluno/acessarClasse" method="POST">
                             <input type="hidden" class="form-control" value="<%= classes.id %>" name="idClasse">
                             <button type="submit" class="btn text-white botao"> Acessar Classe </button>
@@ -84,7 +85,7 @@
                                     <div class="form-group row">
                                         <label for="number-of-students" class="col-12 col-form-label">Código da Classe:</label>
                                         <div class="col-12">
-                                            <input type="text" class="form-control" name="codigo">
+                                            <input type="text" class="form-control cursorText" name="codigo">
                                             <input type="hidden" class="form-control" value="<%= aluno.id %>" name="idAluno">
                                         </div>
                                     </div>
