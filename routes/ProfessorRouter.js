@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 var multer = require('multer');
 var path = require('path');
+const { check, validationResult } = require('express-validator');
 
  
 
@@ -35,12 +36,20 @@ router.post('/professor/editar-classe', authUser, ProfessorController.updateClas
 router.post('/professor/delete-classe/:id', authUser, ProfessorController.destroyClasse);
 //RECADOS
 router.get('/professor/recados', authUser,  ProfessorController.profRecados);
-router.get('/professor/criar-recado', authUser, ProfessorController.profRecadosCriar);
-router.post('/professor/criar-recado', authUser, ProfessorController.profRecadosCriar2);
+
+router.get('/professor/criar-recado', authUser,ProfessorController.profRecadosCriar);
+
+router.post('/professor/criar-recado', authUser,
+          [check ("titulo").isLength({min:1}).withMessage("O titulo tem que estar prenchido"),
+          check ("descricao").isLength({min:1}).withMessage("A descripção tem que estar prenchida")]
+          ,ProfessorController.profRecadosCriar2);
 router.get('/professor/apagar-recado', authUser, ProfessorController.profRecadosApagar);
 router.post('/professor/apagar-recado/:id', authUser, ProfessorController.profRecadosApagar2);
 router.get('/professor/editar-recado', authUser, ProfessorController.profRecadosEditar);
-router.post('/professor/editar-recado/:id', authUser, ProfessorController.profRecadosEditar2);
+router.post('/professor/editar-recado/:id', authUser,
+            [check ("titulo").isLength({min:1}).withMessage("O titulo tem que estar prenchido"),
+            check ("descricao").isLength({min:1}).withMessage("A descripção tem que estar prenchida")]
+            ,ProfessorController.profRecadosEditar2);
 router.get('/professor/postar-nota', authUser, ProfessorController.profNotas);
 //TAREFAS
 router.post('/professor/postar', authUser, upload.any(), ProfessorController.addTarefa);

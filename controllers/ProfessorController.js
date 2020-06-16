@@ -1,5 +1,6 @@
 //Exportando o controller
 const { Aluno, Professor, Classe, Recado, Tarefa, Classe_Aluno, Usuario } = require("../models")
+const { check, validationResult } = require('express-validator');
 
 
 module.exports = {
@@ -130,8 +131,10 @@ module.exports = {
     },
      //criar Recados////////////////////////////////////////////////////////////////
     profRecadosCriar: async (req, res) => {
+       
         let usuario = req.usuario
         const idUsuario = req.usuario.id
+      
 
         const { id_classe } = req.query
 
@@ -156,13 +159,12 @@ module.exports = {
     },
     //criar Recados////////////////////////////////////////////////////////////////
     profRecadosCriar2: async (req, res) => {
+        let errors = validationResult(req);
         const { titulo, descricao } = req.body
-        console.log(titulo, descricao)
+        console.log(errors)
         let usuario = req.usuario
         const idUsuario = req.usuario.id
-
         const { id_classe } = req.body
-        console.log (id_classe + "******************************")
         
         let acessarClasse = await Classe.findByPk(id_classe,
             {
@@ -178,6 +180,8 @@ module.exports = {
                 ]
             }
         );
+        if (!errors.isEmpty()){ return res.redirect ('back') }
+
         const resultado = await Recado.create({
 
             titulo,
@@ -187,8 +191,8 @@ module.exports = {
         }).catch(err => { console.log(err) })
 
         
-
-        //return res.redirect('recados');
+        
+        
         return res.redirect('back');
     },
     //apagar recados////////////////////////////////////////////////////////////////
@@ -252,9 +256,10 @@ module.exports = {
         //Editar Recados////////////////////////////////////////////////////////////////
     profRecadosEditar2: async (req, res) => {
         const { id } = req.params
-        console.log('soy consola' + id)
+        let errors = validationResult(req);
         const { titulo, descricao } = req.body
         console.log(titulo + "consola numero 2" + descricao)
+        if (!errors.isEmpty()){ return res.redirect ('back') }
         const resultado = await Recado.update({
             titulo: titulo,
             descricao: descricao,

@@ -43,7 +43,7 @@
                                 <div class="page-item" >
                                     
                                 <h6><img src="/images/recados.png" alt="icone recados" class="imagens-classe"> <%= acessarClasse.titulo %> </h6>
-                                <p> <%= acessarClasse.createdAt %>  </p>
+                                <p> <%= acessarClasse.createdAt.toLocaleString('pt-BR') %>  </p>
                                 <p><%= acessarClasse.descricao %></p>
                                 <button type="submit" class="btn btn-danger" >Apagar</button>
                                 </div>
