@@ -9,6 +9,7 @@ module.exports = {
 
 		const idUsuario = req.usuario.id;
 		const idClasse = req.body.idClasse;
+		let feedbackAlterarDados = "inicio";
 		
 		let classe = await Classe.findByPk(idClasse,
 			{
@@ -42,13 +43,16 @@ module.exports = {
 			}
 		)
 
-		res.render("aluno/recados", {classe, classes:classesAluno.classes, usuario: req.usuario});
+		res.render("aluno/recados", {classe, classes:classesAluno.classes, usuario: req.usuario, feedbackAlterarDados});
 	},
 
 	tarefasAlunos: async (req, res)=>{
 
 		const idUsuario = req.usuario.id;
 		const idClasse = req.body.idClasse;
+		let feedbackAlterarDados = "inicio";
+
+		let feedbackTarefa = "inicio";
 		
 		let classe = await Classe.findByPk(idClasse,
 			{
@@ -82,7 +86,7 @@ module.exports = {
 			}
 		)
 
-		res.render("aluno/tarefas", {classe, classes:classesAluno.classes, usuario: req.usuario});
+		res.render("aluno/tarefas", {classe, classes:classesAluno.classes, usuario: req.usuario, feedbackTarefa, feedbackAlterarDados});
 	},
 
 	enviarTarefaAlunos: async (req, res) => {
@@ -91,6 +95,17 @@ module.exports = {
 		const idClasse = req.body.idClasse;
 		const idTarefa = req.body.idTarefa;
 		const { files } = req;
+		let feedbackAlterarDados = "inicio";
+
+		let aluno = await Aluno.findOne({where:{id_usuario:idUsuario}});
+
+		await Tarefa_Aluno.create({
+			id_tarefa: idTarefa,
+			id_aluno: aluno.id,
+			arquivo: files[0].originalname
+		});
+
+		let feedbackTarefa = "Tarefa enviada com sucesso!";
 		
 		let classe = await Classe.findByPk(idClasse,
 			{
@@ -108,8 +123,6 @@ module.exports = {
 			}
 		);
 
-		let aluno = await Aluno.findOne({where:{id_usuario:idUsuario}});
-
 		let classesAluno = await Aluno.findByPk(aluno.id,
 			{
 				include:{
@@ -124,13 +137,7 @@ module.exports = {
 			}
 		)
 
-		await Tarefa_Aluno.create({
-			id_tarefa: idTarefa,
-			id_aluno: aluno.id,
-			arquivo: files[0].originalname
-		});
-
-		res.render("aluno/tarefas", {classe, classes:classesAluno.classes, usuario: req.usuario});
+		res.render("aluno/tarefas", {classe, classes:classesAluno.classes, usuario: req.usuario, feedbackTarefa, feedbackAlterarDados});
 
 	},
 
@@ -138,6 +145,7 @@ module.exports = {
 
 		const idUsuario = req.usuario.id;
 		const idClasse = req.body.idClasse;
+		let feedbackAlterarDados = "inicio";
 		
 		let classe = await Classe.findByPk(idClasse,
 			{
@@ -194,12 +202,16 @@ module.exports = {
 			}
 		)
 
-		res.render("aluno/notas", {classe, classes:classesAluno.classes, usuario: req.usuario, tarefas});
+		res.render("aluno/notas", {classe, classes:classesAluno.classes, usuario: req.usuario, tarefas, feedbackAlterarDados});
 	},
 
 	inicioAlunos: (req, res)=>{
 
 		const idUsuario = req.usuario.id;
+		let feedbackAlterarDados = "inicio";
+
+		//feedback ao tentar acessar uma classe
+		let feedback = "inicio";
 
 		Aluno.findOne({where:{id_usuario:idUsuario}}).then(
 			aluno => {
@@ -217,11 +229,11 @@ module.exports = {
 					}
 				).then(
 					alunoClasses => {
-						res.render("aluno/inicio", {usuario:req.usuario, aluno:alunoClasses});
+						res.render("aluno/inicio", {usuario:req.usuario, aluno:alunoClasses, feedback, feedbackAlterarDados});
 					}
 				)
 			}
-		) 
+		);
 
 	},
 
@@ -229,6 +241,8 @@ module.exports = {
 
 		const codigo = req.body.codigo;
 		const idAluno = req.body.idAluno;
+		let feedback = "inicio";
+		let feedbackAlterarDados = "inicio";
 
         let classe = await Classe.findOne(
 			{
@@ -240,22 +254,40 @@ module.exports = {
 			
 		//Código da Classe não existe!
 		if(classe == null){
-			res.redirect("/aluno/inicio");
 
+			feedback = "Código Incorreto!"
+			
 		// Código da Classe existe!
 		}else{
+
 			await Classe_Aluno.create({
 				id_aluno: idAluno,
 				id_classe: classe.id
 			});
-			res.redirect("/aluno/inicio");
+
+			feedback = "Classe Acessada com sucesso!"
 		}
+
+		let aluno = await Aluno.findByPk(idAluno, {
+			include:{
+				model: Classe, 
+				as:'classes', 
+				include:{
+					model: Professor,
+					as:'professor',
+					include: 'usuarioProfessor'
+				}
+			}
+		});
+
+		res.render("aluno/inicio", {usuario:req.usuario, aluno, feedback, feedbackAlterarDados});
 	},
 
 	acessarClasse: async (req,res)=> {
 
 		const idUsuario = req.usuario.id;
 		const idClasse = req.body.idClasse;
+		let feedbackAlterarDados = "inicio";
 		
 
 		let classe = await Classe.findByPk(idClasse,
@@ -290,7 +322,7 @@ module.exports = {
 			}
 		)
 
-		res.render("aluno/recados", {classe, classes:classesAluno.classes, usuario: req.usuario});
+		res.render("aluno/recados", {classe, classes:classesAluno.classes, usuario: req.usuario, feedbackAlterarDados});
 
 	},
 
@@ -298,8 +330,24 @@ module.exports = {
 
 		const idUsuario = req.usuario.id;
 		const idClasse = req.body.idClasse;
+		let feedbackAlterarDados = "inicio";
+		//feedback ao tentar acessar uma classe
+		let feedback = "inicio";
 
-		let aluno = await Aluno.findOne({where:{id_usuario:idUsuario}});
+		let aluno = await Aluno.findOne({
+			include:{
+				model: Classe, 
+				as:'classes', 
+				include:{
+					model: Professor,
+					as:'professor',
+					include: 'usuarioProfessor'
+				}
+			}, 
+			where:{
+				id_usuario:idUsuario
+			}
+		});
 
 		await Classe_Aluno.destroy({
 			where:{
@@ -308,7 +356,7 @@ module.exports = {
 			}
 		});
 
-		res.redirect("/aluno/inicio");
+		res.render("aluno/inicio", {usuario:req.usuario, aluno, feedback, feedbackAlterarDados});
 
 	},
 
@@ -316,6 +364,9 @@ module.exports = {
 
 		const idUsuario = req.usuario.id;
 		let img = req.file.filename;
+		let feedbackAlterarDados = "Imagem Alterada com sucesso!";
+		//feedback ao tentar acessar uma classe
+		let feedback = "inicio";
 
 		await Usuario.update({
 			imagem:img
@@ -326,7 +377,22 @@ module.exports = {
 			}
 		});
 
-		res.redirect("/aluno/inicio");
+		let aluno = await Aluno.findOne({
+			include:{
+				model: Classe, 
+				as:'classes', 
+				include:{
+					model: Professor,
+					as:'professor',
+					include: 'usuarioProfessor'
+				}
+			}, 
+			where:{
+				id_usuario:idUsuario
+			}
+		});
+
+		res.render("aluno/inicio", {usuario:req.usuario, aluno, feedback, feedbackAlterarDados});
 
 	},
 
@@ -334,6 +400,9 @@ module.exports = {
 		
 		const idUsuario = req.usuario.id;
 		let nomeUsuario = req.body.nome;
+		let feedbackAlterarDados = "Nome alterado com sucesso!";
+		//feedback ao tentar acessar uma classe
+		let feedback = "inicio";
 
 		await Usuario.update({
 			nome:nomeUsuario
@@ -344,7 +413,22 @@ module.exports = {
 			}
 		});
 
-		res.redirect("/aluno/inicio");
+		let aluno = await Aluno.findOne({
+			include:{
+				model: Classe, 
+				as:'classes', 
+				include:{
+					model: Professor,
+					as:'professor',
+					include: 'usuarioProfessor'
+				}
+			}, 
+			where:{
+				id_usuario:idUsuario
+			}
+		});
+
+		res.render("aluno/inicio", {usuario:req.usuario, aluno, feedback, feedbackAlterarDados});
 
 	},
 
@@ -353,6 +437,9 @@ module.exports = {
 		const idUsuario = req.usuario.id;
 		let email = req.body.email;
 		let senha = req.body.senhaEmail;
+		let feedbackAlterarDados = "E-mail alterado com sucesso!";
+		//feedback ao tentar acessar uma classe
+		let feedback = "inicio";
 
 		let usuarioBanco = await Usuario.findOne(
 		{
@@ -374,7 +461,22 @@ module.exports = {
 
 		}
 
-		res.redirect("/aluno/inicio");
+		let aluno = await Aluno.findOne({
+			include:{
+				model: Classe, 
+				as:'classes', 
+				include:{
+					model: Professor,
+					as:'professor',
+					include: 'usuarioProfessor'
+				}
+			}, 
+			where:{
+				id_usuario:idUsuario
+			}
+		});
+
+		res.render("aluno/inicio", {usuario:req.usuario, aluno, feedback, feedbackAlterarDados});
 
 	},
 
@@ -383,6 +485,9 @@ module.exports = {
 		const idUsuario = req.usuario.id;
 		let senhaAntiga = req.body.senhaAntiga;
 		let senhaNova = req.body.senhaNova;
+		let feedbackAlterarDados = "Senha alterada com sucesso!";
+		//feedback ao tentar acessar uma classe
+		let feedback = "inicio";
 
 		let usuarioBanco = await Usuario.findOne(
 		{
@@ -403,7 +508,22 @@ module.exports = {
 			});	
 		}
 
-		res.redirect("/aluno/inicio");
+		let aluno = await Aluno.findOne({
+			include:{
+				model: Classe, 
+				as:'classes', 
+				include:{
+					model: Professor,
+					as:'professor',
+					include: 'usuarioProfessor'
+				}
+			}, 
+			where:{
+				id_usuario:idUsuario
+			}
+		});
+
+		res.render("aluno/inicio", {usuario:req.usuario, aluno, feedback, feedbackAlterarDados});
 
 	}
 }
