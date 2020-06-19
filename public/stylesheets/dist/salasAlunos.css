@@ -11,6 +11,12 @@
     color: #4AE894;
 }
 
+#feedback{
+    font-family: 'Poppins', sans-serif;
+    color: red;
+    font-size:1rem;
+}
+
 /* Botão Pesquisar Salas */
 
 .botao {

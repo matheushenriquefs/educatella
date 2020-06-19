@@ -15,6 +15,12 @@
     width:1.5rem;
 }
 
+.feedbackTarefa{
+    font-family: 'Poppins', sans-serif;
+    color: red;
+    font-size:1rem;
+}
+
 .botao-link{
     background-color:white;
     border:0;
