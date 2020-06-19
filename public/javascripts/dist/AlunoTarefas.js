@@ -62,3 +62,37 @@ function tratarData(data){
     //Escreve nos campos corretos do HTML a data tratada
     return (dia) + '/' + (mes) + '/' + (ano) + " " + (hora) + ":" + (minutos);
 }
+
+//Captura os elementos para tratar o campo de enviar tarefas
+let formEnviarTarefa = document.getElementsByClassName("formTarefa");
+let tarefaEnviada = document.getElementsByClassName("tarefaEnviada");
+let feedback = document.getElementsByClassName("feedbackTarefa");
+
+for(let i = 0; i < formEnviarTarefa.length; i++){
+
+    formEnviarTarefa[i].addEventListener("submit", evento => {
+
+        //Previne o submit padrão do formulário
+        evento.preventDefault();
+
+        //Se o código da classe for vazio, exibe uma mensagem, se não for, o formulário é acionado
+        if(tarefaEnviada[i].value == ""){
+            feedback[i].innerText = "Você deve anexar um arquivo!";
+        }else{
+            formEnviarTarefa[i].submit();
+        }
+
+    });
+}
+
+let feedbackTarefa = document.getElementById("feedbackEnviarTarefa").value;
+let mensagemFeedbackTarefa = document.getElementById("mensagemFeedbackEnviarTarefa");
+
+function enviarTarefaFeedback(){
+    if(feedbackTarefa != "inicio"){
+        $('#modal-feedback-tarefa').modal('show');
+        mensagemFeedbackTarefa.innerText = feedbackTarefa;
+    }
+}
+
+enviarTarefaFeedback();
