@@ -76,7 +76,7 @@
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
-                    <form action="/aluno/enviarTarefa" method="POST" enctype="multipart/form-data">
+                    <form class="formTarefa" action="/aluno/enviarTarefa" method="POST" enctype="multipart/form-data">
                         <div class="modal-body">     
                             <div class="row justify-content-center">
                                 <div class="col-12">
@@ -98,8 +98,9 @@
                             <div class="row mb-5 justify-content-center">
                                 <div class="col-12"> 
                                     <% if(tarefas.arquivo != null){ %>
-                                        <a class="texto-link" href="/tarefaTeste.docx" download="<%=tarefas.arquivo%>"> 
-                                        <img id="imagemDownload" src="/images/download.png"> <%=tarefas.arquivo%> </a> 
+                                        <a class="texto-link" href="/uploads/<%=tarefas.arquivo%>" download="<%=tarefas.arquivo%>"> 
+                                            <img id="imagemDownload" src="/images/download.png"> <%=tarefas.arquivo%> 
+                                        </a> 
                                     <% } %>
                                 </div>
                             </div>
@@ -107,11 +108,17 @@
                             <!--Arquivo-->
                             <div class="form-row justify-content-center">
                                 <div class="custom-file col-10">
-                                    <input type="file" class="custom-file-input" accept="txt" id="validatedCustomFile"
+                                    <input type="file" class="tarefaEnviada custom-file-input" accept="txt" id="validatedCustomFile"
                                         name="arquivo">
                                     <label class="custom-file-label" for="validatedCustomFile" id="file-label">Escolher
                                         arquivo</label>
                                     <div class="invalid-feedback">Arquivo inválido</div>
+                                </div>
+                            </div>
+
+                            <div class="row mt-3 justify-content-center">
+                                <div class="col-12 text-center"> 
+                                    <p class="feedbackTarefa"></p>
                                 </div>
                             </div>
 
@@ -130,10 +137,44 @@
  
     <% } %>
 
+    <section>
+
+        <!-- Modal Feedback Tarefa -->
+        <div class="modal fade" id="modal-feedback-tarefa" tabindex="-1" role="dialog" aria-labelledby="modal-adicionar-classe-titulo" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modal-adicionar-classe-titulo"> Aviso </h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+
+                    <div class="modal-body">        
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8"> 
+                                <div class="row">
+                                    <div class="col-12">
+                                        <input id="feedbackEnviarTarefa" type="hidden" value="<%= feedbackTarefa %>">
+                                        <p id="mensagemFeedbackEnviarTarefa" class="texto"> </p>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-danger" data-dismiss="modal"> Fechar </button>
+                                </div>
+                            </div>
+                        </div>            
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Importando Jquery -->
     <script type="text/javascript" src="/vendor/jquery.min.js"></script>
     <!-- Importando Bootstrap JS -->
     <script type="text/javascript" src="/vendor/bootstrap.bundle.min.js"></script>
     <script type="text/javascript" src="/javascripts/src/main.js"></script>
     <script type="text/javascript" src="/javascripts/dist/AlunoTarefas.js"></script>
+    <script type="text/javascript" src="/javascripts/dist/AlunoAlterarDados.js"></script>
 </body>
