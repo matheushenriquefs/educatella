@@ -34,29 +34,34 @@ router.post('/professor/inicio', authUser, ProfessorController.criarClasse);
 router.post('/professor/acessar-classe', authUser, ProfessorController.acessarClasse);
 router.post('/professor/editar-classe', authUser, ProfessorController.updateClasse);
 router.post('/professor/delete-classe/:id', authUser, ProfessorController.destroyClasse);
-//RECADOS
+//RECADOS 
 router.get('/professor/recados', authUser,  ProfessorController.profRecados);
-
+//RECADOS CRIAR
 router.get('/professor/criar-recado', authUser,ProfessorController.profRecadosCriar);
 
 router.post('/professor/criar-recado', authUser,
-          [check ("titulo").isLength({min:1}).withMessage("O titulo tem que estar prenchido"),
-          check ("descricao").isLength({min:1}).withMessage("A descripção tem que estar prenchida")]
+          [check ("titulo").isLength({min:1}),
+          check ("descricao").isLength({min:1})]
           ,ProfessorController.profRecadosCriar2);
+//apagar Recados          
 router.get('/professor/apagar-recado', authUser, ProfessorController.profRecadosApagar);
 router.post('/professor/apagar-recado/:id', authUser, ProfessorController.profRecadosApagar2);
+
+//Editar Recados
 router.get('/professor/editar-recado', authUser, ProfessorController.profRecadosEditar);
 router.post('/professor/editar-recado/:id', authUser,
-            [check ("titulo").isLength({min:1}).withMessage("O titulo tem que estar prenchido"),
-            check ("descricao").isLength({min:1}).withMessage("A descripção tem que estar prenchida")]
+            [check ("titulo").isLength({min:1}),
+            check ("descricao").isLength({min:1})]
             ,ProfessorController.profRecadosEditar2);
+
+//Por Notas            
 router.get('/professor/postar-nota', authUser, ProfessorController.profNotas);
 //TAREFAS
 router.post('/professor/postar', authUser, upload.any(), ProfessorController.addTarefa);
 router.post('/professor/editar', authUser, ProfessorController.update);
 router.post('/professor/delete', authUser, ProfessorController.destroy);
 router.post('/professor/tarefa', authUser, ProfessorController.tarefaMenu); //rota para acessar classes
-//GERENCIAR
+//GERENCIAR Aluno
 router.get('/professor/gerenciar-aluno', authUser, ProfessorController.profGerenciarAluno);
 router.post('/professor/gerenciar-aluno/:id', authUser, ProfessorController.profGerenciarAluno1);
 //Alterar informações usuário

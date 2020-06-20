@@ -14,6 +14,8 @@
     <!--link meterial icons + fontawesome-->
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="/node_modules/@fortawesome/fontawesome-free/css/all.css">
+  
+
 </head>
 
 <body>
@@ -40,7 +42,7 @@
                     <h3 class="mb-5 form-tarefa-titulo">Criar Recado</h3>
 
 
-                    <form method="post" action="/professor/criar-recado" id="criar-recado" class="card p-3" >
+                    <form method="post" type="submit" action="/professor/criar-recado" id="criar-recado" class="card p-3" >
 
               
                         <div class="form-row">
@@ -56,7 +58,7 @@
 
                             <div class="form-group col-10">
                                 <label class="texto"> Descrição </label> <br>
-                                <textarea type="text" id="descricao" name="descricao" rows="5" cols="50"> </textarea> <br> <br>
+                                <textarea type="text" id="descricao" name="descricao" rows="5" cols="50"></textarea> <br> <br>
                                 <button class="btn btn-outline-success" type="submit" rows="2" cols="50"  >Enviar</button>                        
                             </div>
                            
@@ -65,7 +67,7 @@
                         
 
                     </form>
-
+                    
                 </div>
 
             </div>
@@ -74,12 +76,15 @@
     </section>
 </main>
 
-<script src="/public/javascripts/dist/profesorMainRecados.js"></script>
+<script src="/javascripts/dist/profScript/profRecadoCriar.js"></script>
+
+
 <!-- Importando Jquery -->
 <script type="text/javascript" src="/vendor/jquery.min.js"></script>
 <!-- Importando Bootstrap JS -->
 <script type="text/javascript" src="/vendor/bootstrap.bundle.min.js"></script>
 <script type="text/javascript" src="/javascripts/src/main.js"></script>
+
 </body>
 
 </html>
