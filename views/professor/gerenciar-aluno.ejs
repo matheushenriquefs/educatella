@@ -52,8 +52,8 @@
           <div class="container-fluid">
             <div class="row p-3 mb-5">
               <% for (gerenciarDB.aluno of gerenciarDB.aluno ) {%>
-              <form action="/professor/gerenciar-aluno/<%=gerenciarDB.aluno.id%>" method="post">
-                <div class="mb-5 offset-1 col-5 text-center">
+              <form action="/professor/gerenciar-aluno/<%=gerenciarDB.aluno.id%>" class="card p-3" method="post">
+                <div class="mb-3 offset-2 col-8 text-center">
                     <img class="imagem-professor" src="/images/<%=gerenciarDB.aluno.usuarioAluno.imagem%>">
                     <p class="texto"><%=gerenciarDB.aluno.usuarioAluno.nome%></p>
                     <p class="texto"> <%=gerenciarDB.nome%> </p>
@@ -148,7 +148,7 @@
   </div>
 </div>
 
-
+<script src="/javascripts/dist/profScript/profGerenciar.js"></script>
 <!-- Importando Jquery -->
 <script type="text/javascript" src="/vendor/jquery.min.js"></script>
 <!-- Importando Bootstrap JS -->
