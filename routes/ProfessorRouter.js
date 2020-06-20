@@ -54,8 +54,9 @@ router.post('/professor/editar-recado/:id', authUser,
             check ("descricao").isLength({min:1})]
             ,ProfessorController.profRecadosEditar2);
 
-//Por Notas            
-router.get('/professor/postar-nota', authUser, ProfessorController.profNotas);
+//Gerenciar Notas            
+router.get('/professor/gerenciar-nota', authUser, ProfessorController.gerenciarNota);
+router.post('/professor/gerenciar-nota-aluno/:id', authUser, ProfessorController.gerenciarNotaAluno);
 //TAREFAS
 router.post('/professor/postar', authUser, upload.any(), ProfessorController.addTarefa);
 router.post('/professor/editar', authUser, ProfessorController.update);
@@ -63,7 +64,7 @@ router.post('/professor/delete', authUser, ProfessorController.destroy);
 router.post('/professor/tarefa', authUser, ProfessorController.tarefaMenu); //rota para acessar classes
 //GERENCIAR Aluno
 router.get('/professor/gerenciar-aluno', authUser, ProfessorController.profGerenciarAluno);
-router.post('/professor/gerenciar-aluno/:id', authUser, ProfessorController.profGerenciarAluno1);
+router.post('/professor/gerenciar-nota-aluno/:id', authUser, ProfessorController.profGerenciarAluno1);
 //Alterar informações usuário
 router.post('/professor/alterarImagem', uploadImagem.single("img"), authUser, ProfessorController.alterarImagem);
 router.post('/professor/alterarNome', authUser, ProfessorController.alterarNome);

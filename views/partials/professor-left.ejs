@@ -50,6 +50,11 @@
                         <img class="imagens-classe" src="/images/criar-icon.png" alt="icone notas"> <button class="botao-link" type="submit"> Gerenciar aluno </button>
                         <input type="hidden" value="<%= acessarClasse.id %>" name="id_classe">
                     </form>
+                      <!-- Gerenciar Notas -->
+                      <form action="/professor/gerenciar-nota" method="GET" style="margin-left: 16px; margin-top: 12px;">
+                        <img class="imagens-classe" src="/images/notas.png" alt="icone notas"> <button class="botao-link" type="submit"> Gerenciar Notas </button>
+                        <input type="hidden" value="<%= acessarClasse.id %>" name="id_classe">
+                    </form>
                         
                     <!-- Salas -->
                     <li class="nav-item">

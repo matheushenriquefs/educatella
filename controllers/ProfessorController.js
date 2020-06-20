@@ -275,9 +275,93 @@ module.exports = {
         
     },
 
-    profNotas: (req, res) => {
-        res.render('professor/postar-nota');
+    gerenciarNota: async (req, res) => {
+       
+        const { tituloTarefa, descricaoTarefa } = req.body;
+        const { id_classe } = req.query
+        console.log(id_classe + "**************************")
+        const { files } = req;
+        let classeDb = await Classe.findAll();
+        let usuario = req.usuario
+        const idUsuario = req.usuario.id
+
+       
+
+        let acessarClasse = await Classe.findByPk(id_classe,
+                {
+                include: [
+                    {
+                        model: Professor,
+                        as: 'professor'
+                    },
+                        {
+                            model: Recado,
+                            as: 'recado'
+                        }
+                    ]
+                }
+            );
+      
+        let gerenciarDB = await Classe.findByPk(id_classe,{
+
+            
+            include:{
+
+              model: Aluno,
+              as: 'aluno',
+              include:"usuarioAluno"
+
+            }
+
+        }).catch(err => { console.log(err) })
+             
+        res.render('professor/gerenciar-nota',{gerenciarDB, usuario,acessarClasse,classeDb});
     },
+    gerenciarNotaAluno: async (req, res) => {
+       
+        const { tituloTarefa, descricaoTarefa } = req.body;
+        const { id_classe } = req.body
+        console.log(id_classe + "**************************")
+        const { files } = req;
+        let classeDb = await Classe.findAll();
+        let usuario = req.usuario
+        const idUsuario = req.usuario.id
+
+       
+
+        let acessarClasse = await Classe.findByPk(id_classe,
+                {
+                include: [
+                    {
+                        model: Professor,
+                        as: 'professor'
+                    },
+                        {
+                            model: Recado,
+                            as: 'recado'
+                        }
+                    ]
+                }
+            );
+      
+        let gerenciarDB = await Classe.findByPk(id_classe,{
+
+            
+            include:{
+
+              model: Aluno,
+              as: 'aluno',
+              include:"usuarioAluno"
+
+            }
+
+        }).catch(err => { console.log(err) })
+             
+        res.render('professor/gerenciar-nota-aluno',{gerenciarDB, usuario,acessarClasse,classeDb});
+     
+    },
+
+
 
     //Tarefas
 
@@ -318,7 +402,7 @@ module.exports = {
     
     
         res.render('professor/postar-tarefa', { acessarClasse, professor, usuario: req.usuario, posts })
-    
+        
     },
 
     addTarefa: async (req, res) => {
@@ -466,12 +550,11 @@ module.exports = {
         let { page = 1 } = req.query
         const { tituloTarefa, descricaoTarefa } = req.body;
         const { id_classe } = req.query
-        console.log(id_classe + "**************************")
+     
         const { files } = req;
         let classeDb = await Classe.findAll();
         let usuario = req.usuario
         const idUsuario = req.usuario.id
-
        
 
         let acessarClasse = await Classe.findByPk(id_classe,
@@ -506,8 +589,9 @@ module.exports = {
         }).catch(err => { console.log(err) })
         let totalPagina = "hola"
         //Math.round(total/5)
+        console.log(acessarClasse+"*******")
         
-
+        
     
       res.render('professor/gerenciar-aluno', { gerenciarDB, totalPagina,usuario,acessarClasse,classeDb });
     },
