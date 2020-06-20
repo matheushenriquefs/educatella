@@ -47,11 +47,12 @@
                                     <p class="body-text-titulo"> Nota </p>
                                     <% for(tarefa of tarefas){ %>
                                         <% for(tarefaAluno of tarefa.tarefasAlunos){ %>
-                                            <% if(tarefaAluno.nota == null){ %>
-                                                <p class="body-text"> Tarefa não corrigida </p>
-                                            <% } else if(tarefaAluno.nota != null){ %>
+                                            <% if(tarefaAluno.nota != null){ %>
                                                 <p class="body-text"> <%= tarefaAluno.nota %> </p>
                                             <% } %>
+                                        <% } %>
+                                        <% if(tarefa.tarefasAlunos.length == 0){ %>
+                                            <p class="body-text"> Tarefa não corrigida </p>
                                         <% } %>
                                     <% } %>
                                 </div>
