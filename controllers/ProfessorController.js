@@ -85,7 +85,7 @@ module.exports = {
                     id: id_classe
                 }
             });
-        console.log(alterar);
+            
         res.redirect('/professor/inicio');
     },
 
@@ -98,7 +98,7 @@ module.exports = {
                 id: id
             }
         })
-        console.log(deletar);
+
         res.redirect('/professor/inicio');
     },
     //olhar recados////////////////////////////////////////////////////////////////
@@ -314,7 +314,7 @@ module.exports = {
     addTarefa: async (req, res) => {
 
         const idUsuario = req.usuario.id
-        const { tituloTarefa, descricaoTarefa, id_classe } = req.body;
+        const { tituloTarefa, descricaoTarefa, id_classe, data_entrega } = req.body;
         const { files } = req;
         let classeDb = await Classe.findAll();
     
@@ -349,9 +349,11 @@ module.exports = {
                 titulo: tituloTarefa,
                 descricao: descricaoTarefa,
                 arquivo: files[0].originalname,
+                data_entrega: data_entrega,
                 id_classe: id_classe
             })
             .catch(error => res.status(500).send(error));
+
     
         let professor = await Professor.findOne({ where: { id_usuario: idUsuario } });
     
@@ -415,7 +417,7 @@ module.exports = {
         const {id, id_classe} = req.body;
     
         const deletar = await Tarefa.destroy({
-            where: {
+            where: { 
                 id: id
             }
         });
@@ -449,6 +451,7 @@ module.exports = {
         let professor = await Professor.findOne({ where: { id_usuario: idUsuario } });
     
         res.render('professor/postar-tarefa', { acessarClasse, posts, professor, usuario:req.usuario})
+
     },
 
     //Gerenciar aluno////////////////////////////////////////////////////////////////

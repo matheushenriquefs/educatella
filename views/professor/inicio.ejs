@@ -34,19 +34,28 @@
             <div class="container box-1">
                 <div class="row mb-5">
                     <!-- Recepção do professor -->
-                    <div class="offset-1 col-11">
+                    <div class="offset-1">
                         <h2 class="titulo"> Olá, Professor <%= usuario.name %>! Estas são suas classes </h2>
                     </div>
                 </div>
                 <div class="row mb-5">
                     <!-- Botão para pesquisar classes -->
                     <div class="offset-1">
-                        <a href="/professor/:id/postar-tarefa" class="botao"> Pesquisar Classe </a>
+                        <button class="botao" data-toggle="modal" data-target="#">
+                            Buscar Classe
+                        </button>
                     </div>
+                    <!-- Botão para criar classes -->
+                    <div class="offset-1">
+                        <button class="botao-criar" data-toggle="modal" data-target="#criarModal">
+                            Criar Classe
+                        </button>
+                    </div>
+
                 </div>
             </div>
- 
-            <!-- Coluna de professores --> 
+
+            <!-- Coluna de professores -->
             <div class="container box-2">
                 <div class="row p-3 mb-5 mt-9">
 
@@ -54,72 +63,21 @@
 
                     <% professor.classes.forEach(classe => { %>
 
-                        <div class="mb-5 offset-1 col-3 text-center">
-                            <img class="imagem-padrao" src="/images/<%= usuario.imagem %>">
-                            <p class="texto"> <%= classe.nome %> </p>
-                            <p class="texto"> <%= classe.codigo %> </p>
-                            <form action="/professor/tarefa" method="POST">
-                                <input type="hidden" class="form-control" value="<%= classe.id %>" name="id_classe">
-                                <button type="submit" class="btn text-white botao"> Acessar Classe </button>
-                            </form>
-                        </div>
+                    <div class="mb-5 offset-1 col-3 text-center">
+                        <img class="imagem-padrao" src="/images/<%= usuario.imagem %>">
+                        <p class="texto"> <%= classe.nome %> </p>
+                        <p class="texto"> <%= classe.codigo %> </p>
+                        <form action="/professor/tarefa" method="POST">
+                            <input type="hidden" class="form-control" value="<%= classe.id %>" name="id_classe">
+                            <button type="submit" class="btn text-white botao"> Acessar Classe </button>
+                        </form>
+                    </div>
 
                     <% }) %>
 
 
                 </div>
             </div>
-        </section>
-
-
-        <!-- Section engolba form para criar classe -->
-        <section class="second-section">
-
-            <div class="container-fluid">
-                <div class="row">
-
-                    <!--Formulário-->
-                    <div class="offset-1 col-10 sombra p-5 mb-5 formulário-criar-classe">
-
-                        <!--Título--> 
-                        <h3 class="mb-5 form-criar-classe">Criar Classe</h3>
-
-
-                        <form action="/professor/inicio" method="POST" id="form-criar-classe">
-
-                            <!-- ID prof -->
-                            <div class="form-row justify-content-center"> 
-                                <div class="col-10">
-                                    <input type="hidden" name="id_professor" value="<%= professor.id %>" class="form-control">
-                                </div>
-                        </div>
-                        <br>
-
-                            <!-- Matéria-->
-                            <div class="form-row justify-content-center">
-                                <div class="col-10">
-                                    <input type="text" name="nome" class="form-control" placeholder="Digite a matéria">
-                                </div>
-                            </div>
-                            <br>
-
-                            <!--Código-->
-                            <div class="form-row justify-content-center">
-                                <div class="col-10">
-                                    <input type="text" name="codigo" class="form-control" placeholder="Digite o código">
-                                </div>
-                            </div>
-                            <br>
-
-                            <button type="submit" class="btn-criar-classe">Enviar</button>
-
-                        </form>
-
-                    </div>
-
-                </div>
-            </div>
-
         </section>
 
 
@@ -161,10 +119,12 @@
                                             <i class="material-icons">&#xE8B8;</i>
                                         </a>
                                     </td>
-                                    <td class="actions">
-                                        <form action="/professor/delete-classe/<%= alterar.id %>" method="POST">
+                                    <td class="Excluir">
+                                        <form action="/professor/delete-classe/<%= alterar.id %>" method="POST" class="buttonDelete">
+                                            <div>
+                                                <p class="feedDelete"></p>
+                                            </div>
                                             <button type="submit" class="button-delete"
-                                                onclick="return confirm('Deseja mesmo excluir a classe?')"
                                                 style="color: red;">
                                                 <i class="material-icons">&#xE5C9;</i>
                                             </button>
@@ -188,38 +148,110 @@
 
     </main>
 
-    <% professor.classes.forEach(alterar => { %>
+
+    <!-- Modal criar classe -->
+    <div id="criarModal" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <!--Header - titulo-->
+                <div class="modal-header">
+                    <h4 class="modal-title">Criar classe</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                        <bold>&times;</bold>
+                    </button>
+                </div>
+
+                <!--Form modal-->
+                <form action="/professor/inicio" method="POST" id="form-criar-classe">
+
+                    <!--id_prof - hidden -->
+                    <div class="form-row justify-content-center">
+                        <div class="col-10">
+                            <input type="hidden" name="id_professor" value="<%= professor.id %>" class="form-control">
+                        </div>
+                    </div>
+                    <br>
+
+                    <!-- Matéria-->
+                    <div class="form-row justify-content-center">
+                        <div class="col-10">
+                            <input type="text" name="nome" class="form-control" placeholder="Digite a matéria"
+                                id="nomeCriar">
+                        </div>
+                    </div>
+                    <br>
+
+                    <!--Código-->
+                    <div class="form-row justify-content-center">
+                        <div class="col-10">
+                            <input type="text" name="codigo" class="form-control" placeholder="Digite o código"
+                                id="codigoCriar">
+                        </div>
+                    </div>
+                    <br>
+
+                    <div class="row justify-content-center">
+                        <div class="col-10">
+                            <p id="feedbackCriar"></p> 
+                            <p id="feedbackSucesso"></p> 
+                        </div>
+                    </div>
+                    
+
+                    <!--Botão enviar-->
+                    <div class="modal-footer">
+                        <button type="submit" class="btn-criar-classe-modal"> Enviar </button>
+                    </div>
+
+                </form>
+
+            </div>
+        </div>
+    </div>
+
+
     <!-- Modal editar classe  -->
+    <% professor.classes.forEach(alterar => { %>
     <div id="siteModal<%= alterar.id %>" class="modal fade">
         <div class="modal-dialog">
             <div class="modal-content">
 
-                    <!--Header - titulo-->
-                    <div class="modal-header">
-                        <h4 class="modal-title">Editar informações</h4>
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-                            <bold>&times;</bold>
-                        </button>
-                    </div>
-
-                <!--Form modal-->
-                <form action="/professor/editar-classe" method="POST">
+                <!--Header - titulo-->
+                <div class="modal-header">
+                    <h4 class="modal-title">Editar informações</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                        <bold>&times;</bold>
+                    </button>
+                </div>
+                <!--Form modal--> 
+                <form action="/professor/editar-classe" method="POST" id="formEditar" class="formEditar">
 
                     <!--Body -->
                     <div class="modal-body">
-                        <!--ID-->
+                        <!--ID hidden -->
                         <div class="form-group">
                             <input type="hidden" name="id_classe" value="<%= alterar.id %>" class="form-control">
                         </div>
                         <!--nome-->
                         <div class="form-group">
-                            <input type="text" class="form-control" value="<%= alterar.nome %>" name="nome" placeholder="Matéria" required>
+                            <input type="text" class="form-control modalMateria" value="<%= alterar.nome %>" name="nome"
+                                placeholder="Matéria" id="nomeEditar">
                         </div>
                         <!--codigo-->
                         <div class="form-group">
-                            <input type="text" class="form-control" value="<%= alterar.codigo %>" name="codigo" placeholder="Código" required>
+                            <input type="text" class="form-control modalCodigo" value="<%= alterar.codigo %>" name="codigo"
+                                placeholder="Código" id="codigoEditar">
                         </div>
                     </div>
+
+                    <div class="row justify-content-center">
+                        <div class="col-10">
+                            <p id="feedbackEditar" class="feedbackEditar"></p>
+                            <p id="feedbackEditSucesso" class="feedbackEditSucesso"></p> 
+                        </div>
+                    </div>
+
                     <!--Footer - buttons alterar-->
                     <div class="modal-footer">
                         <button type="submit" class="btn-modal-enviar"> Enviar </button>
@@ -230,12 +262,15 @@
             </div>
         </div>
     </div>
-    <% });%>
+    <% });%> 
 
 
-       <!-- Importando Jquery -->
-       <script type="text/javascript" src="/vendor/jquery.min.js"></script>
-       <!-- Importando Bootstrap JS -->
-       <script type="text/javascript" src="/vendor/bootstrap.bundle.min.js"></script>
-       <script type="text/javascript" src="/javascripts/src/main.js"></script>
+    <!-- Importando Jquery -->
+    <script type="text/javascript" src="/vendor/jquery.min.js"></script>
+    <!-- Importando Bootstrap JS -->
+    <script type="text/javascript" src="/vendor/bootstrap.bundle.min.js"></script>
+    <script type="text/javascript" src="/javascripts/src/main.js"></script>
+    <!-- JS externo -->
+    <script src="/javascripts/dist/professor-inicio.js"></script>
+
 </body>

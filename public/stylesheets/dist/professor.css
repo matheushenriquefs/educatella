@@ -215,6 +215,30 @@ html {
     cursor: pointer;
 }
 
+/* Input date */
+#dataCriar{
+    margin-left: 65px;
+}
+
+
+#feedbackCriar{
+    color:white;
+    background-color: #FF6A6A;
+    text-align: center;
+    border-radius: 15px;
+    font-family: 'Poppins', sans-serif;
+    font-size:1rem;
+}
+
+#feedbackSucesso{
+    color:white;
+    background-color:  #4AE894;
+    text-align: center;
+    border-radius: 15px;
+    font-family: 'Poppins', sans-serif;
+    font-size:1rem;
+}
+
 /*Botão enviar*/
 .btn-enviar-tarefa{
     width: 70px;
@@ -222,7 +246,7 @@ html {
     background-color: rgb(241, 109, 110);
     border: none;
     border-radius: 15px;
-    margin-top: 30px;
+    margin-top: 5px;
     margin-left: 70px;
     font-size: 17px;
     font-family: 'Poppins', sans-serif;
@@ -232,11 +256,6 @@ html {
 .btn-enviar-tarefa:hover{
     cursor: pointer;
     opacity: 0.8;
-}
-
-.button-delete{
-    background-color: white;
-    border: white;
 }
 
 /* Tabela */
@@ -267,6 +286,11 @@ html {
     opacity: 0.8;  
 }
 
+.button-delete{
+    background-color: white;
+    border: white;
+}
+
 /* Modal */
 
 .modal-title{
@@ -293,9 +317,25 @@ html {
 
 .btn-modal-enviar:hover{
     opacity: 0.8;
+} 
+
+#feedbackEditar{
+    color:white;
+    background-color: #FF6A6A;
+    text-align: center;
+    border-radius: 15px;
+    font-family: 'Poppins', sans-serif;
+    font-size:1rem;
 }
 
-
+#feedbackEditSucesso{
+    color:white;
+    background-color:  #4AE894;
+    text-align: center;
+    border-radius: 15px;
+    font-family: 'Poppins', sans-serif;
+    font-size:1rem;
+}
 
 
 
