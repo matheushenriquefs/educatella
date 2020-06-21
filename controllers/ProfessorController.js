@@ -1,6 +1,7 @@
 //Exportando o controller
 const { Aluno, Professor, Classe, Recado, Tarefa, Classe_Aluno, Usuario } = require("../models")
 const { check, validationResult } = require('express-validator');
+const { CustomValidation } = require("express-validator/src/context-items");
 
 
 module.exports = {
@@ -321,14 +322,12 @@ module.exports = {
        
         const { tituloTarefa, descricaoTarefa } = req.body;
         const { id_classe } = req.body
-        console.log(id_classe + "**************************")
+        
         const { files } = req;
         let classeDb = await Classe.findAll();
         let usuario = req.usuario
         const idUsuario = req.usuario.id
-
-       
-
+        
         let acessarClasse = await Classe.findByPk(id_classe,
                 {
                 include: [
@@ -340,22 +339,26 @@ module.exports = {
                             model: Recado,
                             as: 'recado'
                         }
+                       
+                      
                     ]
                 }
             );
-      
+
         let gerenciarDB = await Classe.findByPk(id_classe,{
-
-            
-            include:{
-
+            include:[{
               model: Aluno,
               as: 'aluno',
               include:"usuarioAluno"
 
-            }
+            },{
+               model:Tarefa,
+                as: 'tarefa'
+            }]
 
         }).catch(err => { console.log(err) })
+        
+       
              
         res.render('professor/gerenciar-nota-aluno',{gerenciarDB, usuario,acessarClasse,classeDb});
      
@@ -598,6 +601,8 @@ module.exports = {
     ///Gerenciar aluno////////////////////////////////////////////////////////////////
     profGerenciarAluno1: async (req, res) => {
         const id  = req.params.id
+
+        console.log(id +"/******")
                const resultado = await Classe_Aluno.destroy({
                 where: { id_aluno: id }
             })

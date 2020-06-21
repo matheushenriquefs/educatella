@@ -9,7 +9,7 @@ const { check, validationResult } = require('express-validator');
 // diskStorage multer
 var storage = multer.diskStorage({
     destination: function (req, file, cb) {
-      cb(null, path.join('uploads'))
+      cb(null, path.join('public/uploads'))
     },
     filename: function (req, file, cb) {
       cb(null, file.originalname)
@@ -64,7 +64,7 @@ router.post('/professor/delete', authUser, ProfessorController.destroy);
 router.post('/professor/tarefa', authUser, ProfessorController.tarefaMenu); //rota para acessar classes
 //GERENCIAR Aluno
 router.get('/professor/gerenciar-aluno', authUser, ProfessorController.profGerenciarAluno);
-router.post('/professor/gerenciar-nota-aluno/:id', authUser, ProfessorController.profGerenciarAluno1);
+router.post('/professor/gerenciar-aluno/:id', authUser, ProfessorController.profGerenciarAluno1);
 //Alterar informações usuário
 router.post('/professor/alterarImagem', uploadImagem.single("img"), authUser, ProfessorController.alterarImagem);
 router.post('/professor/alterarNome', authUser, ProfessorController.alterarNome);

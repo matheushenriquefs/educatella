@@ -39,34 +39,36 @@
                     <!--Título-->
                     <h3 class="form-notas-titulo">Gerenciar notas dos Alunos</h3>
                     <% for (gerenciarDB.aluno of gerenciarDB.aluno ) {%>
-                        <form action="/professor/gerenciar-nota-aluno/<%=gerenciarDB.aluno.id%>" class="card p-3" method="post">
-                          <input type="hidden" name="id_classe" value="<%= acessarClasse.id %>">
-                          <div class="mb-3 offset-2 col-8 text-center">
+                        <% for (tarefa of gerenciarDB.tarefa ) {%>
+                              
+                    <div class="container-fluid">
+                    <div class="row p-3 mb-5">
+                        <div>
+                            <ul>
+                                <form action="" class="card p-1" >
                               <img class="imagem-professor" src="/images/<%=gerenciarDB.aluno.usuarioAluno.imagem%>">
-                              <p class="texto"><%=gerenciarDB.aluno.usuarioAluno.nome%></p>
+                              <p> Aluno: <%=gerenciarDB.aluno.usuarioAluno.nome%>
+                                <p><%=tarefa.titulo%></p>
+                                <p><%=tarefa.descricao%></p>
+                                 </select> </p>
+                               <p class="font-weight-bold">nota: <select class="btn btn-primary" name="cBoxNota" id="nota">
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                    <option value="7">7</option>
+                                    <option value="8">8</option>
+                                    <option value="9">9</option>
+                                    <option value="10">10</option>
+                                </select>   <button type="submit" class=" btn btn-outline-primary">Por Nota</button></p> 
+                               
+                                
+                                </ul>
                             </form>
                             <%}%>
-                    <div class="container-fluid">
-                        <div class="row p-3 mb-5">
-                            <div>
-                            <ul>
-                                    <li>nome tarefa hacer un for off</li>
-                                    <a class="texto-link" href="/uploads/<%=tarefas.arquivo%>" download="<%=tarefas.arquivo%>"></a>
-                                    <p>nota:<select name="cBoxNota" id="nota">
-                                        <option value="">1</option>
-                                        <option value="">2</option>
-                                        <option value="">3</option>
-                                        <option value="">4</option>
-                                        <option value="">5</option>
-                                        <option value="">6</option>
-                                        <option value="">7</option>
-                                        <option value="">8</option>
-                                        <option value="">9</option>
-                                        <option value="">10</option>
-                                    </select> </p>
-                                    <button type="submit" class=" btn btn-outline-primary">Por Nota</button>
-                                    
-                                </ul>
+                                <%}%>
                             </div>
                            
                             </div>
@@ -76,6 +78,7 @@
 
 
                     </form>
+                    
                 </div>
 
             </div>

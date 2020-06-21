@@ -52,7 +52,7 @@
           <div class="container-fluid">
             <div class="row p-3 mb-5">
               <% for (gerenciarDB.aluno of gerenciarDB.aluno ) {%>
-              <form action="/professor/gerenciar-nota-aluno/<%=gerenciarDB.aluno.id%>" class="card p-3" method="post">
+              <form action="/professor/gerenciar-aluno/<%=gerenciarDB.aluno.id%>" class="card p-3" method="post">
                 <div class="mb-3 offset-2 col-8 text-center">
                     <img class="imagem-professor" src="/images/<%=gerenciarDB.aluno.usuarioAluno.imagem%>">
                     <p class="texto"><%=gerenciarDB.aluno.usuarioAluno.nome%></p>
