@@ -11,6 +11,12 @@
     color: #4AE894;
 }
 
+#feedback{
+    font-family: 'Poppins', sans-serif;
+    color: red;
+    font-size:1rem;
+}
+
 /* Botão Pesquisar Salas */
 
 .botao {
@@ -21,6 +27,10 @@
     padding: 10px 20px 10px 20px;
     background-color: #4AE894;
     font-family: 'Baloo Da 2', cursive;
+}
+
+.cursorText:hover{
+    cursor: text;
 }
 
 .botao:hover {
