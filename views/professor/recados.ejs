@@ -40,10 +40,10 @@
                                  
                              
                                 <% for (acessarClasse of acessarClasse.recado) {%>
-                                
+                                   
                                 <div class="page-item" >
                                 <h6><img src="/images/recados.png" alt="icone recados" class="imagens-classe"> <%= acessarClasse.titulo %> </h6>
-                                <p> <%= acessarClasse.createdAt %>  </p>
+                                <p class="datas"> <%= acessarClasse.createdAt.toLocaleString('pt-BR') %>  </p>
                                 <p><%= acessarClasse.descricao %></p>
                                 </div>
                                <%}%>
