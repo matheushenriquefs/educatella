@@ -2,33 +2,39 @@
 <header>
     <div id="barra" class="container-fluid">
         <div class="row">
-            <!-- Tag que Engloba Toda a Barra de Navegação -->
-            <nav class="navbar navbar-expand-lg offset-1 col-11 navbar-fixed-top">
+            <div class="offset-1 col-5">
                 <!-- Icone (Margem Esquerda) -->
                 <a class="navbar-brand" href="../" alt="home">
                     <img src="../images/logo.png" alt="logo" id="logo-teste">
                 </a>
-                <!-- Barra de Navegação -->
-                <div class="navbar-collapse">
-                    <!-- (Margem Direita (Menu Dropdown), Login - Aluno, Professor)  -->
-                    <ul class="navbar-nav ml-auto">
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" alt="avatar">
-                                <div id="avatar">
-                                    <img src="/images/<%= usuario.imagem %>">
-                                </div>    
-                            </a>
-                            <div class="dropdown-menu" id="navDrop">
-                                <a class="dropdown-item" href="" data-toggle="modal" data-target="#modal-alterar-imagem"> Alterar Imagem </a>
-                                <a class="dropdown-item" href="" data-toggle="modal" data-target="#modal-alterar-nome"> Alterar Nome </a>
-                                <a class="dropdown-item" href="" data-toggle="modal" data-target="#modal-alterar-email"> Alterar E-mail </a>
-                                <a class="dropdown-item" href="" data-toggle="modal" data-target="#modal-alterar-senha"> Alterar Senha </a>
-                                <a id="logout" class="dropdown-item" href="../" alt="login-professor"> Sair </a>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-            </nav>
+            </div>
+
+            <div class="col-6">
+                <!-- Tag que Engloba Toda a Barra de Navegação -->
+                <nav class="navbar navbar-expand navbar-fixed-top">
+                    <!-- Barra de Navegação -->
+                    <div class="navbar-collapse">
+                        <!-- (Margem Direita (Menu Dropdown), Login - Aluno, Professor)  -->
+                        <ul class="navbar-nav ml-auto">
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" alt="avatar">
+                                    <div id="avatar">
+                                        <img src="/images/<%= usuario.imagem %>">
+                                    </div>    
+                                </a>
+                                <div class="dropdown-menu" id="navDrop">
+                                    <a class="dropdown-item" href="" data-toggle="modal" data-target="#modal-alterar-imagem"> Alterar Imagem </a>
+                                    <a class="dropdown-item" href="" data-toggle="modal" data-target="#modal-alterar-nome"> Alterar Nome </a>
+                                    <a class="dropdown-item" href="" data-toggle="modal" data-target="#modal-alterar-email"> Alterar E-mail </a>
+                                    <a class="dropdown-item" href="" data-toggle="modal" data-target="#modal-alterar-senha"> Alterar Senha </a>
+                                    <a id="logout" class="dropdown-item" href="../" alt="login-professor"> Sair </a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+            
         </div>
     </div>
 </header>
