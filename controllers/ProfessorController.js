@@ -557,6 +557,7 @@ module.exports = {
     profGerenciarAluno: async (req, res) => {
         let { page = 1 } = req.query
         const { tituloTarefa, descricaoTarefa } = req.body;
+        let feedbackExcluirAluno = "inicio";
         const { id_classe } = req.query
      
         const { files } = req;
@@ -597,22 +598,46 @@ module.exports = {
         }).catch(err => { console.log(err) })
         let totalPagina = "hola"
         //Math.round(total/5)
-        console.log(acessarClasse+"*******")
         
-        
-    
-      res.render('professor/gerenciar-aluno', { gerenciarDB, totalPagina,usuario,acessarClasse,classeDb });
+      res.render('professor/gerenciar-aluno', { gerenciarDB, totalPagina,usuario,acessarClasse,classeDb, feedbackExcluirAluno});
     },
     ///Gerenciar aluno////////////////////////////////////////////////////////////////
     profGerenciarAluno1: async (req, res) => {
-        const id  = req.params.id
+        const id = req.params.id;
+        let feedbackExcluirAluno = "Aluno excluído da classe com sucesso!";
+        let usuario = req.usuario
+        const { id_classe } = req.body;
 
-        console.log(id +"/******")
-               const resultado = await Classe_Aluno.destroy({
-                where: { id_aluno: id }
-            })
-            console.log(resultado)
-            return res.redirect('back');
+        await Classe_Aluno.destroy({
+            where: { id_aluno: id }
+        })
+
+        let gerenciarDB = await Classe.findByPk(id_classe,{
+
+            include:{
+              model: Aluno,
+              as: 'aluno',
+              include:"usuarioAluno"
+            }
+
+        });
+
+        let acessarClasse = await Classe.findByPk(id_classe,{
+            include: [
+                {
+                    model: Professor,
+                    as: 'professor'
+                },
+                {
+                    model: Recado,
+                    as: 'recado'
+                }
+            ]
+        });
+
+        let totalPagina = "hola"
+            
+        res.render('professor/gerenciar-aluno', { gerenciarDB, totalPagina, acessarClasse, usuario, feedbackExcluirAluno});
     },
 
     //Alterar usuário

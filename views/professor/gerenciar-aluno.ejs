@@ -76,7 +76,8 @@
                 <h3 class="mb-3 gerenciar-aluno-titulo">Excluir aluno</h3>
               </div>
               <% for (gerenciarDB.aluno of gerenciarDB.aluno ) {%>
-              <form action="/professor/gerenciar-aluno/<%=gerenciarDB.aluno.id%>" class="card p-3" method="post" id="config">
+              <form action="/professor/gerenciar-aluno/<%=gerenciarDB.aluno.id%>" class="card p-3 form-excluir-aluno" method="post" id="config">
+                <input type="hidden" name="id_classe" value="<%=gerenciarDB.id%>">
                 <div class="mb-3 offset-2 col-8 text-center">
                     <img class="imagem-professor" src="/images/<%=gerenciarDB.aluno.usuarioAluno.imagem%>">
                     <p class="texto"><%=gerenciarDB.aluno.usuarioAluno.nome%></p>
@@ -94,15 +95,72 @@
 
   </section>
 
+  <section>
+
+    <!-- Modal Feedback Classe -->
+    <div class="modal fade" id="modal-feedback-excluir-aluno" tabindex="-1" role="dialog" aria-labelledby="modal-adicionar-classe-titulo" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modal-adicionar-classe-titulo"> Aviso </h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+
+                <div class="modal-body">        
+                    <div class="row justify-content-center">
+                        <div class="col-12"> 
+                            <div class="row">
+                                <div class="col-12">
+                                    <input id="feedbackExcluirAluno" type="hidden" value="<%=feedbackExcluirAluno%>">
+                                    <p id="mensagemFeedbackExcluirAluno" class="texto"> </p>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-danger" data-dismiss="modal"> Fechar </button>
+                            </div>
+                        </div>
+                    </div>            
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal confirmar excluir aluno -->
+    <div class="modal fade" id="modal-confirmar-excluir-aluno" tabindex="-1" role="dialog" aria-labelledby="modal-adicionar-classe-titulo" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+              <div class="modal-header">
+                  <h5 class="modal-title" id="modal-adicionar-classe-titulo"> Aviso </h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                  </button>
+              </div>
+              <div class="modal-body">        
+                  <div class="row justify-content-center">
+                      <div class="col-12"> 
+                          <p class="texto"> Você tem certeza que deseja excluir o aluno de sua classe? </p>
+                      </div>
+                  </div>            
+              </div>
+              <div class="modal-footer">
+                  <button id="confirmar-excluir-aluno" type="submit" class="btn btn-success"> Confirmar </button>
+                  <button type="button" class="btn btn-danger" data-dismiss="modal"> Cancelar </button>
+              </div>
+          </div>
+      </div>
+  </div>
+</section>
+
 </main>
 
-
-<script src="/javascripts/dist/profScript/profGerenciar.js"></script>
 <!-- Importando Jquery -->
 <script type="text/javascript" src="/vendor/jquery.min.js"></script>
 <!-- Importando Bootstrap JS -->
 <script type="text/javascript" src="/vendor/bootstrap.bundle.min.js"></script>
 <script type="text/javascript" src="/javascripts/src/main.js"></script>
+<script src="/javascripts/dist/profScript/profGerenciar.js"></script>
 </body>
 
 </html>
