@@ -213,6 +213,38 @@ html {
 
 
 
+
+
+/* Tela APAGAR RECADOS*/
+
+.mural-titulo-apagar{
+    font-family: 'Poppins', sans-serif;
+    color: #4AE894;
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 45px;
+}
+
+.botao-apagar-recado{
+    width: 70px;
+    height: 30px;
+    background-color: rgb(241, 109, 110);
+    border: none;
+    border-radius: 15px;
+    margin-top: 10px;
+    font-size: 17px;
+    font-family: 'Poppins', sans-serif;
+    color: white;
+}
+
+.botao-apagar-recado:hover{
+    opacity: 0.8;
+}
+
+.card{
+    border: none;
+}
+
 /* Tela POSTAR TAREFA */
 
 /* Título */

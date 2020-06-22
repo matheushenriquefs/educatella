@@ -33,7 +33,7 @@
                     <div class="offset-1 col-8 sombra p-5 mb-5 bg-white rounded mural-recados">
 
                             <!--Título-->
-                            <h3><strong>Apagar  recados</strong></h3>
+                            <h3 class="mural-titulo-apagar">Apagar  recados</h3>
                           
                              
                                
@@ -45,8 +45,10 @@
                                 <h6><img src="/images/recados.png" alt="icone recados" class="imagens-classe"> <%= acessarClasse.titulo %> </h6>
                                 <p> <%= acessarClasse.createdAt.toLocaleString('pt-BR') %>  </p>
                                 <p><%= acessarClasse.descricao %></p>
-                                <button type="submit" class="btn btn-danger" >Apagar</button>
+                                <button type="submit" class="botao-apagar-recado" >Excluir</button>
                                 </div>
+                                <br>
+                                <hr>
                             </form>
                                <%}%>
                                
