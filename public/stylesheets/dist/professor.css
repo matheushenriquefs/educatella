@@ -193,6 +193,25 @@ html {
 
 
 
+/* Tela POSTAR RECADOS */
+.botão-enviar-recado{
+    width: 70px;
+    height: 30px;
+    background-color: rgb(241, 109, 110);
+    border: none;
+    border-radius: 15px;
+    margin-top: -30px;
+    font-size: 17px;
+    font-family: 'Poppins', sans-serif;
+    color: white;
+}
+
+.botão-enviar-recado:hover{
+    opacity: 0.8;
+}
+
+
+
 
 /* Tela POSTAR TAREFA */
 

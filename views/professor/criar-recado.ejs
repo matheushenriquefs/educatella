@@ -42,27 +42,25 @@
                     <h3 class="mb-5 form-tarefa-titulo">Criar Recado</h3>
 
 
-                    <form method="post" type="submit" action="/professor/criar-recado" id="criar-recado" class="card p-3" >
+                    <form method="post" type="submit" action="/professor/criar-recado" id="criar-recado">
 
-              
-                        <div class="form-row">
                         
                            
                             <!--  titulo, recado -->
-                            <div class="form-group col-10">
-                                    
+                            <div class="form-row justify-content-center">
+                                <div class="col-10">
                                 <input type="hidden" name="id_classe" value="<%=acessarClasse.id%>">
-                                <label class="texto"> Título </label> <br>
-                                <input type="text" id="titulo" name="titulo"  rows="1" cols="50"></input>
+                                <input type="text" id="titulo" name="titulo"  rows="1" cols="50" class="form-control" placeholder="Título"></input>
                             </div>
-
-                            <div class="form-group col-10">
-                                <label class="texto"> Descrição </label> <br>
-                                <textarea type="text" id="descricao" name="descricao" rows="5" cols="50"></textarea> <br> <br>
-                                <button class="btn btn-outline-success" type="submit" rows="2" cols="50"  >Enviar</button>                        
                             </div>
-                           
-                        </div>                    
+                            <br> <br>
+                            <div class="form-row justify-content-center">
+                                <div class="col-10">
+                                <textarea type="text" id="descricao" name="descricao" rows="5" cols="50" class="form-control" placeholder="Descrição"></textarea> <br> <br>
+                                <button class="botão-enviar-recado" type="submit" rows="2" cols="50"  >Enviar</button>                        
+                            </div>
+                            </div>
+                                           
  
                         
 
