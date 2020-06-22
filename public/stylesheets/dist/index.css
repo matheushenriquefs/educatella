@@ -33,7 +33,7 @@ h5{
 nav ul li a {
     font-size: 1.1rem;
     font: sans-serif bold;
-    color: black;
+    color: #595959;
     width: 100px;
     text-align: center;
     font-weight: 300px;
@@ -88,6 +88,7 @@ nav ul li a:hover {
     padding-top: 5%;
     font-family: 'Pangolin', cursive;
     font-size: 2rem;
+    color: #595959;
 }
 
 /* Imagem do Banner */
