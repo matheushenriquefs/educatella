@@ -19,21 +19,42 @@
 <body>
 
 <!-- Header da Página -->
-<%- include('../partials/header-professor') %>
+<%- include('../partials/header-professor') %> 
 
 
 <main>
-  <!--Section engloba gerenciador de alunos cadastrados-->
+    <!-- Section: menu lateral e regras de exclusão -->
+    <section class="first-section">
+
+      <div class="container-fluid">
+          <div class="row">
+
+              <!-- Nav left -->
+              <%- include('../partials/professor-left') %>
+
+              <!-- Conteúdo -->
+              <div class="offset-1 col-8 sombra p-5 mb-5 bg-white rounded">
+
+                  <!--Título-->
+                  <h3 class="mb-5 gerenciar-aluno-titulo">Regras para exclusão de aluno</h3>
+                  <p class="regrasExcluir">Término do curso</p>
+                  <p class="regrasExcluir">Solicitação dos mesmos, de seus pais ou responsáveis</p>
+                  <p class="regrasExcluir">Conduta inapropriada ou em desacordo com à Lei</p>
+              </div>
+
+          </div>
+      </div>
+
+  </section>
+
+  <!-- Quadro de exclusão de alunos -->
   <section class="second-section">
 
-    <div class="container-fluid cadastrar-aluno">
-      <div class="row tabela-gerenciar-aluno">
+    <div class="container-fluid">
+        <div class="row">
 
-        <!-- Nav left -->
-        <%- include('../partials/professor-left') %>
-
-        <!--Div Tabela-->
-        <div class="offset-1 col-8 sombra p-1 mb-6 bg-white rounded formulário-gerenciar-aluno">
+            <!--Tabela-->
+            <div class="offset-1 col-10 sombra p-5 mb-5 bg-white rounded formulário-tarefa">
 
           <!--Scroll-->
          
@@ -50,14 +71,17 @@
           </nav>
 
           <div class="container-fluid">
-            <div class="row p-3 mb-5">
+            <div class="row">
+              <div class="mb-3 offset-2 col-8 text-center">
+                <h3 class="mb-3 gerenciar-aluno-titulo">Excluir aluno</h3>
+              </div>
               <% for (gerenciarDB.aluno of gerenciarDB.aluno ) {%>
-              <form action="/professor/gerenciar-aluno/<%=gerenciarDB.aluno.id%>" class="card p-3" method="post">
+              <form action="/professor/gerenciar-aluno/<%=gerenciarDB.aluno.id%>" class="card p-3" method="post" id="config">
                 <div class="mb-3 offset-2 col-8 text-center">
                     <img class="imagem-professor" src="/images/<%=gerenciarDB.aluno.usuarioAluno.imagem%>">
                     <p class="texto"><%=gerenciarDB.aluno.usuarioAluno.nome%></p>
                     <p class="texto"> <%=gerenciarDB.nome%> </p>
-                    <button type="submit" class="btn btn-danger">Excluir</button>
+                    <button type="submit" class="btn-modal-excluir">Excluir</button>
                 </div>
               </form>
               <%}%>
@@ -66,87 +90,12 @@
 
         </div>
       </div>
+    </div>
 
   </section>
 
 </main>
 
-<!-- Modal editar sala de aula  -->
-<div id="editModalAluno" class="modal fade">
-  <div class="modal-dialog">
-    <div class="modal-content">
-
-      <!--Form modal-->
-      <form method="GET" action="">
-
-        <!--Header - titulo-->
-        <div class="modal-header aluno">
-          <h4 class="modal-title">Editar informações</h4>
-          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        </div>
-
-        <!--Body-->
-        <div class="modal-body aluno">
-
-          <!--Nome-->
-          <div class="form-group">
-            <label for="modal-alunos"></label>
-            <input type="text" class="form-control" id="modal-alunos" placeholder="Nome" required name="modal-alunos">
-          </div>
-
-          <!--Código e faltas-->
-          <div class="form-group">
-            <div class="row">
-              <!--Código-->
-              <div class="form-group col-md-6">
-                <label for="modal-periodo"></label>
-                <input type="text" class="form-control" id="modal-periodo" placeholder="Código" required name="modal-periodo">
-              </div>
-              <!--Faltas-->
-              <div class="form-group col-md-6">
-                <label for="modal-falta"></label>
-                <input type="text" class="form-control" id="modal-periodo" placeholder="Faltas" required name="modal-falta">
-              </div>
-            </div>
-          </div>
-
-          <!--Notas-->
-          <div class="form-group">
-            <div class="row">
-              <!--Nota 1-->
-              <div class="form-group col-md-3">
-                <label for="modal-nota"></label>
-                <input type="text" class="form-control" id="modal-periodo" placeholder="Nota 1" required name="modal-nota1">
-              </div>
-              <!--Nota 2-->
-              <div class="form-group col-md-3">
-                <label for="modal-nota"></label>
-                <input type="text" class="form-control" id="modal-periodo" placeholder="Nota 2" required name="modal-nota2">
-              </div>
-              <!--Nota 3-->
-              <div class="form-group col-md-3">
-                <label for="modal-nota"></label>
-                <input type="text" class="form-control" id="modal-periodo" placeholder="Nota 3" required name="modal-nota3">
-              </div>
-              <!--Nota 4-->
-              <div class="form-group col-md-3">
-                <label for="modal-nota"></label>
-                <input type="text" class="form-control" id="modal-periodo" placeholder="Nota 4" required name="modal-nota4">
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!--Footer-->
-        <div class="modal-footer aluno">
-          <input type="button" class="btn-modal-cancelar" data-dismiss="modal" value="Desistir" name="modal-cancelar">
-          <input type="submit" class="btn-modal-enviar" value="Alterar" name="modal-enviar">
-        </div>
-        
-      </form>
-    </div>
-  </div>
-</div>
 
 <script src="/javascripts/dist/profScript/profGerenciar.js"></script>
 <!-- Importando Jquery -->

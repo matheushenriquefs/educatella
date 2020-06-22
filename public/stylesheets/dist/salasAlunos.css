@@ -75,7 +75,7 @@
     color: white;
 }
 
-/* Alert modal */
+/* Alert modal criar classe */
 #feedbackCriar{
     color:white;
     background-color: #FF6A6A;
@@ -127,6 +127,7 @@
     border-radius:50%;
 }
 
+
 /* Tabela gerenciar classe */
 
 /* Título */
@@ -149,13 +150,19 @@
     text-align: center;
 }
 
+/* Icones da tabela */
 .material-icons:hover{
     opacity: 0.8;  
 }
 
-.button-delete{
+.icons-tabela{
     background-color: white;
-    border: white;
+    border: none;
+    cursor: pointer;
+}
+
+.icons-tabela:hover{
+    border: none;
 }
 
 
@@ -219,7 +226,7 @@
     border-radius: 15px;
     width: 80px;
     height: 30px;
-    color: white;
+    color: white; 
 } 
 
 .btn-modal-enviar:hover{
@@ -244,15 +251,6 @@
     font-size:1rem;
 }
 
-.feedDelete{
-    color:white;
-    background-color:  #4AE894;
-    text-align: center;
-    border-radius: 15px;
-    font-family: 'Poppins', sans-serif;
-    font-size:1rem;
-    width: 200px;
-}
 
 /* Modal excluir */
 .btn-modal-excluir{
@@ -264,6 +262,15 @@
     width: 80px;
     height: 30px;
     color: white;
+}
+
+.feedbackExcluir{
+    color:white;
+    background-color:  #4AE894;
+    text-align: center;
+    border-radius: 15px;
+    font-family: 'Poppins', sans-serif;
+    font-size:1rem;
 }
 
 

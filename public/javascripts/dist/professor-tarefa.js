@@ -13,7 +13,7 @@ formCriar.addEventListener("submit", evt => {
 
     let titulo = document.getElementById("tituloCriar").value;
 
-    let descricao = document.getElementById("descricaoCriar").value;
+    let descricao = document.getElementById("descricaoCriar").value; 
 
     let arquivo = document.getElementById('validatedCustomFile').value;
 
@@ -56,7 +56,7 @@ formCriar.addEventListener("submit", evt => {
         setTimeout(()=>{
             feedbackJ.style.display = 'none';
             //opacity=0
-        }, 3000);
+        }, 5000);
         formCriar.submit()
     }
 
@@ -64,7 +64,7 @@ formCriar.addEventListener("submit", evt => {
 
 
 /* Validando form de editar tarefa */
-
+ 
 let formEditar = document.getElementsByClassName('formEditar');
 
 let feed = document.getElementsByClassName('feedbackEditar');
@@ -85,7 +85,7 @@ for(let i = 0; i < formEditar.length; i++){
     
     
         if (tituloA[i].value == ""){
-            feed[i].innerText = "O campo título deve ser preenchido";
+            feed[i].innerText = "O campo título deve ser preenchido!";
             setTimeout(()=>{
                 feed[i].style.display = 'none';
                 //opacity=0
@@ -93,7 +93,7 @@ for(let i = 0; i < formEditar.length; i++){
             tituloA[i].focus();
     
         }else if (descricaoA[i].value == ""){
-            feed[i].innerText = "O campo descrição deve ser preenchido"
+            feed[i].innerText = "O campo descrição deve ser preenchido!"
             setTimeout(()=>{
                 feed[i].style.display = 'none';
                 //opacity=0
@@ -101,7 +101,7 @@ for(let i = 0; i < formEditar.length; i++){
             descricaoA[i].focus();
     
         }else if (dataA[i].value == ""){
-            feed[i].innerText = "O campo data deve ser preenchido"
+            feed[i].innerText = "O campo data deve ser preenchido!"
             setTimeout(()=>{
                 feed[i].style.display = 'none';
                 //opacity=0
@@ -109,19 +109,36 @@ for(let i = 0; i < formEditar.length; i++){
             dataA[i].focus();
     
         }else{
-            feedSucesso[i].innerText = "O campo descrição deve ser preenchido"
+            feedSucesso[i].innerText = "Alterações concluídas!"
             setTimeout(()=>{
                 feedSucesso[i].style.display = 'none';
                 //opacity=0
-            }, 3000);
+            }, 6000);
             formEditar[i].submit();
         }
     })
 
 }
 
+/* Excluir tarefa */
 
+let formExcluir = document.getElementsByClassName("formExcluir");
 
+let feedExcluir = document.getElementsByClassName("feedbackExcluir");
 
+for(let i = 0; i < formExcluir.length; i++){
 
+    formExcluir[i].addEventListener("submit", evt => {
+    
+        evt.preventDefault();
+    
+    feedExcluir[i].innerText = "Tarefa excluída!"
 
+    setTimeout(()=>{
+        feedExcluir[i].style.display = "none";
+    }, 5000);
+
+    formExcluir[i].submit();
+    
+    })}
+    

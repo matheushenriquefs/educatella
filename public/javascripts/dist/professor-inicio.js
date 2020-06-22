@@ -31,15 +31,17 @@ formCriar.addEventListener("submit", evt => {
         codigo.focus();
 
     } else {
-        feedbackJ.innerText = "A classe foi criada!";
+        feedbackJ.innerText = "Sua classe foi criada!";
         setTimeout(()=>{
             feedbackJ.style.display = 'none';
             //opacity=0
-        }, 3000);
+        }, 5000);
         formCriar.submit()
     }
 
 });  
+
+
 
 
 /* Validando form de editar classe */
@@ -63,7 +65,7 @@ formEditar[i].addEventListener("submit", ev => {
     
     
         if (tituloA[i].value == ""){
-            feed[i].innerText = "O campo matéria deve ser preenchido";
+            feed[i].innerText = "O campo matéria deve ser preenchido!";
             setTimeout(()=>{
                 feed[i].style.display = 'none';
                 //opacity=0
@@ -71,7 +73,7 @@ formEditar[i].addEventListener("submit", ev => {
             tituloA[i].focus();
     
         }else if (descricaoA[i].value == ""){
-            feed[i].innerText = "O campo código deve ser preenchido"
+            feed[i].innerText = "O campo código deve ser preenchido!"
             setTimeout(()=>{
                 feed[i].style.display = 'none';
                 //opacity=0
@@ -79,11 +81,11 @@ formEditar[i].addEventListener("submit", ev => {
             descricaoA[i].focus();
     
         }else{
-            feedSucesso[i].innerText = "O campo descrição deve ser preenchido"
+            feedSucesso[i].innerText = "Edições concluídas!"
             setTimeout(()=>{
                 feedSucesso[i].style.display = 'none';
                 //opacity=0
-            }, 3000);
+            }, 5000);
             formEditar[i].submit();
         }
     })
@@ -92,23 +94,26 @@ formEditar[i].addEventListener("submit", ev => {
 
 /* Form deletar */
 
-let buttonDelete = document.getElementsByClassName('buttonDelete')
+let formExcluir = document.getElementsByName('formExcluir')
 
-let feedDelete = document.getElementsByClassName('feedDelete')
+let feedExcluir = document.getElementsByClassName('feedbackExcluir')
 
-for(let i = 0; i < buttonDelete.length; i++){
+for(let i = 0; i < formExcluir.length; i++){
 
-    buttonDelete[i].addEventListener("submit", ev => {
+    formExcluir[i].addEventListener("submit", ev => {
 
-        alert ("Você quer mesmo excluir esta classe?");
-        feedDelete[i].innerText = "Classe excluída com sucesso!"
+        ev.preventDefault();
+
+        
+        feedExcluir[i].innerText = "Classe excluída!"
+
         setTimeout(()=>{
-            feedDelete[i].style.display = 'none';
+            feedExcluir[i].style.display = 'none';
             //opacity=0
         }, 3000);
-        buttonDelete.submit();
+
+        formExcluir.submit();
 
     })
 
 }
-

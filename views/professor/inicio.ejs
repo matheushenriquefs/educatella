@@ -39,12 +39,6 @@
                     </div>
                 </div>
                 <div class="row mb-5">
-                    <!-- Botão para pesquisar classes -->
-                    <div class="offset-1">
-                        <button class="botao" data-toggle="modal" data-target="#">
-                            Buscar Classe
-                        </button>
-                    </div>
                     <!-- Botão para criar classes -->
                     <div class="offset-1">
                         <button class="botao-criar" data-toggle="modal" data-target="#criarModal">
@@ -113,22 +107,21 @@
                                     <td>
                                         <%= alterar.codigo %>
                                     </td>
-                                    <td class="actions">
+                                    <td class="editar">
                                         <a href="#" class="settings" title="Settings" data-toggle="modal"
-                                            data-target="#siteModal<%= alterar.id %>">
-                                            <i class="material-icons">&#xE8B8;</i>
+                                            data-target="#siteModal<%= alterar.id %>" style="color: #23238E;">
+                                            <span class="material-icons">
+                                                edit
+                                                </span>
                                         </a>
                                     </td>
-                                    <td class="Excluir">
-                                        <form action="/professor/delete-classe/<%= alterar.id %>" method="POST" class="buttonDelete">
-                                            <div>
-                                                <p class="feedDelete"></p>
-                                            </div>
-                                            <button type="submit" class="button-delete"
-                                                style="color: red;">
-                                                <i class="material-icons">&#xE5C9;</i>
-                                            </button>
-                                        </form>
+                                    <td class="excluir">
+                                        <button class="icons-tabela" title="Settings" data-toggle="modal"
+                                            data-target="#excluirModal<%= alterar.id %>" style="color: red;">
+                                            <span class="material-icons">
+                                                delete_forever
+                                            </span>
+                                        </button>
                                     </td>
                                 </tr>
 
@@ -263,6 +256,47 @@
         </div>
     </div>
     <% });%> 
+
+
+    <!-- Modal exluir classe  -->
+    <% professor.classes.forEach(alterar=> { %> 
+        <div id="excluirModal<%= alterar.id %>" class="modal fade">
+            <div class="modal-dialog">
+                <div class="modal-content">
+    
+                    <!--Header - titulo-->
+                    <div class="modal-header">
+                        <h4 class="modal-title">Excluir classe</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                           <strong> <bold>&times;</bold> </strong>
+                        </button>
+                    </div>
+                    <!--Form modal-->
+                    <form action="/professor/delete-classe" method="POST" class="formExcluir">
+                        <input type="hidden" name="id_professor" value="<%= alterar.id %>">
+    
+                        <div class="container">
+                            <div class="form-control" style="border: none;">
+                                <p>Deseja mesmo excluir esta tarefa?</p>
+                            </div>
+                        </div>
+    
+                        <div class="container">
+                            <div class="feedbackExcluir">
+                                <p></p>
+                            </div>
+                        </div>
+                        <br>
+                        <!--Footer - buttons alterar-->
+                        <div class="modal-footer">
+                            <button type="submit" class="btn-modal-excluir"> Excluir </button>
+                        </div>
+                    </form>
+    
+                </div>
+            </div>
+        </div>
+        <% });%>
 
 
     <!-- Importando Jquery -->

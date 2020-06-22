@@ -83,7 +83,7 @@ module.exports = {
             codigo,
         },
             {
-                where: {
+                where: { 
                     id: id_classe
                 }
             });
@@ -103,6 +103,8 @@ module.exports = {
 
         res.redirect('/professor/inicio');
     },
+
+
     //olhar recados////////////////////////////////////////////////////////////////
     profRecados: async (req, res) => {
         let usuario = req.usuario

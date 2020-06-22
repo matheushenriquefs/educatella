@@ -33,7 +33,8 @@ router.get('/professor/inicio', authUser, ProfessorController.profInicio);
 router.post('/professor/inicio', authUser, ProfessorController.criarClasse);
 router.post('/professor/acessar-classe', authUser, ProfessorController.acessarClasse);
 router.post('/professor/editar-classe', authUser, ProfessorController.updateClasse);
-router.post('/professor/delete-classe/:id', authUser, ProfessorController.destroyClasse);
+router.post('/professor/delete-classe', authUser, ProfessorController.destroyClasse);
+
 //RECADOS 
 router.get('/professor/recados', authUser,  ProfessorController.profRecados);
 //RECADOS CRIAR

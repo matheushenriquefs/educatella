@@ -40,8 +40,7 @@
                         <h3 class="mb-5 form-tarefa-titulo">Postar tarefa</h3>
 
 
-                        <form action="/professor/postar" method="POST" enctype="multipart/form-data"
-                            id="formCriar">
+                        <form action="/professor/postar" method="POST" enctype="multipart/form-data" id="formCriar">
 
                             <!--Titulo-->
                             <div class="form-row justify-content-center">
@@ -78,7 +77,8 @@
                             <!--Data e botão-->
                             <div class="form-row justify-content">
                                 <div class="custom-file col-3 ">
-                                    <input type="text" class="form-control" name="data_entrega" id="dataCriar" placeholder="DD/MM/AAAA">
+                                    <input type="text" class="form-control" name="data_entrega" id="dataCriar"
+                                        placeholder="DD/MM/AAAA">
                                 </div>
                                 <div class="custom-file col-2">
                                     <button type="submit" class="btn-enviar-tarefa">Enviar</button>
@@ -142,23 +142,21 @@
                                     <td>
                                         <%= post.arquivo %>
                                     </td>
-
                                     <td class="Editar">
-                                        <button class="button-delete" title="Settings" style="color:blue"
-                                            data-toggle="modal" data-target="#siteModal<%= post.id %>">
-                                            <i class="material-icons">&#xE8B8;</i>
+                                        <button class="icons-tabela" title="Settings" data-toggle="modal"
+                                            data-target="#siteModal<%= post.id %>" style="color: #23238E;">
+                                            <span class="material-icons">
+                                                edit
+                                            </span>
                                         </button>
                                     </td>
                                     <td class="Excluir">
-                                        <form action="/professor/delete" method="POST">
-                                            <input type="hidden" name="id" value="<%= post.id %>">
-                                            <input type="hidden" name="id_classe" value="<%= post.classe.id %>">
-                                            <button type="submit" class="button-delete"
-                                                onclick="return confirm('Deseja mesmo excluir a tarefa?')"
-                                                style="color: red;">
-                                                <i class="material-icons">&#xE5C9;</i>
-                                            </button>
-                                        </form>
+                                        <button class="icons-tabela" title="Settings" data-toggle="modal"
+                                            data-target="#excluirModal<%= post.id %>" style="color: red;">
+                                            <span class="material-icons">
+                                                delete_forever
+                                            </span>
+                                        </button>
                                     </td>
                                 </tr>
 
@@ -179,7 +177,7 @@
     <% posts.forEach(post => { %>
     <div id="siteModal<%= post.id %>" class="modal fade" tabindex="-1">
         <div class="modal-dialog">
-            <div class="modal-content"> 
+            <div class="modal-content">
 
                 <!--Header - titulo-->
                 <div class="modal-header">
@@ -200,8 +198,8 @@
                         </div>
                         <!--título-->
                         <div class="form-group">
-                            <input type="text" value="<%= post.titulo %>" class="form-control modalTarefaTitulo" id="modal-alunos"
-                                name="titulo" placeholder="Título" id="tituloEditar">
+                            <input type="text" value="<%= post.titulo %>" class="form-control modalTarefaTitulo"
+                                id="modal-alunos" name="titulo" placeholder="Título" id="tituloEditar">
                         </div>
                         <!--descricao-->
                         <div class="form-group">
@@ -212,8 +210,9 @@
 
                     <div class="form-group">
                         <div class="custom-file col-8 ">
-                            <input type="text" class="form-control modalTarefaData" name="data_entrega" id="dataEditar" required
-                                placeholder="DD/MM/AAAA" style="margin-left: 15px;" value="<%= post.data_entrega %>">
+                            <input type="text" class="form-control modalTarefaData" name="data_entrega" id="dataEditar"
+                                required placeholder="DD/MM/AAAA" style="margin-left: 15px;"
+                                value="<%= post.data_entrega %>">
                         </div>
                     </div>
 
@@ -223,7 +222,7 @@
                             <p id="feedbackEditSucesso" class="feedbackEditSucesso"></p>
                         </div>
                     </div>
- 
+
                     <!--Footer - buttons alterar-->
                     <div class="modal-footer">
                         <button class="btn-modal-enviar" type="submit">Editar</button>
@@ -231,7 +230,48 @@
                 </form>
 
             </div>
-        </div> 
+        </div>
+    </div>
+    <% });%>
+
+    <!-- Modal excluir tarefa  -->
+    <% posts.forEach(excluir => { %>
+    <div id="excluirModal<%= excluir.id %>" class="modal fade" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <!--Header - titulo-->
+                <div class="modal-header">
+                    <h4 class="modal-title">Excluir tarefa</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                        <bold>&times;</bold>
+                    </button>
+                </div>
+
+                <form action="/professor/delete" method="POST" class="formExcluir">
+                    <input type="hidden" name="id" value="<%= excluir.id %>">
+                    <input type="hidden" name="id_classe" value="<%= excluir.classe.id %>">
+
+                    <div class="container">
+                        <div class="form-control" style="border: none;">
+                            <p>Deseja mesmo excluir esta classe?</p>
+                        </div>
+                    </div>
+
+                    <div class="container">
+                        <div class="feedbackExcluir">
+                            <p></p>
+                        </div>
+                    </div>
+                    <br>
+                    <!--Footer - buttons alterar-->
+                    <div class="modal-footer">
+                        <button type="submit" class="btn-modal-excluir"> Excluir </button>
+                    </div>
+                </form>
+
+            </div>
+        </div>
     </div>
     <% });%>
 
