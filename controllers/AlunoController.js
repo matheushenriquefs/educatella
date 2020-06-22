@@ -334,7 +334,16 @@ module.exports = {
 		//feedback ao tentar acessar uma classe
 		let feedback = "inicio";
 
-		let aluno = await Aluno.findOne({
+		let aluno = await Aluno.findOne({where:{id_usuario:idUsuario}});
+
+		await Classe_Aluno.destroy({
+			where:{
+				id_aluno:aluno.id,
+				id_classe:idClasse
+			}
+		});
+
+		let dadosAluno = await Aluno.findOne({
 			include:{
 				model: Classe, 
 				as:'classes', 
@@ -349,14 +358,7 @@ module.exports = {
 			}
 		});
 
-		await Classe_Aluno.destroy({
-			where:{
-				id_aluno:aluno.id,
-				id_classe:idClasse
-			}
-		});
-
-		res.render("aluno/inicio", {usuario:req.usuario, aluno, feedback, feedbackAlterarDados});
+		res.render("aluno/inicio", {usuario:req.usuario, aluno:dadosAluno, feedback, feedbackAlterarDados});
 
 	},
 
