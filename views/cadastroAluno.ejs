@@ -51,7 +51,6 @@
                 <div class="row justify-content-center">
     
                     <div class="col-lg-5">
-    
                         
                         <form action="/cadastro/aluno" method="POST">
     
@@ -62,6 +61,8 @@
                                 <div class="col-md-12">
             
                                     <input type="name" class="form-control" id="name" name="name">
+
+                                    <span id="textValidateName"></span>
             
                                 </div>
             
@@ -74,6 +75,8 @@
                                 <div class="col-md-12">
                 
                                     <input type="email" class="form-control" id="email" name="email">
+
+                                    <span id="textValidateEmail"></span>
                 
                                 </div>
                 
@@ -86,6 +89,8 @@
                                 <div class="col-md-12">
                 
                                     <input type="password" class="form-control" id="password" name="password">
+
+                                    <span id="textValidatePassWord"></span>
                 
                                 </div>
             
@@ -98,6 +103,8 @@
                                 <div class="col-md-12">
                 
                                     <input type="password" class="form-control" id="confirm-password">
+
+                                    <span id="textValidateConfirmPassWord"></span>
                 
                                 </div>
             
@@ -109,7 +116,7 @@
             
                                 <div class="col-md-12 text-center">
                 
-                                    <button type="submit" class="btn w-100 botao">Cadastrar</button>
+                                    <button type="submit" class="btn w-100 botao d-none">Cadastrar</button>
                 
                                 </div>
             
@@ -133,5 +140,5 @@
     <script type="text/javascript" src="/vendor/jquery.min.js"></script>
     <!-- Importando Bootstrap JS -->
     <script type="text/javascript" src="/vendor/bootstrap.bundle.min.js"></script>
-
+    <script type="text/javascript" src="/javascripts/src/actions/validations.js"></script>
 </html>
