@@ -172,28 +172,21 @@ html {
 
 /* Tela RECADOS */
 
-.mural-recados h3{
+.mural-titulo{
     font-family: 'Poppins', sans-serif;
-    color: rgb(241, 109, 110);
+    color: #4AE894;
     text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
     
 }
 
-.covid-alert{
-    color: red;
-    font-size: 16px;
-    padding-top: 20px;
-}
 
-.mural-recados h6{
+.mural-recados{
     font-family: 'Poppins', sans-serif;
-    color: rgb(241, 109, 110);
-    padding-top: 20px;
+    color: grey;
+    text-align: justify;
 }
-
-.mural-recados p {
-    font-family: 'Poppins', sans-serif;
-} 
 
 
 
