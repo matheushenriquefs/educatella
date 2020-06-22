@@ -1,5 +1,4 @@
 const models = require("../models/index");
-const loginController = require("./LoginController");
 const bcrypt = require("bcrypt");
 
 module.exports = {
@@ -60,7 +59,7 @@ module.exports = {
                     .then(user => models.Aluno.create({
                         id_usuario: user.id
                     }))
-                    .then(response => res.redirect("/login"))
+                    .then(response => res.status(201))
                     .catch(error => res.status(500).send(error));
                 });
             }
@@ -113,16 +112,7 @@ module.exports = {
                     .then(user => models.Professor.create({
                         id_usuario: user.id
                     }))
-                    .then(response => {
-
-                        loginController.efetuarLogin(req.body = {
-
-                            name,
-                            password: hash
-
-                        });
-
-                    })
+                    .then(response => res.status(201))
                     .catch(error => res.status(500).send(error));
                 });
             }
