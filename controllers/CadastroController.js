@@ -53,7 +53,7 @@ module.exports = {
                         nome: name,
                         email: email,
                         senha: hash,
-                        imagem: "/images/avatar.png"
+                        imagem: "avatar.png"
         
                     })
                     .then(user => models.Aluno.create({
@@ -106,7 +106,7 @@ module.exports = {
                         nome: name,
                         email: email,
                         senha: hash,
-                        imagem: "/images/avatar.png"
+                        imagem: "avatar.png"
         
                     })
                     .then(user => models.Professor.create({
