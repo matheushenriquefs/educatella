@@ -253,8 +253,9 @@ module.exports = {
                 ]
             }
         );
+
      
-        res.render('professor/editar-recado', { usuario,acessarClasse });
+       res.render('professor/editar-recado', { usuario,acessarClasse });
     },
         //Editar Recados////////////////////////////////////////////////////////////////
     profRecadosEditar2: async (req, res) => {

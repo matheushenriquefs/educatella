@@ -1,30 +1,46 @@
-function selector (id){ 
-    return document.getElementsByClassName(id)
- };
+/* Validando form de editar recado */
+ 
+let formEditar = document.getElementsByClassName('formEditarRecado');
 
+let feed = document.getElementsByClassName('feedbackAlert');
 
+let feedSucesso = document.getElementsByClassName('feedbackSucesso');
 
-const tituloRecado= selector("titulo");
-const descricaoRecado = selector("descricao");
-const editarRecados = selector("card p-3")
+let tituloA = document.getElementsByClassName('titulo');
 
+let descricaoA = document.getElementsByClassName('descricao');
 
-for (let i =0; editarRecados.length >= i;i++){
+for(let i = 0; i < formEditar.length; i++){
 
-    editarRecados[i].addEventListener("submit",function(evt){
-        evt.preventDefault()
-        if(tituloRecado[i].value.trim() ==="" ){
+    formEditar[i].addEventListener("submit", ev => {
     
-            alert("O titulo e tem que ser prenchido")
+        ev.preventDefault();
     
-        } else if (descricaoRecado[i].value.trim() ===""){
-           
-         alert("A Descrição tem que ser prenchida")
-         }else {
-        
-             alert ("Você edito seu Recado");
-             editarRecados[i].submit();
-        
-         }
-     })
+    
+        if (tituloA[i].value == ""){
+            feed[i].innerText = "O campo título deve ser preenchido!";
+            setTimeout(()=>{
+                feed[i].style.display = 'none';
+                //opacity=0
+            }, 3000);
+            tituloA[i].focus();
+     
+        }else if (descricaoA[i].value == ""){
+            feed[i].innerText = "O campo descrição deve ser preenchido!"
+            setTimeout(()=>{
+                feed[i].style.display = 'none';
+                //opacity=0
+            }, 3000);
+            descricaoA[i].focus();
+    
+        }else{
+            feedSucesso[i].innerText = "Alterações concluídas!"
+            setTimeout(()=>{
+                feedSucesso[i].style.display = 'none';
+                //opacity=0
+            }, 3000);
+            formEditar[i].submit();
+        }
+    })
+ 
 }

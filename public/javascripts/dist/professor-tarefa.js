@@ -117,7 +117,7 @@ for(let i = 0; i < formEditar.length; i++){
             formEditar[i].submit();
         }
     })
-
+ 
 }
 
 /* Excluir tarefa */

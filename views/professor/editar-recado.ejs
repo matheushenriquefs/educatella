@@ -38,26 +38,34 @@
                                 <% for (acessarClasse of acessarClasse.recado) {%>
                                 
                                
-                                    <form id="editar-recado" method="POST" name="formEditar" action="/professor/editar-recado/<%=acessarClasse.id_recados%>" class="card p-3">
+                                    <form id="editar-recado" method="POST" name="formEditar" action="/professor/editar-recado/<%=acessarClasse.id_recados%>" class="card p-3 formEditarRecado">
                                         <div class="form-row justify-content-center">
                                             <div class="col-10">
-                                                    <input type="text" class="titulo form-control" id="titulo" name="titulo" value="<%= acessarClasse.titulo %>"  size="47"></input>
+                                                    <input type="text" class="form-control titulo" id="titulo" name="titulo" value="<%= acessarClasse.titulo %>"  size="47"></input>
                                             </div>
                                         </div>
                                         <br>
                                         <div class="form-row justify-content-center">
                                             <div class="col-10">   
-                                                    <textarea  type="text" class="descricao form-control" id="descricao" name="descricao" rows="5" cols="50"><%= acessarClasse.descricao %></textarea> <br>
-                                                    <button class="botão-editar" type="submit" rows="2" cols="50">Editar</button>
+                                                    <textarea  type="text" class="form-control descricao" id="descricao" 
+                                                    name="descricao" rows="5" cols="50"><%= acessarClasse.descricao %></textarea> <br>
+                                                    <button class="botão-editar" rows="2" cols="50" type="submit">Editar</button>
                                             </div>
-                                        </div> 
+                                        </div>
+                                        <br> 
+                                        <div class="form-row justify-content-center">
+                                            <div class="col-6">
+                                                <p class="feedbackAlert"></p>
+                                                <p class="feedbackSucesso"></p>
+                                            </div>
+                                        </div>
                                         <br>
-                                        <hr>
-                                                             
+                                        <br>
+                                        <hr>                                                          
                                     </form>
                                 
                                <%}%>
-                                
+                                  
                             </ul>
         
                            
@@ -67,6 +75,7 @@
             </div>
 
         </section>
+
     </main>
 
     <script src="/javascripts/dist/profScript/profRecadoEditar.js"></script>
