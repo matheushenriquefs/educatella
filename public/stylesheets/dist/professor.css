@@ -494,9 +494,6 @@ html {
 
 
 
-
-
-
 /* Tela POSTAR NOTA */
 
 .form-notas-titulo{
@@ -585,6 +582,10 @@ html {
 .modal .modal-footer {
     background-color: white;
     border-radius: 0 0 3px 3px;
+}
+
+#imagemDownload{
+    width:1.5rem;
 }
 
 /* Título */

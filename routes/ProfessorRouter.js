@@ -58,6 +58,7 @@ router.post('/professor/editar-recado/:id', authUser,
 //Gerenciar Notas            
 router.get('/professor/gerenciar-nota', authUser, ProfessorController.gerenciarNota);
 router.post('/professor/gerenciar-nota-aluno/:id', authUser, ProfessorController.gerenciarNotaAluno);
+router.post('/professor/poner-nota-aluno/:id', authUser, ProfessorController.ponerNotaAluno);
 //TAREFAS
 router.post('/professor/postar', authUser, upload.any(), ProfessorController.addTarefa);
 router.post('/professor/editar', authUser, ProfessorController.update);

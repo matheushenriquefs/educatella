@@ -43,10 +43,38 @@
                 <div class="col-lg-5">
                 
                   <form action="" method="POST">
+
+                      <% if (typeof title !== 'undefined' && typeof message !== 'undefined') { %>
+                        
+                        <div class="form-group row mb-0">
+      
+                          <div class="col-md-12">
+        
+                            <div class="card mt-3 mb-3">
+  
+                              <div class="card-header bg-danger text-white">
+                  
+                                <h5 class="card-title mb-0"><%= title %></h5>
+                                
+                              </div>
+                  
+                              <div class="card-body">       
+                  
+                                <p class="card-text"><%= message %></p>
+                  
+                              </div>
+                  
+                            </div>
+        
+                          </div>
+        
+                        </div>
+
+                      <% } %>
   
                       <div class="form-group row mb-0">
       
-                        <label for="email" class="col-sm-2 col-form-label">E-mail:</label>
+                        <label for="email" class="col-sm-12 col-form-label">E-mail:</label>
       
                         <div class="col-md-12">
       
@@ -58,7 +86,7 @@
       
                       <div class="form-group row">
       
-                        <label for="password" class="col-sm-2 col-form-label">Senha:</label>
+                        <label for="password" class="col-sm-12 col-form-label">Senha:</label>
       
                         <div class="col-md-12">
       
@@ -109,5 +137,5 @@
     <script type="text/javascript" src="/vendor/jquery.min.js"></script>
     <!-- Importando Bootstrap JS -->
     <script type="text/javascript" src="/vendor/bootstrap.bundle.min.js"></script>
-
+    <script type="text/javascript" src="/javascripts/src/actions/hideResponseCard.js"></script>
 </html>
