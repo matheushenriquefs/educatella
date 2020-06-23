@@ -39,9 +39,10 @@
                     <!--Título-->
                     <h3 class="form-notas-titulo">Gerenciar notas dos Alunos</h3>
                     
-                    <% for (tarefasAlunos of tarefas ) {%>
-                        <% for (tarefa of tarefasAlunos.tarefasAlunos ) {%>
+                    <% for (tarefa of tarefas) {%>
+                        <% for (tarefaAluno of tarefa.tarefasAlunos) {%>
 
+<<<<<<< HEAD
                     <div class="container-fluid">
                     <div class="row p-3 mb-5">
                         <div>
@@ -76,16 +77,46 @@
                             <%}%>
                                                      </div>
                            
+=======
+                            <div class="row p-3 mb-5">
+                                <div class="col-10">
+                            
+                                    <form action="" class="card p-1">
+                                        <p class="texto"> Tarefa: <%= tarefa.titulo%> </p>
+                                        <a class="texto-link" href="/uploads/<%=tarefaAluno.arquivo%>" download="<%=tarefaAluno.arquivo%>"> 
+                                            <img id="imagemDownload" src="/images/download.png"> <%=tarefaAluno.arquivo%>
+                                        </a> <br>
+                                        <p class="texto"> nota: </p>
+                                        </select> </p>
+                                        <p class="font-weight-bold">nota: <select class="btn btn-primary" name="cBoxNota" id="nota">
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                            <option value="4">4</option>
+                                            <option value="5">5</option>
+                                            <option value="6">6</option>
+                                            <option value="7">7</option>
+                                            <option value="8">8</option>
+                                            <option value="9">9</option>
+                                            <option value="10">10</option>
+                                        </select>   <button type="submit" class=" btn btn-outline-primary">Por Nota</button></p> 
+                                                                    
+                                
+                                    </form>
+                                    
+                                </div>
+                                
+>>>>>>> b6f98d3190b86373bafb11571c3697149c344e43
                             </div>
-                    
-                          </div>
-                        </div>
+               
+                        <%}%>
+                    <%}%>
                    
                 </div>
 
             </div>
         </div>
-    
+
     </section>
 </main>
 

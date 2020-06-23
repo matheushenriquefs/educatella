@@ -373,19 +373,13 @@ module.exports = {
 			}
 		);
 
-		//percorre o array de tarefas
-		for(var contador = 0; contador < tarefas.length; contador++){
-			//percorre o array de tarefasAlunos
-			for(var contador2 = 0; contador2 < tarefas[contador].tarefasAlunos.length; contador2++){
-				//Se alguma tarefa não pertencer ao aluno, ela é removida
-				if(tarefas[contador].tarefasAlunos[contador2].id_aluno != id){
-					tarefas[contador].tarefasAlunos.splice(contador2, 1);
-				}
-			}
-		}
-
+        function verificaidAluno(tarefaAluno){
+            return tarefaAluno.id_aluno == id;
+        }
         
-       
+        for(let contador = 0; contador < tarefas.length; contador++){
+            tarefas[contador].tarefasAlunos = tarefas[contador].tarefasAlunos.filter(verificaidAluno);
+        }
              
         res.render('professor/gerenciar-nota-aluno',{gerenciarDB, usuario,acessarClasse,classeDb,tarefas});
      
