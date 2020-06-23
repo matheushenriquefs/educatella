@@ -466,6 +466,8 @@ module.exports = {
                 ]
             }
         );
+    
+    
             
 
         let posts = await Tarefa.findAll({
