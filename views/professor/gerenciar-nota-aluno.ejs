@@ -46,18 +46,18 @@
                     <div class="row p-3 mb-5">
                         <div>
                             <ul>
-                                <form action="" class="card p-1" >
-                              
+                                <form method="POST"  action="/professor/poner-nota-aluno/<%=tarefa.id_tarefa%>" class="card p-1" >
+                                    <input type="hidden" name="id_classe" value="<%=acessarClasse.id%>">
                               <p> Aluno:<%= tarefa.id_aluno%> </p>
                               <p> idClasse:<%=tarefasAlunos.id_classe%> </p>
                               <p>idTarefa:<%=tarefa.id_tarefa%></p>
                               <p> arquivo: <%=tarefa.arquivo%></p>
                               <p> Tarefa: <%=tarefasAlunos.titulo%></p>
                               <p> Descrição: <%=tarefasAlunos.descricao%> </p>
-                              <p> nota: </p>
+                              <p> nota: <%=tarefa.nota%> </p>
                               <a href="/uploads/<%=tarefa.arquivo%>" download="/uploads/<%=tarefa.arquivo%>"> Download </a>
                             </select> </p>
-                               <p class="font-weight-bold">nota: <select class="btn btn-primary" name="cBoxNota" id="nota">
+                               <p class="font-weight-bold">nota: <select class="btn btn-primary" name="nota" id="nota">
                                     <option value="1">1</option>
                                     <option value="2">2</option>
                                     <option value="3">3</option>

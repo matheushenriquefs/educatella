@@ -390,6 +390,78 @@ module.exports = {
         res.render('professor/gerenciar-nota-aluno',{gerenciarDB, usuario,acessarClasse,classeDb,tarefas});
      
     },
+    ponerNotaAluno : async (req,res)=>{
+        
+        const { id_classe, nota } = req.body
+        let usuario = req.usuario
+        let id = req.params.id
+        
+        console.log(id + " !  "+ id_classe + "*********************************")
+        let gerenciarDB = await Classe.findByPk(id_classe,{
+
+            
+            include:{
+
+              model: Aluno,
+              as: 'aluno',
+              include:"usuarioAluno"
+
+            }
+
+        }).catch(err => { console.log(err) })
+        
+        let acessarClasse = await Classe.findByPk(id_classe,
+            {
+            include: [
+                {
+                    model: Professor,
+                    as: 'professor'
+                },
+                    {
+                        model: Recado,
+                        as: 'recado'
+                    }
+                   
+                  
+                ]
+            }
+        );
+        let tarefas = await Tarefa.findAll(
+			{
+				include:{
+					model: Tarefa_Aluno, 
+					as:'tarefasAlunos'
+				},
+				where: {
+					id_classe : id_classe
+				}
+			}
+		);
+
+		//percorre o array de tarefas
+		for(var contador = 0; contador < tarefas.length; contador++){
+			//percorre o array de tarefasAlunos
+			for(var contador2 = 0; contador2 < tarefas[contador].tarefasAlunos.length; contador2++){
+				//Se alguma tarefa não pertencer ao aluno, ela é removida
+				if(tarefas[contador].tarefasAlunos[contador2].id_aluno != id){
+					tarefas[contador].tarefasAlunos.splice(contador2, 1);
+				}
+			}
+		}
+        const porNota = await Tarefa_Aluno.update({
+           nota
+        },
+            {
+                where: { 
+                    id_tarefa: id
+                }
+            });
+       console.log(acessarClasse.nome)
+    //    return res.redirect('/professor/gerenciar-nota');
+         res.render('professor/gerenciar-nota',{ usuario , acessarClasse,tarefas,gerenciarDB});
+    }
+    ,
+
 
 
 
