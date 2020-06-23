@@ -93,11 +93,11 @@ module.exports = {
 
     destroyClasse: async (req, res) => {
         
-        const { id } = req.params
+        const { id_classe } = req.body
 
         const deletar = await Classe.destroy({
             where: {
-                id: id
+                id: id_classe
             }
         })
 
