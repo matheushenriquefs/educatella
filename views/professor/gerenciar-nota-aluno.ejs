@@ -48,13 +48,13 @@
                             <ul>
                                 <form method="POST"  action="/professor/poner-nota-aluno/<%=tarefa.id_tarefa%>" class="card p-1" >
                                     <input type="hidden" name="id_classe" value="<%=acessarClasse.id%>">
-                              <p> Aluno:<%= tarefa.id_aluno%> </p>
-                              <p> idClasse:<%=tarefasAlunos.id_classe%> </p>
-                              <p>idTarefa:<%=tarefa.id_tarefa%></p>
+                              <p> Aluno:<%= tarefaAluno.id_aluno%> </p>
+                              <p> idClasse:<%=tarefa.id_classe%> </p>
+                              <p>idTarefa:<%=tarefaAluno.id_tarefa%></p>
                               <p> arquivo: <%=tarefa.arquivo%></p>
-                              <p> Tarefa: <%=tarefasAlunos.titulo%></p>
-                              <p> Descrição: <%=tarefasAlunos.descricao%> </p>
-                              <p> nota: <%=tarefa.nota%> </p>
+                              <p> Tarefa: <%=tarefa.titulo%></p>
+                              <p> Descrição: <%=tarefa.descricao%> </p>
+                              <p> nota: <%=tarefaAluno.nota%> </p>
                               <a href="/uploads/<%=tarefa.arquivo%>" download="/uploads/<%=tarefa.arquivo%>"> Download </a>
                             </select> </p>
                                <p class="font-weight-bold">nota: <select class="btn btn-primary" name="nota" id="nota">
@@ -72,8 +72,7 @@
                                                                
                                 </ul>
                             </form>
-                            <%}%>
-                            <%}%>
+                            
                                                      </div>
                            
                             </div>
