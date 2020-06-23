@@ -18,7 +18,7 @@
 
 <body>
     <!-- Header da Página -->
-    <%- include('../partials/header-professor') %>
+    <%- include('../partials/header-professor') %> 
 
     <main>
         <!-- Section engolba nav-left + mural de recados-->
@@ -26,41 +26,105 @@
             <div class="container-fluid">
                 <div class="row">
                     <!-- Nav left -->
-                    <%- include('../partials/professor-left') %>   
-
-                    <!--Mural de recados-->
-                  
-                    <div class="offset-1 col-8 sombra p-5 mb-5 bg-white rounded mural-recados">
-
-                            <!--Título-->
-                            <h3 class="mural-titulo-apagar">Apagar  recados</h3>
-                          
-                             
-                               
-                                 <% for (acessarClasse of acessarClasse.recado) {%>
-                                
-                            <form method="POST" action="/professor/apagar-recado/<%=acessarClasse.id_recados%>" class="card p-3">
-                                <div class="page-item" >
-                                    
-                                <h6><img src="/images/recados.png" alt="icone recados" class="imagens-classe"> <%= acessarClasse.titulo %> </h6>
-                                <p> <%= acessarClasse.createdAt.toLocaleString('pt-BR') %>  </p>
-                                <p><%= acessarClasse.descricao %></p>
-                                <button type="submit" class="botao-apagar-recado" >Excluir</button>
+                    <%- include('../partials/professor-left') %> 
+            
+                                <!--Tabela-->
+                                <div class="offset-1 col-8 sombra p-5 mb-5 bg-white rounded formulário-tarefa">
+            
+                                    <!--Título-->
+                                    <h3 class="mb-5 form-tarefa-titulo">Excluir recado</h3>
+            
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">Título</th>
+                                                <th scope="col">Descrição</th>
+                                                <th scope="col">Excluir</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+            
+                                            <% acessarClasse.recado.forEach(excluir => { %>
+                                            <tr>
+                                                <td>
+                                                    <%= excluir.titulo %>
+                                                </td>
+                                                <td>
+                                                    <%= excluir.descricao %>
+                                                </td>
+                                                <td class="Excluir">
+                                                    <button class="icons-tabela" title="Settings" data-toggle="modal"
+                                                        data-target="#excluirModal<%= excluir.id_recados %>" style="color: red;">
+                                                        <span class="material-icons">
+                                                            delete_forever
+                                                        </span>
+                                                    </button>
+                                                </td>
+                                            </tr>
+            
+                                            <% });%>
+                                        </tbody>
+            
+                                    </table>
+            
                                 </div>
-                                <br>
-                                <hr>
-                            </form>
-                               <%}%>
-                               
-                            </ul>
-        
-                           
-                    </div>
+            
                    
                 </div>
             </div>
 
         </section>
+
+
+        <!-- Modal -->
+
+          <!-- Modal excluir tarefa  -->
+          <% for (acessarClasse of acessarClasse.recado) {%>
+        <div id="excluirModal<%= acessarClasse.id_recados %>" class="modal fade" tabindex="-1">
+            <div class="modal-dialog">
+                <div class="modal-content">
+    
+                    <!--Header - titulo-->
+                    <div class="modal-header">
+                        <h4 class="modal-title">Excluir recado</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                            <bold>&times;</bold>
+                        </button>
+                    </div>
+    
+                    <form action="/professor/apagar-recado/<%=acessarClasse.id_recados%>" method="POST" class="formExcluir">
+                        <input type="hidden" name="id_recados" value="<%= acessarClasse.id_recados %>">
+                        <input type="hidden" name="id_classe" value="<%= acessarClasse.id_classe %>">
+    
+                        <div class="container">
+                            <div class="form-control" style="border: none;">
+                                <p>Deseja mesmo excluir esta classe?</p>
+                            </div>
+                        </div>
+    
+                        <div class="container">
+                            <div class="feedbackExcluir">
+                                <p></p>
+                            </div>
+                        </div>
+                        <br>
+                        <!--Footer - buttons alterar-->
+                        <div class="modal-footer">
+                            <button type="submit" class="btn-modal-excluir"> Excluir </button>
+                        </div>
+                    </form>
+    
+                </div>
+            </div>
+        </div>
+        <%}%>
+
+
+
+
+
+
+
     </main>
     <script src="/javascripts/dist/profScript/profRecadoApagar.js"></script>
     <!-- Importando Jquery -->

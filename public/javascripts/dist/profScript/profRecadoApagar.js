@@ -1,20 +1,21 @@
-function selector (id){ 
-    return document.getElementsByClassName(id)
- };
+/* Excluir recado */
 
-const apagarRecados = selector("card p-3")
+let formExcluir = document.getElementsByClassName("formExcluir");
 
+let feedExcluir = document.getElementsByClassName("feedbackExcluir");
 
-for (let i =0; apagarRecados.length >= i;i++){
+for(let i = 0; i < formExcluir.length; i++){
 
-    apagarRecados[i].addEventListener("submit",function(evt){
-        evt.preventDefault()
-        var r = confirm("Tem certeça!");
-        if (r == true) {
-            alert ("Você elimino seu Recado");
-            apagarRecados[i].submit();
-                 } else {
-                 }
-        
-         })}
-     
+    formExcluir[i].addEventListener("submit", evt => {
+    
+        evt.preventDefault();
+    
+    feedExcluir[i].innerText = "Recado excluído com sucesso!"
+
+    setTimeout(()=>{
+        feedExcluir[i].style.display = "none";
+    }, 5000);
+
+    formExcluir[i].submit();
+    
+    })}
