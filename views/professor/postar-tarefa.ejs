@@ -40,14 +40,15 @@
                         <h3 class="mb-5 form-tarefa-titulo">Postar tarefa</h3>
 
 
-                        <form action="/professor/postar" method="POST" enctype="multipart/form-data" id="">
+                        <form action="/professor/postar" method="POST" enctype="multipart/form-data" id="formCriar">
 
                             <!--Titulo-->
                             <div class="form-row justify-content-center">
                                 <div class="col-10">
                                     <input type="hidden" name="id_classe" value="<%= acessarClasse.id %>"
                                         class="form-control">
-                                    <input type="text" name="tituloTarefa" class="form-control" placeholder="Título">
+                                    <input type="text" name="tituloTarefa" class="form-control" placeholder="Título"
+                                        id="tituloCriar">
                                 </div>
                             </div>
                             <br>
@@ -56,7 +57,7 @@
                             <div class="form-row justify-content-center">
                                 <div class="col-10">
                                     <input type="text" name="descricaoTarefa" class="form-control"
-                                        placeholder="Descrição">
+                                        placeholder="Descrição" id="descricaoCriar">
                                 </div>
                             </div>
                             <br>
@@ -71,9 +72,26 @@
                                     <div class="invalid-feedback">Arquivo inválido</div>
                                 </div>
                             </div>
+                            <br>
 
-                            <button type="submit" class="btn-enviar-tarefa">Enviar</button>
+                            <!--Data e botão-->
+                            <div class="form-row justify-content">
+                                <div class="custom-file col-3 ">
+                                    <input type="text" class="form-control" name="data_entrega" id="dataCriar"
+                                        placeholder="DD/MM/AAAA">
+                                </div>
+                                <div class="custom-file col-2">
+                                    <button type="submit" class="btn-enviar-tarefa">Enviar</button>
+                                </div>
+                            </div>
+                            <br>
 
+                            <div class="row justify-content-center">
+                                <div class="col-6">
+                                    <p id="feedbackCriar"></p>
+                                    <p id="feedbackSucesso"></p>
+                                </div>
+                            </div>
 
                         </form>
 
@@ -95,13 +113,14 @@
                     <div class="offset-1 col-10 sombra p-5 mb-5 bg-white rounded formulário-tarefa">
 
                         <!--Título-->
-                        <h3 class="mb-5 form-tarefa-titulo">Editando tarefa</h3>
+                        <h3 class="mb-5 form-tarefa-titulo">Editar tarefa</h3>
 
                         <table class="table">
                             <thead>
                                 <tr>
                                     <th scope="col">Título</th>
                                     <th scope="col">Descrição</th>
+                                    <th scope="col">Entrega</th>
                                     <th scope="col">Arquivo</th>
                                     <th scope="col">Editar</th>
                                     <th scope="col">Excluir</th>
@@ -118,31 +137,31 @@
                                         <%= post.descricao %>
                                     </td>
                                     <td>
+                                        <div id="data_formatada"><%= post.data_entrega %></div>
+                                    </td>
+                                    <td>
                                         <%= post.arquivo %>
                                     </td>
-
                                     <td class="Editar">
-                                        <button class="button-delete" title="Settings" style="color:blue"
-                                            data-toggle="modal" data-target="#siteModal<%= post.id %>">
-                                            <i class="material-icons">&#xE8B8;</i>
+                                        <button class="icons-tabela" title="Settings" data-toggle="modal"
+                                            data-target="#siteModal<%= post.id %>" style="color: #23238E;">
+                                            <span class="material-icons">
+                                                edit
+                                            </span>
                                         </button>
                                     </td>
                                     <td class="Excluir">
-                                        <form action="/professor/delete" method="POST">
-                                            <input type="hidden" name="id" value="<%= post.id %>">
-                                            <input type="hidden" name="id_classe" value="<%= post.classe.id %>">
-                                            <button type="submit" class="button-delete"
-                                                onclick="return confirm('Deseja mesmo excluir a tarefa?')"
-                                                style="color: red;">
-                                                <i class="material-icons">&#xE5C9;</i>
-                                            </button>
-                                        </form>
+                                        <button class="icons-tabela" title="Settings" data-toggle="modal"
+                                            data-target="#excluirModal<%= post.id %>" style="color: red;">
+                                            <span class="material-icons">
+                                                delete_forever
+                                            </span>
+                                        </button>
                                     </td>
                                 </tr>
 
                                 <% });%>
                             </tbody>
-
 
                         </table>
 
@@ -154,43 +173,100 @@
         </section>
     </main>
 
-    <% posts.forEach(post => { %>
     <!-- Modal editar tarefa  -->
+    <% posts.forEach(post => { %>
     <div id="siteModal<%= post.id %>" class="modal fade" tabindex="-1">
         <div class="modal-dialog">
             <div class="modal-content">
 
                 <!--Header - titulo-->
                 <div class="modal-header">
-                    <h4 class="modal-title">Editar informações</h4>
+                    <h4 class="modal-title">Editar tarefa</h4>
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
                         <bold>&times;</bold>
                     </button>
                 </div>
 
                 <!--Form modal-->
-                <form action="/professor/editar" method="POST">
+                <form action="/professor/editar" method="POST" id="formEditar" class="formEditar">
                     <!--Body -->
                     <div class="modal-body">
-                        <!--ID-->
+                        <!--ID - hidden -->
                         <div class="form-group">
                             <input type="hidden" name="id_tarefa" value="<%= post.id %>" class="form-control">
                             <input type="hidden" name="id_classe" value="<%= post.classe.id %>" class="form-control">
                         </div>
                         <!--título-->
                         <div class="form-group">
-                            <label for="modal-alunos" class="texto"> Título </label>
-                            <input type="text" value="<%= post.titulo %>" class="form-control" id="modal-alunos" name="titulo" placeholder="Título">
+                            <input type="text" value="<%= post.titulo %>" class="form-control modalTarefaTitulo"
+                                id="modal-alunos" name="titulo" placeholder="Título" id="tituloEditar">
                         </div>
                         <!--descricao-->
                         <div class="form-group">
-                            <label for="modal-periodo" class="texto"> Descrição </label>
-                            <textarea class="form-control" rows="6" id="modal-periodo" name="descricao" placeholder="Descrição"> <%= post.descricao %> </textarea>
+                            <textarea class="form-control modalTarefaDesc" rows="6" name="descricao"
+                                placeholder="Descrição" id="descricaoEditar"><%= post.descricao %></textarea>
                         </div>
                     </div>
+
+                    <div class="form-group">
+                        <div class="custom-file col-8 ">
+                            <input type="text" class="form-control modalTarefaData" name="data_entrega" id="dataEditar"
+                                 placeholder="DD/MM/AAAA" style="margin-left: 15px;"
+                                value="<%= post.data_entrega %>">
+                        </div>
+                    </div>
+
+                    <div class="row justify-content-center">
+                        <div class="col-10">
+                            <p id="feedbackEditar" class="feedbackEditar"></p>
+                            <p id="feedbackEditSucesso" class="feedbackEditSucesso"></p>
+                        </div>
+                    </div>
+
                     <!--Footer - buttons alterar-->
                     <div class="modal-footer">
                         <button class="btn-modal-enviar" type="submit">Editar</button>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+    <% });%>
+
+    <!-- Modal excluir tarefa  -->
+    <% posts.forEach(excluir => { %>
+    <div id="excluirModal<%= excluir.id %>" class="modal fade" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <!--Header - titulo-->
+                <div class="modal-header">
+                    <h4 class="modal-title">Excluir tarefa</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                        <bold>&times;</bold>
+                    </button>
+                </div>
+
+                <form action="/professor/delete" method="POST" class="formExcluir">
+                    <input type="hidden" name="id" value="<%= excluir.id %>">
+                    <input type="hidden" name="id_classe" value="<%= excluir.classe.id %>">
+
+                    <div class="container">
+                        <div class="form-control" style="border: none;">
+                            <p>Deseja mesmo excluir esta classe?</p>
+                        </div>
+                    </div>
+
+                    <div class="container">
+                        <div class="feedbackExcluir">
+                            <p></p>
+                        </div>
+                    </div>
+                    <br>
+                    <!--Footer - buttons alterar-->
+                    <div class="modal-footer">
+                        <button type="submit" class="btn-modal-excluir"> Excluir </button>
                     </div>
                 </form>
 
@@ -204,7 +280,9 @@
     <!-- Importando Bootstrap JS -->
     <script type="text/javascript" src="/vendor/bootstrap.bundle.min.js"></script>
     <script type="text/javascript" src="/javascripts/src/actions/logout.js"></script>
-
+    <!-- JS externo -->
+    <script src="/javascripts/dist/professor-tarefa.js"></script>
+    <script type="text/javascript" src="/javascripts/dist/ProfessorAlterarDados.js"></script>
 </body>
 
 </html>

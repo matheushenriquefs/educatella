@@ -7,72 +7,72 @@ module.exports = {
       {
         id: 1,
         titulo: "Lista de Exercícios Estatística Aplicada!",
-        descricao: "Nessa primeira lista de exercícios de estatística vocês devem me enviar um arquivo PDF respondendo todas as perguntas que enviei a vocês, vocês tem uma semana, atrasos não serão permitidos!",
+        descricao: "Enviar um arquivo PDF respondendo a todas as perguntas que enviei, vocês têm uma semana, atrasos não serão permitidos!",
         id_classe: 1,
-        data_entrega: "2020-07-20 00:00:00",
+        data_entrega: "20/07/2020",
         createdAt: new Date().toISOString().slice(0, 19).replace('T', ' '),
         updatedAt: new Date().toISOString().slice(0, 19).replace('T', ' ')
       },
       {
         id: 2,
-        titulo: "Orientação de pesquisa Estatística",
-        descricao: "Nesse exercícios, vocês devem pesquisar sobre grandes nomes da estatística e trazer conceitos novos que vocês acharam interessante!",
+        titulo: "Orientação de pesquisa em Estatística",
+        descricao: "Pesquisar sobre os grandes nomes da estatística e trazer conceitos novos que vocês acharem interessantes!",
         id_classe: 1,
-        data_entrega: "2020-07-15 00:00:00",
+        data_entrega: "15/07/2020",
         createdAt: new Date().toISOString().slice(0, 19).replace('T', ' '),
         updatedAt: new Date().toISOString().slice(0, 19).replace('T', ' ')
       },
       {
         id: 3,
         titulo: "Lista de Exercícios Programação Avançada!",
-        descricao: "Nessa primeira lista de exercícios de programação vocês devem me enviar um arquivo PDF respondendo todas as perguntas que enviei a vocês, vocês tem uma semana, atrasos não serão permitidos!",
+        descricao: "Enviar um arquivo PDF respondendo a todas as perguntas que enviei, vocês têm uma semana, atrasos não serão permitidos!",
         id_classe: 2,
-        data_entrega: "2020-07-20 00:00:00",
+        data_entrega: "20/07/2020",
         createdAt: new Date().toISOString().slice(0, 19).replace('T', ' '),
         updatedAt: new Date().toISOString().slice(0, 19).replace('T', ' ')
       },
       {
         id: 4,
-        titulo: "Orientação de pesquisa programação",
-        descricao: "Nesse exercícios, vocês devem pesquisar sobre grandes nomes da programação e trazer conceitos novos que vocês acharam interessante!",
+        titulo: "Orientação de pesquisa em programação",
+        descricao: "Pesquisar sobre osgrandes nomes da programação e trazer conceitos novos que vocês acharem interessantes!",
         id_classe: 2,
-        data_entrega: "2020-07-10 00:00:00",
+        data_entrega: "20/07/2020",
         createdAt: new Date().toISOString().slice(0, 19).replace('T', ' '),
         updatedAt: new Date().toISOString().slice(0, 19).replace('T', ' ')
       },
       {
         id: 5,
         titulo: "Lista de Exercícios Banco de Dados!",
-        descricao: "Nessa primeira lista de exerícios de banco de dados vocês devem me enviar um arquivo PDF respondendo todas as perguntas que enviei a vocês, vocês tem uma semana, atrasos não serão permitidos!",
+        descricao: "Enviar um arquivo PDF respondendo a todas as perguntas que enviei a vocês, vocês têm uma semana, atrasos não serão permitidos!",
         id_classe: 3,
-        data_entrega: "2020-07-05 00:00:00",
+        data_entrega: "05/07/2020",
         createdAt: new Date().toISOString().slice(0, 19).replace('T', ' '),
         updatedAt: new Date().toISOString().slice(0, 19).replace('T', ' ')
       },
       {
         id: 6,
-        titulo: "Orientação de pesquisa banco de dados",
-        descricao: "Nesse exercícios, vocês devem pesquisar sobre grandes nomes em banco de dados e trazer conceitos novos que vocês acharam interessante!",
+        titulo: "Orientação de pesquisa em Banco de Dados",
+        descricao: "Pesquisar sobre os grandes nomes em banco de dados e trazer conceitos novos que vocês acharem interessante!",
         id_classe: 3,
-        data_entrega: "2020-07-20 00:00:00",
+        data_entrega: "20/07/2020",
         createdAt: new Date().toISOString().slice(0, 19).replace('T', ' '),
         updatedAt: new Date().toISOString().slice(0, 19).replace('T', ' ')
       },
       {
         id: 7,
         titulo: "Lista de Exercícios JavaScript Front!",
-        descricao: "Nessa primeira lista de exerícios de Javascript Front vocês devem me enviar um arquivo PDF respondendo todas as perguntas que enviei a vocês, vocês tem uma semana, atrasos não serão permitidos!",
+        descricao: "Enviar um arquivo PDF respondendo a todas as perguntas que enviei, vocês têm uma semana, atrasos não serão permitidos!",
         id_classe: 4,
-        data_entrega: "2020-07-15 00:00:00",
+        data_entrega: "15/07/2020",
         createdAt: new Date().toISOString().slice(0, 19).replace('T', ' '),
         updatedAt: new Date().toISOString().slice(0, 19).replace('T', ' ')
       },
       {
         id: 8,
-        titulo: "Orientação de pesquisa Javascript Front",
-        descricao: "Nesse exercícios, vocês devem pesquisar sobre grandes nomes em JavascriptFront e trazer conceitos novos que vocês acharam interessante!",
+        titulo: "Orientação de pesquisa em Javascript Front",
+        descricao: "Pesquisar sobre os grandes nomes em JavascriptFront e trazer conceitos novos que vocês acharem interessante!",
         id_classe: 4,
-        data_entrega: "2020-07-25 00:00:00",
+        data_entrega: "25/07/2020",
         createdAt: new Date().toISOString().slice(0, 19).replace('T', ' '),
         updatedAt: new Date().toISOString().slice(0, 19).replace('T', ' ')
       }

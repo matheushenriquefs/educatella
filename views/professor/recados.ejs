@@ -33,18 +33,18 @@
                     <div class="offset-1 col-8 sombra p-5 mb-5 bg-white rounded mural-recados">
 
                             <!--Título-->
-                            <h3><strong>Mural de recados</strong></h3>
+                            <h3 class="mural-titulo">Mural de recados</h3>
                           
                          
                                                      
                                  
                              
                                 <% for (acessarClasse of acessarClasse.recado) {%>
-                                
+                                   
                                 <div class="page-item" >
-                                <h6><img src="/images/recados.png" alt="icone recados" class="imagens-classe"> <%= acessarClasse.titulo %> </h6>
-                                <p> <%= acessarClasse.createdAt %>  </p>
-                                <p><%= acessarClasse.descricao %></p>
+                                <p class="mural-recados"><img src="/images/recados.png" alt="icone recados" class="imagens-classe"> <%= acessarClasse.titulo %> </p>
+                                <p class="mural-recados"> <%= acessarClasse.createdAt.toLocaleString('pt-BR') %>  </p>
+                                <p class="mural-recados"><%= acessarClasse.descricao %></p>
                                 </div>
                                <%}%>
                                 

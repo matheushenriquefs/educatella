@@ -21,7 +21,7 @@ let Tarefa = (sequelize, Datatypes) => {
                 allowNull: true
             },
             data_entrega:{
-                type: Datatypes.DATE, 
+                type: Datatypes.STRING, 
                 allowNull: false
             },
             id_classe:{

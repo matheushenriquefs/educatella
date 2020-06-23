@@ -37,10 +37,10 @@
                     <div class="row mb-4">
                         <div class="offset-1 col-10 shadow-sm">
                             <div class="row">
-                                <div class="col-3 informacao d-flex align-items-center">
+                                <div class="col-lg-3 col-md-12 col-sm-12 informacao d-flex align-items-center">
                                     <div class="container">
-                                        <!-- Data da Tarefa -->
-                                        <p class="texto-detalhes"> <%= tarefas.createdAt.toLocaleString('pt-BR') %> </p>
+                                        <input class="dataBanco" type="hidden" value="<%= tarefas.createdAt.toLocaleString('pt-BR') %>">
+                                        <p class="texto-detalhes data"> </p>
                                     </div>
                                 </div>
                                 <div class="offset-1 col-8">
@@ -50,7 +50,7 @@
                                             <p class="titulo"> <%= tarefas.titulo %>  </p>
                                         </div>
                                         <!-- Botão Leia Mais -->
-                                        <div class="col-3">
+                                        <div class="offset-sm-1 col-sm-2 col-3">
                                             <a href="" class="texto-link" data-toggle="modal" data-target="#modal-adicionar-classe<%= tarefas.id %>"> Leia Mais  </a>
                                         </div>
                                     </div>
@@ -76,30 +76,54 @@
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
-                    <form>
-                        <div class="modal-body">        
+                    <form class="formTarefa" action="/aluno/enviarTarefa" method="POST" enctype="multipart/form-data">
+                        <div class="modal-body">     
+                            <div class="row justify-content-center">
+                                <div class="col-12">
+                                    <input class="dataCriacaoBanco" type="hidden" value="<%=tarefas.createdAt%>"> 
+                                    <p class="dataCriacao texto"> </p>
+                                </div>
+                                <div class="col-12"> 
+                                    
+                                    <p class="dataEntrega texto"> Data de Entrega: <%=tarefas.data_entrega%> </p>
+                                </div>
+                            </div>
+
                             <div class="row justify-content-center">
                                 <div class="col-12"> 
                                     <p class="texto"> <%= tarefas.descricao %> </p>
                                 </div>
-                            </div>   
+                            </div>
                             
-                                <!--DIV Carregar tarefa-->
-                                <div class="form-row justify-content-center">
-                                    <!-- Carregar tarefa -->
-                                    <div class="form-group col-12 tarefa">
-                                        <div class="file-field">
-                                            <div class="btn btn-sm float-right">
-                                                <span>Clique</span>
-                                                <input type="file" class="sumir">
-                                            </div>
-                                            <div class="file-path-wrapper">
-                                                <input class="file-path-validate" type="text"
-                                                    placeholder="Carregue o arquivo aqui">
-                                            </div>
-                                        </div>
-                                    </div>
+                            <div class="row mb-5 justify-content-center">
+                                <div class="col-12"> 
+                                    <% if(tarefas.arquivo != null){ %>
+                                        <a class="texto-link" href="/uploads/<%=tarefas.arquivo%>" download="<%=tarefas.arquivo%>"> 
+                                            <img id="imagemDownload" src="/images/download.png"> <%=tarefas.arquivo%> 
+                                        </a> 
+                                    <% } %>
                                 </div>
+                            </div>
+
+                            <!--Arquivo-->
+                            <div class="form-row justify-content-center">
+                                <div class="custom-file col-10">
+                                    <input type="file" class="tarefaEnviada custom-file-input" accept="txt" id="validatedCustomFile"
+                                        name="arquivo">
+                                    <label class="custom-file-label" for="validatedCustomFile" id="file-label">Escolher
+                                        arquivo</label>
+                                    <div class="invalid-feedback">Arquivo inválido</div>
+                                </div>
+                            </div>
+
+                            <div class="row mt-3 justify-content-center">
+                                <div class="col-12 text-center"> 
+                                    <p class="feedbackTarefa"></p>
+                                </div>
+                            </div>
+
+                            <input type="hidden" value="<%=classe.id%>" name="idClasse">
+                            <input type="hidden" value="<%=tarefas.id%>" name="idTarefa">
                             
                         </div>
                         <div class="modal-footer">
@@ -113,9 +137,44 @@
  
     <% } %>
 
+    <section>
+
+        <!-- Modal Feedback Tarefa -->
+        <div class="modal fade" id="modal-feedback-tarefa" tabindex="-1" role="dialog" aria-labelledby="modal-adicionar-classe-titulo" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modal-adicionar-classe-titulo"> Aviso </h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+
+                    <div class="modal-body">        
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8"> 
+                                <div class="row">
+                                    <div class="col-12">
+                                        <input id="feedbackEnviarTarefa" type="hidden" value="<%= feedbackTarefa %>">
+                                        <p id="mensagemFeedbackEnviarTarefa" class="texto"> </p>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-danger" data-dismiss="modal"> Fechar </button>
+                                </div>
+                            </div>
+                        </div>            
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Importando Jquery -->
     <script type="text/javascript" src="/vendor/jquery.min.js"></script>
     <!-- Importando Bootstrap JS -->
     <script type="text/javascript" src="/vendor/bootstrap.bundle.min.js"></script>
     <script type="text/javascript" src="/javascripts/src/actions/logout.js"></script>
+    <script type="text/javascript" src="/javascripts/dist/AlunoTarefas.js"></script>
+    <script type="text/javascript" src="/javascripts/dist/AlunoAlterarDados.js"></script>
 </body>

@@ -33,7 +33,7 @@ h5{
 nav ul li a {
     font-size: 1.1rem;
     font: sans-serif bold;
-    color: black;
+    color: #595959;
     width: 100px;
     text-align: center;
     font-weight: 300px;
@@ -88,6 +88,7 @@ nav ul li a:hover {
     padding-top: 5%;
     font-family: 'Pangolin', cursive;
     font-size: 2rem;
+    color: #595959;
 }
 
 /* Imagem do Banner */
@@ -114,6 +115,7 @@ nav ul li a:hover {
 
 .button-header:hover {
     background-color: rgb(96, 195, 171);
+    text-decoration: none;
 }
 
 /* Primeira Section (Imagens e Textos) */
@@ -209,6 +211,28 @@ article {
     position: relative;
     left: 36.5%;
     top: 26.5%;
+}
+
+/* MODAIS */
+.modal-title{
+    font-family: 'Poppins', sans-serif;
+    color: #4AE894;
+}
+
+.modal-text{
+    font-family: 'Poppins', sans-serif;
+    color: #595959;
+    text-align: justify;
+    line-height: 25px;
+}
+
+.modal-header{
+    padding: 20px;
+    text-align: center;
+}
+
+.modal-body{
+    padding: 20px;
 }
 
 /* Media Querys Para Responsividade */

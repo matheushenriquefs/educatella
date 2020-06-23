@@ -33,27 +33,27 @@
                     <div class="offset-1 col-8 sombra p-5 mb-5 bg-white rounded mural-recados">
 
                             <!--Título-->
-                            <h3><strong>Editar Recados</strong></h3>
+                            <h3 class="mural-titulo-editar">Editar Recados</h3>
                           
                                 <% for (acessarClasse of acessarClasse.recado) {%>
                                 
                                
-                                    <form method="POST" action="/professor/editar-recado/<%=acessarClasse.id_recados%>" class="card p-3">
-                                        <div class="page-item" >
-                                            <h6><img src="/images/recados.png" alt="icone recados" class="imagens-classe"> <%= acessarClasse.titulo %> </h6>
-                                            <p><%= acessarClasse.descricao %></p>
-                                            <div class="form-row">
-                                                <div class="form-group col-10">
-                                                    <label class="texto"> Título </label> <br>
-                                                    <input type="text" id="titulo" name="titulo" value="<%= acessarClasse.titulo %>"  size="47"></input>
-                                                </div>
-                                                <div class="form-group col-10">
-                                                    <label class="texto"> Descrição </label> <br>
-                                                    <textarea  type="text" id="descricao" name="descricao" rows="5" cols="50"><%= acessarClasse.descricao %></textarea> <br>
-                                                    <button class="btn btn-outline-success" type="submit" rows="2" cols="50">Editar</button> 
-                                                </div>
+                                    <form id="editar-recado" method="POST" name="formEditar" action="/professor/editar-recado/<%=acessarClasse.id_recados%>" class="card p-3">
+                                        <div class="form-row justify-content-center">
+                                            <div class="col-10">
+                                                    <input type="text" class="titulo form-control" id="titulo" name="titulo" value="<%= acessarClasse.titulo %>"  size="47"></input>
                                             </div>
-                                        </div>                    
+                                        </div>
+                                        <br>
+                                        <div class="form-row justify-content-center">
+                                            <div class="col-10">   
+                                                    <textarea  type="text" class="descricao form-control" id="descricao" name="descricao" rows="5" cols="50"><%= acessarClasse.descricao %></textarea> <br>
+                                                    <button class="botão-editar" type="submit" rows="2" cols="50">Editar</button>
+                                            </div>
+                                        </div> 
+                                        <br>
+                                        <hr>
+                                                             
                                     </form>
                                 
                                <%}%>
@@ -69,6 +69,7 @@
         </section>
     </main>
 
+    <script src="/javascripts/dist/profScript/profRecadoEditar.js"></script>
     <!-- Importando Jquery -->
     <script type="text/javascript" src="/vendor/jquery.min.js"></script>
     <!-- Importando Bootstrap JS -->

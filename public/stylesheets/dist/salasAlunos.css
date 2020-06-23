@@ -11,18 +11,47 @@
     color: #4AE894;
 }
 
+#feedback{
+    font-family: 'Poppins', sans-serif;
+    color: red;
+    font-size:1rem;
+}
+
 /* Botão Pesquisar Salas */
 
 .botao {
     color: white;
     font-size: 1.1rem;
     border-radius: 15px;
+    border: none;
     padding: 10px 20px 10px 20px;
     background-color: #4AE894;
     font-family: 'Baloo Da 2', cursive;
 }
 
+.cursorText:hover{
+    cursor: text;
+}
+
 .botao:hover {
+    background-color: rgb(96, 195, 171);
+    text-decoration: none; 
+    color: white;
+}
+
+/* Botão criar classe */
+
+.botao-criar {
+    color: white;
+    font-size: 1.1rem;
+    border-radius: 15px;
+    border: none;
+    padding: 10px 20px 10px 20px;
+    background-color: #4AE894;
+    font-family: 'Baloo Da 2', cursive;
+}
+
+.botao-criar:hover {
     background-color: rgb(96, 195, 171);
     text-decoration: none; 
     color: white;
@@ -45,6 +74,26 @@
     text-decoration: none;
     color: white;
 }
+
+/* Alert modal criar classe */
+#feedbackCriar{
+    color:white;
+    background-color: #FF6A6A;
+    text-align: center;
+    border-radius: 15px;
+    font-family: 'Poppins', sans-serif;
+    font-size:1rem;
+}
+
+#feedbackSucesso{
+    color:white;
+    background-color:  #4AE894;
+    text-align: center;
+    border-radius: 15px;
+    font-family: 'Poppins', sans-serif;
+    font-size:1rem;
+}
+
 
 /* Nome do Professor */
 
@@ -78,51 +127,6 @@
     border-radius:50%;
 }
 
-/*Form criar classe*/
-.mb-5 .form-criar-classe{
-    font-family: 'Poppins', sans-serif;
-    color: #4AE894;
-    text-align: center;
-}
-
-.btn-criar-classe{
-    width: 60px;
-    height: 30px;
-    font-family: 'Poppins', sans-serif;
-    background-color: rgb(241, 109, 110);
-    border: none;
-    border-radius: 15px;
-    margin-top: -13px;
-    margin-left: 90px;
-    font-size: 16px;
-    color: white;
-}
-
-.btn-criar-classe:hover{
-    cursor: pointer;
-    background-color: rgb(241, 109, 110, 0.8);
-    color: white;
-}
-
-/* Formulário estilo */
-.form-control{
-    display: block;
-    width: 100%;
-    height: calc(1.5em + 0.75rem + 2px);
-    padding: 0.375rem 0.75rem;
-    font-size: 1rem;
-    font-weight: 400;
-    line-height: 1.5;
-    font-family: 'Poppins', sans-serif;
-    color: #495057;
-    background-color: #fff;
-    background-clip: padding-box;
-    border: 1px solid #ced4da;
-    border-radius: 0.25rem;
-    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-    cursor: pointer;
-}
-
 
 /* Tabela gerenciar classe */
 
@@ -146,17 +150,43 @@
     text-align: center;
 }
 
+/* Icones da tabela */
 .material-icons:hover{
     opacity: 0.8;  
 }
 
-.button-delete{
+.icons-tabela{
     background-color: white;
-    border: white;
+    border: none;
+    cursor: pointer;
+}
+
+.icons-tabela:hover{
+    border: none;
 }
 
 
-/* Modal ediatr classe */
+/* Formulário estilo */
+.form-control{
+    display: block;
+    width: 100%;
+    height: calc(1.5em + 0.75rem + 2px);
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    font-family: 'Poppins', sans-serif;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    cursor: pointer;
+}
+
+
+/* Modal criar classe */
 
 .modal-title{
     font-family: 'Poppins', sans-serif;
@@ -165,12 +195,7 @@
     color: #03c03c;
 }
 
-#modal-alunos, #modal-periodo, #modal-conteudo{
-    font-family: 'Poppins', sans-serif;
-    font-size: 16px;
-}
-
-.btn-modal-enviar{
+.btn-criar-classe-modal{
     font-family: 'Poppins', sans-serif;
     background-color:  #03c03c;
     border: 0.5px solid  #03c03c;
@@ -180,8 +205,72 @@
     color: white;
 }
 
+.btn-criar-classe-modal:hover{
+    opacity: 0.8;
+}
+
+
+/* Modal editar classe */
+
+.modal-title{
+    font-family: 'Poppins', sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    color: #03c03c;
+}
+
+.btn-modal-enviar{
+    font-family: 'Poppins', sans-serif;
+    background-color:  #03c03c;
+    border: 0.5px solid  #03c03c;
+    border-radius: 15px;
+    width: 80px;
+    height: 30px;
+    color: white; 
+} 
+
 .btn-modal-enviar:hover{
     opacity: 0.8;
+}
+
+#feedbackEditar{
+    color:white;
+    background-color: #FF6A6A;
+    text-align: center;
+    border-radius: 15px;
+    font-family: 'Poppins', sans-serif;
+    font-size:1rem;
+}
+
+#feedbackEditSucesso{
+    color:white;
+    background-color:  #4AE894;
+    text-align: center;
+    border-radius: 15px;
+    font-family: 'Poppins', sans-serif;
+    font-size:1rem;
+}
+
+
+/* Modal excluir */
+.btn-modal-excluir{
+    font-family: 'Poppins', sans-serif;
+    background-color:  red;
+    opacity: 0.7;
+    border: none;
+    border-radius: 15px;
+    width: 80px;
+    height: 30px;
+    color: white;
+}
+
+.feedbackExcluir{
+    color:white;
+    background-color:  #4AE894;
+    text-align: center;
+    border-radius: 15px;
+    font-family: 'Poppins', sans-serif;
+    font-size:1rem;
 }
 
 

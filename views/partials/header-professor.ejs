@@ -2,33 +2,39 @@
 <header>
     <div id="barra" class="container-fluid">
         <div class="row">
-            <!-- Tag que Engloba Toda a Barra de Navegação -->
-            <nav class="navbar navbar-expand-lg offset-1 col-11 navbar-fixed-top">
+            <div class="offset-1 col-5">
                 <!-- Icone (Margem Esquerda) -->
                 <a class="navbar-brand" href="../" alt="home">
                     <img src="../images/logo.png" alt="logo" id="logo-teste">
                 </a>
-                <!-- Barra de Navegação -->
-                <div class="navbar-collapse">
-                    <!-- (Margem Direita (Menu Dropdown), Login - Aluno, Professor)  -->
-                    <ul class="navbar-nav ml-auto">
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" alt="avatar">
-                                <div id="avatar">
-                                    <img src="/images/<%= usuario.imagem %>">
-                                </div>    
-                            </a>
-                            <div class="dropdown-menu" id="navDrop">
-                                <a class="dropdown-item" href="" data-toggle="modal" data-target="#modal-alterar-imagem"> Alterar Imagem </a>
-                                <a class="dropdown-item" href="" data-toggle="modal" data-target="#modal-alterar-nome"> Alterar Nome </a>
-                                <a class="dropdown-item" href="" data-toggle="modal" data-target="#modal-alterar-email"> Alterar E-mail </a>
-                                <a class="dropdown-item" href="" data-toggle="modal" data-target="#modal-alterar-senha"> Alterar Senha </a>
-                                <a id="logout" class="dropdown-item" href="../" alt="login-professor"> Sair </a>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-            </nav>
+            </div>
+
+            <div class="col-6">
+                <!-- Tag que Engloba Toda a Barra de Navegação -->
+                <nav class="navbar navbar-expand navbar-fixed-top">
+                    <!-- Barra de Navegação -->
+                    <div class="navbar-collapse">
+                        <!-- (Margem Direita (Menu Dropdown), Login - Aluno, Professor)  -->
+                        <ul class="navbar-nav ml-auto">
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" alt="avatar">
+                                    <div id="avatar">
+                                        <img src="/images/<%= usuario.imagem %>">
+                                    </div>    
+                                </a>
+                                <div class="dropdown-menu" id="navDrop">
+                                    <a class="dropdown-item" href="" data-toggle="modal" data-target="#modal-alterar-imagem"> Alterar Imagem </a>
+                                    <a class="dropdown-item" href="" data-toggle="modal" data-target="#modal-alterar-nome"> Alterar Nome </a>
+                                    <a class="dropdown-item" href="" data-toggle="modal" data-target="#modal-alterar-email"> Alterar E-mail </a>
+                                    <a class="dropdown-item" href="" data-toggle="modal" data-target="#modal-alterar-senha"> Alterar Senha </a>
+                                    <a id="logout" class="dropdown-item" href="../" alt="login-professor"> Sair </a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+            
         </div>
     </div>
 </header>
@@ -47,25 +53,21 @@
                 <div class="modal-body">        
                     <div class="row justify-content-center">
                         <div class="col-12"> 
-                            <form action="/professor/alterarImagem" method="POST" enctype="multipart/form-data">
+                            <form id="formAlterarImagem" action="/professor/alterarImagem" method="POST" enctype="multipart/form-data">
                                 <div class="form-group row">
                                     <div class="col-12">
-                                         <!--DIV Carregar tarefa-->
+                                        <!--Arquivo-->
                                         <div class="form-row justify-content-center">
-                                            <!-- Carregar tarefa -->
-                                            <div class="form-group col-12 tarefa">
-                                                <p class="texto"> Carregue sua imagem: </p>
-                                                <div class="file-field">
-                                                    <div class="btn btn-sm float-right">
-                                                        <span>Clique</span>
-                                                        <input type="file" class="sumir" name="img">
-                                                    </div>
-                                                    <div class="file-path-wrapper">
-                                                        <input class="file-path-validate" type="text"
-                                                            placeholder="Carregue o arquivo aqui">
-                                                    </div>
-                                                </div>
+                                            <div class="custom-file col-10">
+                                                <input id="alterarImagem" type="file" class="custom-file-input" accept="txt" id="validatedCustomFile"
+                                                    name="img">
+                                                <label class="custom-file-label" for="validatedCustomFile" id="file-label">Escolher
+                                                    arquivo</label>
+                                                <div class="invalid-feedback">Arquivo inválido</div>
                                             </div>
+                                        </div>
+                                        <div class="col-12 text-center mt-3">
+                                            <p id="feedbackAlterarImagem" class="feedback"> </p>
                                         </div>
                                     </div>
                                 </div>
@@ -95,13 +97,16 @@
 
                 <div class="modal-body">        
                     <div class="row justify-content-center">
-                        <div class="col-lg-8"> 
-                            <form action="/professor/alterarNome" method="POST">
+                        <div class="col-12"> 
+                            <form id="formAlterarNome" action="/professor/alterarNome" method="POST">
                                 <div class="form-group row">
                                     <label class="col-12 col-form-label">Digite um novo nome:</label>
                                     <div class="col-12">
-                                        <input type="text" class="form-control" value="<%= usuario.name %>" name="nome">
+                                        <input id="alterarNome" type="text" class="form-control" value="<%= usuario.name %>" name="nome">
                                     </div>
+                                </div>
+                                <div class="col-12 text-center mt-3">
+                                    <p id="feedbackAlterarNome" class="feedback"> </p>
                                 </div>
                                 <div class="modal-footer">
                                     <button type="submit" class="btn btn-success"> Alterar Nome </button>
@@ -129,19 +134,22 @@
 
                 <div class="modal-body">        
                     <div class="row justify-content-center">
-                        <div class="col-lg-8"> 
-                            <form action="/professor/alterarEmail" method="POST">
+                        <div class="col-12"> 
+                            <form id="formAlterarEmail" action="/professor/alterarEmail" method="POST">
                                 <div class="form-group row">
                                     <label class="col-12 col-form-label">Digite um novo e-mail:</label>
                                     <div class="col-12">
-                                        <input type="text" class="form-control" value="<%= usuario.email %>" name="email">
+                                        <input id="alterarEmail" type="text" class="form-control" value="<%= usuario.email %>" name="email">
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label class="col-12 col-form-label">Digite sua senha:</label>
                                     <div class="col-12">
-                                        <input type="password" class="form-control" name="senhaEmail">
+                                        <input id="alterarEmailSenha" type="password" class="form-control" name="senhaEmail">
                                     </div>
+                                </div>
+                                <div class="col-12 text-center mt-3">
+                                    <p id="feedbackAlterarEmail" class="feedback"> </p>
                                 </div>
                                 <div class="modal-footer">
                                     <button type="submit" class="btn btn-success"> Alterar E-mail </button>
@@ -169,19 +177,22 @@
 
                 <div class="modal-body">        
                     <div class="row justify-content-center">
-                        <div class="col-lg-8"> 
-                            <form action="/professor/alterarSenha" method="POST">
+                        <div class="col-12"> 
+                            <form id="formAlterarSenha" action="/professor/alterarSenha" method="POST">
                                 <div class="form-group row">
                                     <label class="col-12 col-form-label">Digite sua senha antiga:</label>
                                     <div class="col-12">
-                                        <input type="password" class="form-control" name="senhaAntiga">
+                                        <input id="alterarSenhaAntiga" type="password" class="form-control" name="senhaAntiga">
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label class="col-12 col-form-label">Digite sua nova senha:</label>
                                     <div class="col-12">
-                                        <input type="password" class="form-control" name="senhaNova">
+                                        <input id="alterarSenhaNova" type="password" class="form-control" name="senhaNova">
                                     </div>
+                                </div>
+                                <div class="col-12 text-center mt-3">
+                                    <p id="feedbackAlterarSenha" class="feedback"> </p>
                                 </div>
                                 <div class="modal-footer">
                                     <button type="submit" class="btn btn-success"> Alterar Senha </button>

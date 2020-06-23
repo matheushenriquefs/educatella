@@ -39,7 +39,7 @@
                                 <div class="col-8 text-center">
                                     <p class="body-text-titulo"> Tarefa </p>
                                     <% for(tarefa of tarefas){ %>
-                                    <p class="body-text"> <%= tarefa.titulo %> </p>
+                                        <p class="body-text"> <%= tarefa.titulo %> </p>
                                     <% } %>
                                 </div>
                                 <!-- Coluna das notas -->
@@ -47,11 +47,12 @@
                                     <p class="body-text-titulo"> Nota </p>
                                     <% for(tarefa of tarefas){ %>
                                         <% for(tarefaAluno of tarefa.tarefasAlunos){ %>
-                                            <% if(tarefaAluno.nota == null){ %>
-                                                <p class="body-text"> Tarefa Não Corrigida </p>
-                                            <% } else { %>
+                                            <% if(tarefaAluno.nota != null){ %>
                                                 <p class="body-text"> <%= tarefaAluno.nota %> </p>
                                             <% } %>
+                                        <% } %>
+                                        <% if(tarefa.tarefasAlunos.length == 0){ %>
+                                            <p class="body-text"> Tarefa não corrigida </p>
                                         <% } %>
                                     <% } %>
                                 </div>
@@ -68,4 +69,5 @@
     <!-- Importando Bootstrap JS -->
     <script type="text/javascript" src="/vendor/bootstrap.bundle.min.js"></script>
     <script type="text/javascript" src="/javascripts/src/actions/logout.js"></script>
+    <script type="text/javascript" src="/javascripts/dist/AlunoAlterarDados.js"></script>
 </body>

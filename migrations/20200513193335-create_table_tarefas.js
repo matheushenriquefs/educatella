@@ -22,7 +22,7 @@ module.exports = {
         allowNull: true
       },
       data_entrega:{
-        type: Sequelize.DATE, 
+        type: Sequelize.STRING, 
         allowNull: false
       },
       id_classe:{
