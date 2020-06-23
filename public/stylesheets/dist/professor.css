@@ -210,7 +210,23 @@ html {
     opacity: 0.8;
 }
 
+#feedAlerta{
+    color:white;
+    background-color: #FF6A6A;
+    text-align: center;
+    border-radius: 15px;
+    font-family: 'Poppins', sans-serif;
+    font-size:1rem;
+}
 
+#feedSucesso{
+    color:white;
+    background-color:  #4AE894;
+    text-align: center;
+    border-radius: 15px;
+    font-family: 'Poppins', sans-serif;
+    font-size:1rem;
+}
 
 
 

@@ -432,6 +432,17 @@ module.exports = {
             }
         );
     
+        const resultado = await Tarefa.create(
+            {
+                titulo: tituloTarefa,
+                descricao: descricaoTarefa,
+                arquivo: files[0].originalname,
+                data_entrega: data_entrega,
+                id_classe: id_classe
+            })
+            .catch(error => res.status(500).send(error));
+            
+
         let posts = await Tarefa.findAll({
             include: {
                 model: Classe,
@@ -442,16 +453,6 @@ module.exports = {
                 id_classe
             }
         })
-    
-        const resultado = await Tarefa.create(
-            {
-                titulo: tituloTarefa,
-                descricao: descricaoTarefa,
-                arquivo: files[0].originalname,
-                data_entrega: data_entrega,
-                id_classe: id_classe
-            })
-            .catch(error => res.status(500).send(error));
 
     
         let professor = await Professor.findOne({ where: { id_usuario: idUsuario } });
