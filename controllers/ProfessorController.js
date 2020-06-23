@@ -331,6 +331,7 @@ module.exports = {
         let usuario = req.usuario
         const idUsuario = req.usuario.id
         const id = req.params.id
+        feedbackNota = "inicio";
        
         let acessarClasse = await Classe.findByPk(id_classe,
                 {
@@ -348,6 +349,13 @@ module.exports = {
                     ]
                 }
             );
+
+        let aluno = await Aluno.findByPk(id, {
+           include:{
+               model: Usuario,
+               as: 'usuarioAluno'
+           } 
+        });
 
         let gerenciarDB = await Classe.findByPk(id_classe,{
             include:[{
@@ -381,15 +389,17 @@ module.exports = {
         for(let contador = 0; contador < tarefas.length; contador++){
             tarefas[contador].tarefasAlunos = tarefas[contador].tarefasAlunos.filter(verificaidAluno);
         }
-             
-        res.render('professor/gerenciar-nota-aluno',{gerenciarDB, usuario,acessarClasse,classeDb,tarefas});
+           
+        res.render('professor/gerenciar-nota-aluno',{gerenciarDB, usuario,acessarClasse,classeDb,tarefas, aluno, feedbackNota});
      
     },
     ponerNotaAluno : async (req,res)=>{
         
-        const { id_classe, nota } = req.body
+        const { id_classe, id_aluno, nota } = req.body
         let usuario = req.usuario
         let id = req.params.id
+        let classeDb = await Classe.findAll();
+        feedbackNota = "Você Aplicou a Nota com Sucesso!";
         
         let gerenciarDB = await Classe.findByPk(id_classe,{
 
@@ -419,6 +429,14 @@ module.exports = {
                 ]
             }
         );
+
+        let aluno = await Aluno.findByPk(id_aluno, {
+            include:{
+                model: Usuario,
+                as: 'usuarioAluno'
+            } 
+        });
+
         let tarefas = await Tarefa.findAll(
 			{
 				include:{
@@ -432,7 +450,7 @@ module.exports = {
 		);
 
 		function verificaidAluno(tarefaAluno){
-            return tarefaAluno.id_aluno == id;
+            return tarefaAluno.id_aluno == id_aluno;
         }
         
         for(let contador = 0; contador < tarefas.length; contador++){
@@ -449,7 +467,7 @@ module.exports = {
             });
        
  
-        res.render('professor/gerenciar-nota',{ usuario , acessarClasse,tarefas,gerenciarDB});
+        res.render('professor/gerenciar-nota-aluno',{gerenciarDB, usuario,acessarClasse,classeDb,tarefas, aluno, feedbackNota});
     },
 
     //Tarefas

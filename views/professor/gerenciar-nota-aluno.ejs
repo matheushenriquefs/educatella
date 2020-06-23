@@ -36,56 +36,95 @@
                 <!--Formulário-->
                 <div class="offset-1 col-8 sombra p-5 mb-5 bg-white rounded formulário-notas">
 
-                    <!--Título-->
-                    <h3 class="form-notas-titulo">Gerenciar notas dos Alunos</h3>
-                    
+                    <div class="container-fluid">
+                    <div class="row text-center p-3 mb-2">
+                        <div class="col-12">
+                            <img class="imagem-professor" src="/images/<%=aluno.usuarioAluno.imagem%>"> <p class="texto"> <%= aluno.usuarioAluno.nome %> </p>
+                        </div>
+                    </div>
+
+                    <div class="row p-3 mb-2">
+                        <div class="col-12">
+                            <p class="titulo"> Tarefas Enviadas Por <%= aluno.usuarioAluno.nome %>: </p>
+                        </div>
+                    </div>
+
                     <% for (tarefa of tarefas) {%>
                         <% for (tarefaAluno of tarefa.tarefasAlunos) {%>
+                            <div class="row p-3 mb-2">
+                                <div class="col-12">
 
-                    <div class="container-fluid">
-                    <div class="row p-3 mb-5">
-                        <div>
-                            <ul>
-                                <form method="POST" action="/professor/poner-nota-aluno/<%=tarefaAluno.id%>" class="card p-1" >
-                                    <input type="hidden" name="id_classe" value="<%=acessarClasse.id%>">
-                              <p> Aluno:<%= tarefaAluno.id_aluno%> </p>
-                              <p> idClasse:<%=tarefa.id_classe%> </p>
-                              <p>idTarefa:<%=tarefaAluno.id_tarefa%></p>
-                              <p> arquivo: <%=tarefa.arquivo%></p>
-                              <p> Tarefa: <%=tarefa.titulo%></p>
-                              <p> Descrição: <%=tarefa.descricao%> </p>
-                              <p> nota: <%=tarefaAluno.nota%> </p>
-                              <a href="/uploads/<%=tarefa.arquivo%>" download="/uploads/<%=tarefa.arquivo%>"> Download </a>
-                            </select> </p>
-                               <p class="font-weight-bold">nota: <select class="btn btn-primary" name="nota" id="nota">
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                    <option value="4">4</option>
-                                    <option value="5">5</option>
-                                    <option value="6">6</option>
-                                    <option value="7">7</option>
-                                    <option value="8">8</option>
-                                    <option value="9">9</option>
-                                    <option value="10">10</option>
-                                </select>   <button type="submit" class=" btn btn-outline-primary">Por Nota</button></p> 
-                                                               
-                                </ul>
-                            </form>
-                            
-                                                     </div>
-                           
+                                    <form method="POST" action="/professor/poner-nota-aluno/<%=tarefaAluno.id%>" class="card p-1" >
+                                        <input type="hidden" name="id_classe" value="<%=acessarClasse.id%>">
+                                        <input type="hidden" name="id_aluno" value="<%=tarefaAluno.id_aluno%>">
+                                        <p class="texto-subtitulo"> Tarefa: </p>
+                                        <p class="texto"> <%= tarefa.titulo%> </p>
+                                        <p class="texto-subtitulo"> Tarefa Enviada Pelo Aluno: </p>
+                                        <p class="texto"> 
+                                            <a class="texto-link" href="/uploads/<%=tarefaAluno.arquivo%>" download="<%=tarefaAluno.arquivo%>"> 
+                                                <img id="imagemDownload" src="/images/download.png"> <%=tarefaAluno.arquivo%> 
+                                            </a> 
+                                        </p>
+    
+                                            <p class="texto-subtitulo"> Nota: </p>
+                                            <p>
+                                                <select class="btn btn-success" name="nota" id="nota">
+                                                    <option value="1">1</option>
+                                                    <option value="2">2</option>
+                                                    <option value="3">3</option>
+                                                    <option value="4">4</option>
+                                                    <option value="5">5</option>
+                                                    <option value="6">6</option>
+                                                    <option value="7">7</option>
+                                                    <option value="8">8</option>
+                                                    <option value="9">9</option>
+                                                    <option value="10">10</option>
+                                                </select>   
+                                            <button type="submit" class="btn btn-success"> Aplicar </button>
+                                            </p> 
+                                    </form>
+                                </div>
                             </div>
-               
                         <%}%>
                     <%}%>
-                   
                 </div>
-
             </div>
         </div>
-
     </section>
+
+    <section>
+
+        <!-- Modal Feedback Classe -->
+        <div class="modal fade" id="modal-feedback-nota" tabindex="-1" role="dialog" aria-labelledby="modal-adicionar-classe-titulo" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modal-adicionar-classe-titulo"> Aviso </h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+
+                    <div class="modal-body">        
+                        <div class="row justify-content-center">
+                            <div class="col-12"> 
+                                <div class="row">
+                                    <div class="col-12">
+                                        <input id="feedbackNota" type="hidden" value="<%= feedbackNota %>">
+                                        <p id="mensagemFeedbackNota" class="texto"> </p>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-danger" data-dismiss="modal"> Fechar </button>
+                                </div>
+                            </div>
+                        </div>            
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
 </main>
 
 <!-- Importando Jquery -->
@@ -94,6 +133,7 @@
 <script type="text/javascript" src="/vendor/bootstrap.bundle.min.js"></script>
 <script type="text/javascript" src="/javascripts/src/main.js"></script>
 <script type="text/javascript" src="/javascripts/dist/ProfessorAlterarDados.js"></script>
+<script type="text/javascript" src="/javascripts/dist/ProfessorNota.js"></script>
 </body>
 
 </html>
