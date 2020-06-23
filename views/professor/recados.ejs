@@ -35,15 +35,12 @@
                             <!--Título-->
                             <h3 class="mural-titulo">Mural de recados</h3>
                           
-                         
-                                                     
-                                 
-                             
                                 <% for (acessarClasse of acessarClasse.recado) {%>
                                    
                                 <div class="page-item" >
                                 <p class="mural-recados"><img src="/images/recados.png" alt="icone recados" class="imagens-classe"> <%= acessarClasse.titulo %> </p>
-                                <p class="mural-recados"> <%= acessarClasse.createdAt.toLocaleString('pt-BR') %>  </p>
+                                <input type="hidden" class="mural-recados dataNaoTratada" value="<%= acessarClasse.createdAt.toLocaleString('pt-BR') %>"> 
+                                <p class="dataTratada mural-recados"> </p>
                                 <p class="mural-recados"><%= acessarClasse.descricao %></p>
                                 </div>
                                <%}%>
@@ -65,5 +62,6 @@
     <script type="text/javascript" src="/vendor/bootstrap.bundle.min.js"></script>
     <script type="text/javascript" src="/javascripts/src/actions/logout.js"></script>
     <script type="text/javascript" src="/javascripts/dist/ProfessorAlterarDados.js"></script>
+    <script type="text/javascript" src="/javascripts/dist/ProfessorRecado.js"></script>
 </body>
 </html>

@@ -55,18 +55,24 @@
 
                     <!-- Foto e descrição do professor e botão para acessar a Classe -->
 
+                    <% if(professor.classes.length == 0) { %>
+                        <div class="mb-5 col-12 text-center">
+                            <p class="texto"> Você ainda não possui classes! tente criar uma </p>
+                        </div>
+                    <% }  %>
+
                     <% professor.classes.forEach(classe => { %>
 
-                    <div class="mb-5 offset-1 col-3 text-center">
-                        <img class="imagem-padrao" src="/images/<%= usuario.imagem %>">
-                        <p class="texto"> <%= classe.nome %> </p>
-                        <p class="texto"> <%= classe.codigo %> </p>
-                        <form action="/professor/tarefa" method="POST">
-                            <input type="hidden" class="form-control" value="<%= classe.id %>" name="id_classe">
-                            <button type="submit" class="btn text-white botao"> Acessar Classe </button>
-                        </form>
-                    </div>
-
+                        <div class="mb-5 offset-1 col-3 text-center">
+                            <img class="imagem-padrao" src="/images/<%= usuario.imagem %>">
+                            <p class="texto"> <%= classe.nome %> </p>
+                            <p class="texto"> <%= classe.codigo %> </p>
+                            <form action="/professor/tarefa" method="POST">
+                                <input type="hidden" class="form-control" value="<%= classe.id %>" name="id_classe">
+                                <button type="submit" class="btn text-white botao"> Acessar Classe </button>
+                            </form>
+                        </div>
+              
                     <% }) %>
 
 
@@ -74,7 +80,7 @@
             </div>
         </section>
 
-
+        <% if(professor.classes.length != 0) { %>
         <!-- Section: tabela de edição de classe -->
         <section class="third-section">
 
@@ -138,6 +144,7 @@
             </div>
 
         </section>
+        <% } %>
 
     </main>
 
