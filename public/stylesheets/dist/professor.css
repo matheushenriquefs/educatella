@@ -570,6 +570,10 @@ html {
     border-radius: 0 0 3px 3px;
 }
 
+#imagemDownload{
+    width:1.5rem;
+}
+
 /* Título */
 .modal .modal-title {
     display: inline-block;
