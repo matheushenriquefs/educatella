@@ -1,5 +1,5 @@
 //Exportando o controller
-const { Aluno, Professor, Classe, Recado, Tarefa, Classe_Aluno, Usuario } = require("../models")
+const { Aluno, Professor, Classe, Recado, Tarefa, Classe_Aluno, Usuario,Tarefa_Aluno } = require("../models")
 const { check, validationResult } = require('express-validator');
 const { CustomValidation } = require("express-validator/src/context-items");
 
@@ -327,7 +327,8 @@ module.exports = {
         let classeDb = await Classe.findAll();
         let usuario = req.usuario
         const idUsuario = req.usuario.id
-        
+        const id = req.params.id
+       
         let acessarClasse = await Classe.findByPk(id_classe,
                 {
                 include: [
@@ -357,10 +358,34 @@ module.exports = {
             }]
 
         }).catch(err => { console.log(err) })
+
+        let tarefas = await Tarefa.findAll(
+			{
+				include:{
+					model: Tarefa_Aluno, 
+					as:'tarefasAlunos'
+				},
+				where: {
+					id_classe : id_classe
+				}
+			}
+		);
+
+		//percorre o array de tarefas
+		for(var contador = 0; contador < tarefas.length; contador++){
+			//percorre o array de tarefasAlunos
+			for(var contador2 = 0; contador2 < tarefas[contador].tarefasAlunos.length; contador2++){
+				//Se alguma tarefa não pertencer ao aluno, ela é removida
+				if(tarefas[contador].tarefasAlunos[contador2].id_aluno != id){
+					tarefas[contador].tarefasAlunos.splice(contador2, 1);
+				}
+			}
+		}
+
         
        
              
-        res.render('professor/gerenciar-nota-aluno',{gerenciarDB, usuario,acessarClasse,classeDb});
+        res.render('professor/gerenciar-nota-aluno',{gerenciarDB, usuario,acessarClasse,classeDb,tarefas});
      
     },
 
