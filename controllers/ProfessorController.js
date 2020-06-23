@@ -463,10 +463,6 @@ module.exports = {
                 id_classe
             }
         })
-<<<<<<< HEAD
-
-=======
->>>>>>> 6dc28e59109bd6751669ab852bc2e6e65616cfa3
     
         let professor = await Professor.findOne({ where: { id_usuario: idUsuario } });
     
