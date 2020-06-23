@@ -49,10 +49,12 @@
                                         <% for(tarefaAluno of tarefa.tarefasAlunos){ %>
                                             <% if(tarefaAluno.nota != null){ %>
                                                 <p class="body-text"> <%= tarefaAluno.nota %> </p>
+                                            <% } else {%>
+                                                <p class="body-text"> Tarefa Não Corrigida </p>
                                             <% } %>
                                         <% } %>
                                         <% if(tarefa.tarefasAlunos.length == 0){ %>
-                                            <p class="body-text"> Tarefa não corrigida </p>
+                                            <p class="body-text"> Tarefa Não Entregue </p>
                                         <% } %>
                                     <% } %>
                                 </div>
