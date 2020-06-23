@@ -59,7 +59,7 @@ module.exports = {
                     .then(user => models.Aluno.create({
                         id_usuario: user.id
                     }))
-                    .then(response => res.status(201))
+                    .then(response => res.redirect("/login"))
                     .catch(error => res.status(500).send(error));
                 });
             }
@@ -112,7 +112,7 @@ module.exports = {
                     .then(user => models.Professor.create({
                         id_usuario: user.id
                     }))
-                    .then(response => res.status(201))
+                    .then(response => res.redirect("/login"))
                     .catch(error => res.status(500).send(error));
                 });
             }
