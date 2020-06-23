@@ -91,7 +91,7 @@ for(let i = 0; i < formEditar.length; i++){
                 //opacity=0
             }, 3000);
             tituloA[i].focus();
-    
+     
         }else if (descricaoA[i].value == ""){
             feed[i].innerText = "O campo descrição deve ser preenchido!"
             setTimeout(()=>{
