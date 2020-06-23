@@ -10,7 +10,7 @@ formCriar.addEventListener("submit", evt => {
 
     evt.preventDefault();
 
-    let materia = document.getElementById("nomeCriar").value;
+    let materia = document.getElementById("nomeCriar").value;  
 
     let codigo = document.getElementById("codigoCriar").value;
 
@@ -35,7 +35,7 @@ formCriar.addEventListener("submit", evt => {
         setTimeout(()=>{
             feedbackJ.style.display = 'none';
             //opacity=0
-        }, 5000);
+        }, 3000);
         formCriar.submit()
     }
 
@@ -85,7 +85,7 @@ formEditar[i].addEventListener("submit", ev => {
             setTimeout(()=>{
                 feedSucesso[i].style.display = 'none';
                 //opacity=0
-            }, 5000);
+            }, 3000);
             formEditar[i].submit();
         }
     })
@@ -105,7 +105,7 @@ for(let i = 0; i < formExcluir.length; i++){
         ev.preventDefault();
 
         
-        feedExcluir[i].innerText = "Classe excluída!"
+        feedExcluir[i].innerText = "Classe excluída com sucesso!"
 
         setTimeout(()=>{
             feedExcluir[i].style.display = 'none';

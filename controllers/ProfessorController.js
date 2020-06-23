@@ -40,8 +40,6 @@ module.exports = {
             })
             .catch(error => res.status(500).send(error))
 
-        console.log(criar)
-
         return res.redirect('/professor/inicio')
 
     },
@@ -88,20 +86,23 @@ module.exports = {
                 }
             });
             
-        res.redirect('/professor/inicio');
+        res.redirect('/professor/inicio'); 
     },
 
     destroyClasse: async (req, res) => {
         
-        const { id } = req.params
+        const { id } = req.body;
+
+        console.log(id);
 
         const deletar = await Classe.destroy({
             where: {
                 id: id
             }
         })
+        console.log(deletar)
 
-        res.redirect('/professor/inicio');
+        res.redirect('/professor/inicio'); 
     },
 
 
@@ -224,7 +225,7 @@ module.exports = {
         //apagar Recados////////////////////////////////////////////////////////////////
     profRecadosApagar2: async (req, res) => {
         const id  = req.params.id
-    console.log(id)
+        console.log(id)
         const resultado = await Recado.destroy({
             where: {id_recados: id}
         })
@@ -247,7 +248,7 @@ module.exports = {
                         as: 'professor'
                     },
                     {
-                        model: Recado,
+                        model: Recado, 
                         as: 'recado'
                     }
                 ]
