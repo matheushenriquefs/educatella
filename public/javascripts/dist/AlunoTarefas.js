@@ -13,11 +13,21 @@ for(var i = 0; i < datasBanco.length; i++){
 let dataCriacaoBanco = document.getElementsByClassName('dataCriacaoBanco');
 // Recebe o local onde a data tratada será escrita
 let dataCriacao = document.getElementsByClassName('dataCriacao');
+let dataEntregaBanco = document.getElementsByClassName('dataEntregaBanco');
+let divEnviarTarefa = document.getElementsByClassName("divEnviarTarefa");
+let feedback = document.getElementsByClassName("feedbackTarefa");
 
 for(var i = 0; i < dataCriacaoBanco.length; i++){
 
+    //Recebe a data de entrega tratada
+    dataEntrega = tratarData(dataCriacaoBanco[i].value);
     //Escreve nos campos corretos do HTML a data tratada
-    dataCriacao[i].innerHTML = "Data da Tarefa: " + tratarData(dataCriacaoBanco[i].value);
+    dataCriacao[i].innerHTML = "Data da Tarefa: " + dataEntrega;
+    //Verifica se passou da data de entrega
+    if(!verificaDataEntrega(dataEntregaBanco[i].value)){
+        divEnviarTarefa[i].style.display = 'none';
+        feedback[i].innerText = "Essa Tarefa Já Expirou!";
+    }
 }
 
 //Função que trata a data, recebe como parâmetro a data não tratada e retorna a data com quebra de linha com a hora
@@ -50,10 +60,22 @@ function tratarData(data){
     return (dia) + '/' + (mes) + '/' + (ano);
 }
 
+//Função que verifica se a data atual é menor que a data de entrega, se for não permite que o aluno envie a tarefa
+function verificaDataEntrega(data){
+    let parts = data.split('/'); // separa a data pelo caracter '/'
+    let today = new Date();      // pega a data atual
+    
+    data = new Date(parts[2], parts[1] - 1, parts[0]); // formata 'date'
+    
+    // compara se a data informada é maior que a data atual
+    // e retorna true ou false
+    return data >= today ? true : false;
+}
+
 //Captura os elementos para tratar o campo de enviar tarefas
 let formEnviarTarefa = document.getElementsByClassName("formTarefa");
-let tarefaEnviada = document.getElementsByClassName("tarefaEnviada");
-let feedback = document.getElementsByClassName("feedbackTarefa");
+tarefaEnviada = document.getElementsByClassName("tarefaEnviada");
+feedback = document.getElementsByClassName("feedbackTarefa");
 
 for(let i = 0; i < formEnviarTarefa.length; i++){
 

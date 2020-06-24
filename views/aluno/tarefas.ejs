@@ -84,7 +84,7 @@
                                     <p class="dataCriacao texto"> </p>
                                 </div>
                                 <div class="col-12"> 
-                                    
+                                    <input class="dataEntregaBanco" type="hidden" value="<%=tarefas.data_entrega%>">
                                     <p class="dataEntrega texto"> Data de Entrega: <%=tarefas.data_entrega%> </p>
                                 </div>
                             </div>
@@ -106,7 +106,7 @@
                             </div>
 
                             <!--Arquivo-->
-                            <div class="form-row justify-content-center">
+                            <div class="divEnviarTarefa form-row justify-content-center">
                                 <div class="custom-file col-10">
                                     <input type="file" class="tarefaEnviada custom-file-input" accept="txt" id="validatedCustomFile"
                                         name="arquivo">
