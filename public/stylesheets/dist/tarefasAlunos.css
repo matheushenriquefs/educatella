@@ -15,9 +15,17 @@
     width:1.5rem;
 }
 
+.imagem-padrao{
+    width:6rem;
+    border-radius:50%;
+}
+
 .feedbackTarefa{
+    color:white;
+    background-color: #FF6A6A;
+    text-align: center;
+    border-radius: 15px;
     font-family: 'Poppins', sans-serif;
-    color: red;
     font-size:1rem;
 }
 
@@ -39,7 +47,7 @@
 .titulo-geral {
     font-family: 'Poppins', sans-serif;
     font-size:1.5rem;
-    color: black;
+    color: #4AE894;
 }
 
 /* Div que contém a Data da Atividade */
@@ -67,11 +75,6 @@
 .texto-link:hover{
     text-decoration: none;
     color:#4AE894;
-}
-
-.imagem-padrao{
-    width:7rem;
-    border-radius:50%;
 }
 
 /* Botão carregar arquivo */
@@ -181,6 +184,38 @@
 
 .imagens-classe{
     width:1.5rem;
+}
+
+.botao-fechar{
+    color: white;
+    font-size: 1.1rem;
+    border-radius: 15px;
+    border: none;
+    padding: 7.5px 15px 7.5px 15px;
+    background-color: #dc3545;
+    font-family: 'Baloo Da 2', cursive;
+}
+
+.botao-fechar:hover{
+    background-color: rgba(220,53,69, 0.5);
+    text-decoration: none; 
+    color: white;
+}
+
+.botao-enviar{
+    color: white;
+    font-size: 1.1rem;
+    border-radius: 15px;
+    border: none;
+    padding: 7.5px 10px 7.5px 10px;
+    background-color: #4AE894;
+    font-family: 'Baloo Da 2', cursive;
+}
+
+.botao-enviar:hover{
+    background-color: rgb(96, 195, 171);
+    text-decoration: none; 
+    color: white;
 }
 
 /* Media Querys Para Responsividade */
