@@ -32,14 +32,14 @@
                             <p class="titulo-geral"> Tarefas de <%= classe.nome %> </p>
                         </div>
                     </div>
-                    <% for (tarefas of classe.tarefa) {%>
+                    <% for (tarefa of tarefas) {%>
                     <!-- Linha de Tarefa -->
                     <div class="row mb-4">
                         <div class="offset-1 col-10 shadow-sm">
                             <div class="row">
                                 <div class="col-lg-3 col-md-12 col-sm-12 informacao d-flex align-items-center">
                                     <div class="container">
-                                        <input class="dataBanco" type="hidden" value="<%= tarefas.createdAt.toLocaleString('pt-BR') %>">
+                                        <input class="dataBanco" type="hidden" value="<%= tarefa.createdAt.toLocaleString('pt-BR') %>">
                                         <p class="texto-detalhes data"> </p>
                                     </div>
                                 </div>
@@ -47,11 +47,11 @@
                                     <div class="row">
                                         <!-- Texto da Tarefa -->
                                         <div class="col-9">
-                                            <p class="titulo"> <%= tarefas.titulo %>  </p>
+                                            <p class="titulo"> <%= tarefa.titulo %>  </p>
                                         </div>
                                         <!-- Botão Leia Mais -->
                                         <div class="offset-sm-1 col-sm-2 col-3">
-                                            <a href="" class="texto-link" data-toggle="modal" data-target="#modal-adicionar-classe<%= tarefas.id %>"> Leia Mais  </a>
+                                            <a href="" class="texto-link" data-toggle="modal" data-target="#modal-adicionar-classe<%= tarefa.id %>"> Leia Mais  </a>
                                         </div>
                                     </div>
                                 </div>
@@ -64,14 +64,13 @@
         </div>
     </main>
 
-    <% for (tarefas of classe.tarefa) { %>
-
+    <% for (tarefa of tarefas) { %>
         <!-- Modal Adicionar Classe -->
-        <div class="modal fade" id="modal-adicionar-classe<%= tarefas.id %>" tabindex="-1" role="dialog" aria-labelledby="modal-adicionar-classe-titulo" aria-hidden="true">
+        <div class="modal fade" id="modal-adicionar-classe<%= tarefa.id %>" tabindex="-1" role="dialog" aria-labelledby="modal-adicionar-classe-titulo" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="modal-adicionar-classe-titulo"> <%= tarefas.titulo %> </h5>
+                        <h5 class="modal-title" id="modal-adicionar-classe-titulo"> <%= tarefa.titulo %> </h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -80,26 +79,26 @@
                         <div class="modal-body">     
                             <div class="row justify-content-center">
                                 <div class="col-12">
-                                    <input class="dataCriacaoBanco" type="hidden" value="<%=tarefas.createdAt%>"> 
+                                    <input class="dataCriacaoBanco" type="hidden" value="<%=tarefa.createdAt%>"> 
                                     <p class="dataCriacao texto"> </p>
                                 </div>
                                 <div class="col-12"> 
-                                    <input class="dataEntregaBanco" type="hidden" value="<%=tarefas.data_entrega%>">
-                                    <p class="dataEntrega texto"> Data de Entrega: <%=tarefas.data_entrega%> </p>
+                                    <input class="dataEntregaBanco" type="hidden" value="<%=tarefa.data_entrega%>">
+                                    <p class="dataEntrega texto"> Data de Entrega: <%=tarefa.data_entrega%> </p>
                                 </div>
                             </div>
 
                             <div class="row justify-content-center">
                                 <div class="col-12"> 
-                                    <p class="texto"> <%= tarefas.descricao %> </p>
+                                    <p class="texto"> <%= tarefa.descricao %> </p>
                                 </div>
                             </div>
                             
-                            <div class="row mb-5 justify-content-center">
+                            <div class="row mb-2 justify-content-center">
                                 <div class="col-12"> 
-                                    <% if(tarefas.arquivo != null){ %>
-                                        <a class="texto-link" href="/uploads/<%=tarefas.arquivo%>" download="<%=tarefas.arquivo%>"> 
-                                            <img id="imagemDownload" src="/images/download.png"> <%=tarefas.arquivo%> 
+                                    <% if(tarefa.arquivo != null){ %>
+                                        <a class="texto-link" href="/uploads/<%=tarefa.arquivo%>" download="<%=tarefa.arquivo%>"> 
+                                            <img id="imagemDownload" src="/images/download.png"> <%=tarefa.arquivo%> 
                                         </a> 
                                     <% } %>
                                 </div>
@@ -122,8 +121,18 @@
                                 </div>
                             </div>
 
+                            <% if(tarefa.tarefasAlunos.length != 0){ %>
+
+                                <div class="row mb-2 justify-content-center">
+                                    <div class="col-12"> 
+                                        <p class="feedbackTarefa"> Você já enviou essa tarefa, se enviar novamente irá alterar a tarefa anterior </p>
+                                    </div>
+                                </div>
+
+                            <% } %>
+
                             <input type="hidden" value="<%=classe.id%>" name="idClasse">
-                            <input type="hidden" value="<%=tarefas.id%>" name="idTarefa">
+                            <input type="hidden" value="<%=tarefa.id%>" name="idTarefa">
                             
                         </div>
                         <div class="modal-footer">
@@ -134,7 +143,6 @@
                 </div>
             </div>
         </div>
- 
     <% } %>
 
     <section>

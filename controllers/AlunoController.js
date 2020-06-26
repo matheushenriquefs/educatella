@@ -72,6 +72,26 @@ module.exports = {
 
 		let aluno = await Aluno.findOne({where:{id_usuario:idUsuario}});
 
+		let tarefas = await Tarefa.findAll(
+			{
+				include:{
+					model: Tarefa_Aluno, 
+					as:'tarefasAlunos'
+				},
+				where: {
+					id_classe:idClasse
+				}
+			}
+		);
+
+		function verificaidAluno(tarefaAluno){
+            return tarefaAluno.id_aluno == aluno.id;
+        }
+        
+        for(let contador = 0; contador < tarefas.length; contador++){
+            tarefas[contador].tarefasAlunos = tarefas[contador].tarefasAlunos.filter(verificaidAluno);
+        }
+
 		let classesAluno = await Aluno.findByPk(aluno.id,
 			{
 				include:{
@@ -86,7 +106,7 @@ module.exports = {
 			}
 		)
 
-		res.render("aluno/tarefas", {classe, classes:classesAluno.classes, usuario: req.usuario, feedbackTarefa, feedbackAlterarDados});
+		res.render("aluno/tarefas", {classe, tarefas, classes:classesAluno.classes, usuario: req.usuario, feedbackTarefa, feedbackAlterarDados});
 	},
 
 	enviarTarefaAlunos: async (req, res) => {
@@ -96,16 +116,42 @@ module.exports = {
 		const idTarefa = req.body.idTarefa;
 		const { files } = req;
 		let feedbackAlterarDados = "inicio";
+		let feedbackTarefa = "inicio";
 
 		let aluno = await Aluno.findOne({where:{id_usuario:idUsuario}});
 
-		await Tarefa_Aluno.create({
-			id_tarefa: idTarefa,
-			id_aluno: aluno.id,
-			arquivo: files[0].originalname
+		let tarefaCriada = await Tarefa_Aluno.findOne({
+			where:{
+				id_tarefa: idTarefa,
+				id_aluno: aluno.id
+			}
 		});
 
-		let feedbackTarefa = "Tarefa enviada com sucesso!";
+		if(tarefaCriada == null){
+
+			await Tarefa_Aluno.create({
+				id_tarefa: idTarefa,
+				id_aluno: aluno.id,
+				arquivo: files[0].originalname
+			});
+	
+			feedbackTarefa = "Tarefa enviada com sucesso!";
+		}else{
+
+			await Tarefa_Aluno.update({
+				arquivo: files[0].originalname
+			}, 
+			{
+				where:{
+					id_tarefa: idTarefa,
+					id_aluno: aluno.id
+				}
+			});
+	
+			feedbackTarefa = "Tarefa editada com sucesso!";
+		}
+
+		
 		
 		let classe = await Classe.findByPk(idClasse,
 			{
@@ -123,6 +169,26 @@ module.exports = {
 			}
 		);
 
+		let tarefas = await Tarefa.findAll(
+			{
+				include:{
+					model: Tarefa_Aluno, 
+					as:'tarefasAlunos'
+				},
+				where: {
+					id_classe:idClasse
+				}
+			}
+		);
+
+		function verificaidAluno(tarefaAluno){
+            return tarefaAluno.id_aluno == aluno.id;
+        }
+        
+        for(let contador = 0; contador < tarefas.length; contador++){
+            tarefas[contador].tarefasAlunos = tarefas[contador].tarefasAlunos.filter(verificaidAluno);
+        }
+
 		let classesAluno = await Aluno.findByPk(aluno.id,
 			{
 				include:{
@@ -137,7 +203,7 @@ module.exports = {
 			}
 		)
 
-		res.render("aluno/tarefas", {classe, classes:classesAluno.classes, usuario: req.usuario, feedbackTarefa, feedbackAlterarDados});
+		res.render("aluno/tarefas", {classe, tarefas, classes:classesAluno.classes, usuario: req.usuario, feedbackTarefa, feedbackAlterarDados});
 
 	},
 
