@@ -12,8 +12,11 @@
 }
 
 #feedback{
+    color:white;
+    background-color: #FF6A6A;
+    text-align: center;
+    border-radius: 15px;
     font-family: 'Poppins', sans-serif;
-    color: red;
     font-size:1rem;
 }
 
