@@ -115,21 +115,18 @@
                                 </div>
                             </div>
 
-                            <div class="row mt-3 justify-content-center">
-                                <div class="col-8 text-center"> 
-                                    <p class="feedbackTarefa"></p>
-                                </div>
-                            </div>
-
+                            <% let mensagem = ""; %>
                             <% if(tarefa.tarefasAlunos.length != 0){ %>
 
-                                <div class="row mb-2 justify-content-center">
-                                    <div class="col-12"> 
-                                        <p class="feedbackTarefa"> Você já enviou essa tarefa, se enviar novamente irá alterar a tarefa anterior </p>
-                                    </div>
-                                </div>
+                                <% mensagem = "Você já enviou essa tarefa, se enviar novamente irá alterar a tarefa anterior"; %>
 
                             <% } %>
+
+                            <div class="row mt-3 justify-content-center">
+                                <div class="col-12 text-center"> 
+                                    <p class="feedbackTarefa"> <%= mensagem %></p>
+                                </div>
+                            </div>
 
                             <input type="hidden" value="<%=classe.id%>" name="idClasse">
                             <input type="hidden" value="<%=tarefa.id%>" name="idTarefa">

@@ -17,8 +17,8 @@ let dataEntregaBanco = document.getElementsByClassName('dataEntregaBanco');
 let divEnviarTarefa = document.getElementsByClassName("divEnviarTarefa");
 let feedback = document.getElementsByClassName("feedbackTarefa");
 let botaoEnviar = document.getElementsByClassName("botao-enviar-tarefa");
-
-for(var i = 0; i < dataCriacaoBanco.length; i++){
+console.log(dataEntregaBanco[2].value)
+for(let i = 0; i < dataEntregaBanco.length; i++){
 
     //Recebe a data de entrega tratada
     dataEntrega = tratarData(dataCriacaoBanco[i].value);
