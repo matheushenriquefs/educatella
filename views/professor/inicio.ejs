@@ -67,7 +67,7 @@
                             <img class="imagem-padrao" src="/images/<%= usuario.imagem %>">
                             <p class="texto"> <%= classe.nome %> </p>
                             <p class="texto"> <%= classe.codigo %> </p>
-                            <form action="/professor/tarefa" method="POST">
+                            <form action="/professor/recados" method='GET'>
                                 <input type="hidden" class="form-control" value="<%= classe.id %>" name="id_classe">
                                 <button type="submit" class="btn text-white botao"> Acessar Classe </button>
                             </form>
