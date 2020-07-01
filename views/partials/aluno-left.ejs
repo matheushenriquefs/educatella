@@ -62,10 +62,10 @@
 
                 <div class="modal-body">        
                     <div class="row justify-content-center">
-                        <div class="col-lg-8"> 
+                        <div class="col-11"> 
                             <form id="formSairClasse" action="/aluno/excluirClasse" method="POST">
                                 <div class="form-group row">
-                                    <div class="col-12">
+                                    <div class="col-8">
                                         <p class="texto"> <%= classe.nome %> </p> <br>
                                         <p class="texto"> Código: <%= classe.codigo %> </p> <br>
                                         <input type="hidden" class="form-control" value="<%= classe.id %>" name="idClasse">
@@ -94,8 +94,8 @@
                     </button>
                 </div>
                 <div class="modal-body">        
-                    <div class="row justify-content-center">
-                        <div class="col-lg-8"> 
+                    <div class="row text-center justify-content-center">
+                        <div class="col-12"> 
                             <p class="texto"> Você tem certeza que deseja sair da classe? </p>
                         </div>
                     </div>            
