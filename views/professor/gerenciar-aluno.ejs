@@ -35,63 +35,27 @@
               <!-- Conteúdo -->
               <div class="offset-1 col-8 sombra p-5 mb-5 bg-white rounded">
 
-                  <!--Título-->
-                  <h3 class="mb-5 gerenciar-aluno-titulo">Regras para exclusão de aluno</h3>
-                  <p class="regrasExcluir">Término do curso</p>
-                  <p class="regrasExcluir">Solicitação dos mesmos, de seus pais ou responsáveis</p>
-                  <p class="regrasExcluir">Conduta inapropriada ou em desacordo com à Lei</p>
+                <div class="row">
+                    <div class="mb-3 offset-2 col-8 text-center">
+                        <h3 class="mb-3 gerenciar-aluno-titulo">Excluir aluno</h3>
+                    </div>
+                    <% for (gerenciarDB.aluno of gerenciarDB.aluno ) {%>
+                        <form action="/professor/gerenciar-aluno/<%=gerenciarDB.aluno.id%>" class="card p-3 form-excluir-aluno" method="post" id="config">
+                            <input type="hidden" name="id_classe" value="<%=gerenciarDB.id%>">
+                            <div class="mb-3 offset-2 col-8 text-center">
+                                <img class="imagem-professor" src="/images/<%=gerenciarDB.aluno.usuarioAluno.imagem%>">
+                                <p class="texto"><%=gerenciarDB.aluno.usuarioAluno.nome%></p>
+                                <p class="texto"> <%=gerenciarDB.nome%> </p>
+                                <button type="submit" class="btn-modal-excluir">Excluir</button>
+                            </div>
+                        </form>
+                    <%}%>
+                </div>
+
               </div>
 
           </div>
       </div>
-
-  </section>
-
-  <!-- Quadro de exclusão de alunos -->
-  <section class="second-section">
-
-    <div class="container-fluid">
-        <div class="row">
-
-            <!--Tabela-->
-            <div class="offset-1 col-10 sombra p-5 mb-5 bg-white rounded formulário-tarefa">
-
-          <!--Scroll-->
-         
-          <nav aria-label="Page navigation example">
-            <ul class="pagination">
-                <% for (let nrPagina=1 ; nrPagina <= totalPagina ; nrPagina ++) { %>
-            
-            <li class="page-item"><a class="page-link" href="?page=<%=nrPagina%>"><%=nrPagina%></a></li>
-             
-             <%}%>
-             
-               
-            </ul>
-          </nav>
-
-          <div class="container-fluid">
-            <div class="row">
-              <div class="mb-3 offset-2 col-8 text-center">
-                <h3 class="mb-3 gerenciar-aluno-titulo">Excluir aluno</h3>
-              </div>
-              <% for (gerenciarDB.aluno of gerenciarDB.aluno ) {%>
-              <form action="/professor/gerenciar-aluno/<%=gerenciarDB.aluno.id%>" class="card p-3 form-excluir-aluno" method="post" id="config">
-                <input type="hidden" name="id_classe" value="<%=gerenciarDB.id%>">
-                <div class="mb-3 offset-2 col-8 text-center">
-                    <img class="imagem-professor" src="/images/<%=gerenciarDB.aluno.usuarioAluno.imagem%>">
-                    <p class="texto"><%=gerenciarDB.aluno.usuarioAluno.nome%></p>
-                    <p class="texto"> <%=gerenciarDB.nome%> </p>
-                    <button type="submit" class="btn-modal-excluir">Excluir</button>
-                </div>
-              </form>
-              <%}%>
-              </div>
-            </div>
-
-        </div>
-      </div>
-    </div>
 
   </section>
 

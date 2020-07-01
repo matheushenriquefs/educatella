@@ -77,7 +77,6 @@ let feedbackAlterarDados = document.getElementById("feedbackAlterarDados").value
 let mensagemFeedbackAlterarDados = document.getElementById("mensagemFeedbackAlterarDados");
 
 function alterarDadosFeedback(){
-    console.log(feedbackAlterarDados);
     if(feedbackAlterarDados != "inicio"){
         $('#modal-feedback-alterar-dados').modal('show');
         mensagemFeedbackAlterarDados.innerText = feedbackAlterarDados;

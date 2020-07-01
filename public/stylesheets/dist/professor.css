@@ -362,6 +362,10 @@ html {
     font-size:1rem;
 }
 
+.colunaLeft{
+    height:500px !important;
+}
+
 #feedbackSucesso{
     color:white;
     background-color:  #4AE894;
