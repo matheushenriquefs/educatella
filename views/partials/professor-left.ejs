@@ -15,48 +15,26 @@
             <nav id="menu-left">
                 <ul class="nav flex-column">
                     <!-- Recados -->
-                        <a class="texto-link nav-link dropdown-toggle" data-toggle="dropdown" href="" role="button"
-                            aria-haspopup="true" aria-expanded="false">
-                            <img class="imagens-classe" src="/images/recados.png" alt="icone recados"> <button class="botao-link" type="submit"> Recados </button>
-                        </a>
-                        <div class="dropdown-menu">
-                            
-                            <form action="/professor/recados" method="GET">
-                                <button class="botao-link dropdown-item" type="submit"> Recados </button>
-                                <input type="hidden" value="<%= acessarClasse.id %>" name="id_classe">
-                            </form>
-                            <form action="/professor/criar-recado" method="GET">
-                                <button class="botao-link dropdown-item" type="submit"> Criar Recados </button>
-                                <input type="hidden" value="<%= acessarClasse.id %>" name="id_classe">
-                            </form>
-                            <form action="/professor/apagar-recado"method="GET">
-                                <button class="botao-link dropdown-item" type="submit"> Apagar Recados </button>
-                                <input type="hidden" value="<%= acessarClasse.id %>" name="id_classe">
-                            </form>
-                            <form action="/professor/editar-recado" method="GET">
-                                <button class="botao-link dropdown-item" type="submit"> Editar Recados </button>
-                                <input type="hidden" value="<%= acessarClasse.id %>" name="id_classe">
-                            </form>
-                        </div>
-                        <p></p>
+                    <form action="/professor/recados"method="GET" style="margin-left: 16px; margin-top: 12px; margin-bottom: 25px;">
+                        <img class="imagens-classe" src="/images/recados.png" alt="icone recados"> <button class="botao-link" type="submit"> Recados </button>
+                        <input type="hidden" value="<%= acessarClasse.id %>" name="id_classe">
+                    </form>
                     <!-- Tarefa -->
                     <form action="/professor/tarefa" method="POST" style="margin-left: 16px; margin-top: -12px;">
                         <img class="imagens-classe" src="/images/tarefas.png"> <button class="botao-link" type="submit"> Tarefas </button>
                         <input type="hidden" value="<%= acessarClasse.id %>" name="id_classe">
                     </form>
-
-                    <!-- Gerenciar -->
+                    <!-- Notas -->
+                    <form action="/professor/gerenciar-nota" method="GET" style="margin-left: 16px; margin-top: 12px;">
+                        <img class="imagens-classe" src="/images/notas.png" alt="icone notas"> <button class="botao-link" type="submit"> Notas </button>
+                        <input type="hidden" value="<%= acessarClasse.id %>" name="id_classe">
+                    </form>
+                    <!-- Alunos -->
                     <form action="/professor/gerenciar-aluno" method="GET" style="margin-left: 16px; margin-top: 12px;">
-                        <img class="imagens-classe" src="/images/criar-icon.png" alt="icone notas"> <button class="botao-link" type="submit"> Gerenciar aluno </button>
+                        <img class="imagens-classe" src="/images/criar-icon.png" alt="icone notas"> <button class="botao-link" type="submit"> Alunos </button>
                         <input type="hidden" value="<%= acessarClasse.id %>" name="id_classe">
                     </form>
-                      <!-- Gerenciar Notas -->
-                      <form action="/professor/gerenciar-nota" method="GET" style="margin-left: 16px; margin-top: 12px;">
-                        <img class="imagens-classe" src="/images/notas.png" alt="icone notas"> <button class="botao-link" type="submit"> Gerenciar Notas </button>
-                        <input type="hidden" value="<%= acessarClasse.id %>" name="id_classe">
-                    </form>
-                        
-                    <!-- Salas -->
+                    <!-- Classes -->
                     <li class="nav-item">
                         <a class="texto-link nav-link" href="/professor/inicio">
                             <img src="/images/salas.png" alt="icone recados" class="imagens-classe"> Classes

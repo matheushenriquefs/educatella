@@ -17,43 +17,218 @@
 </head>
 
 <body>
-    <!-- Header da Página -->
-    <%- include('../partials/header-professor') %>
 
-    <main>
-        <!-- Section engolba nav-left + mural de recados-->
-        <section class="first-section">
-            <div class="container-fluid">
-                <div class="row">
-                    <!-- Nav left -->
-                    <%- include('../partials/professor-left') %>   
-
-                    <!--Mural de recados-->
-                  
-                    <div class="offset-1 col-8 sombra p-5 mb-5 bg-white rounded mural-recados">
-
+        <!-- Header da Página -->
+        <%- include('../partials/header-professor') %>
+    
+    
+        <main>
+    
+            <!-- Section engolba nav-left + form recado -->
+            <section class="first-section">
+    
+                <div class="container-fluid">
+                    <div class="row">
+    
+                        <!-- Nav left -->
+                        <%- include('../partials/professor-left') %>
+    
+                        <!--Formulário-->
+                        <div class="offset-1 col-8 sombra p-5 mb-5 bg-white rounded formulário-recado">
+    
                             <!--Título-->
-                            <h3 class="mural-titulo">Mural de recados</h3>
-                          
-                                <% for (acessarClasse of acessarClasse.recado) {%>
-                                   
-                                <div class="page-item" >
-                                <p class="mural-recados"><img src="/images/recados.png" alt="icone recados" class="imagens-classe"> <%= acessarClasse.titulo %> </p>
-                                <input type="hidden" class="mural-recados dataNaoTratada" value="<%= acessarClasse.createdAt.toLocaleString('pt-BR') %>"> 
-                                <p class="dataTratada mural-recados"> </p>
-                                <p class="mural-recados"><%= acessarClasse.descricao %></p>
+                            <h3 class="mb-5 form-tarefa-titulo">Criar Recado</h3>
+    
+    
+                            <form method="post" type="submit" action="/professor/criar-recado" id="criar-recado">
+    
+    
+    
+                                <!--  titulo, recado -->
+                                <div class="form-row justify-content-center">
+                                    <div class="col-10">
+                                        <input type="hidden" name="id_classe" value="<%=acessarClasse.id%>">
+                                        <input type="text" id="titulo" name="titulo" rows="1" cols="50" class="form-control"
+                                            placeholder="Título"></input>
+                                    </div>
                                 </div>
-                               <%}%>
-                                
-                            </ul>
-        
-                           
+                                <br> <br>
+                                <div class="form-row justify-content-center">
+                                    <div class="col-10">
+                                        <textarea type="text" id="descricao" name="descricao" rows="5" cols="50"
+                                            class="form-control" placeholder="Descrição"></textarea> <br> <br>
+                                        <button class="botão-enviar-recado" type="submit" rows="2" cols="50">Enviar</button>
+                                    </div>
+                                </div>
+                                <br>
+                                <div class="form-row justify-content-center">
+                                    <div class="col-6">
+                                        <p id="feedAlerta"></p>
+                                        <p id="feedSucesso"></p>
+                                    </div>
+                                </div>
+    
+    
+    
+    
+    
+                            </form>
+     
+                        </div>
+    
                     </div>
-                   
+                </div>
+    
+            </section>
+
+            <!-- Second section - tabela gerenciar recado -->
+            <section class="second-section">
+                <div class="container-fluid">
+                    <div class="row">
+    
+                        <!--Tabela-->
+                        <div class="offset-1 col-10 sombra p-5 mb-5 bg-white rounded formulário-tarefa">
+    
+                            <!--Título-->
+                            <h3 class="mb-5 form-tarefa-titulo">Gerenciar recado</h3>
+    
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Título</th>
+                                        <th scope="col">Descrição</th>
+                                        <th scope="col">Editar</th>
+                                        <th scope="col">Excluir</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+    
+                                    <% acessarClasse.recado.forEach(editar => { %>
+                                    <tr>
+                                        <td>
+                                            <%= editar.titulo %>
+                                        </td>
+                                        <td>
+                                            <%= editar.descricao %>
+                                        </td>
+                                        <td class="editar">
+                                            <a href="#" class="settings" title="Settings" data-toggle="modal"
+                                                data-target="#editModal<%= editar.id_recados %> %>" style="color: #23238E;">
+                                                <span class="material-icons">
+                                                    edit
+                                                </span>
+                                            </a>
+                                        </td>
+                                        <td class="excluir">
+                                            <button class="icons-tabela" title="Settings" data-toggle="modal"
+                                                data-target="#excluirModal<%= editar.id_recados %>" style="color: red;">
+                                                <span class="material-icons">
+                                                    delete_forever
+                                                </span>
+                                            </button>
+                                        </td>
+                                    </tr>
+    
+                                    <% });%>
+                                </tbody>
+    
+                            </table>
+    
+                        </div>
+    
+    
+                    </div>
+                </div>
+    
+            </section>
+
+            <!-- Modal editar recado  -->
+        <% acessarClasse.recado.forEach(editar => {%>
+            <div id="editModal<%= editar.id_recados %>" class="modal fade">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+    
+                        <!--Header - titulo-->
+                        <div class="modal-header">
+                            <h4 class="modal-title">Editar recado</h4>
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                                <bold>&times;</bold>
+                            </button>
+                        </div>
+                        <!--Form modal-->
+                        <form id="editar-recado" method="POST" name="formEditar"
+                            action="/professor/editar-recado/<%=editar.id_recados%>"
+                            class="card p-3 formEditarRecado">
+                            <div class="form-row justify-content-center">
+                                <div class="col-10">
+                                    <textarea type="text" class="form-control titulo" id="descricao" name="descricao"
+                                        rows="3" cols="50"><%= editar.titulo %></textarea>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="form-row justify-content-center">
+                                <div class="col-10">
+                                    <textarea type="text" class="form-control descricao" id="descricao" name="descricao"
+                                        rows="5" cols="50"><%= editar.descricao %></textarea> <br>
+                                    <button class="botão-editar" rows="2" cols="50" type="submit">Editar</button>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="form-row justify-content-center">
+                                <div class="col-6">
+                                    <p class="feedbackAlert"></p>
+                                    <p class="feedbackSucesso"></p> 
+                                </div>
+                            </div>
+                        </form>
+    
+                    </div>
                 </div>
             </div>
+            <%})%> 
 
-        </section>
+            <!-- Modal excluir recado  -->
+        <% acessarClasse.recado.forEach(editar => {%>
+            <div id="excluirModal<%= editar.id_recados %>" class="modal fade">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+    
+                        <div class="modal-header">
+                            <h4 class="modal-title">Excluir recado</h4>
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                                <bold>&times;</bold>
+                            </button>
+                        </div>
+        
+                        <form form action="/professor/apagar-recado/<%=editar.id_recados%>" 
+                            method="POST" class="formExcluir">
+
+                            <input type="hidden" name="id_recados" value="<%= editar.id_recados %>">
+                        <input type="hidden" name="id_classe" value="<%= editar.id_classe %>">
+        
+                            <div class="container">
+                                <div class="form-control" style="border: none;">
+                                    <p>Deseja mesmo excluir este recado?</p>
+                                </div>
+                            </div>
+        
+                            <div class="container">
+                                <div class="feedbackExcluir">
+                                    <p></p>
+                                </div>
+                            </div>
+                            <br>
+                            <!--Footer - buttons alterar-->
+                            <div class="modal-footer">
+                                <button type="submit" class="botão-editar"> Excluir </button>
+                            </div>
+                        </form>
+    
+                    </div>
+                </div>
+            </div>
+            <%})%> 
+
     </main>
 
     <!-- Importando Jquery -->
@@ -63,5 +238,8 @@
     <script type="text/javascript" src="/javascripts/src/actions/logout.js"></script>
     <script type="text/javascript" src="/javascripts/dist/ProfessorAlterarDados.js"></script>
     <script type="text/javascript" src="/javascripts/dist/ProfessorRecado.js"></script>
+    <script type="text/javascript" src="/javascripts/dist/profScript/profRecadoCriar.js"></script>
+    <script type="text/javascript" src="/javascripts/dist/profScript/profRecadoEditar.js"></script>
+    <script type="text/javascript" src="/javascripts/dist/profScript/profRecadoApagar.js"></script>
 </body>
 </html>

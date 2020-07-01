@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="/node_modules/@fortawesome/fontawesome-free/css/all.css">
 </head>
 
-<body>
+<body> 
 
     <!-- Header da Página -->
     <%- include('../partials/header-professor') %>
@@ -67,7 +67,7 @@
                                 <div class="custom-file col-10">
                                     <input type="file" class="custom-file-input" accept="txt" id="validatedCustomFile"
                                         name="arquivo">
-                                    <label class="custom-file-label" for="validatedCustomFile" id="file-label">Escolher
+                                    <label class="custom-file-label botaoArquivo" for="validatedCustomFile" id="file-label">Escolher
                                         arquivo</label>
                                     <div class="invalid-feedback">Arquivo inválido</div>
                                 </div>
@@ -122,6 +122,7 @@
                                     <th scope="col">Descrição</th>
                                     <th scope="col">Entrega</th>
                                     <th scope="col">Arquivo</th>
+                                    <th scope="col">Avaliar</th>
                                     <th scope="col">Editar</th>
                                     <th scope="col">Excluir</th>
                                 </tr>
@@ -141,6 +142,13 @@
                                     </td>
                                     <td>
                                         <%= post.arquivo %>
+                                    </td>
+                                    <td class="Editar">
+                                        <button class="icons-tabela" title="Settings" style="color: yellowgreen;">
+                                            <span class="material-icons">
+                                                spellcheck
+                                                </span>
+                                        </button>
                                     </td>
                                     <td class="Editar">
                                         <button class="icons-tabela" title="Settings" data-toggle="modal"

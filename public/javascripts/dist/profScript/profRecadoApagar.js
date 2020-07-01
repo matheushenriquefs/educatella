@@ -16,6 +16,6 @@ for(let i = 0; i < formExcluir.length; i++){
         feedExcluir[i].style.display = "none";
     }, 5000);
 
-    formExcluir[i].submit();
+    formExcluir[i].submit(); 
     
     })}
