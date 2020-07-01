@@ -22,8 +22,11 @@ nav ul li a:hover {
 }
 
 .feedback{
+    color:white;
+    background-color: #FF6A6A;
+    text-align: center;
+    border-radius: 15px;
     font-family: 'Poppins', sans-serif;
-    color: red;
     font-size:1rem;
 }
 
@@ -158,4 +161,62 @@ nav ul li a:hover {
 #barra{
     box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.3);
     margin-bottom: 2rem;
+}
+
+.botao-fechar{
+    color: white;
+    font-size: 1.1rem;
+    border-radius: 15px;
+    border: none;
+    padding: 7.5px 15px 7.5px 15px;
+    background-color: #dc3545;
+    font-family: 'Baloo Da 2', cursive;
+}
+
+.botao-fechar:hover{
+    background-color: rgba(220,53,69, 0.5);
+    text-decoration: none; 
+    color: white;
+}
+
+.botao-enviar{
+    color: white;
+    font-size: 1.1rem;
+    border-radius: 15px;
+    border: none;
+    padding: 7.5px 10px 7.5px 10px;
+    background-color: #4AE894;
+    font-family: 'Baloo Da 2', cursive;
+}
+
+.botao-enviar:hover{
+    background-color: rgb(96, 195, 171);
+    text-decoration: none; 
+    color: white;
+}
+
+/* Media Querys Para Responsividade */
+
+@media(max-width: 1680px) {
+    html{
+        font-size: 16px;
+    }
+}
+
+@media(max-width: 1024px) {
+    html{
+        font-size: 13px;
+    }
+}
+
+@media(max-width: 768px) {
+    html{
+        font-size: 13px;
+    }
+}
+
+@media(max-width: 480px) {
+    html{
+        font-size: 11.5px;
+    }
 }

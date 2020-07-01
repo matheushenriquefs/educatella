@@ -16,8 +16,9 @@ let dataCriacao = document.getElementsByClassName('dataCriacao');
 let dataEntregaBanco = document.getElementsByClassName('dataEntregaBanco');
 let divEnviarTarefa = document.getElementsByClassName("divEnviarTarefa");
 let feedback = document.getElementsByClassName("feedbackTarefa");
-
-for(var i = 0; i < dataCriacaoBanco.length; i++){
+let botaoEnviar = document.getElementsByClassName("botao-enviar-tarefa");
+console.log(dataEntregaBanco[2].value)
+for(let i = 0; i < dataEntregaBanco.length; i++){
 
     //Recebe a data de entrega tratada
     dataEntrega = tratarData(dataCriacaoBanco[i].value);
@@ -26,6 +27,7 @@ for(var i = 0; i < dataCriacaoBanco.length; i++){
     //Verifica se passou da data de entrega
     if(!verificaDataEntrega(dataEntregaBanco[i].value)){
         divEnviarTarefa[i].style.display = 'none';
+        botaoEnviar[i].style.display = 'none';
         feedback[i].innerText = "Essa Tarefa Já Expirou!";
     }
 }

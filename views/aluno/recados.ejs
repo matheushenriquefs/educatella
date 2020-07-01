@@ -26,7 +26,7 @@
                 <!-- Coluna Esquerda (Links e Professor) -->
                 <%- include('../partials/aluno-left') %>
                 <!-- Coluna Direita -->
-                <div class="ml-5 col-8 sombra p-5 mb-5">
+                <div class="offset-1 col-8 sombra p-5 mb-5">
                     <div class="row mb-4">
                         <div class="col-12 text-center">
                             <p class="titulo-geral"> Recados de <%= classe.professor.usuarioProfessor.nome %> para você </p>
@@ -85,7 +85,7 @@
                         </div>            
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-danger" data-dismiss="modal"> Fechar </button>
+                        <button type="button" class="botao-fechar" data-dismiss="modal"> Fechar </button>
                     </div>
                 </div>
             </div>
