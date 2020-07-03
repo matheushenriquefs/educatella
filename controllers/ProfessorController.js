@@ -281,8 +281,6 @@ module.exports = {
         const { titulo, descricao, id_classe } = req.body
         let usuario = req.usuario
 
-        console.log(id_classe);
-
         const resultado = await Recado.update({
             titulo: titulo,
             descricao: descricao,
@@ -512,6 +510,8 @@ module.exports = {
         const idUsuario = req.usuario.id
     
         const { id_classe } = req.body
+
+        let feedbackTarefa = "inicio";
     
         let acessarClasse = await Classe.findByPk(id_classe,
             {
@@ -543,7 +543,7 @@ module.exports = {
         let professor = await Professor.findOne({ where: { id_usuario: idUsuario } });
     
     
-        res.render('professor/postar-tarefa', { acessarClasse, professor, usuario: req.usuario, posts })
+        res.render('professor/postar-tarefa', { acessarClasse, professor, usuario: req.usuario, posts, feedbackTarefa })
         
     },
 
@@ -553,6 +553,7 @@ module.exports = {
         const { tituloTarefa, descricaoTarefa, id_classe, data_entrega } = req.body;
         const { files } = req;
         let classeDb = await Classe.findAll();
+        let feedbackTarefa = "Tarefa Criada com Sucesso!";
 
         const resultado = await Tarefa.create(
             {
@@ -579,9 +580,6 @@ module.exports = {
             }
         );
     
-    
-            
-
         let posts = await Tarefa.findAll({
             include: {
                 model: Classe,
@@ -595,9 +593,7 @@ module.exports = {
     
         let professor = await Professor.findOne({ where: { id_usuario: idUsuario } });
     
-        res.render('professor/postar-tarefa', { acessarClasse, posts, professor, usuario:req.usuario})
-    
-        res.redirect('/professor/postar-tarefa');
+        res.render('professor/postar-tarefa', { acessarClasse, posts, professor, usuario:req.usuario, feedbackTarefa})
     
     },
 
@@ -606,6 +602,8 @@ module.exports = {
         const idUsuario = req.usuario.id
     
         const { id_classe, id_tarefa, titulo, descricao } = req.body;
+
+        let feedbackTarefa = "Tarefa Alterada com Sucesso!";
     
         const alterar = await Tarefa.update({
             titulo,
@@ -646,13 +644,15 @@ module.exports = {
     
         let professor = await Professor.findOne({ where: { id_usuario: idUsuario } });
     
-        res.render('professor/postar-tarefa', { acessarClasse, posts, professor, usuario:req.usuario})
+        res.render('professor/postar-tarefa', { acessarClasse, posts, professor, usuario:req.usuario, feedbackTarefa})
     },
 
     destroy: async (req, res) => {
 
         const idUsuario = req.usuario.id
         const {id, id_classe} = req.body;
+
+        let feedbackTarefa = "Tarefa Excluída com Sucesso!";
     
         const deletar = await Tarefa.destroy({
             where: { 
@@ -688,7 +688,7 @@ module.exports = {
     
         let professor = await Professor.findOne({ where: { id_usuario: idUsuario } });
     
-        res.render('professor/postar-tarefa', { acessarClasse, posts, professor, usuario:req.usuario})
+        res.render('professor/postar-tarefa', { acessarClasse, posts, professor, usuario:req.usuario, feedbackTarefa})
 
     },
 

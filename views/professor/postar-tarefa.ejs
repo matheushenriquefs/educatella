@@ -283,6 +283,38 @@
     </div>
     <% });%>
 
+    <section>
+        <!-- Modal Feedback Recado -->
+        <div class="modal fade" id="modal-feedback-tarefa" tabindex="-1" role="dialog" aria-labelledby="modal-adicionar-classe-titulo" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modal-adicionar-classe-titulo"> Aviso </h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+
+                    <div class="modal-body">        
+                        <div class="row justify-content-center">
+                            <div class="col-12"> 
+                                <div class="row text-center">
+                                    <div class="col-12">
+                                        <input id="feedbackEnviarTarefa" type="hidden" value="<%= feedbackTarefa %>">
+                                        <p id="mensagemFeedbackEnviarTarefa" class="texto"> </p>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="botao-fechar" data-dismiss="modal"> Fechar </button>
+                                </div>
+                            </div>
+                        </div>            
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Importando Jquery -->
     <script type="text/javascript" src="/vendor/jquery.min.js"></script>
     <!-- Importando Bootstrap JS -->
