@@ -81,67 +81,69 @@
     
             </section>
 
-            <!-- Second section - tabela gerenciar recado -->
-            <section class="second-section">
-                <div class="container-fluid">
-                    <div class="row">
-    
-                        <!--Tabela-->
-                        <div class="offset-1 col-10 sombra p-5 mb-5 bg-white rounded formulário-tarefa">
-    
-                            <!--Título-->
-                            <h3 class="mb-5 form-tarefa-titulo">Gerenciar recado</h3>
-    
-                            <table class="table">
-                                <thead>
-                                    <tr>
-                                        <th scope="col">Título</th>
-                                        <th scope="col">Descrição</th>
-                                        <th scope="col">Editar</th>
-                                        <th scope="col">Excluir</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-    
-                                    <% acessarClasse.recado.forEach(editar => { %>
-                                    <tr>
-                                        <td>
-                                            <%= editar.titulo %>
-                                        </td>
-                                        <td>
-                                            <%= editar.descricao %>
-                                        </td>
-                                        <td class="editar">
-                                            <a href="#" class="settings" title="Settings" data-toggle="modal"
-                                                data-target="#editModal<%= editar.id_recados %> %>" style="color: #23238E;">
-                                                <span class="material-icons">
-                                                    edit
-                                                </span>
-                                            </a>
-                                        </td>
-                                        <td class="excluir">
-                                            <button class="icons-tabela" title="Settings" data-toggle="modal"
-                                                data-target="#excluirModal<%= editar.id_recados %>" style="color: red;">
-                                                <span class="material-icons">
-                                                    delete_forever
-                                                </span>
-                                            </button>
-                                        </td>
-                                    </tr>
-    
-                                    <% });%>
-                                </tbody>
-    
-                            </table>
-    
+            <% if(acessarClasse.recado.length != 0){ %>
+                <!-- Second section - tabela gerenciar recado -->
+                <section class="second-section">
+                    <div class="container-fluid">
+                        <div class="row">
+        
+                            <!--Tabela-->
+                            <div class="offset-1 col-10 sombra p-5 mb-5 bg-white rounded formulário-tarefa">
+        
+                                <!--Título-->
+                                <h3 class="mb-5 form-tarefa-titulo">Gerenciar recado</h3>
+        
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Título</th>
+                                            <th scope="col">Descrição</th>
+                                            <th scope="col">Editar</th>
+                                            <th scope="col">Excluir</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+        
+                                        <% acessarClasse.recado.forEach(editar => { %>
+                                        <tr>
+                                            <td>
+                                                <%= editar.titulo %>
+                                            </td>
+                                            <td>
+                                                <%= editar.descricao %>
+                                            </td>
+                                            <td class="editar">
+                                                <a href="#" class="settings" title="Settings" data-toggle="modal"
+                                                    data-target="#editModal<%= editar.id_recados %> %>" style="color: #23238E;">
+                                                    <span class="material-icons">
+                                                        edit
+                                                    </span>
+                                                </a>
+                                            </td>
+                                            <td class="excluir">
+                                                <button class="icons-tabela" title="Settings" data-toggle="modal"
+                                                    data-target="#excluirModal<%= editar.id_recados %>" style="color: red;">
+                                                    <span class="material-icons">
+                                                        delete_forever
+                                                    </span>
+                                                </button>
+                                            </td>
+                                        </tr>
+        
+                                        <% });%>
+                                    </tbody>
+        
+                                </table>
+        
+                            </div>
+        
+        
                         </div>
-    
-    
                     </div>
-                </div>
-    
-            </section>
+        
+                </section>
 
+            <% } %>
             <!-- Modal editar recado  -->
         <% acessarClasse.recado.forEach(editar => {%>
             <div id="editModal<%= editar.id_recados %>" class="modal fade">
@@ -159,9 +161,10 @@
                         <form id="editar-recado" method="POST" name="formEditar"
                             action="/professor/editar-recado/<%=editar.id_recados%>"
                             class="card p-3 formEditarRecado">
+                            <input type="hidden" value="<%=editar.id_classe%>" name="id_classe">
                             <div class="form-row justify-content-center">
                                 <div class="col-10">
-                                    <textarea type="text" class="form-control titulo" id="descricao" name="descricao"
+                                    <textarea type="text" class="form-control titulo" id="descricao" name="titulo"
                                         rows="3" cols="50"><%= editar.titulo %></textarea>
                                 </div>
                             </div>
@@ -228,6 +231,38 @@
                 </div>
             </div>
             <%})%> 
+
+            <section>
+                <!-- Modal Feedback Recado -->
+                <div class="modal fade" id="modal-feedback-recado" tabindex="-1" role="dialog" aria-labelledby="modal-adicionar-classe-titulo" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="modal-adicionar-classe-titulo"> Aviso </h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+        
+                            <div class="modal-body">        
+                                <div class="row justify-content-center">
+                                    <div class="col-12"> 
+                                        <div class="row text-center">
+                                            <div class="col-12">
+                                                <input id="feedbackEnviarRecado" type="hidden" value="<%= feedbackRecado %>">
+                                                <p id="mensagemFeedbackEnviarRecado" class="texto"> </p>
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="botao-fechar" data-dismiss="modal"> Fechar </button>
+                                        </div>
+                                    </div>
+                                </div>            
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
 
     </main>
 

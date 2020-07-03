@@ -34,7 +34,6 @@ for(let i = 0; i < formEditar.length; i++){
             descricaoA[i].focus();
     
         }else{
-            feedSucesso[i].innerText = "Alterações concluídas!"
             setTimeout(()=>{
                 feedSucesso[i].style.display = 'none';
                 //opacity=0

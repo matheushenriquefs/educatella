@@ -10,8 +10,6 @@ for(let i = 0; i < formExcluir.length; i++){
     
         evt.preventDefault();
     
-    feedExcluir[i].innerText = "Recado excluído com sucesso!"
-
     setTimeout(()=>{
         feedExcluir[i].style.display = "none";
     }, 5000);

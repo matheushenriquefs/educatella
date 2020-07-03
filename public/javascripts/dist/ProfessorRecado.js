@@ -24,3 +24,15 @@ function tratarDataBr(data){
     //Escreve nos campos corretos do HTML a data tratada
     return (dia) + '/' + (mes) + '/' + (ano) + " " + (hora) + ":" + (minutos);
 }
+
+let feedbackRecado = document.getElementById("feedbackEnviarRecado").value;
+let mensagemFeedbackRecado = document.getElementById("mensagemFeedbackEnviarRecado");
+
+function enviarRecadoFeedback(){
+    if(feedbackRecado != "inicio"){
+        $('#modal-feedback-recado').modal('show');
+        mensagemFeedbackRecado.innerText = feedbackRecado;
+    }
+}
+
+enviarRecadoFeedback();

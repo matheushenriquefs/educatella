@@ -37,8 +37,6 @@ formRecados.addEventListener("submit", function(evt){
 
      }else{
 
-        feedSucesso.innerText = "Recado criado com sucesso!"
-
         setTimeout(()=>{
             feedSucesso.style.display = "none";
         }, 3000);

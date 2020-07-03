@@ -39,16 +39,22 @@
                     <div class="mb-3 offset-2 col-8 text-center">
                         <h3 class="mb-3 gerenciar-aluno-titulo">Excluir aluno</h3>
                     </div>
-                    <% for (gerenciarDB.aluno of gerenciarDB.aluno ) {%>
-                        <form action="/professor/gerenciar-aluno/<%=gerenciarDB.aluno.id%>" class="card p-3 form-excluir-aluno" method="post" id="config">
-                            <input type="hidden" name="id_classe" value="<%=gerenciarDB.id%>">
-                            <div class="mb-3 offset-2 col-8 text-center">
-                                <img class="imagem-professor" src="/images/<%=gerenciarDB.aluno.usuarioAluno.imagem%>">
-                                <p class="texto"><%=gerenciarDB.aluno.usuarioAluno.nome%></p>
-                                <p class="texto"> <%=gerenciarDB.nome%> </p>
-                                <button type="submit" class="btn-modal-excluir">Excluir</button>
-                            </div>
-                        </form>
+                    <% if(gerenciarDB.aluno.length == 0){ %>
+                        <div class="col-12 text-center">
+                            <p class="texto"> Você ainda não possui alunos! envie o código da sua classe a eles! </p>
+                        </div>
+                    <% }else{ %>
+                        <% for (gerenciarDB.aluno of gerenciarDB.aluno ) {%>
+                            <form action="/professor/gerenciar-aluno/<%=gerenciarDB.aluno.id%>" class="card p-3 form-excluir-aluno" method="post" id="config">
+                                <input type="hidden" name="id_classe" value="<%=gerenciarDB.id%>">
+                                <div class="mb-3 offset-2 col-8 text-center">
+                                    <img class="imagem-professor" src="/images/<%=gerenciarDB.aluno.usuarioAluno.imagem%>">
+                                    <p class="texto"><%=gerenciarDB.aluno.usuarioAluno.nome%></p>
+                                    <p class="texto"> <%=gerenciarDB.nome%> </p>
+                                    <button type="submit" class="btn-modal-excluir">Excluir</button>
+                                </div>
+                            </form>
+                        <%}%>
                     <%}%>
                 </div>
 

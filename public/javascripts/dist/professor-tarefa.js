@@ -52,7 +52,6 @@ formCriar.addEventListener("submit", evt => {
         data.focus();
     
     }else {
-        feedbackJ.innerText = "Tarefa postada com sucesso!";
         setTimeout(()=>{
             feedbackJ.style.display = 'none';
             //opacity=0
@@ -109,7 +108,6 @@ for(let i = 0; i < formEditar.length; i++){
             dataA[i].focus();
     
         }else{
-            feedSucesso[i].innerText = "Alterações concluídas!"
             setTimeout(()=>{
                 feedSucesso[i].style.display = 'none';
                 //opacity=0
@@ -132,8 +130,6 @@ for(let i = 0; i < formExcluir.length; i++){
     
         evt.preventDefault();
     
-    feedExcluir[i].innerText = "Tarefa excluída!"
-
     setTimeout(()=>{
         feedExcluir[i].style.display = "none";
     }, 5000);
@@ -164,3 +160,15 @@ input.addEventListener("change", function(){
     label.innerHTML = nome;
 
 });
+
+let feedbackTarefa = document.getElementById("feedbackEnviarTarefa").value;
+let mensagemFeedbackTarefa = document.getElementById("mensagemFeedbackEnviarTarefa");
+
+function enviarTarefaFeedback(){
+    if(feedbackTarefa != "inicio"){
+        $('#modal-feedback-tarefa').modal('show');
+        mensagemFeedbackTarefa.innerText = feedbackTarefa;
+    }
+}
+
+enviarTarefaFeedback();
