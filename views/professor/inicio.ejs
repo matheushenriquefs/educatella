@@ -31,10 +31,10 @@
         <section class="first-section">
 
 
-            <div class="container box-1">
-                <div class="row mb-5">
+            <div class="container-fluid">
+                <div class="row mb-4">
                     <!-- Recepção do professor -->
-                    <div class="offset-1">
+                    <div class="offset-1 col-11">
                         <h2 class="titulo"> Olá, Professor <%= usuario.name %>! Estas são suas classes </h2>
                     </div>
                 </div>
@@ -50,13 +50,13 @@
             </div>
 
             <!-- Coluna de professores -->
-            <div class="container box-2">
-                <div class="row p-3 mb-5 mt-9">
+            <div class="container-fluid">
+                <div class="row p-3 mb-5">
 
                     <!-- Foto e descrição do professor e botão para acessar a Classe -->
 
                     <% if(professor.classes.length == 0) { %>
-                        <div class="mb-5 col-12 text-center">
+                        <div class="col-12 text-center">
                             <p class="texto"> Você ainda não possui classes! tente criar uma </p>
                         </div>
                     <% }  %>
