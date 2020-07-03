@@ -81,67 +81,69 @@
     
             </section>
 
-            <!-- Second section - tabela gerenciar recado -->
-            <section class="second-section">
-                <div class="container-fluid">
-                    <div class="row">
-    
-                        <!--Tabela-->
-                        <div class="offset-1 col-10 sombra p-5 mb-5 bg-white rounded formulário-tarefa">
-    
-                            <!--Título-->
-                            <h3 class="mb-5 form-tarefa-titulo">Gerenciar recado</h3>
-    
-                            <table class="table">
-                                <thead>
-                                    <tr>
-                                        <th scope="col">Título</th>
-                                        <th scope="col">Descrição</th>
-                                        <th scope="col">Editar</th>
-                                        <th scope="col">Excluir</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-    
-                                    <% acessarClasse.recado.forEach(editar => { %>
-                                    <tr>
-                                        <td>
-                                            <%= editar.titulo %>
-                                        </td>
-                                        <td>
-                                            <%= editar.descricao %>
-                                        </td>
-                                        <td class="editar">
-                                            <a href="#" class="settings" title="Settings" data-toggle="modal"
-                                                data-target="#editModal<%= editar.id_recados %> %>" style="color: #23238E;">
-                                                <span class="material-icons">
-                                                    edit
-                                                </span>
-                                            </a>
-                                        </td>
-                                        <td class="excluir">
-                                            <button class="icons-tabela" title="Settings" data-toggle="modal"
-                                                data-target="#excluirModal<%= editar.id_recados %>" style="color: red;">
-                                                <span class="material-icons">
-                                                    delete_forever
-                                                </span>
-                                            </button>
-                                        </td>
-                                    </tr>
-    
-                                    <% });%>
-                                </tbody>
-    
-                            </table>
-    
+            <% if(acessarClasse.recado.length != 0){ %>
+                <!-- Second section - tabela gerenciar recado -->
+                <section class="second-section">
+                    <div class="container-fluid">
+                        <div class="row">
+        
+                            <!--Tabela-->
+                            <div class="offset-1 col-10 sombra p-5 mb-5 bg-white rounded formulário-tarefa">
+        
+                                <!--Título-->
+                                <h3 class="mb-5 form-tarefa-titulo">Gerenciar recado</h3>
+        
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Título</th>
+                                            <th scope="col">Descrição</th>
+                                            <th scope="col">Editar</th>
+                                            <th scope="col">Excluir</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+        
+                                        <% acessarClasse.recado.forEach(editar => { %>
+                                        <tr>
+                                            <td>
+                                                <%= editar.titulo %>
+                                            </td>
+                                            <td>
+                                                <%= editar.descricao %>
+                                            </td>
+                                            <td class="editar">
+                                                <a href="#" class="settings" title="Settings" data-toggle="modal"
+                                                    data-target="#editModal<%= editar.id_recados %> %>" style="color: #23238E;">
+                                                    <span class="material-icons">
+                                                        edit
+                                                    </span>
+                                                </a>
+                                            </td>
+                                            <td class="excluir">
+                                                <button class="icons-tabela" title="Settings" data-toggle="modal"
+                                                    data-target="#excluirModal<%= editar.id_recados %>" style="color: red;">
+                                                    <span class="material-icons">
+                                                        delete_forever
+                                                    </span>
+                                                </button>
+                                            </td>
+                                        </tr>
+        
+                                        <% });%>
+                                    </tbody>
+        
+                                </table>
+        
+                            </div>
+        
+        
                         </div>
-    
-    
                     </div>
-                </div>
-    
-            </section>
+        
+                </section>
 
+            <% } %>
             <!-- Modal editar recado  -->
         <% acessarClasse.recado.forEach(editar => {%>
             <div id="editModal<%= editar.id_recados %>" class="modal fade">
