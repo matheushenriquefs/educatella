@@ -14,6 +14,7 @@
     <link href="/stylesheets/dist/index.css" rel="stylesheet">
     <!-- links de fontes google (Baloo Da 2, Pangolin e Poppins)-->
     <link href="https://fonts.googleapis.com/css?family=Baloo+Da+2|Pangolin|Poppins&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/5b119a7c30.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -137,7 +138,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> 
             </article>
             <!-- Article "Para Nossos Alunos" -->
             <article class="shadow-sm p-3 mb-5 bg-white rounded">
@@ -164,6 +165,239 @@
                             <img src="images/aluno.png" class="rounded float-right img" alt="icone">
                         </div>
                     </div>
+                </div>
+            </article>
+
+             <!-- Article cadastro -->
+             <article class="shadow-sm p-3 mb-5 bg-white rounded">
+
+                <div class="container">
+
+                    <div class="row">
+
+                        <div class="col-12">
+
+                            <h1 class="titulo-cadastro">Cadastre-se aqui!</h1>
+
+                        </div>
+
+                    </div>
+                    <br> <br>
+
+                    <div class="row justify-content-center"> 
+                        <!-- Cadastro professores -->
+                        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 text">
+
+                            <h3 class="cadastro">Professores</h3>
+
+                            <form action="/cadastro/professor" method="POST" class="form-estilo">
+
+                                <% if (typeof title !== 'undefined' && typeof message !== 'undefined') { %>
+                                  
+                                    <div class="form-group row mb-0">
+                  
+                                      <div class="col-md-12">
+                    
+                                        <div class="card mt-3 mb-3">
+              
+                                          <div class="card-header bg-danger text-white">
+                              
+                                            <h5 class="card-title mb-0"><%= title %></h5>
+                                            
+                                          </div>
+                              
+                                          <div class="card-body">       
+                              
+                                            <p class="card-text"><%= message %></p>
+                              
+                                          </div>
+                              
+                                        </div>
+                    
+                                      </div>
+                    
+                                    </div>
+          
+                                <% } %>
+          
+                                <div class="form-group row mb-0">
+                      
+                                    <label for="name" class="col-sm-12 col-form-label"></label>
+                
+                                    <div class="col-md-12">
+                
+                                        <input type="name" class="form-control" id="name" name="name" placeholder="Nome">
+          
+                                        <span id="textValidateName"></span>
+                
+                                    </div>
+                
+                                </div>
+          
+                                <div class="form-group row mb-0">
+                
+                                    <label for="email" class="col-sm-12 col-form-label"></label>
+                    
+                                    <div class="col-md-12">
+                    
+                                        <input type="email" class="form-control" id="email" name="email" placeholder="E-mail">
+          
+                                        <span id="textValidateEmail"></span>
+                    
+                                    </div>
+                    
+                                </div>
+                
+                                <div class="form-group row mb-0">
+                
+                                    <label for="password" class="col-sm-12 col-form-label"></label>
+                    
+                                    <div class="col-md-12">
+                    
+                                        <input type="password" class="form-control" id="password" name="password" placeholder="Senha">
+          
+                                        <span id="textValidatePassWord"></span>
+                    
+                                    </div>
+                
+                                </div>
+          
+                                <div class="form-group row">
+                
+                                    <label for="confirm-password" class="col-sm-12 col-form-label"></label>
+                    
+                                    <div class="col-md-12">
+                    
+                                        <input type="password" class="form-control" id="confirm-password" placeholder="Confirmar senha">
+          
+                                        <span id="textValidateConfirmPassWord"></span>
+                    
+                                    </div>
+                
+                                </div>
+          
+                                <input type="text" class="d-none" id="type" name="type" value="ALUNO">
+                
+                                <div class="form-group row">
+                
+                                    <div class="col-md-12 text-center">
+                    
+                                        <button type="submit" class="btn w-100 botao d-none">Cadastrar</button>
+                    
+                                    </div>
+                
+                                </div>
+                  
+                              </form>
+                        </div>
+
+    
+                        <!-- Cadastro Alunos -->
+                        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+
+                            <h3 class="cadastro">Alunos</h3>
+                            
+                            <form action="/cadastro/aluno" method="POST">
+
+                                <% if (typeof title !== 'undefined' && typeof message !== 'undefined') { %>
+                            
+                                    <div class="form-group row mb-0">
+                  
+                                      <div class="col-md-12">
+                    
+                                        <div class="card mt-3 mb-3">
+              
+                                          <div class="card-header bg-danger text-white">
+                              
+                                            <h5 class="card-title mb-0"><%= title %></h5>
+                                            
+                                          </div>
+                              
+                                          <div class="card-body">       
+                              
+                                            <p class="card-text"><%= message %></p>
+                              
+                                          </div>
+                              
+                                        </div>
+                    
+                                      </div>
+                    
+                                    </div>
+            
+                                <% } %>
+        
+                                <div class="form-group row mb-0">
+                
+                                    <label for="name" class="col-sm-12 col-form-label"></label>
+                
+                                    <div class="col-md-12">
+                
+                                        <input type="name" class="form-control" id="nameAluno" name="name" placeholder="Nome">
+    
+                                        <span id="textValidateNameAluno"></span>
+                
+                                    </div>
+                
+                                </div>
+        
+                                <div class="form-group row mb-0">
+                
+                                    <label for="email" class="col-sm-12 col-form-label"></label>
+                    
+                                    <div class="col-md-12">
+                    
+                                        <input type="email" class="form-control" id="emailAluno" name="email" placeholder="E-mail">
+    
+                                        <span id="textValidateEmailAluno"></span>
+                    
+                                    </div>
+                    
+                                </div>
+                
+                                <div class="form-group row mb-0">
+                
+                                    <label for="password" class="col-sm-12 col-form-label"></label>
+                    
+                                    <div class="col-md-12">
+                    
+                                        <input type="password" class="form-control" id="passwordAluno" name="password" placeholder="Senha">
+    
+                                        <span id="textValidatePassWordAluno"></span>
+                    
+                                    </div>
+                
+                                </div>
+    
+                                <div class="form-group row">
+                
+                                    <label for="confirm-password" class="col-sm-12 col-form-label"></label>
+                    
+                                    <div class="col-md-12">
+                    
+                                        <input type="password" class="form-control" id="confirmPasswordAluno" placeholder="Confirmar Senha">
+    
+                                        <span id="textValidateConfirmPassWordAluno"></span>
+                    
+                                    </div>
+                
+                                </div>
+        
+                                <input type="text" class="d-none" id="type" name="type" value="ALUNO">
+                
+                                <div class="form-group row">
+                
+                                    <div class="col-md-12 text-center">
+                    
+                                        <button type="submit" class="btn w-100 botao d-none">Cadastrar</button>
+                    
+                                    </div>
+                
+                                </div>
+                
+                            </form>
+                        </div>
+                    </div> 
                 </div>
             </article>
         </section>
@@ -226,8 +460,9 @@
                      <!--Body - texto -->
                      <div class="modal-body">
                         <p class="modal-text">
-                            Envie mensagens, compartilhe materiais de classe, tarefas e envie notas. Torne o aprendizado acessível em 
-                            qualquer lugar. Economize tempo reunindo todas as ferramentas da sala de aula em um só lugar.
+                            Envie mensagens, compartilhe materiais de classe, tarefas e envie notas. 
+                            Torne o aprendizado acessível em qualquer lugar. Economize tempo reunindo 
+                            todas as ferramentas da sala de aula em um só lugar.
                         </p>
                         <p class="modal-text">
                             Agende um horário para conversar e tirar dúvidas!
@@ -269,5 +504,8 @@
     <script type="text/javascript" src="/vendor/jquery.min.js"></script>
     <!-- Importando Bootstrap JS -->
     <script type="text/javascript" src="/vendor/bootstrap.bundle.min.js"></script>
+    <script type="text/javascript" src="/javascripts/src/actions/validations.js"></script>
+    <script type="text/javascript" src="/javascripts/src/actions/validationsAluno.js"></script>
+    <script type="text/javascript" src="/javascripts/src/actions/hideResponseCard.js"></script>
 </body>
 </html>

@@ -24,19 +24,19 @@ module.exports = {
       },
       {
         id:3,
-        nome: "Talita Gomes",
-        email: "talita@dh.com",
+        nome: "Hendy Almeida",
+        email: "hendy@dh.com",
         senha: bcrypt.hashSync("123456", 10),
-        imagem: "talita.jpg",
+        imagem: "hendy.jpg",
         createdAt: new Date().toISOString().slice(0, 19).replace('T', ' '),
         updatedAt: new Date().toISOString().slice(0, 19).replace('T', ' ')
       },
       {
         id:4,
-        nome: "Camila Silva",
-        email: "camila@dh.com",
+        nome: "Vinícius Almeida",
+        email: "vinicius@dh.com",
         senha: bcrypt.hashSync("123456", 10),
-        imagem: "camila.jpg",
+        imagem: "vinicius.jpg",
         createdAt: new Date().toISOString().slice(0, 19).replace('T', ' '),
         updatedAt: new Date().toISOString().slice(0, 19).replace('T', ' ')
       },
@@ -51,28 +51,28 @@ module.exports = {
       },
       {
         id:6,
-        nome: "Luisa Gonçalves",
+        nome: "Luisa Jacomini",
         email: "luisa@dh.com",
         senha: bcrypt.hashSync("123456", 10),
-        imagem: "avatar.png",
+        imagem: "luisa.jpg",
         createdAt: new Date().toISOString().slice(0, 19).replace('T', ' '),
         updatedAt: new Date().toISOString().slice(0, 19).replace('T', ' ')
       },
       {
         id:7,
-        nome: "Adrian Silva",
+        nome: "Adrian Iazbeck",
         email: "adrian@dh.com",
         senha: bcrypt.hashSync("123456", 10),
-        imagem: "avatar.png",
+        imagem: "adrian.jpg",
         createdAt: new Date().toISOString().slice(0, 19).replace('T', ' '),
         updatedAt: new Date().toISOString().slice(0, 19).replace('T', ' ')
       },
       {
         id:8,
-        nome: "Lucas Silva",
-        email: "lucas@dh.com",
+        nome: "Matheus Henrique Felix",
+        email: "matheush@dh.com",
         senha: bcrypt.hashSync("123456", 10),
-        imagem: "avatar.png",
+        imagem: "matheush.jpg",
         createdAt: new Date().toISOString().slice(0, 19).replace('T', ' '),
         updatedAt: new Date().toISOString().slice(0, 19).replace('T', ' ')
       }

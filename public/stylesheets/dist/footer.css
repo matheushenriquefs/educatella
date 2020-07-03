@@ -47,12 +47,23 @@ footer p {
 /*text-align: center;*/
     font-size: 0.7rem;
     font-family: sans-serif bold;
+    color: #595959;
 }
 
 /* Links das Redes Sociais */
 
 .footer-lista-f-item {
     display: inline;
+}
+
+footer{
+    background-color: rgb(250, 250, 250);
+}
+
+.estiloIcon{
+    color: #595959;
+    text-shadow: 1px 1px 1px #ccc;
+    font-size: 0.85rem;
 }
 
 /* Media Querys Para Responsividade */

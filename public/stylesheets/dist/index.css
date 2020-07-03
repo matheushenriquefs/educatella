@@ -183,6 +183,22 @@ article {
     font-family: 'Poppins', sans-serif;
 }
 
+/* Form Cadastro */
+.cadastro{
+    font-family: 'Poppins', sans-serif;
+    color: rgb(96, 195, 171);
+}
+
+.titulo-cadastro{
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+    color: rgb(96, 195, 171);
+}
+
+form input{
+    justify-content: center;
+}
+
 /* Botão Voltar Ao Topo */
 
 #botaotop {
