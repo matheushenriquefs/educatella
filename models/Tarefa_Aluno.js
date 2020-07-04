@@ -40,6 +40,14 @@ let Tarefa_Aluno = (sequelize, Datatypes) => {
                 as: 'tarefa'
             }
         );
+
+        tarefa_aluno.belongsTo(
+            models.Aluno, 
+            {
+                foreignKey: 'id_aluno',
+                as: 'aluno'
+            }
+        );
     }
 
     return tarefa_aluno;

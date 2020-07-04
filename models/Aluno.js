@@ -45,6 +45,14 @@ let Aluno = (sequelize, Datatypes) => {
                 through: models.Tarefa_Aluno
             }
         );
+
+        aluno.hasMany(
+            models.Tarefa_Aluno,
+            {
+                foreignKey: 'id_aluno',
+                as: 'tarefasAlunos'
+            }
+        );
     }
 
     return aluno;
