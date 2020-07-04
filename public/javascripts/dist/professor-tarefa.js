@@ -139,28 +139,6 @@ for(let i = 0; i < formExcluir.length; i++){
     })}
     
 
-
-/* Input file - nome do arquivo */
-
-let label = document.getElementsByClassName("botaoArquivo")[0];
-let input = document.getElementById("validatedCustomFile");
-
-label.addEventListener("click", function(){
-
-    input.click();
-
-});
-
-input.addEventListener("change", function(){
-
-    let nome = "Não há arquivo selecionado. Selecionar arquivo...";
-
-    if(input.files.length > 0) nome = input.files[0].name;
-
-    label.innerHTML = nome;
-
-});
-
 let feedbackTarefa = document.getElementById("feedbackEnviarTarefa").value;
 let mensagemFeedbackTarefa = document.getElementById("mensagemFeedbackEnviarTarefa");
 

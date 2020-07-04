@@ -13,7 +13,7 @@
     <link href="https://fonts.googleapis.com/css?family=Baloo+Da+2|Pangolin|Poppins&display=swap" rel="stylesheet">
     <!--link meterial icons + fontawesome-->
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link rel="stylesheet" href="/node_modules/@fortawesome/fontawesome-free/css/all.css">
+    <link rel="stylesheet" href="/node_modules/@fontawesome/fontawesome-free/css/all.css">
 </head>
 
 <body> 
@@ -52,7 +52,7 @@
                                 </div>
                             </div>
                             <br>
-
+ 
                             <!--Descricao-->
                             <div class="form-row justify-content-center">
                                 <div class="col-10">
@@ -60,14 +60,14 @@
                                         placeholder="Descrição" id="descricaoCriar">
                                 </div>
                             </div>
-                            <br>
+                            <br> 
 
                             <!--Arquivo-->
                             <div class="form-row justify-content-center">
                                 <div class="custom-file col-10">
-                                    <input type="file" class="custom-file-input" accept="txt" id="validatedCustomFile"
+                                    <input id="inputArquivo" type="file" class="custom-file-input" accept="txt"
                                         name="arquivo">
-                                    <label class="custom-file-label botaoArquivo" for="validatedCustomFile" id="file-label">Escolher
+                                    <label class="custom-file-label botao" id="botaoArquivo" for="enviarArquivo">Escolher
                                         arquivo</label>
                                     <div class="invalid-feedback">Arquivo inválido</div>
                                 </div>
@@ -118,7 +118,7 @@
                         <table class="table">
                             <thead>
                                 <tr>
-                                    <th scope="col">Título</th>
+                                    <th scope="col">Título</th> 
                                     <th scope="col">Descrição</th>
                                     <th scope="col">Entrega</th>
                                     <th scope="col">Arquivo</th>
@@ -329,6 +329,7 @@
     <script type="text/javascript" src="/javascripts/src/actions/logout.js"></script>
     <!-- JS externo -->
     <script src="/javascripts/dist/professor-tarefa.js"></script>
+    <script src="/javascripts/dist/inputFileArquivo.js"></script>
     <script type="text/javascript" src="/javascripts/dist/ProfessorAlterarDados.js"></script>
 </body>
 

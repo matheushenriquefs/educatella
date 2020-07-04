@@ -54,14 +54,14 @@
                     <div class="row justify-content-center">
                         <div class="col-12"> 
                             <form id="formAlterarImagem" action="/professor/alterarImagem" method="POST" enctype="multipart/form-data">
-                                <div class="form-group row">
+                                <div class="form-group row"> 
                                     <div class="col-12">
                                         <!--Arquivo-->
                                         <div class="form-row justify-content-center">
                                             <div class="custom-file col-10">
                                                 <input id="alterarImagem" type="file" class="custom-file-input" accept="txt" id="validatedCustomFile"
                                                     name="img">
-                                                <label class="custom-file-label" for="validatedCustomFile" id="file-label">Escolher
+                                                <label class="custom-file-label botaoArquivo" for="validatedCustomFile" id="file-label">Escolher
                                                     arquivo</label>
                                                 <div class="invalid-feedback">Arquivo inválido</div>
                                             </div>
@@ -243,3 +243,6 @@
         </div>
     </div>
 </section>
+
+
+<script src="/javascripts/dist/inputFileFoto.js"></script>
