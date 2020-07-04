@@ -1,12 +1,12 @@
 "use strict";
 
 // Validations
-var validations = function validations() {
+var validationsAluno = function validationsAluno() {
   var inputName = document.getElementById("nameAluno");
   var inputEmail = document.getElementById("emailAluno");
   var inputPassWord = document.getElementById("passwordAluno");
   var inputConfirmPassWord = document.getElementById("confirmPasswordAluno");
-  var btnSubmit = document.querySelector('button[type=submit]');
+  var btnSubmit = document.getElementById('btnSubmitAluno');
 
   var validateName = function validateName() {
     var inputNameValue = inputName.value.trim().toUpperCase();
@@ -155,4 +155,4 @@ var validations = function validations() {
   inputConfirmPassWord.addEventListener("change", validateConfirmPassWord);
 };
 
-document.addEventListener("DOMContentLoaded", validations);
+document.addEventListener("DOMContentLoaded", validationsAluno);
