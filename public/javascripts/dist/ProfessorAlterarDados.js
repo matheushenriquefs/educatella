@@ -5,7 +5,7 @@ let alterarImagem = document.getElementById("alterarImagem");
 let feedbackAlterarImagemC = document.getElementById("feedbackAlterarImagemC");
 
 //Chama a função para validar o campo
-validarCampo(formAlterarImagem, feedbackAlterarImagem, feedbackAlterarImagemC, alterarImagem, "Você deve anexar uma imagem!", "Imagem Alterada com Sucesso!");
+validarCampo(formAlterarImagem, feedbackAlterarImagem, feedbackAlterarImagemC, alterarImagem, "Você deve anexar uma imagem!");
 
 //Captura os elementos para tratar o campo de alterar imagem
 let formAlterarNome = document.getElementById("formAlterarNome");
@@ -14,7 +14,7 @@ let feedbackAlterarNomeC = document.getElementById("feedbackAlterarNomeC");
 let alterarNome = document.getElementById("alterarNome");
 
 //Chama a função para validar o campo
-validarCampo(formAlterarNome, feedbackAlterarNome, feedbackAlterarNomeC, alterarNome, "Você deve digitar um nome!", "Nome Alterado com Sucesso!");
+validarCampo(formAlterarNome, feedbackAlterarNome, feedbackAlterarNomeC, alterarNome, "Você deve digitar um nome!");
 
 //Captura os elementos para tratar o campo de alterar E-mail
 let formAlterarEmail = document.getElementById("formAlterarEmail");
@@ -24,7 +24,7 @@ let alterarEmail = document.getElementById("alterarEmail");
 let alterarEmailSenha = document.getElementById("alterarEmailSenha");
 
 //Chama a função para validar o campo
-validarCampo2Campos(formAlterarEmail, feedbackAlterarEmail, feedbackAlterarEmailC, alterarEmail, alterarEmailSenha, "Você deve digitar um e-mail!", "Você deve digitar uma senha!", "Você deve digitar um e-mail e uma senha!", "E-mail Alterado com Sucesso!");
+validarCampo2Campos(formAlterarEmail, feedbackAlterarEmail, feedbackAlterarEmailC, alterarEmail, alterarEmailSenha, "Você deve digitar um e-mail!", "Você deve digitar uma senha!", "Você deve digitar um e-mail e uma senha!");
 
 //Captura os elementos para tratar o campo de alterar Senha
 let formAlterarSenha = document.getElementById("formAlterarSenha");
@@ -34,11 +34,11 @@ let alterarSenhaAntiga = document.getElementById("alterarSenhaAntiga");
 let alterarSenhaNova = document.getElementById("alterarSenhaNova");
 
 //Chama a função para validar o campo
-validarCampo2Campos(formAlterarSenha, feedbackAlterarSenha, feedbackAlterarSenhaC, alterarSenhaAntiga, alterarSenhaNova, "Você deve digitar sua senha atual!", "Você deve digitar uma nova senha!", "Você deve digitar sua senha atual e sua nova senha!", "Senha Alterada com Sucesso!");
+validarCampo2Campos(formAlterarSenha, feedbackAlterarSenha, feedbackAlterarSenhaC, alterarSenhaAntiga, alterarSenhaNova, "Você deve digitar sua senha atual!", "Você deve digitar uma nova senha!", "Você deve digitar sua senha atual e sua nova senha!");
 
 
 //Função que valida se um campo está vazio (para formulários com um campo)
-function validarCampo(formulario, campoFeedback, campoFeedbackC, campo, mensagem, mensagem2){
+function validarCampo(formulario, campoFeedback, campoFeedbackC, campo, mensagem){
     //Cria um event listener para quando o formulário for enviado
     formulario.addEventListener('submit', evento => {
 
@@ -50,7 +50,6 @@ function validarCampo(formulario, campoFeedback, campoFeedbackC, campo, mensagem
             campoFeedback.innerText = mensagem;
         }else{
             campoFeedback.style.display = 'none';
-            campoFeedbackC.innerText = mensagem2;
             setTimeout(()=>{
                 campoFeedbackC.style.display = 'none';
                 //opacity=0
@@ -78,7 +77,6 @@ function validarCampo2Campos(formulario, campoFeedback, campoFeedbackC, campo1, 
             campoFeedback.innerText = mensagem2;
         }else{
             campoFeedback.style.display = 'none';
-            campoFeedbackC.innerText = mensagem4;
             setTimeout(()=>{
                 campoFeedbackC.style.display = 'none';
                 //opacity=0
@@ -88,3 +86,15 @@ function validarCampo2Campos(formulario, campoFeedback, campoFeedbackC, campo1, 
 
     });
 }
+
+let feedbackAlterarDados = document.getElementById("feedbackAlterarDados").value;
+let mensagemFeedbackAlterarDados = document.getElementById("mensagemFeedbackAlterarDados");
+
+function alterarDadosFeedback(){
+    if(feedbackAlterarDados != "inicio"){
+        $('#modal-feedback-alterar-dados').modal('show');
+        mensagemFeedbackAlterarDados.innerText = feedbackAlterarDados;
+    }
+}
+
+alterarDadosFeedback();
