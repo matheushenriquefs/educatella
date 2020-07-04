@@ -515,6 +515,57 @@ module.exports = {
         res.render('professor/gerenciar-nota-aluno',{gerenciarDB, usuario,acessarClasse,classeDb,tarefas, aluno, feedbackNota, feedbackAlterarDados});
     },
 
+    ponerNotaAlunoTarefa: async (req,res) => {
+
+        const { id_classe, id_tarefa, nota } = req.body;
+        let usuario = req.usuario;
+        let id = req.params.id;
+        let feedbackAlterarDados = "inicio";
+        let feedbackNota = "Você Aplicou a Nota com Sucesso!";
+
+        await Tarefa_Aluno.update({
+            nota
+         },
+         {
+            where: { 
+                id
+            }
+        });
+                
+         let acessarClasse = await Classe.findByPk(id_classe,
+            {
+                include: [
+                    {
+                        model: Professor,
+                        as: 'professor'
+                    },
+                    {
+                        model: Recado,
+                        as: 'recado'
+                    }
+                ]
+            }
+        );
+        
+        let tarefasAlunos = await Tarefa_Aluno.findAll(
+			{
+				include:{
+					model: Aluno, 
+                    as:'aluno',
+                    include: 'usuarioAluno'
+				},
+				where: {
+					id_tarefa : id_tarefa
+				}
+			}
+        );
+        
+        let tarefaProfessor = await Tarefa.findByPk(id_tarefa);
+
+        res.render('professor/gerenciar-nota-tarefa',{usuario, acessarClasse, tarefasAlunos, tarefaProfessor, feedbackAlterarDados, feedbackNota});
+
+    },
+
     //Tarefas
 
     tarefaMenu: async (req, res) => {
@@ -792,6 +843,48 @@ module.exports = {
         let totalPagina = "hola"
             
         res.render('professor/gerenciar-aluno', { gerenciarDB, totalPagina, acessarClasse, usuario, feedbackExcluirAluno, feedbackAlterarDados});
+    },
+
+    gerenciarNotasTarefas: async (req, res) => {
+
+        const { id_classe, id_tarefa } = req.body
+        let usuario = req.usuario
+        let feedbackAlterarDados = "inicio";
+        let feedbackNota = "inicio";
+        
+        let acessarClasse = await Classe.findByPk(id_classe,
+            {
+                include: [
+                    {
+                        model: Professor,
+                        as: 'professor'
+                    },
+                    {
+                        model: Recado,
+                        as: 'recado'
+                    }
+                ]
+            }
+        );
+        
+        let tarefasAlunos = await Tarefa_Aluno.findAll(
+			{
+				include:{
+					model: Aluno, 
+                    as:'aluno',
+                    include: 'usuarioAluno'
+				},
+				where: {
+					id_tarefa : id_tarefa
+				}
+			}
+        );
+        
+        let tarefaProfessor = await Tarefa.findByPk(id_tarefa);
+
+        res.render('professor/gerenciar-nota-tarefa',{usuario, acessarClasse, tarefasAlunos, tarefaProfessor, feedbackAlterarDados, feedbackNota});
+    
+    
     },
 
     //Alterar usuário

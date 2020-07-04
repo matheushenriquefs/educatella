@@ -141,14 +141,20 @@
                                         <div id="data_formatada"><%= post.data_entrega %></div>
                                     </td>
                                     <td>
-                                        <%= post.arquivo %>
+                                        <a class="texto-link" href="/uploads/<%= post.arquivo %>" download="<%= post.arquivo %>"> 
+                                            <%= post.arquivo %>
+                                        </a>
                                     </td>
                                     <td class="Editar">
-                                        <button class="icons-tabela" title="Settings" style="color: yellowgreen;">
-                                            <span class="material-icons">
-                                                spellcheck
-                                                </span>
-                                        </button>
+                                        <form action="/professor/gerenciarNotasTarefas" method="POST">
+                                            <input type="hidden" name="id_classe" value="<%= post.id_classe %>">
+                                            <input type="hidden" name="id_tarefa" value="<%= post.id %>">
+                                            <button type="submit"class="icons-tabela" title="Settings" style="color: yellowgreen;">
+                                                <span class="material-icons">
+                                                    spellcheck
+                                                    </span>
+                                            </button>
+                                        </form>
                                     </td>
                                     <td class="Editar">
                                         <button class="icons-tabela" title="Settings" data-toggle="modal"

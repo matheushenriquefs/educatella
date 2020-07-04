@@ -59,6 +59,7 @@ router.post('/professor/editar-recado/:id', authUser,
 router.get('/professor/gerenciar-nota', authUser, ProfessorController.gerenciarNota);
 router.post('/professor/gerenciar-nota-aluno/:id', authUser, ProfessorController.gerenciarNotaAluno);
 router.post('/professor/poner-nota-aluno/:id', authUser, ProfessorController.ponerNotaAluno);
+router.post('/professor/poner-nota-aluno-tarefa/:id', authUser, ProfessorController.ponerNotaAlunoTarefa);
 //TAREFAS
 router.post('/professor/postar', authUser, upload.any(), ProfessorController.addTarefa);
 router.post('/professor/editar', authUser, ProfessorController.update);
@@ -72,7 +73,7 @@ router.post('/professor/alterarImagem', uploadImagem.single("img"), authUser, Pr
 router.post('/professor/alterarNome', authUser, ProfessorController.alterarNome);
 router.post('/professor/alterarEmail', authUser, ProfessorController.alterarEmail);
 router.post('/professor/alterarSenha', authUser, ProfessorController.alterarSenha);
-
+router.post('/professor/gerenciarNotasTarefas', authUser, ProfessorController.gerenciarNotasTarefas);
 
 
 module.exports = router; 
