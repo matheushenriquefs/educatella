@@ -1,5 +1,5 @@
 
-let labelArquivo = document.getElementById("botaoArquivo")[0];
+let labelArquivo = document.getElementById("botaoArquivo");
 
 let inputArquivo = document.getElementById("inputArquivo");
 
@@ -18,4 +18,5 @@ inputArquivo.addEventListener("change", function(evt){
 
 });
 
-
+ 
+ 

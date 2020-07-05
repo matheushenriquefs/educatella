@@ -67,9 +67,9 @@
 .body-text-titulo{
     font-size: 1.3rem;
     font: sans-serif bold;
-    color: black;
+    color: #595959;
     line-height: 30px;
-    font-family: 'Baloo Da 2', cursive;
+    font-family: 'Baloo Da 2', cursive; 
     margin: 30px 0 30px 0;
 }
 

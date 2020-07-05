@@ -49,13 +49,10 @@
                                 <li class="nav-item">
                                     <a class="nav-link" href="/login" alt="Login">Login</a>
                                 </li>
-                                <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" alt="Cadastro">Cadastro
-                                    </a>
-                                    <div class="dropdown-menu" id="navDrop">
-                                        <a class="dropdown-item" href="/cadastro/aluno" alt="cadastro-aluno">Aluno</a>
-                                        <a class="dropdown-item" href="/cadastro/professor" alt="cadastro-professor">Professor</a>
-                                    </div>
+                                <li class="navbar-nav ml-auto align-items-center">
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#divCadastro" alt="Login">Cadastro</a>
+                                    </li>
                                 </li>
                             </ul>
                         </div>
@@ -171,7 +168,7 @@
              <!-- Article cadastro -->
              <article class="shadow-sm p-3 mb-5 bg-white rounded">
 
-                <div class="container">
+                <div class="container" id="divCadastro">
 
                     <div class="row">
 
@@ -276,7 +273,7 @@
                 
                                 </div>
           
-                                <input type="text" class="d-none" id="type" name="type" value="ALUNO">
+                                <input type="text" class="d-none" id="type" name="type" value="PROFESSOR">
                 
                                 <div class="form-group row">
                 
@@ -371,7 +368,7 @@
     
                                 <div class="form-group row">
                 
-                                    <label for="confirm-password" class="col-sm-12 col-form-label"></label>
+                                    <label for="confirmPasswordAluno" class="col-sm-12 col-form-label"></label>
                     
                                     <div class="col-md-12">
                     
@@ -383,7 +380,7 @@
                 
                                 </div>
         
-                                <input type="text" class="d-none" id="type" name="type" value="ALUNO">
+                                <input type="text" class="d-none" id="typeAluno" name="type" value="ALUNO">
                 
                                 <div class="form-group row">
                 

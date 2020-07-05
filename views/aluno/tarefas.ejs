@@ -80,7 +80,7 @@
                             <div class="row justify-content-center">
                                 <div class="col-12">
                                     <input class="dataCriacaoBanco" type="hidden" value="<%=tarefa.createdAt%>"> 
-                                    <p class="dataCriacao texto"> </p>
+                                    <p class="dataCriacao textoModal"> </p>
                                 </div>
                                 <div class="col-12"> 
                                     <input class="dataEntregaBanco" type="hidden" value="<%=tarefa.data_entrega%>">
@@ -90,7 +90,7 @@
 
                             <div class="row justify-content-center">
                                 <div class="col-12"> 
-                                    <p class="texto"> <%= tarefa.descricao %> </p>
+                                    <p class="textoModal"> <%= tarefa.descricao %> </p>
                                 </div>
                             </div>
                             
@@ -103,13 +103,14 @@
                                     <% } %>
                                 </div>
                             </div>
-
+                            <br>
+                            
                             <!--Arquivo-->
                             <div class="divEnviarTarefa form-row justify-content-center">
                                 <div class="custom-file col-10">
-                                    <input type="file" class="tarefaEnviada custom-file-input" accept="txt" id="validatedCustomFile"
+                                    <input type="file" class="tarefaEnviada custom-file-input" accept="txt" id="inputArquivo"
                                         name="arquivo">
-                                    <label class="custom-file-label" for="validatedCustomFile" id="file-label">Escolher
+                                    <label class="custom-file-label" for="validatedCustomFile" id="botaoArquivo">Escolher
                                         arquivo</label>
                                     <div class="invalid-feedback">Arquivo inválido</div>
                                 </div>
@@ -182,4 +183,5 @@
     <script type="text/javascript" src="/javascripts/src/actions/logout.js"></script>
     <script type="text/javascript" src="/javascripts/dist/AlunoTarefas.js"></script>
     <script type="text/javascript" src="/javascripts/dist/AlunoAlterarDados.js"></script>
+    <script type="text/javascript" src="/javascripts/dist/inputFileArquivo.js"></script> 
 </body>

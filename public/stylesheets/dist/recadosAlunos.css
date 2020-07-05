@@ -6,7 +6,7 @@
 /* Títulos dos Recados */
 
 .titulo {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Poppins', sans-serif; 
     font-size:1.2rem;
     color: grey;
 }
@@ -111,7 +111,7 @@
 
 .botao-enviar{
     color: white;
-    font-size: 1.1rem;
+    font-size: 1.1rem; 
     border-radius: 15px;
     border: none;
     padding: 7.5px 10px 7.5px 10px;
@@ -123,6 +123,18 @@
     background-color: rgb(96, 195, 171);
     text-decoration: none; 
     color: white;
+}
+
+.modal-title{
+    font-family: 'Poppins', sans-serif;
+    color: #4AE894;
+}
+
+.textoModal{
+    font-family: 'Poppins', sans-serif;
+    font-size:1rem;
+    color: grey;
+    text-align: justify;
 }
 
 /* Media Querys Para Responsividade */

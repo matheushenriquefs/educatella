@@ -213,8 +213,8 @@
                         </div>
                         <!--título-->
                         <div class="form-group">
-                            <input type="text" value="<%= post.titulo %>" class="form-control modalTarefaTitulo"
-                                id="modal-alunos" name="titulo" placeholder="Título" id="tituloEditar">
+                            <textarea type="text" value="<%= post.titulo %>" class="form-control modalTarefaTitulo"
+                                id="modal-alunos" name="titulo" placeholder="Título" id="tituloEditar"><%= post.titulo %></textarea>
                         </div>
                         <!--descricao-->
                         <div class="form-group">
@@ -224,7 +224,7 @@
                     </div>
 
                     <div class="form-group">
-                        <div class="custom-file col-8 ">
+                        <div class="custom-file col-6 ">
                             <input type="text" class="form-control modalTarefaData" name="data_entrega" id="dataEditar"
                                  placeholder="DD/MM/AAAA" style="margin-left: 15px;"
                                 value="<%= post.data_entrega %>">
@@ -266,7 +266,7 @@
                 <form action="/professor/delete" method="POST" class="formExcluir">
                     <input type="hidden" name="id" value="<%= excluir.id %>">
                     <input type="hidden" name="id_classe" value="<%= excluir.classe.id %>">
-
+                    <br>
                     <div class="container">
                         <div class="form-control" style="border: none;">
                             <p>Deseja mesmo excluir esta classe?</p>
