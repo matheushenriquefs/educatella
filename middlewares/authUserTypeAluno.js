@@ -3,21 +3,13 @@ require("dotenv").config();
 
 module.exports = (req, res, next) => {
 
-    if(req.cookies.token === undefined){
+    const {token} = req.cookies;
+    const decode = jwt.verify(token, process.env.JWT_KEY);
+    if(decode.type === "Professor"){
         
-        return res.redirect("/error/401")
-
-    }else{
-        const {token} = req.cookies;
-        const decode = jwt.verify(token, process.env.JWT_KEY);
-
-        if(decode.type === "Professor"){
-            
-            return res.redirect("/error/401/professor");
-
-        }
-
-        next();
+        return res.redirect("/error/401/professor");
     }
+    
+    next();
     
 }
