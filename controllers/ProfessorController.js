@@ -952,10 +952,12 @@ module.exports = {
 
 	alterarEmail: async (req,res)=> {
 
+        const { name, emailUsuario, imagem, type } = req.usuario;
 		const idUsuario = req.usuario.id;
 		let email = req.body.email;
 		let senha = req.body.senhaEmail;
-        let feedbackAlterarDados = "E-mail Alterado com Sucesso!";
+
+        
 		let usuarioBanco = await Usuario.findOne(
 		{
 			where:{
@@ -976,21 +978,23 @@ module.exports = {
 
         }
         
-        Professor.findOne({ where: { id_usuario: idUsuario } }).then(
-            professor => {
-                Professor.findByPk(professor.id,
-                    {
-                        include: {
-                            model: Classe,
-                            as: 'classes'
-                        }
-                    }).then(
-                        professorClasses => {
-                            res.render('professor/inicio', { usuario: req.usuario, professor: professorClasses, feedbackAlterarDados })
-                        }
-                    )
-            }
-        )
+        const token = jwt.sign({
+			id: idUsuario,
+			name,
+			email: emailUsuario,
+			imagem,
+			type
+		}, 
+		process.env.JWT_KEY,
+		{
+			expiresIn: "3h"
+		});
+
+		res.cookie("token", token, { httpOnly: true });
+
+		res.redirect("inicio");
+
+		return;
 
 	},
 
