@@ -924,34 +924,29 @@ module.exports = {
 	},
 
 	alterarNome: async (req,res)=> {
-		
+        
+        const { email, imagem, type } = req.usuario; 
 		const idUsuario = req.usuario.id;
 		let nomeUsuario = req.body.nome;
-        let feedbackAlterarDados = "Nome Alterado com Sucesso!";
-		await Usuario.update({
-			nome:nomeUsuario
-		},
-		{
-			where:{
-				id:idUsuario
-			}
-        });
+
         
-        Professor.findOne({ where: { id_usuario: idUsuario } }).then(
-            professor => {
-                Professor.findByPk(professor.id,
-                    {
-                        include: {
-                            model: Classe,
-                            as: 'classes'
-                        }
-                    }).then(
-                        professorClasses => {
-                            res.render('professor/inicio', { usuario: req.usuario, professor: professorClasses, feedbackAlterarDados })
-                        }
-                    )
-            }
-        )
+		const token = jwt.sign({
+			id: idUsuario,
+			name: nomeUsuario,
+			email,
+			imagem,
+			type
+		}, 
+		process.env.JWT_KEY,
+		{
+			expiresIn: "3h"
+		});
+
+		res.cookie("token", token, { httpOnly: true });
+
+		res.redirect("inicio");
+
+		return;
 
 	},
 
