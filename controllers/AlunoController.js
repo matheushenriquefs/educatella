@@ -547,12 +547,10 @@ module.exports = {
 
 	alterarSenha: async (req,res)=> {
 
+		const { name, email, imagem, type } = req.usuario;
 		const idUsuario = req.usuario.id;
 		let senhaAntiga = req.body.senhaAntiga;
 		let senhaNova = req.body.senhaNova;
-		let feedbackAlterarDados = "Senha alterada com sucesso!";
-		//feedback ao tentar acessar uma classe
-		let feedback = "inicio";
 
 		let usuarioBanco = await Usuario.findOne(
 		{
@@ -573,22 +571,23 @@ module.exports = {
 			});	
 		}
 
-		let aluno = await Aluno.findOne({
-			include:{
-				model: Classe, 
-				as:'classes', 
-				include:{
-					model: Professor,
-					as:'professor',
-					include: 'usuarioProfessor'
-				}
-			}, 
-			where:{
-				id_usuario:idUsuario
-			}
+		const token = jwt.sign({
+			id: idUsuario,
+			name,
+			email,
+			imagem,
+			type
+		}, 
+		process.env.JWT_KEY,
+		{
+			expiresIn: "3h"
 		});
 
-		res.render("aluno/inicio", {usuario:req.usuario, aluno, feedback, feedbackAlterarDados});
+		res.cookie("token", token, { httpOnly: true });
+
+		res.redirect("inicio");
+
+		return;
 
 	}
 }
