@@ -2,6 +2,9 @@
 const { Aluno, Professor, Classe, Recado, Tarefa, Classe_Aluno, Usuario,Tarefa_Aluno } = require("../models")
 const { check, validationResult } = require('express-validator');
 const { CustomValidation } = require("express-validator/src/context-items");
+const bcrypt = require("bcrypt");
+const jwt = require("jsonwebtoken");
+require("dotenv").config();
 
 
 module.exports = {
@@ -31,7 +34,27 @@ module.exports = {
     // Classes - criar, acessar, alterar e deletar
     criarClasse: async (req, res) => {
 
-        const { nome, codigo, id_professor } = req.body
+        const { nome, id_professor } = req.body
+
+        let codigo = [];
+
+        const generateCode = () => {
+
+            const list = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+
+            for(let i = list.length; i > list.length - 8; i--){
+
+                let randomIndex = Math.floor(Math.random() * i);
+                
+                codigo.push(list[randomIndex]);
+
+            }
+
+            codigo = codigo.join("");
+
+        }
+
+        generateCode();
 
         const criar = await Classe.create(
             {
@@ -890,9 +913,10 @@ module.exports = {
     //Alterar usuário
 	alterarImagem: async (req,res)=> {
 
+        const { name, email, type } = req.usuario;
 		const idUsuario = req.usuario.id;
 		let img = req.file.filename;
-        let feedbackAlterarDados = "Imagem Alterada com Sucesso!";
+
 		await Usuario.update({
 			imagem:img
 		},
@@ -901,63 +925,68 @@ module.exports = {
 				id:idUsuario
 			}
         });
-        
-        Professor.findOne({ where: { id_usuario: idUsuario } }).then(
-            professor => {
-                Professor.findByPk(professor.id,
-                    {
-                        include: {
-                            model: Classe,
-                            as: 'classes'
-                        }
-                    }).then(
-                        professorClasses => {
-                            res.render('professor/inicio', { usuario: req.usuario, professor: professorClasses, feedbackAlterarDados })
-                        }
-                    )
-            }
-        )
+
+        const token = jwt.sign({
+			id: idUsuario,
+			name,
+			email,
+			imagem: img,
+			type
+		}, 
+		process.env.JWT_KEY,
+		{
+			expiresIn: "3h"
+		});
+
+		res.cookie("token", token, { httpOnly: true });
+
+        return res.redirect('inicio');
 
 	},
 
 	alterarNome: async (req,res)=> {
-		
+        
+        const { email, imagem, type } = req.usuario; 
 		const idUsuario = req.usuario.id;
-		let nomeUsuario = req.body.nome;
-        let feedbackAlterarDados = "Nome Alterado com Sucesso!";
-		await Usuario.update({
+        let nomeUsuario = req.body.nome;
+        
+        await Usuario.update({
 			nome:nomeUsuario
 		},
 		{
 			where:{
 				id:idUsuario
 			}
-        });
-        
-        Professor.findOne({ where: { id_usuario: idUsuario } }).then(
-            professor => {
-                Professor.findByPk(professor.id,
-                    {
-                        include: {
-                            model: Classe,
-                            as: 'classes'
-                        }
-                    }).then(
-                        professorClasses => {
-                            res.render('professor/inicio', { usuario: req.usuario, professor: professorClasses, feedbackAlterarDados })
-                        }
-                    )
-            }
-        )
+		});
+
+		const token = jwt.sign({
+			id: idUsuario,
+			name: nomeUsuario,
+			email,
+			imagem,
+			type
+		}, 
+		process.env.JWT_KEY,
+		{
+			expiresIn: "3h"
+		});
+
+		res.cookie("token", token, { httpOnly: true });
+
+		res.redirect("inicio");
+
+		return;
 
 	},
 
 	alterarEmail: async (req,res)=> {
 
+        const { name, emailUsuario, imagem, type } = req.usuario;
 		const idUsuario = req.usuario.id;
 		let email = req.body.email;
 		let senha = req.body.senhaEmail;
-        let feedbackAlterarDados = "E-mail Alterado com Sucesso!";
+
+        
 		let usuarioBanco = await Usuario.findOne(
 		{
 			where:{
@@ -978,30 +1007,33 @@ module.exports = {
 
         }
         
-        Professor.findOne({ where: { id_usuario: idUsuario } }).then(
-            professor => {
-                Professor.findByPk(professor.id,
-                    {
-                        include: {
-                            model: Classe,
-                            as: 'classes'
-                        }
-                    }).then(
-                        professorClasses => {
-                            res.render('professor/inicio', { usuario: req.usuario, professor: professorClasses, feedbackAlterarDados })
-                        }
-                    )
-            }
-        )
+        const token = jwt.sign({
+			id: idUsuario,
+			name,
+			email: emailUsuario,
+			imagem,
+			type
+		}, 
+		process.env.JWT_KEY,
+		{
+			expiresIn: "3h"
+		});
+
+		res.cookie("token", token, { httpOnly: true });
+
+		res.redirect("inicio");
+
+		return;
 
 	},
 
 	alterarSenha: async (req,res)=> {
 
+        const { name, email, imagem, type } = req.usuario;
 		const idUsuario = req.usuario.id;
 		let senhaAntiga = req.body.senhaAntiga;
         let senhaNova = req.body.senhaNova;
-        let feedbackAlterarDados = "Senha Alterada com Sucesso!";
+
 
 		let usuarioBanco = await Usuario.findOne(
 		{
@@ -1022,21 +1054,23 @@ module.exports = {
 			});	
 		}
 
-		Professor.findOne({ where: { id_usuario: idUsuario } }).then(
-            professor => {
-                Professor.findByPk(professor.id,
-                    {
-                        include: {
-                            model: Classe,
-                            as: 'classes'
-                        }
-                    }).then(
-                        professorClasses => {
-                            res.render('professor/inicio', { usuario: req.usuario, professor: professorClasses, feedbackAlterarDados })
-                        }
-                    )
-            }
-        )
+		const token = jwt.sign({
+			id: idUsuario,
+			name,
+			email,
+			imagem,
+			type
+		}, 
+		process.env.JWT_KEY,
+		{
+			expiresIn: "3h"
+		});
+
+		res.cookie("token", token, { httpOnly: true });
+
+		res.redirect("inicio");
+
+		return;
 
 	}
 }

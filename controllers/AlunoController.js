@@ -1,4 +1,6 @@
 const {Aluno, Professor, Classe, Recado, Usuario, Tarefa, Classe_Aluno, Tarefa_Aluno} = require("../models");
+const jwt = require("jsonwebtoken");
+require("dotenv").config();
 
 let bcrypt = require("bcrypt");
 
@@ -427,11 +429,9 @@ module.exports = {
 
 	alterarImagem: async (req,res)=> {
 
+		const { name, email, type } = req.usuario;
 		const idUsuario = req.usuario.id;
 		let img = req.file.filename;
-		let feedbackAlterarDados = "Imagem Alterada com sucesso!";
-		//feedback ao tentar acessar uma classe
-		let feedback = "inicio";
 
 		await Usuario.update({
 			imagem:img
@@ -442,32 +442,31 @@ module.exports = {
 			}
 		});
 
-		let aluno = await Aluno.findOne({
-			include:{
-				model: Classe, 
-				as:'classes', 
-				include:{
-					model: Professor,
-					as:'professor',
-					include: 'usuarioProfessor'
-				}
-			}, 
-			where:{
-				id_usuario:idUsuario
-			}
+		const token = jwt.sign({
+			id: idUsuario,
+			name,
+			email,
+			imagem: img,
+			type
+		}, 
+		process.env.JWT_KEY,
+		{
+			expiresIn: "3h"
 		});
 
-		res.render("aluno/inicio", {usuario:req.usuario, aluno, feedback, feedbackAlterarDados});
+		res.cookie("token", token, { httpOnly: true });
+
+		res.redirect("inicio");
+
+		return;
 
 	},
 
 	alterarNome: async (req,res)=> {
 		
+		const { email, imagem, type } = req.usuario;
 		const idUsuario = req.usuario.id;
 		let nomeUsuario = req.body.nome;
-		let feedbackAlterarDados = "Nome alterado com sucesso!";
-		//feedback ao tentar acessar uma classe
-		let feedback = "inicio";
 
 		await Usuario.update({
 			nome:nomeUsuario
@@ -478,33 +477,32 @@ module.exports = {
 			}
 		});
 
-		let aluno = await Aluno.findOne({
-			include:{
-				model: Classe, 
-				as:'classes', 
-				include:{
-					model: Professor,
-					as:'professor',
-					include: 'usuarioProfessor'
-				}
-			}, 
-			where:{
-				id_usuario:idUsuario
-			}
+		const token = jwt.sign({
+			id: idUsuario,
+			name: nomeUsuario,
+			email,
+			imagem,
+			type
+		}, 
+		process.env.JWT_KEY,
+		{
+			expiresIn: "3h"
 		});
 
-		res.render("aluno/inicio", {usuario:req.usuario, aluno, feedback, feedbackAlterarDados});
+		res.cookie("token", token, { httpOnly: true });
+
+		res.redirect("inicio");
+
+		return;
 
 	},
 
 	alterarEmail: async (req,res)=> {
 
+		const { name, emailUsuario, imagem, type } = req.usuario;
 		const idUsuario = req.usuario.id;
 		let email = req.body.email;
 		let senha = req.body.senhaEmail;
-		let feedbackAlterarDados = "E-mail alterado com sucesso!";
-		//feedback ao tentar acessar uma classe
-		let feedback = "inicio";
 
 		let usuarioBanco = await Usuario.findOne(
 		{
@@ -526,33 +524,32 @@ module.exports = {
 
 		}
 
-		let aluno = await Aluno.findOne({
-			include:{
-				model: Classe, 
-				as:'classes', 
-				include:{
-					model: Professor,
-					as:'professor',
-					include: 'usuarioProfessor'
-				}
-			}, 
-			where:{
-				id_usuario:idUsuario
-			}
+		const token = jwt.sign({
+			id: idUsuario,
+			name,
+			email: emailUsuario,
+			imagem,
+			type
+		}, 
+		process.env.JWT_KEY,
+		{
+			expiresIn: "3h"
 		});
 
-		res.render("aluno/inicio", {usuario:req.usuario, aluno, feedback, feedbackAlterarDados});
+		res.cookie("token", token, { httpOnly: true });
+
+		res.redirect("inicio");
+
+		return;
 
 	},
 
 	alterarSenha: async (req,res)=> {
 
+		const { name, email, imagem, type } = req.usuario;
 		const idUsuario = req.usuario.id;
 		let senhaAntiga = req.body.senhaAntiga;
 		let senhaNova = req.body.senhaNova;
-		let feedbackAlterarDados = "Senha alterada com sucesso!";
-		//feedback ao tentar acessar uma classe
-		let feedback = "inicio";
 
 		let usuarioBanco = await Usuario.findOne(
 		{
@@ -573,22 +570,23 @@ module.exports = {
 			});	
 		}
 
-		let aluno = await Aluno.findOne({
-			include:{
-				model: Classe, 
-				as:'classes', 
-				include:{
-					model: Professor,
-					as:'professor',
-					include: 'usuarioProfessor'
-				}
-			}, 
-			where:{
-				id_usuario:idUsuario
-			}
+		const token = jwt.sign({
+			id: idUsuario,
+			name,
+			email,
+			imagem,
+			type
+		}, 
+		process.env.JWT_KEY,
+		{
+			expiresIn: "3h"
 		});
 
-		res.render("aluno/inicio", {usuario:req.usuario, aluno, feedback, feedbackAlterarDados});
+		res.cookie("token", token, { httpOnly: true });
+
+		res.redirect("inicio");
+
+		return;
 
 	}
 }
