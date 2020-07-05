@@ -15,7 +15,7 @@ formCriar.addEventListener("submit", evt => {
 
     let descricao = document.getElementById("descricaoCriar").value; 
 
-    let arquivo = document.getElementById('validatedCustomFile').value;
+    let arquivo = document.getElementById('inputArquivo').value;
 
     let data = document.getElementById('dataCriar').value;
 
@@ -149,4 +149,4 @@ function enviarTarefaFeedback(){
     }
 }
 
-enviarTarefaFeedback();
+enviarTarefaFeedback(); 

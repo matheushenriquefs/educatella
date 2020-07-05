@@ -1,7 +1,7 @@
 
 /* Input file - nome do arquivo */
 
-let label = document.getElementsByClassName("botaoArquivo")[0];
+let label = document.getElementById("file-label");
 
 let input = document.getElementById("alterarImagem");
 
