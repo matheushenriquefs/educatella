@@ -49,13 +49,10 @@
                                 <li class="nav-item">
                                     <a class="nav-link" href="/login" alt="Login">Login</a>
                                 </li>
-                                <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" alt="Cadastro">Cadastro
-                                    </a>
-                                    <div class="dropdown-menu" id="navDrop">
-                                        <a class="dropdown-item" href="/cadastro/aluno" alt="cadastro-aluno">Aluno</a>
-                                        <a class="dropdown-item" href="/cadastro/professor" alt="cadastro-professor">Professor</a>
-                                    </div>
+                                <li class="navbar-nav ml-auto align-items-center">
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#divCadastro" alt="Login">Cadastro</a>
+                                    </li>
                                 </li>
                             </ul>
                         </div>
@@ -171,7 +168,7 @@
              <!-- Article cadastro -->
              <article class="shadow-sm p-3 mb-5 bg-white rounded">
 
-                <div class="container">
+                <div class="container" id="divCadastro">
 
                     <div class="row">
 
@@ -215,7 +212,7 @@
                                         </div>
                     
                                       </div>
-                    
+                     
                                     </div>
           
                                 <% } %>
@@ -389,7 +386,7 @@
                 
                                     <div class="col-md-12 text-center">
                     
-                                        <button type="submit" id="btnSubmitAluno" class="btn w-100 botao d-none">Cadastrar</button>
+                                        <button type="submit" class="btn w-100 botao d-none" id="btnSubmitAluno">Cadastrar</button>
                     
                                     </div>
                 
@@ -399,6 +396,7 @@
                         </div>
                     </div> 
                 </div>
+
             </article>
         </section>
         <!-- Footer da Página -->

@@ -1,16 +1,16 @@
 "use strict";
 
 // Validations
-var validations = function validations() {
-  var inputName = document.getElementById("name");
-  var inputEmail = document.getElementById("email");
-  var inputPassWord = document.getElementById("password");
-  var inputConfirmPassWord = document.getElementById("confirm-password");
-  var btnSubmit = document.querySelector('button[type=submit]');
+var validationsAluno = function validationsAluno() {
+  var inputName = document.getElementById("nameAluno");
+  var inputEmail = document.getElementById("emailAluno");
+  var inputPassWord = document.getElementById("passwordAluno");
+  var inputConfirmPassWord = document.getElementById("confirmPasswordAluno");
+  var btnSubmit = document.getElementById('btnSubmitAluno');
 
   var validateName = function validateName() {
     var inputNameValue = inputName.value.trim().toUpperCase();
-    var spanName = document.getElementById("textValidateName");
+    var spanName = document.getElementById("textValidateNameAluno");
 
     if (inputNameValue === "") {
       inputName.classList.remove("border-success");
@@ -40,7 +40,7 @@ var validations = function validations() {
 
   var validateEmail = function validateEmail() {
     var inputEmailValue = inputEmail.value.trim();
-    var spanEmail = document.getElementById("textValidateEmail");
+    var spanEmail = document.getElementById("textValidateEmailAluno");
 
     if (inputEmailValue === "") {
       inputEmail.classList.remove("border-success");
@@ -70,7 +70,7 @@ var validations = function validations() {
 
   var validatePassWord = function validatePassWord() {
     var inputPassWordValue = inputPassWord.value.trim().toUpperCase();
-    var spanPassWord = document.getElementById("textValidatePassWord");
+    var spanPassWord = document.getElementById("textValidatePassWordAluno");
 
     if (inputPassWordValue === "") {
       inputPassWord.classList.remove("border-success");
@@ -101,7 +101,7 @@ var validations = function validations() {
   var validateConfirmPassWord = function validateConfirmPassWord() {
     var inputConfirmPassWordValue = inputConfirmPassWord.value.trim().toUpperCase();
     var inputPassWordValue = inputPassWord.value.trim().toUpperCase();
-    var spanConfirmPassWord = document.getElementById("textValidateConfirmPassWord");
+    var spanConfirmPassWord = document.getElementById("textValidateConfirmPassWordAluno");
 
     if (inputConfirmPassWordValue === "") {
       inputConfirmPassWord.classList.remove("border-success");
@@ -155,4 +155,4 @@ var validations = function validations() {
   inputConfirmPassWord.addEventListener("change", validateConfirmPassWord);
 };
 
-document.addEventListener("DOMContentLoaded", validations);
+document.addEventListener("DOMContentLoaded", validationsAluno);

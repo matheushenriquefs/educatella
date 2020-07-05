@@ -13,7 +13,7 @@
     <link href="https://fonts.googleapis.com/css?family=Baloo+Da+2|Pangolin|Poppins&display=swap" rel="stylesheet">
     <!--link meterial icons + fontawesome-->
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link rel="stylesheet" href="/node_modules/@fortawesome/fontawesome-free/css/all.css">
+    <link rel="stylesheet" href="/node_modules/@fontawesome/fontawesome-free/css/all.css">
 </head>
 
 <body> 
@@ -52,7 +52,7 @@
                                 </div>
                             </div>
                             <br>
-
+ 
                             <!--Descricao-->
                             <div class="form-row justify-content-center">
                                 <div class="col-10">
@@ -60,14 +60,14 @@
                                         placeholder="Descrição" id="descricaoCriar">
                                 </div>
                             </div>
-                            <br>
+                            <br> 
 
                             <!--Arquivo-->
                             <div class="form-row justify-content-center">
                                 <div class="custom-file col-10">
-                                    <input type="file" class="custom-file-input" accept="txt" id="validatedCustomFile"
+                                    <input id="inputArquivo" type="file" class="custom-file-input" accept="txt"
                                         name="arquivo">
-                                    <label class="custom-file-label botaoArquivo" for="validatedCustomFile" id="file-label">Escolher
+                                    <label class="custom-file-label botao" id="botaoArquivo" for="enviarArquivo">Escolher
                                         arquivo</label>
                                     <div class="invalid-feedback">Arquivo inválido</div>
                                 </div>
@@ -118,7 +118,7 @@
                         <table class="table">
                             <thead>
                                 <tr>
-                                    <th scope="col">Título</th>
+                                    <th scope="col">Título</th> 
                                     <th scope="col">Descrição</th>
                                     <th scope="col">Entrega</th>
                                     <th scope="col">Arquivo</th>
@@ -213,8 +213,8 @@
                         </div>
                         <!--título-->
                         <div class="form-group">
-                            <input type="text" value="<%= post.titulo %>" class="form-control modalTarefaTitulo"
-                                id="modal-alunos" name="titulo" placeholder="Título" id="tituloEditar">
+                            <textarea type="text" value="<%= post.titulo %>" class="form-control modalTarefaTitulo"
+                                id="modal-alunos" name="titulo" placeholder="Título" id="tituloEditar"><%= post.titulo %></textarea>
                         </div>
                         <!--descricao-->
                         <div class="form-group">
@@ -224,7 +224,7 @@
                     </div>
 
                     <div class="form-group">
-                        <div class="custom-file col-8 ">
+                        <div class="custom-file col-6 ">
                             <input type="text" class="form-control modalTarefaData" name="data_entrega" id="dataEditar"
                                  placeholder="DD/MM/AAAA" style="margin-left: 15px;"
                                 value="<%= post.data_entrega %>">
@@ -266,7 +266,7 @@
                 <form action="/professor/delete" method="POST" class="formExcluir">
                     <input type="hidden" name="id" value="<%= excluir.id %>">
                     <input type="hidden" name="id_classe" value="<%= excluir.classe.id %>">
-
+                    <br>
                     <div class="container">
                         <div class="form-control" style="border: none;">
                             <p>Deseja mesmo excluir esta classe?</p>
@@ -291,7 +291,7 @@
     <% });%>
 
     <section>
-        <!-- Modal Feedback Recado -->
+        <!-- Modal Feedback Tarefa -->
         <div class="modal fade" id="modal-feedback-tarefa" tabindex="-1" role="dialog" aria-labelledby="modal-adicionar-classe-titulo" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
@@ -312,7 +312,7 @@
                                     </div>
                                 </div>
                                 <div class="modal-footer">
-                                    <button type="button" class="botao-fechar" data-dismiss="modal"> Fechar </button>
+                                    <button type="button" class="botao-fechar" data-dismiss="modal" > Fechar </button>
                                 </div>
                             </div>
                         </div>            
@@ -329,6 +329,7 @@
     <script type="text/javascript" src="/javascripts/src/actions/logout.js"></script>
     <!-- JS externo -->
     <script src="/javascripts/dist/professor-tarefa.js"></script>
+    <script src="/javascripts/dist/inputFileArquivo.js"></script>
     <script type="text/javascript" src="/javascripts/dist/ProfessorAlterarDados.js"></script>
 </body>
 

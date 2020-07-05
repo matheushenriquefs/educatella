@@ -43,7 +43,7 @@
     color:#4AE894;
 }
 
-/* Título da Página */
+/* Título da Página */ 
 
 .titulo-geral {
     font-family: 'Poppins', sans-serif;
@@ -218,6 +218,19 @@
     text-decoration: none; 
     color: white;
 }
+
+.modal-title{
+    font-family: 'Poppins', sans-serif;
+    color: #4AE894;
+}
+
+.textoModal{
+    font-family: 'Poppins', sans-serif;
+    font-size:1rem;
+    color: grey;
+    text-align: justify;
+}
+
 
 /* Media Querys Para Responsividade */
 

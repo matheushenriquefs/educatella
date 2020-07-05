@@ -13,7 +13,7 @@
     <link href="https://fonts.googleapis.com/css?family=Baloo+Da+2|Pangolin|Poppins&display=swap" rel="stylesheet">
     <!--link meterial icons + fontawesome-->
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link rel="stylesheet" href="/node_modules/@fortawesome/fontawesome-free/css/all.css">
+    <link rel="stylesheet" href="/node_modules/@fontawesome/fontawesome-free/css/all.css">
 </head>
 
 <body>
@@ -62,15 +62,15 @@
                                     <div class="row mb-3">
                                         <input type="hidden" name="id_classe" value="<%=tarefaProfessor.id_classe%>">
                                         <input type="hidden" name="id_tarefa" value="<%=tarefaProfessor.id%>">
-                                        <div class="col-3">
-                                            <img class="imagem-professor align-middle" src="/images/<%= tarefas.aluno.usuarioAluno.imagem %>">
+                                        <div class="col-2 justify-content-center">
+                                            <img class="imagem-aluno align-middle" src="/images/<%= tarefas.aluno.usuarioAluno.imagem %>">
                                         </div>
                                         <div class="col-3">
                                             <a class="texto-link align-middle" href="/uploads/<%= tarefas.arquivo %>" download="<%= tarefas.arquivo %>"> 
                                                 <%= tarefas.arquivo %>
                                             </a>
                                         </div>
-                                        <div class="col-2">
+                                        <div class="col-3">
                                             <% if(tarefas.nota == null){ %>
                                                 <p class="texto"> Sem Nota </p>
                                             <% } else { %>
@@ -78,7 +78,9 @@
                                             <% } %>
                                         </div>
                                         <div class="col-2">
-                                            <select class="btn btn-success" name="nota" id="nota">
+                                            <select class="btn btn-success" name="nota" id="nota" style="border-radius: 15px;">
+                                                <option value="Nota" selected>Nota</option>
+                                                <option value="0">0</option>
                                                 <option value="1">1</option>
                                                 <option value="2">2</option>
                                                 <option value="3">3</option>
@@ -92,7 +94,7 @@
                                             </select>   
                                         </div>
                                         <div class="col-2">
-                                            <button type="submit" class="btn btn-success"> Aplicar </button>
+                                            <button type="submit" class="btn btn-success" style="border-radius: 15px;"> Aplicar </button>
                                         </div>
                                     </div>
                                 </form>
@@ -130,7 +132,7 @@
                                 </div>
                             </div>
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-danger" data-dismiss="modal"> Fechar </button>
+                                <button type="button" class="btn btn-danger" data-dismiss="modal" style="border-radius: 15px;"> Fechar </button>
                             </div>
                         </div>
                     </div>            

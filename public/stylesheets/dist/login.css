@@ -5,7 +5,7 @@ html {
     font-family: 'Poppins', sans-serif;
 }
 
-body{
+body{ 
     background-color: white;
 }
 
@@ -23,9 +23,39 @@ body{
 
 .botao {
     color: white;
-    font-size: 1.1rem;
+    font-size: 1.5rem;
     border-radius: 15px;
-    padding: 10px 20px 10px 20px;
+    padding: 5px 20px 5px 20px;
     background-color: #4AE894;
     font-family: 'Baloo Da 2', cursive;
+}
+
+.botao:hover{
+    color: white;
+    background-color: rgb(96, 195, 171);
+}
+
+/* Formulário estilo */
+.form-control{
+    display: block;
+    width: 100%;
+    height: calc(1.5em + 0.75rem + 2px);
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    font-family: 'Poppins', sans-serif;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    cursor: pointer;
+}
+
+.textFormat{
+    font-family: 'Poppins', sans-serif;
+    color: #495057;
+    font-size: 1.1rem;
 }

@@ -412,6 +412,7 @@ html {
     font-family: 'Poppins', sans-serif;
     color: #4AE894;
     text-align: center;
+    text-overflow: ellipsis;
 }
 
 /* Linhas editáveis da tabela */
@@ -512,41 +513,11 @@ html {
 
 /* Tela POSTAR NOTA */
 
-.form-notas-titulo{
-    font-family: 'Poppins', sans-serif;
-    color: rgb(135, 206, 235);
-    /* rgb(241, 109, 110); */
-    text-align: center;
-    margin-top: 15px;
+.imagem-aluno {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
 }
-
-#inputPasswordNota {
-    display: block;
-    font-family: 'Poppins', sans-serif;
-    margin-left: 135px;
-    color: black;
-    
-}
-
-.btn-enviar-nota{
-    width: 65px;
-    height: 30px;
-    background-color: rgb(241, 109, 110);
-    font-family: 'Poppins', sans-serif;
-    border: none;
-    border-radius: 15px;
-    margin-top: 30px;
-    margin-left: 137px;
-    font-size: 16px;
-}
-
-.btn-enviar-nota:hover{
-    opacity: 0.8;
-}
-
-
-
-
 
 
 
