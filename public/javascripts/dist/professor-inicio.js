@@ -12,8 +12,6 @@ formCriar.addEventListener("submit", evt => {
 
     let materia = document.getElementById("nomeCriar").value;  
 
-    let codigo = document.getElementById("codigoCriar").value;
-
     if (materia == null || materia == "") {
         feedbackA.innerText = "O campo matéria deve ser preenchido!";
         setTimeout(()=>{
@@ -21,14 +19,6 @@ formCriar.addEventListener("submit", evt => {
             //opacity=0
         }, 3000);
         materia.focus();
-
-    } else if (codigo == null || codigo == "") {
-        feedbackA.innerText = "O campo código deve ser preenchido!";
-        setTimeout(()=>{
-            feedbackA.style.display = 'none';
-            //opacity=0
-        }, 3000);
-        codigo.focus();
 
     } else {
         feedbackJ.innerText = "Sua classe foi criada!";
@@ -39,10 +29,7 @@ formCriar.addEventListener("submit", evt => {
         formCriar.submit()
     }
 
-});  
-
-
-
+});
 
 /* Validando form de editar classe */
 

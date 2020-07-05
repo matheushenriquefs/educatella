@@ -34,7 +34,27 @@ module.exports = {
     // Classes - criar, acessar, alterar e deletar
     criarClasse: async (req, res) => {
 
-        const { nome, codigo, id_professor } = req.body
+        const { nome, id_professor } = req.body
+
+        let codigo = [];
+
+        const generateCode = () => {
+
+            const list = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+
+            for(let i = list.length; i > list.length - 8; i--){
+
+                let randomIndex = Math.floor(Math.random() * i);
+                
+                codigo.push(list[randomIndex]);
+
+            }
+
+            codigo = codigo.join("");
+
+        }
+
+        generateCode();
 
         const criar = await Classe.create(
             {
