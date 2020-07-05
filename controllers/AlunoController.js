@@ -1,4 +1,6 @@
 const {Aluno, Professor, Classe, Recado, Usuario, Tarefa, Classe_Aluno, Tarefa_Aluno} = require("../models");
+const jwt = require("jsonwebtoken");
+require("dotenv").config();
 
 let bcrypt = require("bcrypt");
 
@@ -463,11 +465,9 @@ module.exports = {
 
 	alterarNome: async (req,res)=> {
 		
+		const { email, imagem, type } = req.usuario;
 		const idUsuario = req.usuario.id;
 		let nomeUsuario = req.body.nome;
-		let feedbackAlterarDados = "Nome alterado com sucesso!";
-		//feedback ao tentar acessar uma classe
-		let feedback = "inicio";
 
 		await Usuario.update({
 			nome:nomeUsuario
@@ -478,22 +478,23 @@ module.exports = {
 			}
 		});
 
-		let aluno = await Aluno.findOne({
-			include:{
-				model: Classe, 
-				as:'classes', 
-				include:{
-					model: Professor,
-					as:'professor',
-					include: 'usuarioProfessor'
-				}
-			}, 
-			where:{
-				id_usuario:idUsuario
-			}
+		const token = jwt.sign({
+			id: idUsuario,
+			name: nomeUsuario,
+			email,
+			imagem,
+			type
+		}, 
+		process.env.JWT_KEY,
+		{
+			expiresIn: "3h"
 		});
 
-		res.render("aluno/inicio", {usuario:req.usuario, aluno, feedback, feedbackAlterarDados});
+		res.cookie("token", token, { httpOnly: true });
+
+		res.redirect("inicio");
+
+		return;
 
 	},
 
