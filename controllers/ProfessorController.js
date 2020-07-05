@@ -948,9 +948,17 @@ module.exports = {
         
         const { email, imagem, type } = req.usuario; 
 		const idUsuario = req.usuario.id;
-		let nomeUsuario = req.body.nome;
-
+        let nomeUsuario = req.body.nome;
         
+        await Usuario.update({
+			nome:nomeUsuario
+		},
+		{
+			where:{
+				id:idUsuario
+			}
+		});
+
 		const token = jwt.sign({
 			id: idUsuario,
 			name: nomeUsuario,
