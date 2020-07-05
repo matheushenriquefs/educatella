@@ -1000,10 +1000,11 @@ module.exports = {
 
 	alterarSenha: async (req,res)=> {
 
+        const { name, email, imagem, type } = req.usuario;
 		const idUsuario = req.usuario.id;
 		let senhaAntiga = req.body.senhaAntiga;
         let senhaNova = req.body.senhaNova;
-        let feedbackAlterarDados = "Senha Alterada com Sucesso!";
+
 
 		let usuarioBanco = await Usuario.findOne(
 		{
@@ -1024,21 +1025,23 @@ module.exports = {
 			});	
 		}
 
-		Professor.findOne({ where: { id_usuario: idUsuario } }).then(
-            professor => {
-                Professor.findByPk(professor.id,
-                    {
-                        include: {
-                            model: Classe,
-                            as: 'classes'
-                        }
-                    }).then(
-                        professorClasses => {
-                            res.render('professor/inicio', { usuario: req.usuario, professor: professorClasses, feedbackAlterarDados })
-                        }
-                    )
-            }
-        )
+		const token = jwt.sign({
+			id: idUsuario,
+			name,
+			email,
+			imagem,
+			type
+		}, 
+		process.env.JWT_KEY,
+		{
+			expiresIn: "3h"
+		});
+
+		res.cookie("token", token, { httpOnly: true });
+
+		res.redirect("inicio");
+
+		return;
 
 	}
 }
