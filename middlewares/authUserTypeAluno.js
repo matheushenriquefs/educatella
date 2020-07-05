@@ -13,7 +13,7 @@ module.exports = (req, res, next) => {
 
         if(decode.type === "Professor"){
             
-            return res.redirect("inicio");
+            return res.redirect("/error/401/professor");
 
         }
 
