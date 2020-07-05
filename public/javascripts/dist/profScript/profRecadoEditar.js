@@ -4,7 +4,7 @@ let formEditar = document.getElementsByClassName('formEditarRecado');
 
 let feed = document.getElementsByClassName('feedbackAlert');
 
-let feedSucesso = document.getElementsByClassName('feedbackSucesso');
+let feedSucessoRecado = document.getElementsByClassName('feedbackSucessoRecado');
 
 let tituloA = document.getElementsByClassName('titulo');
 
@@ -35,7 +35,7 @@ for(let i = 0; i < formEditar.length; i++){
     
         }else{
             setTimeout(()=>{
-                feedSucesso[i].style.display = 'none';
+                feedSucessoRecado[i].style.display = 'none';
                 //opacity=0
             }, 3000);
             formEditar[i].submit();
