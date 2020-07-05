@@ -22,7 +22,6 @@ var uploadTarefa = multer({ storage: storage });
 
 // Middlewares
 const authUser = require("../middlewares/authUser");
-const AuthUserType = require("../middlewares/AuthUserTypeAluno");
 
 // Rotas GET
 router.post('/aluno/recados', authUser, AlunoController.recadosAlunos);

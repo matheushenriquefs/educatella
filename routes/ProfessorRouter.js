@@ -25,7 +25,6 @@ var ProfessorController = require('../controllers/ProfessorController');
 
 // Middlewares
 const authUser = require("../middlewares/authUser");
-const authUserType = require("../middlewares/authUserTypeProfessor");
 
 /* Rotas Professor */ /*tirar authUser pra desenvolver*/
 
