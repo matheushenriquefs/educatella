@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+    <head>
+        <meta chartset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <!-- Icone da página -->
+        <link rel="sortcut icon" href="/images/icone.png" type="image/x-icon" />
+        <title> Educatella </title> 
+        <!-- css externos -->
+        <link href="/vendor/bootstrap.min.css" rel="stylesheet">
+        <link href="/stylesheets/dist/footer.css" rel="stylesheet">
+        <link href="/stylesheets/dist/login.css" rel="stylesheet">
+        <!-- links de fontes google (Baloo Da 2, Pangolin e Poppins)-->
+        <link href="https://fonts.googleapis.com/css?family=Baloo+Da+2|Pangolin|Poppins&display=swap" rel="stylesheet">
+    </head>
+
+    <body>
+
+        <!-- Tag que Engloba Toda a Barra de Navegação -->
+        <nav class="navbar navbar-expand-lg col-12 navbar-fixed-top">
+
+            <div class="navbar-collapse collapse justify-content-center">
+
+                <a href="../" class="navbar-brand" alt="home">
+                    <img src="/images/logo.png" alt="logo">
+                </a>
+
+            </div>
+            <!-- Icone (Margem Esquerda) -->
+            
+        </nav>
+
+        <main>
+
+          <h1 class="text-center titulo">Redefinir Senha</h1>
+
+          <div class="container">
+  
+              <div class="row justify-content-center">
+
+                <div class="col-lg-5">
+                
+                  <form action="/redefinir-senha" method="POST">
+
+                      <% if (typeof title !== 'undefined' && typeof message !== 'undefined') { %>
+
+                        <% if (title === 'Erro!') { %>
+                        
+                            <div class="form-group row mb-0">
+        
+                                <div class="col-md-12">
+                
+                                    <div class="card mt-3 mb-3">
+        
+                                        <div class="card-header bg-danger text-white">
+                            
+                                            <h5 class="card-title mb-0"><%= title %></h5>
+                                            
+                                        </div>
+                        
+                                        <div class="card-body">       
+                            
+                                            <p class="card-text"><%= message %></p>
+                            
+                                        </div>
+                        
+                                    </div>
+                
+                                </div>
+            
+                            </div>
+
+                        <% } %>
+
+                        <% if (title === 'Sucesso!') { %>
+
+                            <div class="form-group row mb-0">
+        
+                                <div class="col-md-12">
+                
+                                    <div class="card mt-3 mb-3">
+        
+                                        <div class="card-header bg-success text-white">
+                            
+                                            <h5 class="card-title mb-0"><%= title %></h5>
+                                            
+                                        </div>
+                        
+                                        <div class="card-body">       
+                            
+                                            <p class="card-text"><%= message %></p>
+                            
+                                        </div>
+                        
+                                    </div>
+                
+                                </div>
+            
+                            </div>
+
+                        <% } %>
+                    
+                    <% } %>
+
+                    <div class="form-group row">
+      
+                        <label for="email" class="col-sm-12 col-form-label">E-mail:</label>
+      
+                        <div class="col-md-12">
+      
+                          <input type="email" class="form-control" id="email" name="email">
+      
+                        </div>
+      
+                    </div>
+      
+                      <div class="form-group row">
+      
+                        <div class="col-md-12 text-center">
+      
+                          <button type="submit" class="btn w-100 botao">Enviar</button>
+      
+                        </div>
+      
+                      </div>
+      
+                  </form>
+
+                </div>
+
+              </div>
+
+          </div>
+
+          <p class="text-center mb-3">Para retornar ao login <a href="/login">clique aqui</a></p>
+
+        </main>
+
+    </body>
+
+    <!-- Footer da Página -->
+    <%- include('./partials/footer') %>
+    <!-- Importando Jquery -->
+    <script type="text/javascript" src="/vendor/jquery.min.js"></script>
+    <!-- Importando Bootstrap JS -->
+    <script type="text/javascript" src="/vendor/bootstrap.bundle.min.js"></script>
+    <script type="text/javascript" src="/javascripts/src/actions/hideResponseCard.js"></script>
+</html>
