@@ -22,19 +22,20 @@ var uploadTarefa = multer({ storage: storage });
 
 // Middlewares
 const authUser = require("../middlewares/authUser");
+const AuthUserType = require("../middlewares/AuthUserTypeAluno");
 
 // Rotas GET
-router.post('/aluno/recados', authUser, AlunoController.recadosAlunos);
-router.post('/aluno/tarefas', authUser, AlunoController.tarefasAlunos);
-router.post('/aluno/enviarTarefa', uploadTarefa.any(), authUser, AlunoController.enviarTarefaAlunos);
-router.post('/aluno/notas', authUser, AlunoController.notasAlunos);
-router.get('/aluno/inicio', authUser, AlunoController.inicioAlunos);
-router.post('/aluno/adicionarClasse', authUser, AlunoController.adicionarClasse);
-router.post('/aluno/acessarClasse', authUser, AlunoController.acessarClasse);
-router.post('/aluno/excluirClasse', authUser, AlunoController.excluirClasse);
-router.post('/aluno/alterarImagem', upload.single("img"), authUser, AlunoController.alterarImagem);
-router.post('/aluno/alterarNome', authUser, AlunoController.alterarNome);
-router.post('/aluno/alterarEmail', authUser, AlunoController.alterarEmail);
-router.post('/aluno/alterarSenha', authUser, AlunoController.alterarSenha);
+router.post('/aluno/recados', authUser, AuthUserType, AlunoController.recadosAlunos);
+router.post('/aluno/tarefas', authUser, AuthUserType, AlunoController.tarefasAlunos);
+router.post('/aluno/enviarTarefa', uploadTarefa.any(), authUser, AuthUserType, AlunoController.enviarTarefaAlunos);
+router.post('/aluno/notas', authUser, AuthUserType, AlunoController.notasAlunos);
+router.get('/aluno/inicio', authUser, AuthUserType, AlunoController.inicioAlunos);
+router.post('/aluno/adicionarClasse', authUser, AuthUserType, AlunoController.adicionarClasse);
+router.post('/aluno/acessarClasse', authUser, AuthUserType, AlunoController.acessarClasse);
+router.post('/aluno/excluirClasse', authUser, AuthUserType, AlunoController.excluirClasse);
+router.post('/aluno/alterarImagem', upload.single("img"), authUser, AuthUserType, AlunoController.alterarImagem);
+router.post('/aluno/alterarNome', authUser, AuthUserType, AlunoController.alterarNome);
+router.post('/aluno/alterarEmail', authUser, AuthUserType, AlunoController.alterarEmail);
+router.post('/aluno/alterarSenha', authUser, AuthUserType, AlunoController.alterarSenha);
 
 module.exports = router;
