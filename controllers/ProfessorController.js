@@ -2,6 +2,8 @@
 const { Aluno, Professor, Classe, Recado, Tarefa, Classe_Aluno, Usuario,Tarefa_Aluno } = require("../models")
 const { check, validationResult } = require('express-validator');
 const { CustomValidation } = require("express-validator/src/context-items");
+const jwt = require("jsonwebtoken");
+require("dotenv").config();
 
 
 module.exports = {
@@ -890,9 +892,10 @@ module.exports = {
     //Alterar usuário
 	alterarImagem: async (req,res)=> {
 
+        const { name, email, type } = req.usuario;
 		const idUsuario = req.usuario.id;
 		let img = req.file.filename;
-        let feedbackAlterarDados = "Imagem Alterada com Sucesso!";
+
 		await Usuario.update({
 			imagem:img
 		},
@@ -901,22 +904,22 @@ module.exports = {
 				id:idUsuario
 			}
         });
-        
-        Professor.findOne({ where: { id_usuario: idUsuario } }).then(
-            professor => {
-                Professor.findByPk(professor.id,
-                    {
-                        include: {
-                            model: Classe,
-                            as: 'classes'
-                        }
-                    }).then(
-                        professorClasses => {
-                            res.render('professor/inicio', { usuario: req.usuario, professor: professorClasses, feedbackAlterarDados })
-                        }
-                    )
-            }
-        )
+
+        const token = jwt.sign({
+			id: idUsuario,
+			name,
+			email,
+			imagem: img,
+			type
+		}, 
+		process.env.JWT_KEY,
+		{
+			expiresIn: "3h"
+		});
+
+		res.cookie("token", token, { httpOnly: true });
+
+        return res.redirect('inicio');
 
 	},
 
