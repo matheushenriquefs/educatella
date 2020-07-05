@@ -429,11 +429,9 @@ module.exports = {
 
 	alterarImagem: async (req,res)=> {
 
+		const { name, email, type } = req.usuario;
 		const idUsuario = req.usuario.id;
 		let img = req.file.filename;
-		let feedbackAlterarDados = "Imagem Alterada com sucesso!";
-		//feedback ao tentar acessar uma classe
-		let feedback = "inicio";
 
 		await Usuario.update({
 			imagem:img
@@ -444,22 +442,23 @@ module.exports = {
 			}
 		});
 
-		let aluno = await Aluno.findOne({
-			include:{
-				model: Classe, 
-				as:'classes', 
-				include:{
-					model: Professor,
-					as:'professor',
-					include: 'usuarioProfessor'
-				}
-			}, 
-			where:{
-				id_usuario:idUsuario
-			}
+		const token = jwt.sign({
+			id: idUsuario,
+			name,
+			email,
+			imagem: img,
+			type
+		}, 
+		process.env.JWT_KEY,
+		{
+			expiresIn: "3h"
 		});
 
-		res.render("aluno/inicio", {usuario:req.usuario, aluno, feedback, feedbackAlterarDados});
+		res.cookie("token", token, { httpOnly: true });
+
+		res.redirect("inicio");
+
+		return;
 
 	},
 
