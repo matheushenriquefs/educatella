@@ -2,6 +2,7 @@
 const { Aluno, Professor, Classe, Recado, Tarefa, Classe_Aluno, Usuario,Tarefa_Aluno } = require("../models")
 const { check, validationResult } = require('express-validator');
 const { CustomValidation } = require("express-validator/src/context-items");
+const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 require("dotenv").config();
 
