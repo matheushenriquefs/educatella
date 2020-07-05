@@ -7,12 +7,12 @@ module.exports = {
     },
     renderError401Aluno: (req, res) => {
 
-        res.render("errors/401-aluno");
+        res.render("errors/401/aluno");
 
     },
     renderError401Professor: (req, res) => {
 
-        res.render("errors/401-aluno");
+        res.render("errors/401/aluno");
 
     }
 
