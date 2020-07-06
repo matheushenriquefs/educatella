@@ -20,7 +20,7 @@ formRecados.addEventListener("submit", function(evt){
         feedAlerta.innerText = "O campo título deve ser preenchido!";
 
         setTimeout(()=>{
-            feedAlerta.style.display = "none";
+            feedAlerta.innerText = "";
         }, 3000);
 
         tituloRecado.focus();
@@ -30,16 +30,12 @@ formRecados.addEventListener("submit", function(evt){
         feedAlerta.innerText = "O campo descrição deve ser preenchido!";
 
         setTimeout(()=>{
-            feedAlerta.style.display = "none";
+            feedAlerta.innerText = "";
         }, 3000);
 
         descricaoRecado.focus();
 
      }else{
-
-        setTimeout(()=>{
-            feedSucesso.style.display = "none";
-        }, 3000);
 
         formRecados.submit();
     }

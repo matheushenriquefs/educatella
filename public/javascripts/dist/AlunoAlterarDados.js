@@ -44,6 +44,9 @@ function validarCampo(formulario, campoFeedback, campo, mensagem){
         //Se o código da classe for vazio, exibe uma mensagem, se não for, o formulário é acionado
         if(campo.value == ""){
             campoFeedback.innerText = mensagem;
+            setTimeout(()=>{
+                campoFeedback.innerText = '';
+            }, 3000);
         }else{
             formulario.submit();
         }
@@ -62,10 +65,19 @@ function validarCampo2Campos(formulario, campoFeedback, campo1, campo2, mensagem
         //Se o código da classe for vazio, exibe uma mensagem, se não for, o formulário é acionado
         if(campo1.value == "" && campo2.value == ""){
             campoFeedback.innerText = mensagem3;
+            setTimeout(()=>{
+                campoFeedback.innerText = '';
+            }, 3000);
         }else if(campo1.value == ""){
             campoFeedback.innerText = mensagem1;
+            setTimeout(()=>{
+                campoFeedback.innerText = '';
+            }, 3000);
         }else if(campo2.value == ""){
             campoFeedback.innerText = mensagem2;
+            setTimeout(()=>{
+                campoFeedback.innerText = '';
+            }, 3000);
         }else{
             formulario.submit();
         }

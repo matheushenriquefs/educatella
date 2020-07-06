@@ -17,7 +17,7 @@ let dataEntregaBanco = document.getElementsByClassName('dataEntregaBanco');
 let divEnviarTarefa = document.getElementsByClassName("divEnviarTarefa");
 let feedback = document.getElementsByClassName("feedbackTarefa");
 let botaoEnviar = document.getElementsByClassName("botao-enviar-tarefa");
-console.log(dataEntregaBanco[2].value)
+
 for(let i = 0; i < dataEntregaBanco.length; i++){
 
     //Recebe a data de entrega tratada
@@ -89,6 +89,9 @@ for(let i = 0; i < formEnviarTarefa.length; i++){
         //Se o código da classe for vazio, exibe uma mensagem, se não for, o formulário é acionado
         if(tarefaEnviada[i].value == ""){
             feedback[i].innerText = "Você deve anexar um arquivo!";
+            setTimeout(()=>{
+                feedback[i].innerText = '';
+            }, 3000);
         }else{
             formEnviarTarefa[i].submit();
         }

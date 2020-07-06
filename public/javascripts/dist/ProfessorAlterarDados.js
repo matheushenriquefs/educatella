@@ -48,12 +48,11 @@ function validarCampo(formulario, campoFeedback, campoFeedbackC, campo, mensagem
         //Se o código da classe for vazio, exibe uma mensagem, se não for, o formulário é acionado
         if(campo.value == ""){
             campoFeedback.innerText = mensagem;
-        }else{
-            campoFeedback.style.display = 'none';
             setTimeout(()=>{
-                campoFeedbackC.style.display = 'none';
-                //opacity=0
-            }, 5000);
+                campoFeedback.innerText = '';
+            }, 3000);
+        }else{
+        
             formulario.submit();
         }
 
@@ -71,30 +70,23 @@ function validarCampo2Campos(formulario, campoFeedback, campoFeedbackC, campo1, 
         //Se o código da classe for vazio, exibe uma mensagem, se não for, o formulário é acionado
         if(campo1.value == "" && campo2.value == ""){
             campoFeedback.innerText = mensagem3;
+            setTimeout(()=>{
+                campoFeedback.innerText = '';
+            }, 3000);
         }else if(campo1.value == ""){
             campoFeedback.innerText = mensagem1;
+            setTimeout(()=>{
+                campoFeedback.innerText = '';
+            }, 3000);
         }else if(campo2.value == ""){
             campoFeedback.innerText = mensagem2;
-        }else{
-            campoFeedback.style.display = 'none';
             setTimeout(()=>{
-                campoFeedbackC.style.display = 'none';
-                //opacity=0
-            }, 5000);
+                campoFeedback.innerText = '';
+            }, 3000);
+        }else{
+    
             formulario.submit();
         }
 
     });
 }
-
-let feedbackAlterarDados = document.getElementById("feedbackAlterarDados").value;
-let mensagemFeedbackAlterarDados = document.getElementById("mensagemFeedbackAlterarDados");
-
-function alterarDadosFeedback(){
-    if(feedbackAlterarDados != "inicio"){
-        $('#modal-feedback-alterar-dados').modal('show');
-        mensagemFeedbackAlterarDados.innerText = feedbackAlterarDados;
-    }
-}
-
-alterarDadosFeedback();

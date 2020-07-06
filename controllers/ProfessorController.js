@@ -12,7 +12,7 @@ module.exports = {
     profInicio: async (req, res) => {
 
         const idUsuario = req.usuario.id
-        let feedbackAlterarDados = "inicio";
+        let feedbackInicio = "inicio";
 
         Professor.findOne({ where: { id_usuario: idUsuario } }).then(
             professor => {
@@ -24,7 +24,7 @@ module.exports = {
                         }
                     }).then(
                         professorClasses => {
-                            res.render('professor/inicio', { usuario: req.usuario, professor: professorClasses, feedbackAlterarDados })
+                            res.render('professor/inicio', { usuario: req.usuario, professor: professorClasses, feedbackInicio })
                         }
                     )
             }
@@ -35,8 +35,9 @@ module.exports = {
     criarClasse: async (req, res) => {
 
         const { nome, id_professor } = req.body
-
+        let feedbackInicio = "Classe Criada com Sucesso!";
         let codigo = [];
+        const idUsuario = req.usuario.id
 
         const generateCode = () => {
 
@@ -64,8 +65,21 @@ module.exports = {
             })
             .catch(error => res.status(500).send(error))
 
-        return res.redirect('/professor/inicio')
-
+            Professor.findOne({ where: { id_usuario: idUsuario } }).then(
+                professor => {
+                    Professor.findByPk(professor.id,
+                        {
+                            include: {
+                                model: Classe,
+                                as: 'classes'
+                            }
+                        }).then(
+                            professorClasses => {
+                                res.render('professor/inicio', { usuario: req.usuario, professor: professorClasses, feedbackInicio })
+                            }
+                        )
+                }
+            )
     },
 
     acessarClasse: async (req, res) => {
@@ -93,14 +107,15 @@ module.exports = {
 
         let professor = await Professor.findOne({ where: { id_usuario: idUsuario } });
 
-        res.render('professor/recados', { acessarClasse, professor, usuario: req.usuario, feedbackAlterarDados })
+        res.render('professor/recados', { acessarClasse, professor, usuario: req.usuario })
 
     },
 
     updateClasse: async (req, res) => {
 
         const { id_classe, nome, codigo } = req.body;
-
+        const idUsuario = req.usuario.id
+        let feedbackInicio = "Classe Editada com Sucesso!";
         const alterar = await Classe.update({
             nome,
             codigo,
@@ -110,22 +125,52 @@ module.exports = {
                     id: id_classe
                 }
             });
-            
-        res.redirect('/professor/inicio'); 
+
+        Professor.findOne({ where: { id_usuario: idUsuario } }).then(
+            professor => {
+                Professor.findByPk(professor.id,
+                    {
+                        include: {
+                            model: Classe,
+                            as: 'classes'
+                        }
+                    }).then(
+                        professorClasses => {
+                            res.render('professor/inicio', { usuario: req.usuario, professor: professorClasses, feedbackInicio })
+                        }
+                    )
+            }
+        )
+
     },
 
     destroyClasse: async (req, res) => {
         
         const { id_classe } = req.body
-
+        const idUsuario = req.usuario.id
+        let feedbackInicio = "Classe Excluída com Sucesso!";
         const deletar = await Classe.destroy({
             where: {
                 id: id_classe
             }
         })
-        console.log(deletar)
+        
+        Professor.findOne({ where: { id_usuario: idUsuario } }).then(
+            professor => {
+                Professor.findByPk(professor.id,
+                    {
+                        include: {
+                            model: Classe,
+                            as: 'classes'
+                        }
+                    }).then(
+                        professorClasses => {
+                            res.render('professor/inicio', { usuario: req.usuario, professor: professorClasses, feedbackInicio })
+                        }
+                    )
+            }
+        )
 
-        res.redirect('/professor/inicio'); 
     },
 
 
@@ -134,7 +179,6 @@ module.exports = {
         let usuario = req.usuario
         const idUsuario = req.usuario.id
         let feedbackRecado = "inicio";
-        let feedbackAlterarDados = "inicio";
         const { id_classe } = req.query
 
         let acessarClasse = await Classe.findByPk(id_classe,
@@ -155,7 +199,7 @@ module.exports = {
         
        
        
-        res.render('professor/recados', {usuario,acessarClasse, feedbackRecado, feedbackAlterarDados});
+        res.render('professor/recados', {usuario,acessarClasse, feedbackRecado});
     },
      //criar Recados////////////////////////////////////////////////////////////////
     profRecadosCriar: async (req, res) => {
@@ -163,7 +207,6 @@ module.exports = {
         let usuario = req.usuario
         const idUsuario = req.usuario.id
         let feedbackRecado = "Recado Criado com Sucesso!";
-        let feedbackAlterarDados = "inicio";
         const { id_classe } = req.query
 
         let acessarClasse = await Classe.findByPk(id_classe,
@@ -182,7 +225,7 @@ module.exports = {
         );
         let recadosDB = await Recado.findAll()
         
-        res.render('professor/criar-recado', { recadosDB, usuario,acessarClasse, feedbackRecado, feedbackAlterarDados});
+        res.render('professor/criar-recado', { recadosDB, usuario,acessarClasse, feedbackRecado});
 
     },
     //criar Recados////////////////////////////////////////////////////////////////
@@ -190,7 +233,6 @@ module.exports = {
         let errors = validationResult(req);
         const { titulo, descricao } = req.body
         let feedbackRecado = "Recado Criado com Sucesso!";
-        let feedbackAlterarDados = "inicio";
         let usuario = req.usuario
         const idUsuario = req.usuario.id
         const { id_classe } = req.body
@@ -221,7 +263,7 @@ module.exports = {
 
         let recadosDB = await Recado.findAll()
         
-        res.render('professor/recados', { recadosDB, usuario,acessarClasse, feedbackRecado, feedbackAlterarDados});
+        res.render('professor/recados', { recadosDB, usuario,acessarClasse, feedbackRecado});
     },
     //apagar recados////////////////////////////////////////////////////////////////
     profRecadosApagar: async (req, res) => {
@@ -229,7 +271,6 @@ module.exports = {
         const idUsuario = req.usuario.id
         const { id_classe } = req.query
         let feedbackRecado = "Recado Apagado com Sucesso!"
-        let feedbackAlterarDados = "inicio";
 
         let acessarClasse = await Classe.findByPk(id_classe,
             {
@@ -246,14 +287,13 @@ module.exports = {
             }
         );     
     
-        res.render('professor/apagar-recado', {usuario,acessarClasse, feedbackRecado, feedbackAlterarDados});
+        res.render('professor/apagar-recado', {usuario,acessarClasse, feedbackRecado});
     },
         //apagar Recados////////////////////////////////////////////////////////////////
     profRecadosApagar2: async (req, res) => {
         const id  = req.params.id
         let usuario = req.usuario
         let id_classe = req.body.id_classe;
-        let feedbackAlterarDados = "inicio";
 
         const resultado = await Recado.destroy({
             where: {id_recados: id}
@@ -276,7 +316,7 @@ module.exports = {
             }
         );
 
-        res.render('professor/recados', {usuario,acessarClasse, feedbackRecado, feedbackAlterarDados});
+        res.render('professor/recados', {usuario,acessarClasse, feedbackRecado});
     },
     //Editar Recados////////////////////////////////////////////////////////////////
     profRecadosEditar: async (req, res) => {
@@ -284,7 +324,6 @@ module.exports = {
         let usuario = req.usuario
         const idUsuario = req.usuario.id
         let feedbackRecado = "Recado Alterado com Sucesso!"
-        let feedbackAlterarDados = "inicio";
         const { id_classe } = req.query
         
         let acessarClasse = await Classe.findByPk(id_classe,
@@ -303,15 +342,13 @@ module.exports = {
         );
 
      
-    res.render('professor/editar-recado', { usuario,acessarClasse, feedbackRecado, feedbackAlterarDados});
+    res.render('professor/editar-recado', { usuario,acessarClasse, feedbackRecado});
     },
         //Editar Recados////////////////////////////////////////////////////////////////
     profRecadosEditar2: async (req, res) => {
         const { id } = req.params
         const { titulo, descricao, id_classe } = req.body
         let usuario = req.usuario
-
-        let feedbackAlterarDados = "inicio";
 
         const resultado = await Recado.update({
             titulo: titulo,
@@ -340,7 +377,7 @@ module.exports = {
         let feedbackRecado = "Recado Alterado com Sucesso!"
 
         
-        res.render('professor/recados', { usuario, acessarClasse, feedbackRecado, feedbackAlterarDados});
+        res.render('professor/recados', { usuario, acessarClasse, feedbackRecado});
         
     },
 
@@ -348,8 +385,6 @@ module.exports = {
        
         const { tituloTarefa, descricaoTarefa } = req.body;
         const { id_classe } = req.query
-
-        let feedbackAlterarDados = "inicio";
 
         const { files } = req;
         let classeDb = await Classe.findAll();
@@ -386,13 +421,12 @@ module.exports = {
 
         }).catch(err => { console.log(err) })
              
-        res.render('professor/gerenciar-nota',{gerenciarDB, usuario,acessarClasse,classeDb, feedbackAlterarDados});
+        res.render('professor/gerenciar-nota',{gerenciarDB, usuario,acessarClasse,classeDb});
     },
     gerenciarNotaAluno: async (req, res) => {
        
         const { tituloTarefa, descricaoTarefa } = req.body;
         const { id_classe } = req.body
-        let feedbackAlterarDados = "inicio";
         const { files } = req;
         let classeDb = await Classe.findAll();
         let usuario = req.usuario
@@ -457,7 +491,7 @@ module.exports = {
             tarefas[contador].tarefasAlunos = tarefas[contador].tarefasAlunos.filter(verificaidAluno);
         }
            
-        res.render('professor/gerenciar-nota-aluno',{gerenciarDB, usuario,acessarClasse,classeDb,tarefas, aluno, feedbackNota, feedbackAlterarDados});
+        res.render('professor/gerenciar-nota-aluno',{gerenciarDB, usuario,acessarClasse,classeDb,tarefas, aluno, feedbackNota});
      
     },
     ponerNotaAluno : async (req,res)=>{
@@ -466,7 +500,6 @@ module.exports = {
         let usuario = req.usuario
         let id = req.params.id
         let classeDb = await Classe.findAll();
-        let feedbackAlterarDados = "inicio";
         feedbackNota = "Você Aplicou a Nota com Sucesso!";
         
         let gerenciarDB = await Classe.findByPk(id_classe,{
@@ -535,7 +568,7 @@ module.exports = {
             });
        
  
-        res.render('professor/gerenciar-nota-aluno',{gerenciarDB, usuario,acessarClasse,classeDb,tarefas, aluno, feedbackNota, feedbackAlterarDados});
+        res.render('professor/gerenciar-nota-aluno',{gerenciarDB, usuario,acessarClasse,classeDb,tarefas, aluno, feedbackNota});
     },
 
     ponerNotaAlunoTarefa: async (req,res) => {
@@ -543,7 +576,6 @@ module.exports = {
         const { id_classe, id_tarefa, nota } = req.body;
         let usuario = req.usuario;
         let id = req.params.id;
-        let feedbackAlterarDados = "inicio";
         let feedbackNota = "Você Aplicou a Nota com Sucesso!";
 
         await Tarefa_Aluno.update({
@@ -585,7 +617,7 @@ module.exports = {
         
         let tarefaProfessor = await Tarefa.findByPk(id_tarefa);
 
-        res.render('professor/gerenciar-nota-tarefa',{usuario, acessarClasse, tarefasAlunos, tarefaProfessor, feedbackAlterarDados, feedbackNota});
+        res.render('professor/gerenciar-nota-tarefa',{usuario, acessarClasse, tarefasAlunos, tarefaProfessor, feedbackNota});
 
     },
 
@@ -594,8 +626,6 @@ module.exports = {
     tarefaMenu: async (req, res) => {
 
         const idUsuario = req.usuario.id
-        
-        let feedbackAlterarDados = "inicio";
 
         const { id_classe } = req.body
 
@@ -631,7 +661,7 @@ module.exports = {
         let professor = await Professor.findOne({ where: { id_usuario: idUsuario } });
     
     
-        res.render('professor/postar-tarefa', { acessarClasse, professor, usuario: req.usuario, posts, feedbackTarefa, feedbackAlterarDados })
+        res.render('professor/postar-tarefa', { acessarClasse, professor, usuario: req.usuario, posts, feedbackTarefa })
         
     },
 
@@ -642,7 +672,6 @@ module.exports = {
         const { files } = req;
         let classeDb = await Classe.findAll();
         let feedbackTarefa = "Tarefa Criada com Sucesso!";
-        let feedbackAlterarDados = "inicio";
 
         const resultado = await Tarefa.create(
             {
@@ -682,14 +711,13 @@ module.exports = {
     
         let professor = await Professor.findOne({ where: { id_usuario: idUsuario } });
     
-        res.render('professor/postar-tarefa', { acessarClasse, posts, professor, usuario:req.usuario, feedbackTarefa, feedbackAlterarDados})
+        res.render('professor/postar-tarefa', { acessarClasse, posts, professor, usuario:req.usuario, feedbackTarefa})
     
     },
 
     update: async (req, res) => {
 
         const idUsuario = req.usuario.id
-        let feedbackAlterarDados = "inicio";
         const { id_classe, id_tarefa, titulo, descricao } = req.body;
 
         let feedbackTarefa = "Tarefa Alterada com Sucesso!";
@@ -733,14 +761,13 @@ module.exports = {
     
         let professor = await Professor.findOne({ where: { id_usuario: idUsuario } });
     
-        res.render('professor/postar-tarefa', { acessarClasse, posts, professor, usuario:req.usuario, feedbackTarefa, feedbackAlterarDados})
+        res.render('professor/postar-tarefa', { acessarClasse, posts, professor, usuario:req.usuario, feedbackTarefa})
     },
 
     destroy: async (req, res) => {
 
         const idUsuario = req.usuario.id
         const {id, id_classe} = req.body;
-        let feedbackAlterarDados = "inicio";
         let feedbackTarefa = "Tarefa Excluída com Sucesso!";
     
         const deletar = await Tarefa.destroy({
@@ -777,7 +804,7 @@ module.exports = {
     
         let professor = await Professor.findOne({ where: { id_usuario: idUsuario } });
     
-        res.render('professor/postar-tarefa', { acessarClasse, posts, professor, usuario:req.usuario, feedbackTarefa, feedbackAlterarDados})
+        res.render('professor/postar-tarefa', { acessarClasse, posts, professor, usuario:req.usuario, feedbackTarefa})
 
     },
 
@@ -787,7 +814,6 @@ module.exports = {
         const { tituloTarefa, descricaoTarefa } = req.body;
         let feedbackExcluirAluno = "inicio";
         const { id_classe } = req.query
-        let feedbackAlterarDados = "inicio";
         const { files } = req;
         let classeDb = await Classe.findAll();
         let usuario = req.usuario
@@ -827,7 +853,7 @@ module.exports = {
         let totalPagina = "hola"
         //Math.round(total/5)
         
-      res.render('professor/gerenciar-aluno', { gerenciarDB, totalPagina,usuario,acessarClasse,classeDb, feedbackExcluirAluno, feedbackAlterarDados});
+      res.render('professor/gerenciar-aluno', { gerenciarDB, totalPagina,usuario,acessarClasse,classeDb, feedbackExcluirAluno});
     },
     ///Gerenciar aluno////////////////////////////////////////////////////////////////
     profGerenciarAluno1: async (req, res) => {
@@ -835,7 +861,6 @@ module.exports = {
         let feedbackExcluirAluno = "Aluno excluído da classe com sucesso!";
         let usuario = req.usuario
         const { id_classe } = req.body;
-        let feedbackAlterarDados = "inicio";
         await Classe_Aluno.destroy({
             where: { id_aluno: id }
         })
@@ -865,14 +890,13 @@ module.exports = {
 
         let totalPagina = "hola"
             
-        res.render('professor/gerenciar-aluno', { gerenciarDB, totalPagina, acessarClasse, usuario, feedbackExcluirAluno, feedbackAlterarDados});
+        res.render('professor/gerenciar-aluno', { gerenciarDB, totalPagina, acessarClasse, usuario, feedbackExcluirAluno});
     },
 
     gerenciarNotasTarefas: async (req, res) => {
 
         const { id_classe, id_tarefa } = req.body
         let usuario = req.usuario
-        let feedbackAlterarDados = "inicio";
         let feedbackNota = "inicio";
         
         let acessarClasse = await Classe.findByPk(id_classe,
@@ -905,7 +929,7 @@ module.exports = {
         
         let tarefaProfessor = await Tarefa.findByPk(id_tarefa);
 
-        res.render('professor/gerenciar-nota-tarefa',{usuario, acessarClasse, tarefasAlunos, tarefaProfessor, feedbackAlterarDados, feedbackNota});
+        res.render('professor/gerenciar-nota-tarefa',{usuario, acessarClasse, tarefasAlunos, tarefaProfessor, feedbackNota});
     
     
     },

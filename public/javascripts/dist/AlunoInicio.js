@@ -13,6 +13,9 @@ formEntrarClasse.addEventListener('submit', evento => {
     //Se o código da classe for vazio, exibe uma mensagem, se não for, o formulário é acionado
     if(codigoClasse == ""){
         feedback.innerText = "Você deve preencher um código!";
+        setTimeout(()=>{
+            feedback.innerText = '';
+        }, 3000);
     }else{
         formEntrarClasse.submit();
     }

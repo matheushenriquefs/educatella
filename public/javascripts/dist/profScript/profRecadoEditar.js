@@ -20,24 +20,19 @@ for(let i = 0; i < formEditar.length; i++){
         if (tituloA[i].value == ""){
             feed[i].innerText = "O campo título deve ser preenchido!";
             setTimeout(()=>{
-                feed[i].style.display = 'none';
-                //opacity=0
+                feed[i].innerText = '';
             }, 3000);
             tituloA[i].focus();
      
         }else if (descricaoA[i].value == ""){
             feed[i].innerText = "O campo descrição deve ser preenchido!"
             setTimeout(()=>{
-                feed[i].style.display = 'none';
-                //opacity=0
+                feed[i].innerText = '';
             }, 3000);
             descricaoA[i].focus();
     
         }else{
-            setTimeout(()=>{
-                feedSucessoRecado[i].style.display = 'none';
-                //opacity=0
-            }, 3000);
+
             formEditar[i].submit();
         }
     })

@@ -22,40 +22,33 @@ formCriar.addEventListener("submit", evt => {
     if (titulo == "" || titulo == null) {
         feedbackA.innerText = "O campo título deve ser preenchido!";
         setTimeout(()=>{
-            feedbackA.style.display = 'none';
-            //opacity=0
+            feedbackA.innerText = '';
         }, 3000);
         titulo.focus();
 
     } else if (descricao == "" || descricao == null) {
         feedbackA.innerText = "O campo descrição deve ser preenchido!";
         setTimeout(()=>{
-            feedbackA.style.display = 'none';
-            //opacity=0
+            feedbackA.innerText = '';
         }, 3000);
         descricao.focus();
     
     } else if (arquivo == "" || arquivo == null) {
         feedbackA.innerText = "O campo arquivo deve ser preenchido!";
         setTimeout(()=>{
-            feedbackA.style.display = 'none';
-            //opacity=0
+            feedbackA.innerText = '';
         }, 3000);
         arquivo.focus();
     
     } else if (data == "" || data == null) {
         feedbackA.innerText = "O campo data deve ser preenchido!";
         setTimeout(()=>{
-            feedbackA.style.display = 'none';
-            //opacity=0
+            feedbackA.innerText = '';
         }, 3000);
         data.focus();
     
     }else {
-        setTimeout(()=>{
-            feedbackJ.style.display = 'none';
-            //opacity=0
-        }, 5000);
+
         formCriar.submit()
     }
 
@@ -86,32 +79,26 @@ for(let i = 0; i < formEditar.length; i++){
         if (tituloA[i].value == ""){
             feed[i].innerText = "O campo título deve ser preenchido!";
             setTimeout(()=>{
-                feed[i].style.display = 'none';
-                //opacity=0
+                feed[i].innerText = '';
             }, 3000);
             tituloA[i].focus();
      
         }else if (descricaoA[i].value == ""){
             feed[i].innerText = "O campo descrição deve ser preenchido!"
             setTimeout(()=>{
-                feed[i].style.display = 'none';
-                //opacity=0
+                feed[i].innerText = '';
             }, 3000);
             descricaoA[i].focus();
     
         }else if (dataA[i].value == ""){
             feed[i].innerText = "O campo data deve ser preenchido!"
             setTimeout(()=>{
-                feed[i].style.display = 'none';
-                //opacity=0
+                feed[i].innerText = '';
             }, 3000);
             dataA[i].focus();
     
         }else{
-            setTimeout(()=>{
-                feedSucesso[i].style.display = 'none';
-                //opacity=0
-            }, 6000);
+
             formEditar[i].submit();
         }
     })
@@ -130,11 +117,7 @@ for(let i = 0; i < formExcluir.length; i++){
     
         evt.preventDefault();
     
-    setTimeout(()=>{
-        feedExcluir[i].style.display = "none";
-    }, 5000);
-
-    formExcluir[i].submit();
+        formExcluir[i].submit();
     
     })}
     
