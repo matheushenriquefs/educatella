@@ -28,9 +28,15 @@
                 <!-- Coluna Direita -->
                 <div class="offset-1 col-8 sombra p-5 mb-5">
                     <div class="row mb-4">
-                        <div class="col-12 text-center">
-                            <p class="titulo-geral"> Recados de <%= classe.professor.usuarioProfessor.nome %> para você </p>
-                        </div>
+                        <% if (classe.recado.length == 0){ %>
+                            <div class="col-12 text-center">
+                                <p class="titulo-geral"> Ainda Não Há Recados! </p>
+                            </div>
+                        <% } else { %>
+                            <div class="col-12 text-center">
+                                <p class="titulo-geral"> Recados de <%= classe.professor.usuarioProfessor.nome %> para você </p>
+                            </div>
+                        <% } %>
                     </div>
                     <!-- Linha de Aviso -->
                     <% for (recados of classe.recado) { %>
