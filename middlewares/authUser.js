@@ -15,11 +15,11 @@ module.exports = (req, res, next) => {
             const decode = jwt.verify(token, process.env.JWT_KEY);
             req.usuario = decode;
 
-            if(req.originalUrl.includes("aluno") && req.usuario.type === "Professor"){
+            if(req.originalUrl.includes("/aluno") && req.usuario.type === "Professor"){
 
                 return res.redirect("/error/401/professor");
 
-            }else if(req.originalUrl.includes("professor") && req.usuario.type === "Aluno"){
+            }else if(req.originalUrl.includes("/professor") && req.usuario.type === "Aluno"){
 
                 return res.redirect("/error/401/aluno");
             }else{
