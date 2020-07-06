@@ -15,7 +15,17 @@ module.exports = (req, res, next) => {
             const {token} = req.cookies;
             const decode = jwt.verify(token, process.env.JWT_KEY);
             req.usuario = decode;
-            next();
+
+            if(req.originalUrl.includes("/aluno") && req.usuario.type === "Professor"){
+
+                return res.redirect("/error/401/professor");
+
+            }else if(req.originalUrl.includes("/professor") && req.usuario.type === "Aluno"){
+
+                return res.redirect("/error/401/aluno");
+            }else{
+                next();
+            }
             
         } catch (error) {
             
