@@ -40,7 +40,7 @@
             <div class="row p-3 mb-5">
                 <% if(aluno.classes.length == 0){ %>
                     <div class="col-12 text-center">
-                        <p class="texto"> Você ainda não está em nenhuma classe! Tente adicionar uma </p>
+                        <p class="texto"> Seja bem-vindo(a), <%= usuario.name %>, inicie suas atividades clicando em "adicionar classe"! </p>
                     </div>
                 <% } %>
                 <% for(classes of aluno.classes) { %>
@@ -66,7 +66,7 @@
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="modal-adicionar-classe-titulo">Adicionar classe:</h5>
+                        <h5 class="modal-title" id="modal-adicionar-classe-titulo">Adicionar classe</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
