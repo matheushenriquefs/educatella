@@ -23,3 +23,10 @@ Para que a aplicação funcione em seu computador é necessário instalar o Node
 * XAMPP: (https://www.apachefriends.org/pt_br/index.html)
 * Laragon: (https://laragon.org/)
 * NodeJS: (https://nodejs.org/en/download/)
+
+## Instalação :hammer_and_wrench:
+
+1. Clone o repositório para sua pasta **www** (WAMP, Laragon), **htdocs** (XAMPP) ou sua pasta de preferência.
+1. Abra o CMD ou Terminal e navegue até a pasta do projeto.
+1. Execute o comando `npm install` e em seguida `npm start`.
+1. Abra seu navegador e na barra de endereços digite: `http://localhost:3000`.

@@ -5,7 +5,7 @@
             <div class="offset-1 col-5">
                 <!-- Icone (Margem Esquerda) -->
                 <a class="navbar-brand" href="../" alt="home">
-                    <img src="../images/logo.png" alt="logo" id="logo-teste">
+                    <img src="/images/logo.png" alt="logo" id="logo-teste">
                 </a>
             </div>
 
@@ -102,7 +102,7 @@
                         <div class="col-lg-8"> 
                             <form id="formAlterarNome" action="/aluno/alterarNome" method="POST">
                                 <div class="form-group row">
-                                    <label class="col-12 col-form-label">Digite um novo nome:</label>
+                                    <label class="col-12 col-form-label">Digite um novo nome</label>
                                     <div class="col-12">
                                         <input id="alterarNome" type="text" class="form-control cursorText" value="<%= usuario.name %>" name="nome">
                                     </div>
@@ -139,13 +139,13 @@
                         <div class="col-lg-8"> 
                             <form id="formAlterarEmail" action="/aluno/alterarEmail" method="POST">
                                 <div class="form-group row">
-                                    <label class="col-12 col-form-label">Digite um novo e-mail:</label>
+                                    <label class="col-12 col-form-label">Digite um novo e-mail</label>
                                     <div class="col-12">
                                         <input id="alterarEmail" type="text" class="form-control cursorText" value="<%= usuario.email %>" name="email">
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label class="col-12 col-form-label">Digite sua senha:</label>
+                                    <label class="col-12 col-form-label">Digite sua senha</label>
                                     <div class="col-12">
                                         <input id="alterarEmailSenha" type="password" class="form-control cursorText" name="senhaEmail">
                                     </div>
@@ -182,13 +182,13 @@
                         <div class="col-lg-8"> 
                             <form id="formAlterarSenha" action="/aluno/alterarSenha" method="POST">
                                 <div class="form-group row">
-                                    <label class="col-12 col-form-label">Digite sua senha antiga:</label>
+                                    <label class="col-12 col-form-label">Digite sua senha antiga</label>
                                     <div class="col-12">
                                         <input id="alterarSenhaAntiga" type="password" class="form-control cursorText" name="senhaAntiga">
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label class="col-12 col-form-label">Digite sua nova senha:</label>
+                                    <label class="col-12 col-form-label">Digite sua nova senha</label>
                                     <div class="col-12">
                                         <input id="alterarSenhaNova" type="password" class="form-control cursorText" name="senhaNova">
                                     </div>
@@ -201,39 +201,6 @@
                                     <button type="submit" class="botao-enviar"> Alterar </button>
                                 </div>
                             </form>
-                        </div>
-                    </div>            
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section>
-
-    <!-- Modal Feedback Alterações de dados do usuário -->
-    <div class="modal fade" id="modal-feedback-alterar-dados" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="modal-adicionar-classe-titulo"> Aviso </h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-
-                <div class="modal-body">        
-                    <div class="row justify-content-center">
-                        <div class="col-lg-8"> 
-                            <div class="row">
-                                <div class="col-12">
-                                    <input id="feedbackAlterarDados" type="hidden" value="<%= feedbackAlterarDados %>">
-                                    <p id="mensagemFeedbackAlterarDados" class="texto"> </p>
-                                </div>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="botao-fechar" data-dismiss="modal"> Fechar </button>
-                            </div>
                         </div>
                     </div>            
                 </div>

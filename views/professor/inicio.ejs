@@ -57,7 +57,7 @@
 
                     <% if(professor.classes.length == 0) { %>
                         <div class="col-12 text-center">
-                            <p class="texto"> Você ainda não possui classes! tente criar uma </p>
+                            <p class="texto"> Seja bem-vinda(a), professor(a) <%= usuario.name %>, inicie suas atividades cliando em "criar classe"!</p>
                         </div>
                     <% }  %>
 
@@ -295,6 +295,39 @@
             </div>
         </div>
         <% });%>
+
+        <section>
+
+            <!-- Modal Feedback Classe -->
+            <div class="modal fade" id="modal-feedback-classe" tabindex="-1" role="dialog" aria-labelledby="modal-adicionar-classe-titulo" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="modal-adicionar-classe-titulo"> Aviso </h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+    
+                        <div class="modal-body">        
+                            <div class="row justify-content-center">
+                                <div class="col-lg-8"> 
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <input id="feedbackAcessarClasse" type="hidden" value="<%= feedbackInicio %>">
+                                            <p id="mensagemFeedbackClasse" class="texto"> </p>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="botao-fechar" data-dismiss="modal"> Fechar </button>
+                                    </div>
+                                </div>
+                            </div>            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
 
     <!-- Importando Jquery -->

@@ -11,7 +11,6 @@ module.exports = {
 
 		const idUsuario = req.usuario.id;
 		const idClasse = req.body.idClasse;
-		let feedbackAlterarDados = "inicio";
 		
 		let classe = await Classe.findByPk(idClasse,
 			{
@@ -45,14 +44,13 @@ module.exports = {
 			}
 		)
 
-		res.render("aluno/recados", {classe, classes:classesAluno.classes, usuario: req.usuario, feedbackAlterarDados});
+		res.render("aluno/recados", {classe, classes:classesAluno.classes, usuario: req.usuario});
 	},
 
 	tarefasAlunos: async (req, res)=>{
 
 		const idUsuario = req.usuario.id;
 		const idClasse = req.body.idClasse;
-		let feedbackAlterarDados = "inicio";
 
 		let feedbackTarefa = "inicio";
 		
@@ -108,7 +106,7 @@ module.exports = {
 			}
 		)
 
-		res.render("aluno/tarefas", {classe, tarefas, classes:classesAluno.classes, usuario: req.usuario, feedbackTarefa, feedbackAlterarDados});
+		res.render("aluno/tarefas", {classe, tarefas, classes:classesAluno.classes, usuario: req.usuario, feedbackTarefa});
 	},
 
 	enviarTarefaAlunos: async (req, res) => {
@@ -117,7 +115,6 @@ module.exports = {
 		const idClasse = req.body.idClasse;
 		const idTarefa = req.body.idTarefa;
 		const { files } = req;
-		let feedbackAlterarDados = "inicio";
 		let feedbackTarefa = "inicio";
 
 		let aluno = await Aluno.findOne({where:{id_usuario:idUsuario}});
@@ -205,7 +202,7 @@ module.exports = {
 			}
 		)
 
-		res.render("aluno/tarefas", {classe, tarefas, classes:classesAluno.classes, usuario: req.usuario, feedbackTarefa, feedbackAlterarDados});
+		res.render("aluno/tarefas", {classe, tarefas, classes:classesAluno.classes, usuario: req.usuario, feedbackTarefa});
 
 	},
 
@@ -213,7 +210,6 @@ module.exports = {
 
 		const idUsuario = req.usuario.id;
 		const idClasse = req.body.idClasse;
-		let feedbackAlterarDados = "inicio";
 		
 		let classe = await Classe.findByPk(idClasse,
 			{
@@ -267,13 +263,12 @@ module.exports = {
 			}
 		)
 
-		res.render("aluno/notas", {classe, classes:classesAluno.classes, usuario: req.usuario, tarefas, feedbackAlterarDados});
+		res.render("aluno/notas", {classe, classes:classesAluno.classes, usuario: req.usuario, tarefas});
 	},
 
 	inicioAlunos: (req, res)=>{
 
 		const idUsuario = req.usuario.id;
-		let feedbackAlterarDados = "inicio";
 
 		//feedback ao tentar acessar uma classe
 		let feedback = "inicio";
@@ -294,7 +289,7 @@ module.exports = {
 					}
 				).then(
 					alunoClasses => {
-						res.render("aluno/inicio", {usuario:req.usuario, aluno:alunoClasses, feedback, feedbackAlterarDados});
+						res.render("aluno/inicio", {usuario:req.usuario, aluno:alunoClasses, feedback});
 					}
 				)
 			}
@@ -307,7 +302,6 @@ module.exports = {
 		const codigo = req.body.codigo;
 		const idAluno = req.body.idAluno;
 		let feedback = "inicio";
-		let feedbackAlterarDados = "inicio";
 
         let classe = await Classe.findOne(
 			{
@@ -345,15 +339,13 @@ module.exports = {
 			}
 		});
 
-		res.render("aluno/inicio", {usuario:req.usuario, aluno, feedback, feedbackAlterarDados});
+		res.render("aluno/inicio", {usuario:req.usuario, aluno, feedback});
 	},
 
 	acessarClasse: async (req,res)=> {
 
 		const idUsuario = req.usuario.id;
 		const idClasse = req.body.idClasse;
-		let feedbackAlterarDados = "inicio";
-		
 
 		let classe = await Classe.findByPk(idClasse,
 			{
@@ -387,7 +379,7 @@ module.exports = {
 			}
 		)
 
-		res.render("aluno/recados", {classe, classes:classesAluno.classes, usuario: req.usuario, feedbackAlterarDados});
+		res.render("aluno/recados", {classe, classes:classesAluno.classes, usuario: req.usuario});
 
 	},
 
@@ -395,9 +387,8 @@ module.exports = {
 
 		const idUsuario = req.usuario.id;
 		const idClasse = req.body.idClasse;
-		let feedbackAlterarDados = "inicio";
 		//feedback ao tentar acessar uma classe
-		let feedback = "inicio";
+		let feedback = "Você saiu da classe com sucesso!";
 
 		let aluno = await Aluno.findOne({where:{id_usuario:idUsuario}});
 
@@ -423,7 +414,7 @@ module.exports = {
 			}
 		});
 
-		res.render("aluno/inicio", {usuario:req.usuario, aluno:dadosAluno, feedback, feedbackAlterarDados});
+		res.render("aluno/inicio", {usuario:req.usuario, aluno:dadosAluno, feedback});
 
 	},
 

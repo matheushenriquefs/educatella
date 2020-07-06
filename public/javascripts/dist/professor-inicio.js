@@ -15,17 +15,11 @@ formCriar.addEventListener("submit", evt => {
     if (materia == null || materia == "") {
         feedbackA.innerText = "O campo matéria deve ser preenchido!";
         setTimeout(()=>{
-            feedbackA.style.display = 'none';
-            //opacity=0
+            feedbackA.innerText = '';
         }, 3000);
         materia.focus();
 
     } else {
-        feedbackJ.innerText = "Sua classe foi criada!";
-        setTimeout(()=>{
-            feedbackJ.style.display = 'none';
-            //opacity=0
-        }, 3000);
         formCriar.submit()
     }
 
@@ -54,53 +48,34 @@ formEditar[i].addEventListener("submit", ev => {
         if (tituloA[i].value == ""){
             feed[i].innerText = "O campo matéria deve ser preenchido!";
             setTimeout(()=>{
-                feed[i].style.display = 'none';
-                //opacity=0
+                feed[i].innerText = '';
             }, 3000);
             tituloA[i].focus();
     
         }else if (descricaoA[i].value == ""){
             feed[i].innerText = "O campo código deve ser preenchido!"
             setTimeout(()=>{
-                feed[i].style.display = 'none';
-                //opacity=0
+                feed[i].innerText = '';
             }, 3000);
             descricaoA[i].focus();
     
         }else{
-            feedSucesso[i].innerText = "Edições concluídas!"
-            setTimeout(()=>{
-                feedSucesso[i].style.display = 'none';
-                //opacity=0
-            }, 3000);
+
+            feed[i].innerText = '';
             formEditar[i].submit();
         }
     })
 
 }
 
-/* Form deletar */
+let feedbackClasse = document.getElementById("feedbackAcessarClasse").value;
+let mensagemFeedbackClasse = document.getElementById("mensagemFeedbackClasse");
 
-let formExcluir = document.getElementsByName('formExcluir')
-
-let feedExcluir = document.getElementsByClassName('feedbackExcluir')
-
-for(let i = 0; i < formExcluir.length; i++){
-
-    formExcluir[i].addEventListener("submit", ev => {
-
-        ev.preventDefault();
-
-        
-        feedExcluir[i].innerText = "Classe excluída com sucesso!"
-
-        setTimeout(()=>{
-            feedExcluir[i].style.display = 'none';
-            //opacity=0
-        }, 3000);
-
-        formExcluir.submit();
-
-    })
-
+function acessarClasseFeedback(){
+    if(feedbackClasse != "inicio"){
+        $('#modal-feedback-classe').modal('show');
+        mensagemFeedbackClasse.innerText = feedbackClasse;
+    }
 }
+
+acessarClasseFeedback();
