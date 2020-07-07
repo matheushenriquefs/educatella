@@ -196,6 +196,11 @@ nav ul li a:hover {
     color: white;
 }
 
+.modalText{
+    font-family: 'Poppins', sans-serif;
+    color: #595959;
+}
+
 /* Media Querys Para Responsividade */
 
 @media(max-width: 1680px) {

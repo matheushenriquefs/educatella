@@ -1,0 +1,87 @@
+[33mdd175b6[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m)[m HEAD@{0}: pull: Fast-forward
+[33m0bb7b71[m HEAD@{1}: commit: Alterando mensagens 401
+[33m0ce7875[m HEAD@{2}: pull: Fast-forward
+[33m64459e2[m HEAD@{3}: commit (merge): Correção Validações e Feedbacks
+[33m4de997c[m HEAD@{4}: commit: Correção Validações e Feedbacks
+[33m0dd638a[m HEAD@{5}: pull: Fast-forward
+[33mab469df[m HEAD@{6}: commit: Corrigindo Caminho Logo
+[33maa5d542[m HEAD@{7}: commit: Corrigindo caminho logo
+[33mcf6eef7[m HEAD@{8}: commit: Feedbacks Aluno
+[33m49afa89[m HEAD@{9}: commit: Voltando Versão AuthUser
+[33m6681c05[m HEAD@{10}: pull: Fast-forward
+[33me170cf1[m HEAD@{11}: pull: Fast-forward
+[33mcea7951[m HEAD@{12}: pull: Fast-forward
+[33m167e9b5[m HEAD@{13}: commit: Corridindo editar Recados
+[33mcc85b0e[m HEAD@{14}: pull: Fast-forward
+[33m56a8fd2[m HEAD@{15}: commit: Gerenciar Notas por Tarefas
+[33m0fc44fd[m HEAD@{16}: commit: Criando relação entre Aluno e Tarefa_Aluno
+[33m6507fb8[m HEAD@{17}: commit: Feedback Alterar Dados do usuário
+[33m1ff05de[m HEAD@{18}: commit: Padronizando Imagens
+[33m725d76c[m HEAD@{19}: pull: Fast-forward
+[33mb5cd91e[m HEAD@{20}: commit: Ocultando editar tarefas caso não possua tarefas
+[33mc09e3ac[m HEAD@{21}: commit: Ocultando editar recados caso não possua recados
+[33m3d9d615[m HEAD@{22}: commit: Feedback se não possuir Alunos
+[33m5f7365b[m HEAD@{23}: commit: Feedback Tarefa
+[33m007dcf1[m HEAD@{24}: commit: Feedback Recados
+[33m59dbacc[m HEAD@{25}: commit: Padronizando início professor
+[33mbcad57e[m HEAD@{26}: pull: Fast-forward
+[33mf6e2fec[m HEAD@{27}: checkout: moving from MatheusRT4 to master
+[33m8152bde[m[33m ([m[1;32mMatheusRT4[m[33m)[m HEAD@{28}: pull origin master: Merge made by the 'recursive' strategy.
+[33m1e2d44d[m[33m ([m[1;31morigin/MatheusRT4[m[33m)[m HEAD@{29}: commit: Corrigindo Gerenciar Alunos
+[33m48c2d3c[m HEAD@{30}: commit: Corrigindo Modal sair da classe
+[33m8b25e7b[m HEAD@{31}: commit: Correção tarefas
+[33m62fec16[m HEAD@{32}: commit: Padronizando Botões
+[33mc8a984a[m HEAD@{33}: commit: Feedback caso aluno já tenha enviado a tarefa
+[33m85f0b18[m HEAD@{34}: commit: Padronizando Frontend
+[33me8a8209[m HEAD@{35}: commit: Padronização Front-End
+[33m9c00518[m HEAD@{36}: commit: Logo voltando a pagina index
+[33mf6e2fec[m HEAD@{37}: checkout: moving from master to MatheusRT4
+[33mf6e2fec[m HEAD@{38}: commit: Verificação de datas já expiradas
+[33m93b1485[m HEAD@{39}: commit (merge): Corrigindo erro excluir classe
+[33m6c30beb[m HEAD@{40}: commit: Corrigindo erro excluir classe
+[33m6679974[m HEAD@{41}: commit: Corrigindo caminho de imagem no cadastro
+[33m0258bb7[m HEAD@{42}: commit: Tratando datas dos recados
+[33m01928a3[m HEAD@{43}: commit: Feedback caso o professor não tenha classe
+[33m9b90911[m HEAD@{44}: commit: Feedback caso o professor não tenha nenhuma classe
+[33meaa5f52[m HEAD@{45}: commit: Feedback e Melhorias Front aplicar nota
+[33m94ec1cb[m HEAD@{46}: pull: Fast-forward
+[33ma7fd247[m HEAD@{47}: commit: Corrigindo Inserção de notas
+[33m1da07f2[m HEAD@{48}: commit: Feedback Alterar Dados Professor
+[33m942d1f5[m HEAD@{49}: commit: Corrigindo Falhas NotasAluno
+[33mdc6d751[m HEAD@{50}: commit: Correção Gerenciar Nota
+[33m9e546fe[m HEAD@{51}: pull: Fast-forward
+[33mb6f98d3[m HEAD@{52}: commit (merge): Merge branch 'master' of https://github.com/matheushenriquefs/educatella
+[33m82db29a[m HEAD@{53}: commit: Correção notas alunos
+[33m56bd580[m HEAD@{54}: pull: Fast-forward
+[33mb8698cc[m HEAD@{55}: pull: Fast-forward
+[33m9935e98[m HEAD@{56}: pull: Fast-forward
+[33m6dc28e5[m HEAD@{57}: commit (merge): Merge branch 'master' of https://github.com/matheushenriquefs/educatella
+[33mc05121d[m HEAD@{58}: commit: Melhorias Front e validação
+[33m1a80c0c[m HEAD@{59}: commit: Corrigindo Delay Adicionar Tarefa
+[33m93a9f61[m HEAD@{60}: commit: Melhorias Responsividade Professor
+[33m736bcc6[m HEAD@{61}: pull: Fast-forward
+[33m9c9f1d0[m HEAD@{62}: commit: Confirmação e Feedback ao excluir aluno
+[33ma4decbf[m HEAD@{63}: pull: Fast-forward
+[33m0249d21[m HEAD@{64}: commit: Arrumando conflitos data entrega
+[33m64aac60[m HEAD@{65}: commit: Corrigindo delay excluir classe
+[33mb39766b[m HEAD@{66}: commit: Removendo botão pesquisar sala Aluno
+[33m45f1c94[m HEAD@{67}: pull: Fast-forward
+[33m2486cf4[m HEAD@{68}: checkout: moving from AlunoT4 to master
+[33m172c861[m[33m ([m[1;31morigin/AlunoT4[m[33m, [m[1;32mAlunoT4[m[33m)[m HEAD@{69}: commit: Melhorias Responsividade
+[33m24eb489[m HEAD@{70}: commit: Corrigindo feedback notas
+[33m986e57b[m HEAD@{71}: commit: Melhorias Front
+[33mf6af33f[m HEAD@{72}: commit: Validação de campos em JS
+[33m92f841b[m HEAD@{73}: commit: Adicionando Validação e Feedbacks ao usuário
+[33m1a54ecf[m HEAD@{74}: commit: Adicionando Feedbacks ao usuário
+[33m39c50ec[m HEAD@{75}: commit: Corrigindo caminho multer da pasta uploads
+[33mb88fd47[m HEAD@{76}: reset: moving to HEAD
+[33mb88fd47[m HEAD@{77}: commit: Adicionando JS AlunoTarefas
+[33m9d8aff3[m HEAD@{78}: commit: Adicionando Função de enviar tarefas
+[33mc8655e6[m HEAD@{79}: commit: Melhorando Front
+[33m768ae24[m HEAD@{80}: commit: Melhorando usabilidade do cursor
+[33m3ba7c2b[m HEAD@{81}: commit: Corrigindo exibição das datas dos recados e tarefas
+[33m5a048b2[m HEAD@{82}: commit: Feedback caso o aluno não esteja cadastrado em nenhuma classe
+[33mb9c1521[m HEAD@{83}: commit: FeedBack de nota não corrigida ou nota não enviada
+[33mdbe8f20[m HEAD@{84}: commit: Corrigindo exibição de tarefas
+[33m2486cf4[m HEAD@{85}: checkout: moving from master to AlunoT4
+[33m2486cf4[m HEAD@{86}: clone: from https://github.com/matheushenriquefs/educatella.git

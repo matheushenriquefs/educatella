@@ -37,7 +37,7 @@
 
                 <div class="row">
                     <div class="mb-3 offset-2 col-8 text-center">
-                        <h3 class="mb-3 gerenciar-aluno-titulo"> Avaliar Tarefas </h3>
+                        <h3 class="mb-3 gerenciar-aluno-titulo"> Avaliar tarefas </h3>
                     </div>
                 </div>
 
@@ -50,7 +50,7 @@
                 <% if(tarefasAlunos.length == 0){ %>
                     <div class="row">
                         <div class="mb-3 offset-2 col-8 text-center">
-                            <p class="texto"> Nenhum Aluno Enviou Essa Tarefa! </p>
+                            <p class="texto"> Nenhuma tarefa foi enviada! </p>
                         </div>
                     </div>
                 <% } else { %>
@@ -94,7 +94,7 @@
                                             </select>   
                                         </div>
                                         <div class="col-2">
-                                            <button type="submit" class="btn btn-success" style="border-radius: 15px;"> Aplicar </button>
+                                            <button type="submit" class="btn btn-success" style="border-radius: 15px;"> Avaliar </button>
                                         </div>
                                     </div>
                                 </form>
@@ -127,12 +127,12 @@
                         <div class="col-12"> 
                             <div class="row">
                                 <div class="col-12">
-                                    <input id="feedbackNota" type="hidden" value="<%= feedbackNota %>">
+                                    <input id="feedbackNota" type="hidden" value="Nota aplicada com sucesso!">
                                     <p id="mensagemFeedbackNota" class="texto"> </p>
                                 </div>
                             </div>
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-danger" data-dismiss="modal" style="border-radius: 15px;"> Fechar </button>
+                                <button type="button" class="btn btn-danger" data-dismiss="modal" style="border-radius: 15px;"> Fechar </button> 
                             </div>
                         </div>
                     </div>            

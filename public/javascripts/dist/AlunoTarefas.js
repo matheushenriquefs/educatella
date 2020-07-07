@@ -28,7 +28,7 @@ for(let i = 0; i < dataEntregaBanco.length; i++){
     if(!verificaDataEntrega(dataEntregaBanco[i].value)){
         divEnviarTarefa[i].style.display = 'none';
         botaoEnviar[i].style.display = 'none';
-        feedback[i].innerText = "Essa Tarefa Já Expirou!";
+        feedback[i].innerText = "Essa tarefa já expirou!";
     }
 }
 

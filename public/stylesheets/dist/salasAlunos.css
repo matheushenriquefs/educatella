@@ -129,6 +129,11 @@
     font-size:1rem;
 }
 
+.modalText{
+    color: #595959;
+    font-family: 'Poppins', sans-serif;
+}
+
 
 /* Nome do Professor */
 
