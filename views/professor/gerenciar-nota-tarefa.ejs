@@ -78,7 +78,7 @@
                                             <% } %>
                                         </div>
                                         <div class="col-2">
-                                            <select class="btn btn-success" name="nota" id="nota" style="border-radius: 15px;">
+                                            <select class="btn btn-success" name="nota" id="nota" style="border-radius: 15px;" onchange="this.form.submit()">
                                                 <option value="Nota" selected>Nota</option>
                                                 <option value="0">0</option>
                                                 <option value="1">1</option>
@@ -93,9 +93,7 @@
                                                 <option value="10">10</option>
                                             </select>   
                                         </div>
-                                        <div class="col-2">
-                                            <button type="submit" class="btn btn-success" style="border-radius: 15px;"> Avaliar </button>
-                                        </div>
+                                        
                                     </div>
                                 </form>
                             <% } %>
@@ -127,7 +125,7 @@
                         <div class="col-12"> 
                             <div class="row">
                                 <div class="col-12">
-                                    <input id="feedbackNota" type="hidden" value="Nota aplicada com sucesso!">
+                                    <input id="feedbackNota" type="hidden" value="<%= feedbackNota %>">
                                     <p id="mensagemFeedbackNota" class="texto"> </p>
                                 </div>
                             </div>
