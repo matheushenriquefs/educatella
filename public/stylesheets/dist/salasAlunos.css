@@ -306,6 +306,10 @@
     color: white;
 }
 
+.btn-modal-excluir:houver{
+    opacity: 0.8;
+}
+
 .feedbackExcluir{
     color:white;
     background-color:  #4AE894;

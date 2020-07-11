@@ -35,7 +35,7 @@ module.exports = {
     criarClasse: async (req, res) => {
 
         const { nome, id_professor } = req.body
-        let feedbackInicio = "Classe Criada com Sucesso!";
+        let feedbackInicio = "Classe criada com sucesso!";
         let codigo = [];
         const idUsuario = req.usuario.id
 
@@ -115,7 +115,7 @@ module.exports = {
 
         const { id_classe, nome, codigo } = req.body;
         const idUsuario = req.usuario.id
-        let feedbackInicio = "Classe Editada com Sucesso!";
+        let feedbackInicio = "Classe editada com sucesso!";
         const alterar = await Classe.update({
             nome,
             codigo,
@@ -148,7 +148,7 @@ module.exports = {
         
         const { id_classe } = req.body
         const idUsuario = req.usuario.id
-        let feedbackInicio = "Classe Excluída com Sucesso!";
+        let feedbackInicio = "Classe excluída com sucesso!";
         const deletar = await Classe.destroy({
             where: {
                 id: id_classe
@@ -206,7 +206,7 @@ module.exports = {
        
         let usuario = req.usuario
         const idUsuario = req.usuario.id
-        let feedbackRecado = "Recado Criado com Sucesso!";
+        let feedbackRecado = "Recado criado com sucesso!";
         const { id_classe } = req.query
 
         let acessarClasse = await Classe.findByPk(id_classe,
@@ -232,7 +232,7 @@ module.exports = {
     profRecadosCriar2: async (req, res) => {
         let errors = validationResult(req);
         const { titulo, descricao } = req.body
-        let feedbackRecado = "Recado Criado com Sucesso!";
+        let feedbackRecado = "Recado criado com sucesso!";
         let usuario = req.usuario
         const idUsuario = req.usuario.id
         const { id_classe } = req.body
@@ -270,7 +270,7 @@ module.exports = {
         let usuario = req.usuario
         const idUsuario = req.usuario.id
         const { id_classe } = req.query
-        let feedbackRecado = "Recado Apagado com Sucesso!"
+        let feedbackRecado = "Recado apagado com sucesso!"
 
         let acessarClasse = await Classe.findByPk(id_classe,
             {
@@ -299,7 +299,7 @@ module.exports = {
             where: {id_recados: id}
         })
 
-        let feedbackRecado = "Recado Apagado com Sucesso!"
+        let feedbackRecado = "Recado apagado com sucesso!"
 
         let acessarClasse = await Classe.findByPk(id_classe,
             {
@@ -323,7 +323,7 @@ module.exports = {
         
         let usuario = req.usuario
         const idUsuario = req.usuario.id
-        let feedbackRecado = "Recado Alterado com Sucesso!"
+        let feedbackRecado = "Recado alterado com sucesso!"
         const { id_classe } = req.query
         
         let acessarClasse = await Classe.findByPk(id_classe,
@@ -374,7 +374,7 @@ module.exports = {
             }
         );
 
-        let feedbackRecado = "Recado Alterado com Sucesso!"
+        let feedbackRecado = "Recado alterado com sucesso!"
 
         
         res.render('professor/recados', { usuario, acessarClasse, feedbackRecado});
@@ -500,7 +500,7 @@ module.exports = {
         let usuario = req.usuario
         let id = req.params.id
         let classeDb = await Classe.findAll();
-        feedbackNota = "Você Aplicou a Nota com Sucesso!";
+        feedbackNota = "Você aplicou a nota com sucesso!";
         
         let gerenciarDB = await Classe.findByPk(id_classe,{
 
@@ -576,7 +576,7 @@ module.exports = {
         const { id_classe, id_tarefa, nota } = req.body;
         let usuario = req.usuario;
         let id = req.params.id;
-        let feedbackNota = "Você Aplicou a Nota com Sucesso!";
+        let feedbackNota = "Você aplicou a nota com sucesso!";
 
         await Tarefa_Aluno.update({
             nota
@@ -671,7 +671,7 @@ module.exports = {
         const { tituloTarefa, descricaoTarefa, id_classe, data_entrega } = req.body;
         const { files } = req;
         let classeDb = await Classe.findAll();
-        let feedbackTarefa = "Tarefa Criada com Sucesso!";
+        let feedbackTarefa = "Tarefa criada com sucesso!";
 
         const resultado = await Tarefa.create(
             {
@@ -720,7 +720,7 @@ module.exports = {
         const idUsuario = req.usuario.id
         const { id_classe, id_tarefa, titulo, descricao } = req.body;
 
-        let feedbackTarefa = "Tarefa Alterada com Sucesso!";
+        let feedbackTarefa = "Tarefa alterada com sucesso!";
     
         const alterar = await Tarefa.update({
             titulo,
@@ -768,7 +768,7 @@ module.exports = {
 
         const idUsuario = req.usuario.id
         const {id, id_classe} = req.body;
-        let feedbackTarefa = "Tarefa Excluída com Sucesso!";
+        let feedbackTarefa = "Tarefa excluída com sucesso!";
     
         const deletar = await Tarefa.destroy({
             where: { 
