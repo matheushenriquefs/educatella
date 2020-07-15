@@ -189,30 +189,42 @@
 
                             <form action="/cadastro/professor" method="POST" class="form-estilo">
 
-                                <% if (typeof title !== 'undefined' && typeof message !== 'undefined') { %>
+                                <% if (typeof title !== 'undefined' && typeof message !== 'undefined' && type === 'Professor') { %>
                                   
-                                    <div class="form-group row mb-0">
-                  
-                                      <div class="col-md-12">
-                    
-                                        <div class="card mt-3 mb-3">
-              
-                                          <div class="card-header bg-danger text-white">
-                              
-                                            <h5 class="card-title mb-0"><%= title %></h5>
-                                            
+                                    <div class="modal modal-cadastro" tabindex="-1" role="dialog">
+
+                                        <div class="modal-dialog" role="document">
+    
+                                          <div class="modal-content">
+    
+                                            <div class="modal-header bg-danger">
+    
+                                              <h5 class="modal-title text-white"><%= title %></h5>
+    
+                                              <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+    
+                                                <span aria-hidden="true" class="text-white">&times;</span>
+    
+                                              </button>
+    
+                                            </div>
+    
+                                            <div class="modal-body">
+    
+                                              <p><%= message %></p>
+    
+                                            </div>
+    
+                                            <div class="modal-footer">
+    
+                                              <button type="button" class="btn btn-danger" data-dismiss="modal">Fechar</button>
+    
+                                            </div>
+    
                                           </div>
-                              
-                                          <div class="card-body">       
-                              
-                                            <p class="card-text"><%= message %></p>
-                              
-                                          </div>
-                              
+    
                                         </div>
-                    
-                                      </div>
-                     
+    
                                     </div>
           
                                 <% } %>
@@ -296,30 +308,42 @@
                             
                             <form action="/cadastro/aluno" method="POST">
 
-                                <% if (typeof title !== 'undefined' && typeof message !== 'undefined') { %>
+                                <% if (typeof title !== 'undefined' && typeof message !== 'undefined' && type === 'Aluno') { %>
                             
-                                    <div class="form-group row mb-0">
-                  
-                                      <div class="col-md-12">
-                    
-                                        <div class="card mt-3 mb-3">
-              
-                                          <div class="card-header bg-danger text-white">
-                              
-                                            <h5 class="card-title mb-0"><%= title %></h5>
-                                            
+                                    <div class="modal modal-cadastro" tabindex="-1" role="dialog">
+
+                                        <div class="modal-dialog" role="document">
+    
+                                          <div class="modal-content">
+    
+                                            <div class="modal-header bg-danger">
+    
+                                              <h5 class="modal-title text-white"><%= title %></h5>
+    
+                                              <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+    
+                                                <span aria-hidden="true" class="text-white">&times;</span>
+    
+                                              </button>
+    
+                                            </div>
+    
+                                            <div class="modal-body">
+    
+                                              <p><%= message %></p>
+    
+                                            </div>
+    
+                                            <div class="modal-footer">
+    
+                                              <button type="button" class="btn btn-danger" data-dismiss="modal">Fechar</button>
+    
+                                            </div>
+    
                                           </div>
-                              
-                                          <div class="card-body">       
-                              
-                                            <p class="card-text"><%= message %></p>
-                              
-                                          </div>
-                              
+    
                                         </div>
-                    
-                                      </div>
-                    
+    
                                     </div>
             
                                 <% } %>
@@ -504,6 +528,6 @@
     <script type="text/javascript" src="/vendor/bootstrap.bundle.min.js"></script>
     <script type="text/javascript" src="/javascripts/src/actions/validations.js"></script>
     <script type="text/javascript" src="/javascripts/src/actions/validationsAluno.js"></script>
-    <script type="text/javascript" src="/javascripts/src/actions/hideResponseCard.js"></script>
+    <script type="text/javascript" src="/javascripts/src/actions/hideModalCadastro.js"></script>
 </body>
 </html>

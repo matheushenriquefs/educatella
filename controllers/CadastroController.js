@@ -34,9 +34,10 @@ module.exports = {
 
             if(query.length > 0){
 
-                res.status(409).render("cadastroAluno", {
+                res.status(409).render("index", {
                     title: "Erro!",
-                    message: "Aluno já cadastrado!"
+                    message: "Aluno já cadastrado!",
+                    type: "Aluno"
                 });
 
                 return;
@@ -87,9 +88,10 @@ module.exports = {
 
             if(query.length > 0){
 
-                res.status(409).render("cadastroProfessor", {
+                res.status(409).render("index", {
                     title: "Erro!",
-                    message: "Professor já cadastrado!"
+                    message: "Professor já cadastrado!",
+                    type: "Professor"
                 });
 
                 return;
