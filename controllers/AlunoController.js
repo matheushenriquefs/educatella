@@ -87,7 +87,8 @@ module.exports = {
 		function verificaidAluno(tarefaAluno){
             return tarefaAluno.id_aluno == aluno.id;
         }
-        
+		
+		//filtra as tarefas que não possuem o id do aluno
         for(let contador = 0; contador < tarefas.length; contador++){
             tarefas[contador].tarefasAlunos = tarefas[contador].tarefasAlunos.filter(verificaidAluno);
         }
@@ -150,8 +151,6 @@ module.exports = {
 			feedbackTarefa = "Tarefa editada com sucesso!";
 		}
 
-		
-		
 		let classe = await Classe.findByPk(idClasse,
 			{
 				include:[
@@ -183,7 +182,8 @@ module.exports = {
 		function verificaidAluno(tarefaAluno){
             return tarefaAluno.id_aluno == aluno.id;
         }
-        
+		
+		//filtra as tarefas que não possuem o id do aluno
         for(let contador = 0; contador < tarefas.length; contador++){
             tarefas[contador].tarefasAlunos = tarefas[contador].tarefasAlunos.filter(verificaidAluno);
         }
@@ -244,7 +244,8 @@ module.exports = {
 		function verificaidAluno(tarefaAluno){
             return tarefaAluno.id_aluno == aluno.id;
         }
-        
+		
+		//filtra as tarefas que não possuem o id do aluno
         for(let contador = 0; contador < tarefas.length; contador++){
             tarefas[contador].tarefasAlunos = tarefas[contador].tarefasAlunos.filter(verificaidAluno);
         }
@@ -266,34 +267,29 @@ module.exports = {
 		res.render("aluno/notas", {classe, classes:classesAluno.classes, usuario: req.usuario, tarefas});
 	},
 
-	inicioAlunos: (req, res)=>{
+	inicioAlunos: async (req, res)=>{
 
 		const idUsuario = req.usuario.id;
 
 		//feedback ao tentar acessar uma classe
 		let feedback = "inicio";
 
-		Aluno.findOne({where:{id_usuario:idUsuario}}).then(
-			aluno => {
-				Aluno.findByPk(aluno.id,
-					{
-						include:{
-							model: Classe, 
-							as:'classes', 
-							include:{
-								model: Professor,
-								as:'professor',
-								include: 'usuarioProfessor'
-							}
-						}
+		let aluno = await Aluno.findOne({where:{id_usuario:idUsuario}});
+			
+		let alunoClasses = await Aluno.findByPk(aluno.id,
+			{
+				include:{
+					model: Classe, 
+					as:'classes', 
+					include:{
+						model: Professor,
+						as:'professor',
+						include: 'usuarioProfessor'
 					}
-				).then(
-					alunoClasses => {
-						res.render("aluno/inicio", {usuario:req.usuario, aluno:alunoClasses, feedback});
-					}
-				)
-			}
-		);
+				}
+			});
+					
+		res.render("aluno/inicio", {usuario:req.usuario, aluno:alunoClasses, feedback});
 
 	},
 
