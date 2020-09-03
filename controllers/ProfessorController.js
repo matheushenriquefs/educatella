@@ -11,7 +11,7 @@ module.exports = {
     // inicio view
     profInicio: async (req, res) => {
 
-        const idUsuario = req.usuario.id
+        const idUsuario = req.usuario.idProfessor;
         let feedbackInicio = "inicio";
 
         Professor.findOne({ where: { id_usuario: idUsuario } }).then(
@@ -37,7 +37,7 @@ module.exports = {
         const { nome, id_professor } = req.body
         let feedbackInicio = "Classe criada com sucesso!";
         let codigo = [];
-        const idUsuario = req.usuario.id
+        const idUsuario = req.usuario.idProfessor;
 
         const generateCode = () => {
 
@@ -86,7 +86,7 @@ module.exports = {
 
         let feedbackAlterarDados = "inicio";
 
-        const idUsuario = req.usuario.id
+        const idUsuario = req.usuario.idProfessor
 
         const { id_classe } = req.body
 
@@ -114,7 +114,7 @@ module.exports = {
     updateClasse: async (req, res) => {
 
         const { id_classe, nome, codigo } = req.body;
-        const idUsuario = req.usuario.id
+        const idUsuario = req.usuario.idProfessor;
         let feedbackInicio = "Classe editada com sucesso!";
         const alterar = await Classe.update({
             nome,
@@ -147,7 +147,7 @@ module.exports = {
     destroyClasse: async (req, res) => {
         
         const { id_classe } = req.body
-        const idUsuario = req.usuario.id
+        const idUsuario = req.usuario.idProfessor;
         let feedbackInicio = "Classe excluída com sucesso!";
         const deletar = await Classe.destroy({
             where: {
@@ -177,7 +177,7 @@ module.exports = {
     //olhar recados////////////////////////////////////////////////////////////////
     profRecados: async (req, res) => {
         let usuario = req.usuario
-        const idUsuario = req.usuario.id
+        const idUsuario = req.usuario.idProfessor;
         let feedbackRecado = "inicio";
         const { id_classe } = req.query
 
@@ -195,17 +195,14 @@ module.exports = {
                 ]
             }
         );
-        console.log(acessarClasse)
-        
-       
-       
+
         res.render('professor/recados', {usuario,acessarClasse, feedbackRecado});
     },
      //criar Recados////////////////////////////////////////////////////////////////
     profRecadosCriar: async (req, res) => {
        
         let usuario = req.usuario
-        const idUsuario = req.usuario.id
+        const idUsuario = req.usuario.idProfessor;
         let feedbackRecado = "Recado criado com sucesso!";
         const { id_classe } = req.query
 
@@ -234,7 +231,7 @@ module.exports = {
         const { titulo, descricao } = req.body
         let feedbackRecado = "Recado criado com sucesso!";
         let usuario = req.usuario
-        const idUsuario = req.usuario.id
+        const idUsuario = req.usuario.idProfessor;
         const { id_classe } = req.body
 
         const resultado = await Recado.create({
@@ -268,7 +265,7 @@ module.exports = {
     //apagar recados////////////////////////////////////////////////////////////////
     profRecadosApagar: async (req, res) => {
         let usuario = req.usuario
-        const idUsuario = req.usuario.id
+        const idUsuario = req.usuario.idProfessor;
         const { id_classe } = req.query
         let feedbackRecado = "Recado apagado com sucesso!"
 
@@ -322,7 +319,7 @@ module.exports = {
     profRecadosEditar: async (req, res) => {
         
         let usuario = req.usuario
-        const idUsuario = req.usuario.id
+        const idUsuario = req.usuario.idProfessor;
         let feedbackRecado = "Recado alterado com sucesso!"
         const { id_classe } = req.query
         
@@ -389,7 +386,7 @@ module.exports = {
         const { files } = req;
         let classeDb = await Classe.findAll();
         let usuario = req.usuario
-        const idUsuario = req.usuario.id
+        const idUsuario = req.usuario.idProfessor;
 
        
 
@@ -430,7 +427,7 @@ module.exports = {
         const { files } = req;
         let classeDb = await Classe.findAll();
         let usuario = req.usuario
-        const idUsuario = req.usuario.id
+        const idUsuario = req.usuario.idProfessor;
         const id = req.params.id
         feedbackNota = "inicio";
        
@@ -625,7 +622,7 @@ module.exports = {
 
     tarefaMenu: async (req, res) => {
 
-        const idUsuario = req.usuario.id
+        const idUsuario = req.usuario.idProfessor;
 
         const { id_classe } = req.body
 
@@ -667,7 +664,7 @@ module.exports = {
 
     addTarefa: async (req, res) => {
 
-        const idUsuario = req.usuario.id
+        const idUsuario = req.usuario.idProfessor;
         const { tituloTarefa, descricaoTarefa, id_classe, data_entrega } = req.body;
         const { files } = req;
         let classeDb = await Classe.findAll();
@@ -717,7 +714,7 @@ module.exports = {
 
     update: async (req, res) => {
 
-        const idUsuario = req.usuario.id
+        const idUsuario = req.usuario.idProfessor;
         const { id_classe, id_tarefa, titulo, descricao } = req.body;
 
         let feedbackTarefa = "Tarefa alterada com sucesso!";
@@ -731,7 +728,6 @@ module.exports = {
                     id: id_tarefa
                 }
             });
-        console.log(alterar);
     
         let acessarClasse = await Classe.findByPk(id_classe,
             {
@@ -766,7 +762,7 @@ module.exports = {
 
     destroy: async (req, res) => {
 
-        const idUsuario = req.usuario.id
+        const idUsuario = req.usuario.idProfessor;
         const {id, id_classe} = req.body;
         let feedbackTarefa = "Tarefa excluída com sucesso!";
     
@@ -817,7 +813,7 @@ module.exports = {
         const { files } = req;
         let classeDb = await Classe.findAll();
         let usuario = req.usuario
-        const idUsuario = req.usuario.id
+        const idUsuario = req.usuario.idProfessor;
        
 
         let acessarClasse = await Classe.findByPk(id_classe,
@@ -887,10 +883,8 @@ module.exports = {
                 }
             ]
         });
-
-        let totalPagina = "hola"
             
-        res.render('professor/gerenciar-aluno', { gerenciarDB, totalPagina, acessarClasse, usuario, feedbackExcluirAluno});
+        res.render('professor/gerenciar-aluno', { gerenciarDB, acessarClasse, usuario, feedbackExcluirAluno});
     },
 
     gerenciarNotasTarefas: async (req, res) => {
@@ -937,8 +931,8 @@ module.exports = {
     //Alterar usuário
 	alterarImagem: async (req,res)=> {
 
-        const { name, email, type } = req.usuario;
-		const idUsuario = req.usuario.id;
+        const { nameProfessor, email, type } = req.usuario;
+		const idUsuario = req.usuario.idProfessor;
 		let img = req.file.filename;
 
 		await Usuario.update({
@@ -951,10 +945,10 @@ module.exports = {
         });
 
         const token = jwt.sign({
-			id: idUsuario,
-			name,
+			idProfessor: idUsuario,
+			nameProfessor,
 			email,
-			imagem: img,
+			imagemProfessor: img,
 			type
 		}, 
 		process.env.JWT_KEY,
@@ -970,8 +964,8 @@ module.exports = {
 
 	alterarNome: async (req,res)=> {
         
-        const { email, imagem, type } = req.usuario; 
-		const idUsuario = req.usuario.id;
+        const { email, imagemProfessor, type } = req.usuario; 
+		const idUsuario = req.usuario.idProfessor;
         let nomeUsuario = req.body.nome;
         
         await Usuario.update({
@@ -984,10 +978,10 @@ module.exports = {
 		});
 
 		const token = jwt.sign({
-			id: idUsuario,
-			name: nomeUsuario,
+			idProfessor: idUsuario,
+			nameProfessor: nomeUsuario,
 			email,
-			imagem,
+			imagemProfessor,
 			type
 		}, 
 		process.env.JWT_KEY,
@@ -1005,8 +999,8 @@ module.exports = {
 
 	alterarEmail: async (req,res)=> {
 
-        const { name, emailUsuario, imagem, type } = req.usuario;
-		const idUsuario = req.usuario.id;
+        const { nameProfessor, emailUsuario, imagemProfessor, type } = req.usuario;
+		const idUsuario = req.usuario.idProfessor;
 		let email = req.body.email;
 		let senha = req.body.senhaEmail;
 
@@ -1032,10 +1026,10 @@ module.exports = {
         }
         
         const token = jwt.sign({
-			id: idUsuario,
-			name,
+			idProfessor: idUsuario,
+			nameProfessor,
 			email: emailUsuario,
-			imagem,
+			imagemProfessor,
 			type
 		}, 
 		process.env.JWT_KEY,
@@ -1053,8 +1047,8 @@ module.exports = {
 
 	alterarSenha: async (req,res)=> {
 
-        const { name, email, imagem, type } = req.usuario;
-		const idUsuario = req.usuario.id;
+        const { nameProfessor, email, imagemProfessor, type } = req.usuario;
+		const idUsuario = req.usuario.idProfessor;
 		let senhaAntiga = req.body.senhaAntiga;
         let senhaNova = req.body.senhaNova;
 
@@ -1079,10 +1073,10 @@ module.exports = {
 		}
 
 		const token = jwt.sign({
-			id: idUsuario,
-			name,
+			idProfessor: idUsuario,
+			nameProfessor,
 			email,
-			imagem,
+			imagemProfessor,
 			type
 		}, 
 		process.env.JWT_KEY,

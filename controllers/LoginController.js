@@ -144,10 +144,10 @@ module.exports = {
                         if(result){
 
                             const token = jwt.sign({
-                                id: query[0].id,
-                                name: query[0].nome,
+                                idAluno: query[0].id,
+                                nameAluno: query[0].nome,
                                 email: query[0].email,
-                                imagem: query[0].imagem,
+                                imagemAluno: query[0].imagem,
                                 type: "Aluno"
                             }, 
                             process.env.JWT_KEY,
@@ -185,10 +185,10 @@ module.exports = {
                         if(result){
 
                             const token = jwt.sign({
-                                id: query[0].id,
-                                name: query[0].nome,
+                                idProfessor: query[0].id,
+                                nameProfessor: query[0].nome,
                                 email: query[0].email,
-                                imagem: query[0].imagem,
+                                imagemProfessor: query[0].imagem,
                                 type: "Professor"
                             }, 
                             process.env.JWT_KEY,

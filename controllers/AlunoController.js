@@ -9,7 +9,7 @@ module.exports = {
 
 	recadosAlunos: async (req, res)=>{
 
-		const idUsuario = req.usuario.id;
+		const idUsuario = req.usuario.idAluno;
 		const idClasse = req.body.idClasse;
 		
 		let classe = await Classe.findByPk(idClasse,
@@ -49,7 +49,7 @@ module.exports = {
 
 	tarefasAlunos: async (req, res)=>{
 
-		const idUsuario = req.usuario.id;
+		const idUsuario = req.usuario.idAluno;
 		const idClasse = req.body.idClasse;
 
 		let feedbackTarefa = "inicio";
@@ -112,7 +112,7 @@ module.exports = {
 
 	enviarTarefaAlunos: async (req, res) => {
 
-		const idUsuario = req.usuario.id;
+		const idUsuario = req.usuario.idAluno;
 		const idClasse = req.body.idClasse;
 		const idTarefa = req.body.idTarefa;
 		const { files } = req;
@@ -208,7 +208,7 @@ module.exports = {
 
 	notasAlunos: async (req, res)=>{
 
-		const idUsuario = req.usuario.id;
+		const idUsuario = req.usuario.idAluno;
 		const idClasse = req.body.idClasse;
 		
 		let classe = await Classe.findByPk(idClasse,
@@ -269,7 +269,7 @@ module.exports = {
 
 	inicioAlunos: async (req, res)=>{
 
-		const idUsuario = req.usuario.id;
+		const idUsuario = req.usuario.idAluno;
 
 		//feedback ao tentar acessar uma classe
 		let feedback = "inicio";
@@ -340,7 +340,7 @@ module.exports = {
 
 	acessarClasse: async (req,res)=> {
 
-		const idUsuario = req.usuario.id;
+		const idUsuario = req.usuario.idAluno;
 		const idClasse = req.body.idClasse;
 
 		let classe = await Classe.findByPk(idClasse,
@@ -381,7 +381,7 @@ module.exports = {
 
 	excluirClasse: async (req,res)=> {
 
-		const idUsuario = req.usuario.id;
+		const idUsuario = req.usuario.idAluno;
 		const idClasse = req.body.idClasse;
 		//feedback ao tentar acessar uma classe
 		let feedback = "Você saiu da classe com sucesso!";
@@ -416,8 +416,8 @@ module.exports = {
 
 	alterarImagem: async (req,res)=> {
 
-		const { name, email, type } = req.usuario;
-		const idUsuario = req.usuario.id;
+		const { nameAluno, email, type } = req.usuario;
+		const idUsuario = req.usuario.idAluno;
 		let img = req.file.filename;
 
 		await Usuario.update({
@@ -430,10 +430,10 @@ module.exports = {
 		});
 
 		const token = jwt.sign({
-			id: idUsuario,
-			name,
+			idAluno: idUsuario,
+			nameAluno,
 			email,
-			imagem: img,
+			imagemAluno: img,
 			type
 		}, 
 		process.env.JWT_KEY,
@@ -451,8 +451,8 @@ module.exports = {
 
 	alterarNome: async (req,res)=> {
 		
-		const { email, imagem, type } = req.usuario;
-		const idUsuario = req.usuario.id;
+		const { email, imagemAluno, type } = req.usuario;
+		const idUsuario = req.usuario.idAluno;
 		let nomeUsuario = req.body.nome;
 
 		await Usuario.update({
@@ -465,10 +465,10 @@ module.exports = {
 		});
 
 		const token = jwt.sign({
-			id: idUsuario,
-			name: nomeUsuario,
+			idAluno: idUsuario,
+			nameAluno: nomeUsuario,
 			email,
-			imagem,
+			imagemAluno,
 			type
 		}, 
 		process.env.JWT_KEY,
@@ -486,8 +486,8 @@ module.exports = {
 
 	alterarEmail: async (req,res)=> {
 
-		const { name, emailUsuario, imagem, type } = req.usuario;
-		const idUsuario = req.usuario.id;
+		const { nameAluno, emailUsuario, imagemAluno, type } = req.usuario;
+		const idUsuario = req.usuario.idAluno;
 		let email = req.body.email;
 		let senha = req.body.senhaEmail;
 
@@ -512,10 +512,10 @@ module.exports = {
 		}
 
 		const token = jwt.sign({
-			id: idUsuario,
-			name,
+			idAluno: idUsuario,
+			nameAluno,
 			email: emailUsuario,
-			imagem,
+			imagemAluno,
 			type
 		}, 
 		process.env.JWT_KEY,
@@ -533,8 +533,8 @@ module.exports = {
 
 	alterarSenha: async (req,res)=> {
 
-		const { name, email, imagem, type } = req.usuario;
-		const idUsuario = req.usuario.id;
+		const { nameAluno, email, imagemAluno, type } = req.usuario;
+		const idUsuario = req.usuario.idAluno;
 		let senhaAntiga = req.body.senhaAntiga;
 		let senhaNova = req.body.senhaNova;
 
@@ -558,10 +558,10 @@ module.exports = {
 		}
 
 		const token = jwt.sign({
-			id: idUsuario,
-			name,
+			idAluno: idUsuario,
+			nameAluno,
 			email,
-			imagem,
+			imagemAluno,
 			type
 		}, 
 		process.env.JWT_KEY,
