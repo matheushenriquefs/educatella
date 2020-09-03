@@ -35,7 +35,7 @@
                 <div class="row mb-4">
                     <!-- Recepção do professor -->
                     <div class="offset-1 col-11">
-                        <h2 class="titulo"> Olá, Professor(a) <%= usuario.name %>! Estas são suas classes: </h2>
+                        <h2 class="titulo"> Olá, Professor(a) <%= usuario.nameProfessor %>! Estas são suas classes: </h2>
                     </div>
                 </div>
                 <div class="row mb-5">
@@ -57,14 +57,14 @@
 
                     <% if(professor.classes.length == 0) { %>
                         <div class="col-12 text-center">
-                            <p class="texto"> Seja bem-vinda(a), professor(a) <%= usuario.name %>, inicie suas atividades cliando em "criar classe"!</p>
+                            <p class="texto"> Seja bem-vinda(a), professor(a) <%= usuario.nameProfessor %>, inicie suas atividades cliando em "criar classe"!</p>
                         </div>
                     <% }  %>
 
                     <% professor.classes.forEach(classe => { %>
 
                         <div class="mb-5 offset-1 col-3 text-center">
-                            <img class="imagem-padrao" src="/images/<%= usuario.imagem %>">
+                            <img class="imagem-padrao" src="/images/<%= usuario.imagemProfessor %>">
                             <p class="texto"> <%= classe.nome %> </p>
                             <p class="texto"> <%= classe.codigo %> </p>
                             <form action="/professor/recados" method='GET'>
